@@ -36,7 +36,8 @@ export default function LeagueTables() {
 function LeagueTable({ title, leagues, activeLeague, setActiveLeague, data, isScorers }) {
     return (
         <div className="border-[#E5E7EB]/80 border font-sans bg-white rounded-[0.4rem] w-full p-4 sm:p-0">
-            {/* Header */}
+
+            {/*Table Header and leagues*/}
             <div className="flex flex-col pb-3 mb-3 gap-1 shadow-b-sm m-6">
                 <h2 className="font-semibold text-2xl text-[#1F2128]">{title}</h2>
                 <div className="flex flex-wrap gap-2 bg-[#E5E7EB]/80 w-full rounded-[0.4rem] p-1">
@@ -55,7 +56,7 @@ function LeagueTable({ title, leagues, activeLeague, setActiveLeague, data, isSc
                 </div>
             </div>
 
-            {/* Table */}
+            {/* Table informations and animation */}
             <AnimatePresence mode="wait">
                 <motion.div
                     key={activeLeague + title}
@@ -72,12 +73,14 @@ function LeagueTable({ title, leagues, activeLeague, setActiveLeague, data, isSc
                                     <tr>
                                         {isScorers ? (
                                             <>
+                                            {/* top scorers table heading */}
                                                 <th className="py-2 px-2">Player</th>
                                                 <th className="py-2 px-2">Matches</th>
                                                 <th className="py-2 px-2">Goals</th>
                                             </>
                                         ) : (
                                             <>
+                                            {/* leagues table heading */}
                                                 <th className="py-2 px-2">Ps.</th>
                                                 <th className="py-2 px-2">Team</th>
                                                 <th className="py-2 px-2">PTS</th>
@@ -95,6 +98,7 @@ function LeagueTable({ title, leagues, activeLeague, setActiveLeague, data, isSc
                                         <tr key={i} className="border-[#1A365D]/20 border-b hover:bg-gray-50 transition">
                                             {isScorers ? (
                                                 <>
+                                                {/* top scorers table */}
                                                     <td className="flex items-center gap-2 py-2 px-2">
                                                         <img src={item.logo} className="w-5 h-5 rounded-full" alt="" />
                                                         <div>
@@ -107,6 +111,7 @@ function LeagueTable({ title, leagues, activeLeague, setActiveLeague, data, isSc
                                                 </>
                                             ) : (
                                                 <>
+                                                {/* leagues table */}
                                                     <td className="py-3 px-2">{item.rank}</td>
                                                     <td className="flex items-center gap-2 py-3 px-2">
                                                         <img src={item.logo} className="w-5 h-5 rounded-full" alt="" />
@@ -126,6 +131,8 @@ function LeagueTable({ title, leagues, activeLeague, setActiveLeague, data, isSc
                             </table>
                         </div>
                     ) : (
+                        // if there is no data for the standings table this will show
+                        
                         <div className="text-gray-400 text-center py-6 text-sm">
                             No data available for {activeLeague}.
                         </div>
