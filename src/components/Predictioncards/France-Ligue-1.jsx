@@ -1,14 +1,27 @@
+// import { TypeAnimation } from "react-type-animation"
+// import { motion } from "framer-motion"
+// import Navbar from "../../shared/Navbar";
+// import Footer from "../../shared/Footer";
+// import FreeTips from "../../shared/FreetipsCard";
+// import FootballLeaguesTable from "../FootballLeagues";
+// import BestPredictionCard from "../../BestPrediction";
+// import ContentNavBar from "../../Prediction-days/Content-Nav";
+
 import { TypeAnimation } from "react-type-animation"
 import { motion } from "framer-motion"
-import FreeTips from "../../FreetipsCard";
-import BestPredictionCard from "../../BestPrediction";
-import ContentNavBar from "../../Prediction-days/Content-Nav";
-import Navbar from "../../navbar";
-import Footer from "../../Footer";
-import FootballLeaguesTable from "../FootballLeagues";
+// import Navbar from "../../shared/Navbar";
+import Navbar from "../shared/Navbar";
+import Footer from "../shared/Footer";
+import FreeTips from "../shared/FreetipsCard";
+// import FootballLeaguesTable from "../FootballLeagues";
+import FootballLeagues from "../Leagues/FootballLeagues";
+// import BestPredictionCard from "../../BestPrediction";
+import BestPredictionCard from "../BestPrediction";
+import ContentNavBar from "../Prediction-days/Content-Nav";
 
 
-export default function EuropeUEFAChampionsLeague() {
+
+export default function FranceLeague() {
 
     const selectedLeague = localStorage.getItem("selectedLeague");
 
@@ -46,19 +59,19 @@ export default function EuropeUEFAChampionsLeague() {
                     </div>
                 </motion.div>
             </section>
-           
+
             <FreeTips />
-              <div className="px-1 md:px-4 pb-4 md:py-4 pt-2  min-h-screen w-full max-w-full md:overflow-x-hidden">
-                   <div className="grid grid-cols-1 lg:grid-cols-[380px_1fr] gap-2 max-w-full  w-full justify-center">
-                       <div className="space-y-2 space-x-4 w-full items-center justify-center">
-                       <BestPredictionCard />
-                       <FootballLeaguesTable />
+                   <div className="px-1 md:px-4 pb-4 md:py-4 pt-2  min-h-screen w-full max-w-full md:overflow-x-hidden">
+                      <div className="grid grid-cols-1 lg:grid-cols-[380px_1fr] gap-2 max-w-full  w-full justify-center">
+                           <div className="space-y-2 space-x-4 w-full items-center justify-center">
+                           <BestPredictionCard />
+                           <FootballLeagues />
+                           </div>
+                         <div className="flex items-start justify-center w-full">
+                           <ContentNavBar />
+                         </div>
                        </div>
-                      <div className="flex items-start justify-center w-full">
-                       <ContentNavBar />
-                     </div>
-                  </div>
-              </div>
+                   </div>
             <Footer />
         </div>
     );

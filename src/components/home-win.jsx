@@ -1,10 +1,10 @@
-import Footer from "./Footer";
-import Navbar from "./navbar";
+import Footer from "./shared/Footer";
+import Navbar from "./shared/Navbar";
 import { TypeAnimation } from "react-type-animation"
 import { motion } from "framer-motion"
 import { Link } from "react-router-dom";
 import { FaFutbol, FaTelegramPlane } from "react-icons/fa";
-import FreeTips from "./FreetipsCard";
+import FreeTips from "./shared/FreetipsCard";
 
 export default function HomeWin () {
 
@@ -27,7 +27,7 @@ export default function HomeWin () {
 
                         <TypeAnimation
                             sequence={[
-                                'Free Tips', 2000,
+                                'Home Win', 2000,
                             ]}
                             wrapper="h1"
                             speed={50}

@@ -1,5 +1,5 @@
-import Footer from "./Footer";
-import Navbar from "./navbar";
+import Footer from "../components/shared/Footer";
+import Navbar from "../components/shared/Navbar";
 import { TypeAnimation } from "react-type-animation"
 import { motion } from "framer-motion"
 import { Link } from "react-router-dom";

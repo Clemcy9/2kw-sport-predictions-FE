@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 export default function Footer() {
     const footerLinks = useNavigate();
     const links = [
-        {title:"About", path:"/"},
+        {title:"About", path:"/about"},
         {title:"Contact", path:"/"},
         {title:"Privacy", path:"/"},
         {title:"Terms", path:"/"},
@@ -41,7 +41,7 @@ export default function Footer() {
                         {links.map((link, index) => (
                             <button key={index}
                                 onClick={() => footerLinks(link.path)}
-                                className="text-[#fff]/70 transition">
+                                className="text-[#fff]/70 hover:text-white cursor-pointer transition">
                                 {link.title}
                             </button>
                         ))}

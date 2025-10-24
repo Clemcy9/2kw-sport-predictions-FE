@@ -1,11 +1,24 @@
+// import { TypeAnimation } from "react-type-animation"
+// import { motion } from "framer-motion"
+// import Navbar from "../../shared/Navbar";
+// import Footer from "../../shared/Footer";
+// import FreeTips from "../../shared/FreetipsCard";
+// import FootballLeaguesTable from "../FootballLeagues";
+// import BestPredictionCard from "../../BestPrediction";
+// import ContentNavBar from "../../Prediction-days/Content-Nav";
+
 import { TypeAnimation } from "react-type-animation"
 import { motion } from "framer-motion"
-import Navbar from "../../Navbar";
-import Footer from "../../Footer";
-import FreeTips from "../../FreetipsCard";
-import FootballLeaguesTable from "../FootballLeagues";
-import BestPredictionCard from "../../BestPrediction";
-import ContentNavBar from "../../Prediction-days/Content-Nav";
+// import Navbar from "../../shared/Navbar";
+import Navbar from "../shared/Navbar";
+import Footer from "../shared/Footer";
+import FreeTips from "../shared/FreetipsCard";
+// import FootballLeaguesTable from "../FootballLeagues";
+import FootballLeagues from "../Leagues/FootballLeagues";
+// import BestPredictionCard from "../../BestPrediction";
+import BestPredictionCard from "../BestPrediction";
+import ContentNavBar from "../Prediction-days/Content-Nav";
+
 
 
 export default function ItalySerieA() {
@@ -52,7 +65,7 @@ export default function ItalySerieA() {
                       <div className="grid grid-cols-1 lg:grid-cols-[380px_1fr] gap-2 max-w-full  w-full justify-center">
                            <div className="space-y-2 space-x-4 w-full items-center justify-center">
                            <BestPredictionCard />
-                           <FootballLeaguesTable />
+                           <FootballLeagues />
                            </div>
                          <div className="flex items-start justify-center w-full">
                            <ContentNavBar />

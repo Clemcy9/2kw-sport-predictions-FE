@@ -39,7 +39,7 @@ export default function PremierLeagueCard () {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, ease: "easeOut" }}
             >
-             <div className="hover:shadow-lg transition-all mt-1 border border-[#D6AE3E] flex justify-between items-center w-ful flex-col md:flex-row md:p-0 rounded-[0.6rem] max-w-full md:max-w-fit">
+             <div className="hover:shadow-lg transition-all mt-1 border border-[#D6AE3E] flex justify-between items-center w-ful flex-col md:flex-row md:p-0 rounded-[0.6rem] max-w-full lg:max-w-fit">
 
                 <div className="text-[#1A365D] flex justify-between items-center flex-col md:flex-row w-full space-y-2">
                     <div className="flex py-1 md:px-2">
