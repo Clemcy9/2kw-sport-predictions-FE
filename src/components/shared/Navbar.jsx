@@ -40,7 +40,7 @@ export default function Navbar() {
                     {/* Logo */}
                     <button
                         onClick={() => navigation("/")}
-                        className="cursor-pointer flex items-center font-bold font-serif text-gray-50"
+                        className="cursor-pointer flex items-center font-bold font-serif  text-white"
                     >
                         <motion.span
                             animate={{ rotate: 360 }}

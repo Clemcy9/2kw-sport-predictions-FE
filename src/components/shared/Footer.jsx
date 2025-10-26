@@ -4,6 +4,14 @@ import { motion } from "framer-motion";
 
 export default function Footer() {
     const footerLinks = useNavigate();
+
+    const moveToTop = () => {
+        window.scrollTo({
+            top:0,
+            behavior: "smooth",
+        });
+    };
+
     const links = [
         {title:"About", path:"/about"},
         {title:"Contact", path:"/"},
@@ -21,7 +29,7 @@ export default function Footer() {
         <footer className="bg-[#1A365D] relative shadow-sm backdrop-blur-md flex flex-col items-center font-sans py-6 md:px-10" >
             <div className="flex md:flex-row md:space-x-6 items-center justify-center md:justify-between flex-col space-y-10 py-10 w-full text-gray-50">
                 <div className="flex items-center justify-center flex-col">
-                    <h1 className="font-bold text-[32px] items-center flex text-shadow-lg">
+                    <h1 className="font-bold text-[32px] items-center flex text-shadow-lg cursor-pointer" onClick={moveToTop}>
                         <motion.span
                             animate={{ rotate:360 }}
                             transition={{
@@ -32,7 +40,8 @@ export default function Footer() {
                         >
                             ⚽
                         </motion.span>
-                        2KwPredict</h1>
+                        2KwPredict
+                    </h1>
                     <p className="text-[14px] text-[#fff]/70">Start your winning journey with us</p>
                 </div>
                 <div className="flex flex-col items-center">

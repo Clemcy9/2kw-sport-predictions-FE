@@ -29,3 +29,24 @@ html, body{
   width: 100%;
 }
 
+@keyframes glow-flash {
+  0% {
+    text-shadow: 0 0 0px rgba(255, 255, 255, 0);
+  }
+
+  40% {
+    text-shadow: 0 0 22px rgba(255, 255, 255, 0.9);
+  }
+
+  70% {
+    text-shadow: 0 0 38px rgba(92, 162, 255, 1);
+  }
+
+  100% {
+    text-shadow: 0 0 0px rgba(255, 255, 255, 0);
+  }
+}
+
+.animate-glow-flash {
+  animation: glow-flash 1.3s ease-out forwards;
+}

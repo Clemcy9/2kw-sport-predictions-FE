@@ -1,4 +1,5 @@
-// import Navbar from "../components/shared/Navbar";
+// import { useEffect, useRef } from "react";
+import {FiArrowUp} from "react-icons/fi";
 import Navbar from "../components/shared/Navbar";
 import HeroSection from "../components/shared/HeroSection";
 import Footer from "../components/shared/Footer";
@@ -13,12 +14,24 @@ import ArgentainaCard from "../components/Argentina-premier";
 import BrasilCard from "../components/Brasil-serie-A";
 import { motion } from "framer-motion";
 import LeagueTables from "../components/Standings/Table";
-// import SignUp from "../components/admin-pages/sign-Up";
-// import SignIn from "../components/admin-pages/sign-in";
-// import AdminHeader from "../components/admin-pages/header";
-// import Sidebar from "../components/admin-pages/sidebar";
+import DummyBlog from "../components/dummy-blog";
 
 export default function LandingPage () {
+
+  // const focus = useRef(null);
+
+  // useEffect(() => {
+  //   focus.current?.scrollIntoView({
+  //     behaviour: "smooth" 
+  //   });
+  // }, []);
+
+  const moveToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
     return(
        <motion.div initial={{opacity:0.5}} animate={{opacity:1}} transition={{duration:1, delay:0.1}}>
@@ -26,6 +39,11 @@ export default function LandingPage () {
           <Navbar />
           <HeroSection />
           <FreeTips />
+          <div className="flex justify-end items-end m-1">
+            <div className="fixed border border-[#D6AE3E] rounded-full h-8 w-8 flex justify-center items-center animate-pulse text-[#D6AE3E] z-50" onClick={moveToTop}>
+              <FiArrowUp className=" font-semibold text-xl" />
+            </div>
+          </div>
           <div className="px-1 md:px-4 pb-4 md:py-4 pt-2  min-h-screen w-full max-w-full md:overflow-x-hidden">
             <div className="grid grid-cols-1 xl:grid-cols-[380px_1fr] gap-2 max-w-full  w-full justify-center">
                    <div className="space-y-2 space-x-4 w-full items-center justify-center sticky top-5 bg-white -z-20">
@@ -44,11 +62,14 @@ export default function LandingPage () {
                         <ArgentainaCard />
                         <DenmarkCard />
                         <LeagueTables />
+                        <div className="flex justify-end items-end">
+                          <DummyBlog />
+                        </div>
                      </div>
                    </div>
                 </div>
               </div>
-             <div className="text-[#1A365D] border-[#1A365D] bg-white/60 md:p-10 md:m-5 border p-2 flex justify-center flex-col rounded-[0.3rem] shadow-sm">
+             {/* <div className="text-[#1A365D] border-[#1A365D] bg-white/60 md:p-10 md:m-5 border p-2 flex justify-center flex-col rounded-[0.3rem] shadow-sm">
                 <h1>⚽2KwPredicts</h1>
                 <h5>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Id eligendi laudantium, temporibus, itaque eius ratione eos nemo sapiente quis sint explicabo, porro natus quibusdam labore ex. Ipsa expedita excepturi aperiam?
@@ -65,11 +86,7 @@ export default function LandingPage () {
                     Sit explicabo eligendi ad dolore placeat ratione unde magnam ipsam. Dolor, minus. Enim voluptatibus blanditiis sed hic nam quisquam ipsa sint aliquam rem, quibusdam harum quidem incidunt ipsam tempora obcaecati!
                     Laborum assumenda voluptatum reprehenderit ut voluptate incidunt alias? Tempore error perferendis excepturi adipisci consectetur delectus? Minima adipisci ea maiores sint minus officiis hic illo at dolore molestiae, culpa, optio in?
                   </article>
-             </div>
-             {/* <SignUp />
-             <SignIn />
-             <AdminHeader />
-             <Sidebar /> */}
+             </div> */}
           <Footer />
        </>
        </motion.div>

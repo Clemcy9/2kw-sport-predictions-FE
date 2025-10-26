@@ -35,12 +35,12 @@ export default function LeagueTables() {
 
 function LeagueTable({ title, leagues, activeLeague, setActiveLeague, data, isScorers }) {
     return (
-        <div className="border-[#E5E7EB]/80 border font-sans bg-white rounded-[0.4rem] w-full p-4 sm:p-0">
+        <div className="border-[#E5E7EB]/80 border font-sans bg-white rounded-[0.4rem] w-full sm:p-0">
 
             {/*Table Header and leagues*/}
-            <div className="flex flex-col pb-3 mb-3 gap-1 shadow-b-sm m-6">
+            <div className="flex flex-col pb-3 mb-3 gap-1 shadow-b-sm md:m-6">
                 <h2 className="font-semibold text-2xl text-[#1F2128]">{title}</h2>
-                <div className="flex flex-wrap gap-2 bg-[#E5E7EB]/80 w-full rounded-[0.4rem] p-1">
+                <div className="flex sm:justify-center gap-2 bg-[#E5E7EB]/80 w-full rounded-[0.4rem] p-1">
                     {leagues.map((lg) => (
                         <button
                             key={lg}
@@ -132,7 +132,6 @@ function LeagueTable({ title, leagues, activeLeague, setActiveLeague, data, isSc
                         </div>
                     ) : (
                         // if there is no data for the standings table this will show
-                        
                         <div className="text-gray-400 text-center py-6 text-sm">
                             No data available for {activeLeague}.
                         </div>

@@ -13,7 +13,7 @@ export const leagues = [
         country: "England",
         logo: "https://upload.wikimedia.org/wikipedia/en/f/f2/Premier_League_Logo.svg",
         heroImage: "/premier-hero.jpg",
-        component: "PremierLeagueCard",
+        component: "Premier-league",
     },
     {
         slug: "Spain-la-liga",

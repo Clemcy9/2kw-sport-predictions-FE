@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import NigeriaNPFL from "./components/Predictioncards/Nigeria-npfl";
 import EnglandPremierLeague from "./components/Predictioncards/England-Premier-League";
 import SpainLaLiga from "./components/Predictioncards/Spain-La-Liga";
-import LoadingAnimation from "./components/Loading";
+import LoadingAnimation from "./components/animations/Loading";
 import EuropeUEFAChampionsLeague from "./components/Predictioncards/Europe-UEFA-Champions-League";
 import EuropeUEFAEuropaLeague from "./components/Predictioncards/Europe-UEFA-Europa-League";
 import ItalySerieA from "./components/Predictioncards/Italy-Serie-A";
@@ -20,6 +20,7 @@ import HomeWin from "./components/home-win";
 import PredictionDetails from "./components/details";
 import SignIn from "./components/admin-pages/sign-in";
 import SignUp from "./components/admin-pages/sign-Up";
+import DashBoard from "./components/admin-pages/dashboard";
 
 export default function App(){
   const [loading, setLoading] = useState(true);
@@ -48,6 +49,7 @@ export default function App(){
             <Route path="/" element={<LandingPage />} />
             <Route path="sign-in" element={ <SignIn />} />
             <Route path="sign-up" element={ <SignUp />} />
+            <Route path="/dashboard" element={ <DashBoard/>} />
             <Route path="/details" element={<PredictionDetails />} />
             <Route path="/blog" element={ <BlogPost />} />
             <Route path="/admin" element={ <AdminDashboard />} />
