@@ -113,6 +113,10 @@ export default function DashBoard() {
                             </div>
                         </div>
                     </div>
+                    <div className="flex justify-start font-semibold font-sans text-2xl w-full">
+                        <h2 className=" font-semibold mb-4 text-left">Recent Predictions</h2>
+
+                    </div>
                     <table className="w-full border-collapse ">
                         <thead>
                             <tr className="font-bold text-left text-[18px]">
