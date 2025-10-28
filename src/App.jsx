@@ -1,22 +1,26 @@
 import { Routes, Route, } from "react-router-dom";
 import LandingPage from "./Pages/LandingPage";
 import { useState, useEffect } from "react";
-import NigeriaNPFL from "./components/LeaguesTable/components/Nigeria-npfl";
-import EnglandPremierLeague from "./components/LeaguesTable/components/England-Premier-League";
-import SpainLaLiga from "./components/LeaguesTable/components/Spain-La-Liga";
-import LoadingAnimation from "./components/Loading";
-import EuropeUEFAChampionsLeague from "./components/LeaguesTable/components/Europe-UEFA-Champions-League";
-import EuropeUEFAEuropaLeague from "./components/LeaguesTable/components/Europe-UEFA-Europa-League";
-import ItalySerieA from "./components/LeaguesTable/components/Italy-Serie-A";
-import GermanyBundesliga from "./components/LeaguesTable/components/Germany-Bundesliga";
-import FranceLeague from "./components/LeaguesTable/components/France-Ligue-1";
-import PortugalLiga from "./components/LeaguesTable/components/Portugal-Liga-Portugal";
-import NetherlandsEredivise from "./components/LeaguesTable/components/Netherlands-Eredivisie";
-import BelguimProLeague from "./components/LeaguesTable/components/Belgium-Pro-League";
-import SouthAfricaLeague from "./components/LeaguesTable/components/South-Africa-Premier-Soccer-League";
-import BlogPost from "./components/Blog";
+import NigeriaNPFL from "./components/Predictioncards/Nigeria-npfl";
+import EnglandPremierLeague from "./components/Predictioncards/England-Premier-League";
+import SpainLaLiga from "./components/Predictioncards/Spain-La-Liga";
+import LoadingAnimation from "./components/animations/Loading";
+import EuropeUEFAChampionsLeague from "./components/Predictioncards/Europe-UEFA-Champions-League";
+import EuropeUEFAEuropaLeague from "./components/Predictioncards/Europe-UEFA-Europa-League";
+import ItalySerieA from "./components/Predictioncards/Italy-Serie-A";
+import GermanyBundesliga from "./components/Predictioncards/Germany-Bundesliga";
+import FranceLeague from "./components/Predictioncards/France-Ligue-1";
+import PortugalLiga from "./components/Predictioncards/Portugal-Liga-Portugal";
+import NetherlandsEredivise from "./components/Predictioncards/Netherlands-Eredivisie";
+import BelguimProLeague from "./components/Predictioncards/Belgium-Pro-League";
+import SouthAfricaLeague from "./components/Predictioncards/South-Africa-Premier-Soccer-League";
+import BlogPost from "./Pages/Blog";
+import AdminDashboard from "./Pages/admin";
 import HomeWin from "./components/home-win";
-
+import PredictionDetails from "./components/details";
+import SignIn from "./components/admin-pages/sign-in";
+import SignUp from "./components/admin-pages/sign-Up";
+import DashBoard from "./components/admin-pages/dashboard";
 
 export default function App(){
   const [loading, setLoading] = useState(true);
@@ -40,10 +44,16 @@ export default function App(){
     <>
     {loading ?(
       <LoadingAnimation />
+      
     ) : (
           <Routes>
             <Route path="/" element={<LandingPage />} />
+            <Route path="sign-in" element={ <SignIn />} />
+            <Route path="sign-up" element={ <SignUp />} />
+            <Route path="/dashboard" element={ <DashBoard/>} />
+            <Route path="/details" element={<PredictionDetails />} />
             <Route path="/blog" element={ <BlogPost />} />
+            <Route path="/admin" element={ <AdminDashboard />} />
             <Route path="/home-win" element={ <HomeWin />} />
             <Route path="/leagues/nigeria-npfl" element={<NigeriaNPFL/>} />
             <Route path="/leagues/england-premier-league" element={<EnglandPremierLeague />}/>
