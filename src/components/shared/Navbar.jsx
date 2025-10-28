@@ -40,7 +40,7 @@ export default function Navbar() {
                     {/* Logo */}
                     <button
                         onClick={() => navigation("/")}
-                        className="cursor-pointer flex items-center font-bold font-serif  text-white"
+                        className="cursor-pointer flex items-center font-bold font-serif text-white text-shadow-lg"
                     >
                         <motion.span
                             animate={{ rotate: 360 }}
@@ -61,7 +61,7 @@ export default function Navbar() {
                                         {/* Button with arrow */}
                                         <button
                                             onClick={() => setDropdown(dropdown === index ? null : index)}
-                                            className="text-white flex items-center gap-1"
+                                            className="text-white flex items-center gap-1 hover:text-[#D6AE3E]"
                                         >
                                             {link.title}
                                             {dropdown === index ? (
@@ -97,7 +97,7 @@ export default function Navbar() {
                                 ) : (
                                     <button
                                         onClick={() => navigation(link.path)}
-                                        className="text-gray-50 transition"
+                                            className="text-gray-50 transition hover:text-[#D6AE3E] cursor-pointer text-shadow-lg"
                                     >
                                         {link.title}
                                     </button>

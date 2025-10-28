@@ -79,7 +79,51 @@ export default function BlogPost () {
                     </div>
                  </article>
                  <article className="flex items-center justify-center flex-col h-[223] w-[308px] shadow-sm">
-                    <img src="/Blog-bg.jpg" alt="blog" className="w-[3088px] h-[144px] rounded-t-[0.4rem] bg-cover"/>
+                    <img src="/Blog3-bg.jpg" alt="blog" className="w-[3088px] h-[144px] rounded-t-[0.4rem] bg-cover"/>
+                    <div className="p-2">
+                        <h2 className="font-semibold">Lorem illendus aliquam inventorm iusto fugit voluptas!</h2>
+                        <p className="text-[#65758B] text-[15px]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nostrum beatae Unde, ab?</p>
+                    <div className="flex justify-between w-full py-2">
+                        <span className="font-semibold text-[#65758B]"> oct/28</span>
+                        <span className="text-[#D6AE3E] flex justify-center items-center">view more  <FiArrowRight/> </span>
+                    </div>
+                    </div>
+                 </article>
+                 <article className="flex items-center justify-center flex-col h-[223] w-[308px] shadow-sm">
+                    <img src="/Blog3-bg.jpg" alt="blog" className="w-[3088px] h-[144px] rounded-t-[0.4rem] bg-cover"/>
+                    <div className="p-2">
+                        <h2 className="font-semibold">Lorem illendus aliquam inventorm iusto fugit voluptas!</h2>
+                        <p className="text-[#65758B] text-[15px]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nostrum beatae Unde, ab?</p>
+                    <div className="flex justify-between w-full py-2">
+                        <span className="font-semibold text-[#65758B]"> oct/28</span>
+                        <span className="text-[#D6AE3E] flex justify-center items-center">view more  <FiArrowRight/> </span>
+                    </div>
+                    </div>
+                 </article>
+                 <article className="flex items-center justify-center flex-col h-[223] w-[308px] shadow-sm">
+                    <img src="/Blog2-bg.jpg" alt="blog" className="w-[3088px] h-[144px] rounded-t-[0.4rem] bg-cover"/>
+                    <div className="p-2">
+                        <h2 className="font-semibold">Lorem illendus aliquam inventorm iusto fugit voluptas!</h2>
+                        <p className="text-[#65758B] text-[15px]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nostrum beatae Unde, ab?</p>
+                    <div className="flex justify-between w-full py-2">
+                        <span className="font-semibold text-[#65758B]"> oct/28</span>
+                        <span className="text-[#D6AE3E] flex justify-center items-center">view more  <FiArrowRight/> </span>
+                    </div>
+                    </div>
+                 </article>
+                 <article className="flex items-center justify-center flex-col h-[223] w-[308px] shadow-sm">
+                    <img src="/Blog3-bg.jpg" alt="blog" className="w-[3088px] h-[144px] rounded-t-[0.4rem] bg-cover"/>
+                    <div className="p-2">
+                        <h2 className="font-semibold">Lorem illendus aliquam inventorm iusto fugit voluptas!</h2>
+                        <p className="text-[#65758B] text-[15px]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nostrum beatae Unde, ab?</p>
+                    <div className="flex justify-between w-full py-2">
+                        <span className="font-semibold text-[#65758B]"> oct/28</span>
+                        <span className="text-[#D6AE3E] flex justify-center items-center">view more  <FiArrowRight/> </span>
+                    </div>
+                    </div>
+                 </article>
+                 <article className="flex items-center justify-center flex-col h-[223] w-[308px] shadow-sm">
+                    <img src="/Blog2-bg.jpg" alt="blog" className="w-[3088px] h-[144px] rounded-t-[0.4rem] bg-cover"/>
                     <div className="p-2">
                         <h2 className="font-semibold">Lorem illendus aliquam inventorm iusto fugit voluptas!</h2>
                         <p className="text-[#65758B] text-[15px]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nostrum beatae Unde, ab?</p>
@@ -112,51 +156,7 @@ export default function BlogPost () {
                     </div>
                  </article>
                  <article className="flex items-center justify-center flex-col h-[223] w-[308px] shadow-sm">
-                    <img src="/Blog-bg.jpg" alt="blog" className="w-[3088px] h-[144px] rounded-t-[0.4rem] bg-cover"/>
-                    <div className="p-2">
-                        <h2 className="font-semibold">Lorem illendus aliquam inventorm iusto fugit voluptas!</h2>
-                        <p className="text-[#65758B] text-[15px]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nostrum beatae Unde, ab?</p>
-                    <div className="flex justify-between w-full py-2">
-                        <span className="font-semibold text-[#65758B]"> oct/28</span>
-                        <span className="text-[#D6AE3E] flex justify-center items-center">view more  <FiArrowRight/> </span>
-                    </div>
-                    </div>
-                 </article>
-                 <article className="flex items-center justify-center flex-col h-[223] w-[308px] shadow-sm">
-                    <img src="/Blog-bg.jpg" alt="blog" className="w-[3088px] h-[144px] rounded-t-[0.4rem] bg-cover"/>
-                    <div className="p-2">
-                        <h2 className="font-semibold">Lorem illendus aliquam inventorm iusto fugit voluptas!</h2>
-                        <p className="text-[#65758B] text-[15px]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nostrum beatae Unde, ab?</p>
-                    <div className="flex justify-between w-full py-2">
-                        <span className="font-semibold text-[#65758B]"> oct/28</span>
-                        <span className="text-[#D6AE3E] flex justify-center items-center">view more  <FiArrowRight/> </span>
-                    </div>
-                    </div>
-                 </article>
-                 <article className="flex items-center justify-center flex-col h-[223] w-[308px] shadow-sm">
-                    <img src="/Blog-bg.jpg" alt="blog" className="w-[3088px] h-[144px] rounded-t-[0.4rem] bg-cover"/>
-                    <div className="p-2">
-                        <h2 className="font-semibold">Lorem illendus aliquam inventorm iusto fugit voluptas!</h2>
-                        <p className="text-[#65758B] text-[15px]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nostrum beatae Unde, ab?</p>
-                    <div className="flex justify-between w-full py-2">
-                        <span className="font-semibold text-[#65758B]"> oct/28</span>
-                        <span className="text-[#D6AE3E] flex justify-center items-center">view more  <FiArrowRight/> </span>
-                    </div>
-                    </div>
-                 </article>
-                 <article className="flex items-center justify-center flex-col h-[223] w-[308px] shadow-sm">
-                    <img src="/Blog-bg.jpg" alt="blog" className="w-[3088px] h-[144px] rounded-t-[0.4rem] bg-cover"/>
-                    <div className="p-2">
-                        <h2 className="font-semibold">Lorem illendus aliquam inventorm iusto fugit voluptas!</h2>
-                        <p className="text-[#65758B] text-[15px]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nostrum beatae Unde, ab?</p>
-                    <div className="flex justify-between w-full py-2">
-                        <span className="font-semibold text-[#65758B]"> oct/28</span>
-                        <span className="text-[#D6AE3E] flex justify-center items-center">view more  <FiArrowRight/> </span>
-                    </div>
-                    </div>
-                 </article>
-                 <article className="flex items-center justify-center flex-col h-[223] w-[308px] shadow-sm">
-                    <img src="/Blog-bg.jpg" alt="blog" className="w-[3088px] h-[144px] rounded-t-[0.4rem] bg-cover"/>
+                    <img src="/Blog2-bg.jpg" alt="blog" className="w-[3088px] h-[144px] rounded-t-[0.4rem] bg-cover"/>
                     <div className="p-2">
                         <h2 className="font-semibold">Lorem illendus aliquam inventorm iusto fugit voluptas!</h2>
                         <p className="text-[#65758B] text-[15px]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nostrum beatae Unde, ab?</p>

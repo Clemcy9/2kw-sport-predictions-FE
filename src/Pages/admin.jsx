@@ -19,7 +19,7 @@ export default function AdminDashboard() {
                     <div className="flex items-center justify-center w-full text-shadow-xl fixed top-52">
                         {/* <h4>{welcome}</h4> */}
                         
-                        <CinematicBouncyText text="welcome_Admin" />;
+                        <CinematicBouncyText text="Welcome-Admin" />;
                     </div>
                 </div>
                 

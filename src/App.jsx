@@ -44,6 +44,7 @@ export default function App(){
     <>
     {loading ?(
       <LoadingAnimation />
+      
     ) : (
           <Routes>
             <Route path="/" element={<LandingPage />} />

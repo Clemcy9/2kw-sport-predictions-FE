@@ -8,10 +8,10 @@ import BestPredictionCard from "../components/BestPrediction";
 import FootballLeaguesTable from "../components/Leagues/FootballLeagues";
 import ContentNavBar from "../components/Prediction-days/Content-Nav";
 import PremierLeagueCard from "../components/Premier-league";
-import LaLigaCard from "../components/La-liga";
-import DenmarkCard from "../components/Denmark-Division";
-import ArgentainaCard from "../components/Argentina-premier";
-import BrasilCard from "../components/Brasil-serie-A";
+// import LaLigaCard from "../components/La-liga";
+// import DenmarkCard from "../components/Denmark-Division";
+// import ArgentainaCard from "../components/Argentina-premier";
+// import BrasilCard from "../components/Brasil-serie-A";
 import { motion } from "framer-motion";
 import LeagueTables from "../components/Standings/Table";
 import DummyBlog from "../components/dummy-blog";
@@ -57,11 +57,12 @@ export default function LandingPage () {
 
                       <div>
                         <PremierLeagueCard />
-                        <LaLigaCard />
+                        <LeagueTables />
+                        {/* <LaLigaCard />
                         <BrasilCard />
                         <ArgentainaCard />
                         <DenmarkCard />
-                        <LeagueTables />
+                         */}
                         <div className="flex justify-end items-end">
                           <DummyBlog />
                         </div>
