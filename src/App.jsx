@@ -21,6 +21,7 @@ import PredictionDetails from "./components/details";
 import SignIn from "./components/admin-pages/sign-in";
 import SignUp from "./components/admin-pages/sign-Up";
 import DashBoard from "./components/admin-pages/dashboard";
+import ForgotPassword from "./components/admin-pages/forgot-password";
 
 export default function App(){
   const [loading, setLoading] = useState(true);
@@ -49,6 +50,7 @@ export default function App(){
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="sign-in" element={ <SignIn />} />
+            <Route path="/forgot-password" element={ <ForgotPassword />} />
             <Route path="sign-up" element={ <SignUp />} />
             <Route path="/dashboard" element={ <DashBoard/>} />
             <Route path="/details" element={<PredictionDetails />} />
