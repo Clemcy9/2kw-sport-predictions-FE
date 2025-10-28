@@ -35,7 +35,7 @@ export default function Navbar() {
 
     return (
         <header className="bg-[#1A365D] absolute top-0 w-full z-50 shadow-sm backdrop-blur-md mb-6">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-16">
                     {/* Logo */}
                     <button

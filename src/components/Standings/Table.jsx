@@ -10,7 +10,7 @@ export default function LeagueTables() {
     const leagueData = leaguesData[activeLeague];
 
     return (
-        <div className="flex flex-col font-serif lg:flex-row gap-6 p-4 sm:p-0 sm:justify-between max-w-7xl w-full sm:gap-14">
+        <div className="flex flex-col font-serif lg:flex-row gap-6 p-0 sm:p-0 sm:justify-between max-w-7xl w-full sm:gap-10">
             {/* LEAGUE TABLE */}
             <LeagueTable
                 title="League Table"
@@ -35,7 +35,7 @@ export default function LeagueTables() {
 
 function LeagueTable({ title, leagues, activeLeague, setActiveLeague, data, isScorers }) {
     return (
-        <div className="border-[#E5E7EB]/80 border font-sans bg-white rounded-[0.4rem] w-full sm:p-0">
+        <div className="border-[#E5E7EB]/80 border font-sans bg-white rounded-[0.4rem] max-w-full w-full sm:p-0">
 
             {/*Table Header and leagues*/}
             <div className="flex flex-col pb-3 mb-3 gap-1 shadow-b-sm md:m-6">

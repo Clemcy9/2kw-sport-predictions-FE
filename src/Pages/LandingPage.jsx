@@ -45,8 +45,9 @@ export default function LandingPage () {
             </div>
           </div>
           <div className="px-1 md:px-4 pb-4 md:py-4 pt-2  min-h-screen w-full max-w-full md:overflow-x-hidden">
-            <div className="grid grid-cols-1 xl:grid-cols-[380px_1fr] gap-2 max-w-full  w-full justify-center">
-                   <div className="space-y-2 space-x-4 w-full items-center justify-center sticky top-5 bg-white -z-20">
+              <div className="grid grid-cols-1 xl:grid-cols-[2fr_2fr] gap-2 max-w-full w-full justify-center">
+
+                   <div className="space-y-2 items-center flex flex-col bg-white -z-20">
                       <BestPredictionCard />
                       <FootballLeaguesTable />
                     </div>

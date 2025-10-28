@@ -26,7 +26,7 @@ export default function PremierLeagueCard () {
     }
        
     return (
-        <div className="border-none md:p-4 my-2 min-w-full w-full flex justify-center items-center flex-col text-white space-y-4 md:space-y-2">
+        <div className="border-none md:p-4 my-2 flex justify-center items-center flex-col text-white space-y-4 md:space-y-2">
             
                 <div className="bg-[#1A365D] w-full flex justify-between items-center p-2 rounded-[0.6rem] hover:shadow-lg transition-all">
                     <h2 className="font-sans font-semibold">

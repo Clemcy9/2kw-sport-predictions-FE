@@ -66,128 +66,175 @@ export default function BlogPost () {
                 </motion.div>
 
             </section>
-               <div className=" grid grid-cols-4 mx-10 gap-4 my-14 justify-center items-center">
-                 <article className="flex items-center justify-center flex-col h-[223] w-[308px] shadow-sm">
-                    <img src="/Blog-bg.jpg" alt="blog" className="w-[3088px] h-[144px] rounded-t-[0.4rem] bg-cover"/>
-                    <div className="p-2">
-                        <h2 className="font-semibold">Lorem illendus aliquam inventorm iusto fugit voluptas!</h2>
-                        <p className="text-[#65758B] text-[15px]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nostrum beatae Unde, ab?</p>
-                    <div className="flex justify-between w-full py-2">
-                        <span className="font-semibold text-[#65758B]"> oct/28</span>
-                        <span className="text-[#D6AE3E] flex justify-center items-center">view more  <FiArrowRight/> </span>
+               <div className=" grid md:grid-cols-4 grid-cols-1 md:mx-10 mx-2 gap-4 my-14 justify-center items-center">
+                <article className="flex items-center justify-center flex-row md:flex-col md:h-[223] h-180px md:w-[308px] w-full shadow-none md:shadow-sm ">
+                    <div className="">
+                        <img src="/Blog2-bg.jpg" alt="blog" className="md:w-[308px] md:h-[144px] w-[360px] h-[180px] rounded-[0.4rem] md:rounded-t-[0.4rem] bg-cover" />
                     </div>
+                    <div className="md:p-2 px-1 py-0">
+                        <h2 className="font-semibold leading-tight py-2">Lorem illendus aliquam invrm iusto fugit voluptas!</h2>
+                        <p className="text-[#65758B] md:text-[15px] text-[13px] py-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nostrum beatae Unde, ab?</p>
+                        <div className="flex justify-between w-full md:py-2 py-1">
+                            <span className="font-semibold text-[#65758B]"> oct/28</span>
+                            <Link className="text-[#D6AE3E] flex justify-center items-center" to={"/blog"}>view more  <FiArrowRight />
+                            </Link>
+                        </div>
                     </div>
-                 </article>
-                 <article className="flex items-center justify-center flex-col h-[223] w-[308px] shadow-sm">
-                    <img src="/Blog3-bg.jpg" alt="blog" className="w-[3088px] h-[144px] rounded-t-[0.4rem] bg-cover"/>
-                    <div className="p-2">
-                        <h2 className="font-semibold">Lorem illendus aliquam inventorm iusto fugit voluptas!</h2>
-                        <p className="text-[#65758B] text-[15px]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nostrum beatae Unde, ab?</p>
-                    <div className="flex justify-between w-full py-2">
-                        <span className="font-semibold text-[#65758B]"> oct/28</span>
-                        <span className="text-[#D6AE3E] flex justify-center items-center">view more  <FiArrowRight/> </span>
+                </article>
+                <article className="flex items-center justify-center flex-row md:flex-col md:h-[223] h-180px md:w-[308px] w-full shadow-none md:shadow-sm ">
+                    <div className="">
+                        <img src="/Blog-bg.jpg" alt="blog" className="md:w-[308px] md:h-[144px] w-[360px] h-[180px] rounded-[0.4rem] md:rounded-t-[0.4rem] bg-cover" />
                     </div>
+                    <div className="md:p-2 px-1 py-0">
+                        <h2 className="font-semibold leading-tight py-2">Lorem illendus aliquam invrm iusto fugit voluptas!</h2>
+                        <p className="text-[#65758B] md:text-[15px] text-[13px] py-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nostrum beatae Unde, ab?</p>
+                        <div className="flex justify-between w-full md:py-2 py-1">
+                            <span className="font-semibold text-[#65758B]"> oct/28</span>
+                            <Link className="text-[#D6AE3E] flex justify-center items-center" to={"/blog"}>view more  <FiArrowRight />
+                            </Link>
+                        </div>
                     </div>
-                 </article>
-                 <article className="flex items-center justify-center flex-col h-[223] w-[308px] shadow-sm">
-                    <img src="/Blog3-bg.jpg" alt="blog" className="w-[3088px] h-[144px] rounded-t-[0.4rem] bg-cover"/>
-                    <div className="p-2">
-                        <h2 className="font-semibold">Lorem illendus aliquam inventorm iusto fugit voluptas!</h2>
-                        <p className="text-[#65758B] text-[15px]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nostrum beatae Unde, ab?</p>
-                    <div className="flex justify-between w-full py-2">
-                        <span className="font-semibold text-[#65758B]"> oct/28</span>
-                        <span className="text-[#D6AE3E] flex justify-center items-center">view more  <FiArrowRight/> </span>
+                </article>
+                <article className="flex items-center justify-center flex-row md:flex-col md:h-[223] h-180px md:w-[308px] w-full shadow-none md:shadow-sm ">
+                    <div className="">
+                        <img src="/Blog-bg.jpg" alt="blog" className="md:w-[308px] md:h-[144px] w-[360px] h-[180px] rounded-[0.4rem] md:rounded-t-[0.4rem] bg-cover" />
                     </div>
+                    <div className="md:p-2 px-1 py-0">
+                        <h2 className="font-semibold leading-tight py-2">Lorem illendus aliquam invrm iusto fugit voluptas!</h2>
+                        <p className="text-[#65758B] md:text-[15px] text-[13px] py-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nostrum beatae Unde, ab?</p>
+                        <div className="flex justify-between w-full md:py-2 py-1">
+                            <span className="font-semibold text-[#65758B]"> oct/28</span>
+                            <Link className="text-[#D6AE3E] flex justify-center items-center" to={"/blog"}>view more  <FiArrowRight />
+                            </Link>
+                        </div>
                     </div>
-                 </article>
-                 <article className="flex items-center justify-center flex-col h-[223] w-[308px] shadow-sm">
-                    <img src="/Blog2-bg.jpg" alt="blog" className="w-[3088px] h-[144px] rounded-t-[0.4rem] bg-cover"/>
-                    <div className="p-2">
-                        <h2 className="font-semibold">Lorem illendus aliquam inventorm iusto fugit voluptas!</h2>
-                        <p className="text-[#65758B] text-[15px]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nostrum beatae Unde, ab?</p>
-                    <div className="flex justify-between w-full py-2">
-                        <span className="font-semibold text-[#65758B]"> oct/28</span>
-                        <span className="text-[#D6AE3E] flex justify-center items-center">view more  <FiArrowRight/> </span>
+                </article>
+                <article className="flex items-center justify-center flex-row md:flex-col md:h-[223] h-180px md:w-[308px] w-full shadow-none md:shadow-sm ">
+                    <div className="">
+                        <img src="/Blog2-bg.jpg" alt="blog" className="md:w-[308px] md:h-[144px] w-[360px] h-[180px] rounded-[0.4rem] md:rounded-t-[0.4rem] bg-cover" />
                     </div>
+                    <div className="md:p-2 px-1 py-0">
+                        <h2 className="font-semibold leading-tight py-2">Lorem illendus aliquam invrm iusto fugit voluptas!</h2>
+                        <p className="text-[#65758B] md:text-[15px] text-[13px] py-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nostrum beatae Unde, ab?</p>
+                        <div className="flex justify-between w-full md:py-2 py-1">
+                            <span className="font-semibold text-[#65758B]"> oct/28</span>
+                            <Link className="text-[#D6AE3E] flex justify-center items-center" to={"/blog"}>view more  <FiArrowRight />
+                            </Link>
+                        </div>
                     </div>
-                 </article>
-                 <article className="flex items-center justify-center flex-col h-[223] w-[308px] shadow-sm">
-                    <img src="/Blog3-bg.jpg" alt="blog" className="w-[3088px] h-[144px] rounded-t-[0.4rem] bg-cover"/>
-                    <div className="p-2">
-                        <h2 className="font-semibold">Lorem illendus aliquam inventorm iusto fugit voluptas!</h2>
-                        <p className="text-[#65758B] text-[15px]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nostrum beatae Unde, ab?</p>
-                    <div className="flex justify-between w-full py-2">
-                        <span className="font-semibold text-[#65758B]"> oct/28</span>
-                        <span className="text-[#D6AE3E] flex justify-center items-center">view more  <FiArrowRight/> </span>
+                </article>
+                <article className="flex items-center justify-center flex-row md:flex-col md:h-[223] h-180px md:w-[308px] w-full shadow-none md:shadow-sm ">
+                    <div className="">
+                        <img src="/Blog-bg.jpg" alt="blog" className="md:w-[308px] md:h-[144px] w-[360px] h-[180px] rounded-[0.4rem] md:rounded-t-[0.4rem] bg-cover" />
                     </div>
+                    <div className="md:p-2 px-1 py-0">
+                        <h2 className="font-semibold leading-tight py-2">Lorem illendus aliquam invrm iusto fugit voluptas!</h2>
+                        <p className="text-[#65758B] md:text-[15px] text-[13px] py-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nostrum beatae Unde, ab?</p>
+                        <div className="flex justify-between w-full md:py-2 py-1">
+                            <span className="font-semibold text-[#65758B]"> oct/28</span>
+                            <Link className="text-[#D6AE3E] flex justify-center items-center" to={"/blog"}>view more  <FiArrowRight />
+                            </Link>
+                        </div>
                     </div>
-                 </article>
-                 <article className="flex items-center justify-center flex-col h-[223] w-[308px] shadow-sm">
-                    <img src="/Blog2-bg.jpg" alt="blog" className="w-[3088px] h-[144px] rounded-t-[0.4rem] bg-cover"/>
-                    <div className="p-2">
-                        <h2 className="font-semibold">Lorem illendus aliquam inventorm iusto fugit voluptas!</h2>
-                        <p className="text-[#65758B] text-[15px]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nostrum beatae Unde, ab?</p>
-                    <div className="flex justify-between w-full py-2">
-                        <span className="font-semibold text-[#65758B]"> oct/28</span>
-                        <span className="text-[#D6AE3E] flex justify-center items-center">view more  <FiArrowRight/> </span>
+                </article>
+                <article className="flex items-center justify-center flex-row md:flex-col md:h-[223] h-180px md:w-[308px] w-full shadow-none md:shadow-sm ">
+                    <div className="">
+                        <img src="/Blog3-bg.jpg" alt="blog" className="md:w-[308px] md:h-[144px] w-[360px] h-[180px] rounded-[0.4rem] md:rounded-t-[0.4rem] bg-cover" />
                     </div>
+                    <div className="md:p-2 px-1 py-0">
+                        <h2 className="font-semibold leading-tight py-2">Lorem illendus aliquam invrm iusto fugit voluptas!</h2>
+                        <p className="text-[#65758B] md:text-[15px] text-[13px] py-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nostrum beatae Unde, ab?</p>
+                        <div className="flex justify-between w-full md:py-2 py-1">
+                            <span className="font-semibold text-[#65758B]"> oct/28</span>
+                            <Link className="text-[#D6AE3E] flex justify-center items-center" to={"/blog"}>view more  <FiArrowRight />
+                            </Link>
+                        </div>
                     </div>
-                 </article>
-                 <article className="flex items-center justify-center flex-col h-[223] w-[308px] shadow-sm">
-                    <img src="/Blog-bg.jpg" alt="blog" className="w-[3088px] h-[144px] rounded-t-[0.4rem] bg-cover"/>
-                    <div className="p-2">
-                        <h2 className="font-semibold">Lorem illendus aliquam inventorm iusto fugit voluptas!</h2>
-                        <p className="text-[#65758B] text-[15px]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nostrum beatae Unde, ab?</p>
-                    <div className="flex justify-between w-full py-2">
-                        <span className="font-semibold text-[#65758B]"> oct/28</span>
-                        <span className="text-[#D6AE3E] flex justify-center items-center">view more  <FiArrowRight/> </span>
+                </article>
+                <article className="flex items-center justify-center flex-row md:flex-col md:h-[223] h-180px md:w-[308px] w-full shadow-none md:shadow-sm ">
+                    <div className="">
+                        <img src="/Blog-bg.jpg" alt="blog" className="md:w-[308px] md:h-[144px] w-[360px] h-[180px] rounded-[0.4rem] md:rounded-t-[0.4rem] bg-cover" />
                     </div>
+                    <div className="md:p-2 px-1 py-0">
+                        <h2 className="font-semibold leading-tight py-2">Lorem illendus aliquam invrm iusto fugit voluptas!</h2>
+                        <p className="text-[#65758B] md:text-[15px] text-[13px] py-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nostrum beatae Unde, ab?</p>
+                        <div className="flex justify-between w-full md:py-2 py-1">
+                            <span className="font-semibold text-[#65758B]"> oct/28</span>
+                            <Link className="text-[#D6AE3E] flex justify-center items-center" to={"/blog"}>view more  <FiArrowRight />
+                            </Link>
+                        </div>
                     </div>
-                 </article>
-                 <article className="flex items-center justify-center flex-col h-[223] w-[308px] shadow-sm">
-                    <img src="/Blog-bg.jpg" alt="blog" className="w-[3088px] h-[144px] rounded-t-[0.4rem] bg-cover"/>
-                    <div className="p-2">
-                        <h2 className="font-semibold">Lorem illendus aliquam inventorm iusto fugit voluptas!</h2>
-                        <p className="text-[#65758B] text-[15px]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nostrum beatae Unde, ab?</p>
-                    <div className="flex justify-between w-full py-2">
-                        <span className="font-semibold text-[#65758B]"> oct/28</span>
-                        <span className="text-[#D6AE3E] flex justify-center items-center">view more  <FiArrowRight/> </span>
+                </article>
+                <article className="flex items-center justify-center flex-row md:flex-col md:h-[223] h-180px md:w-[308px] w-full shadow-none md:shadow-sm ">
+                    <div className="">
+                        <img src="/Blog2-bg.jpg" alt="blog" className="md:w-[308px] md:h-[144px] w-[360px] h-[180px] rounded-[0.4rem] md:rounded-t-[0.4rem] bg-cover" />
                     </div>
+                    <div className="md:p-2 px-1 py-0">
+                        <h2 className="font-semibold leading-tight py-2">Lorem illendus aliquam invrm iusto fugit voluptas!</h2>
+                        <p className="text-[#65758B] md:text-[15px] text-[13px] py-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nostrum beatae Unde, ab?</p>
+                        <div className="flex justify-between w-full md:py-2 py-1">
+                            <span className="font-semibold text-[#65758B]"> oct/28</span>
+                            <Link className="text-[#D6AE3E] flex justify-center items-center" to={"/blog"}>view more  <FiArrowRight />
+                            </Link>
+                        </div>
                     </div>
-                 </article>
-                 <article className="flex items-center justify-center flex-col h-[223] w-[308px] shadow-sm">
-                    <img src="/Blog2-bg.jpg" alt="blog" className="w-[3088px] h-[144px] rounded-t-[0.4rem] bg-cover"/>
-                    <div className="p-2">
-                        <h2 className="font-semibold">Lorem illendus aliquam inventorm iusto fugit voluptas!</h2>
-                        <p className="text-[#65758B] text-[15px]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nostrum beatae Unde, ab?</p>
-                    <div className="flex justify-between w-full py-2">
-                        <span className="font-semibold text-[#65758B]"> oct/28</span>
-                        <span className="text-[#D6AE3E] flex justify-center items-center">view more  <FiArrowRight/> </span>
+                </article>
+                <article className="flex items-center justify-center flex-row md:flex-col md:h-[223] h-180px md:w-[308px] w-full shadow-none md:shadow-sm ">
+                    <div className="">
+                        <img src="/Blog-bg.jpg" alt="blog" className="md:w-[308px] md:h-[144px] w-[360px] h-[180px] rounded-[0.4rem] md:rounded-t-[0.4rem] bg-cover" />
                     </div>
+                    <div className="md:p-2 px-1 py-0">
+                        <h2 className="font-semibold leading-tight py-2">Lorem illendus aliquam invrm iusto fugit voluptas!</h2>
+                        <p className="text-[#65758B] md:text-[15px] text-[13px] py-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nostrum beatae Unde, ab?</p>
+                        <div className="flex justify-between w-full md:py-2 py-1">
+                            <span className="font-semibold text-[#65758B]"> oct/28</span>
+                            <Link className="text-[#D6AE3E] flex justify-center items-center" to={"/blog"}>view more  <FiArrowRight />
+                            </Link>
+                        </div>
                     </div>
-                 </article>
-                 <article className="flex items-center justify-center flex-col h-[223] w-[308px] shadow-sm">
-                    <img src="/Blog-bg.jpg" alt="blog" className="w-[3088px] h-[144px] rounded-t-[0.4rem] bg-cover"/>
-                    <div className="p-2">
-                        <h2 className="font-semibold">Lorem illendus aliquam inventorm iusto fugit voluptas!</h2>
-                        <p className="text-[#65758B] text-[15px]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nostrum beatae Unde, ab?</p>
-                    <div className="flex justify-between w-full py-2">
-                        <span className="font-semibold text-[#65758B]"> oct/28</span>
-                        <span className="text-[#D6AE3E] flex justify-center items-center">view more  <FiArrowRight/> </span>
+                </article>
+                <article className="flex items-center justify-center flex-row md:flex-col md:h-[223] h-180px md:w-[308px] w-full shadow-none md:shadow-sm ">
+                    <div className="">
+                        <img src="/Blog3-bg.jpg" alt="blog" className="md:w-[308px] md:h-[144px] w-[360px] h-[180px] rounded-[0.4rem] md:rounded-t-[0.4rem] bg-cover" />
                     </div>
+                    <div className="md:p-2 px-1 py-0">
+                        <h2 className="font-semibold leading-tight py-2">Lorem illendus aliquam invrm iusto fugit voluptas!</h2>
+                        <p className="text-[#65758B] md:text-[15px] text-[13px] py-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nostrum beatae Unde, ab?</p>
+                        <div className="flex justify-between w-full md:py-2 py-1">
+                            <span className="font-semibold text-[#65758B]"> oct/28</span>
+                            <Link className="text-[#D6AE3E] flex justify-center items-center" to={"/blog"}>view more  <FiArrowRight />
+                            </Link>
+                        </div>
                     </div>
-                 </article>
-                 <article className="flex items-center justify-center flex-col h-[223] w-[308px] shadow-sm">
-                    <img src="/Blog-bg.jpg" alt="blog" className="w-[3088px] h-[144px] rounded-t-[0.4rem] bg-cover"/>
-                    <div className="p-2">
-                        <h2 className="font-semibold">Lorem illendus aliquam inventorm iusto fugit voluptas!</h2>
-                        <p className="text-[#65758B] text-[15px]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nostrum beatae Unde, ab?</p>
-                    <div className="flex justify-between w-full py-2">
-                        <span className="font-semibold text-[#65758B]"> oct/28</span>
-                        <span className="text-[#D6AE3E] flex justify-center items-center">view more  <FiArrowRight/> </span>
+                </article>
+                <article className="flex items-center justify-center flex-row md:flex-col md:h-[223] h-180px md:w-[308px] w-full shadow-none md:shadow-sm ">
+                    <div className="">
+                        <img src="/Blog-bg.jpg" alt="blog" className="md:w-[308px] md:h-[144px] w-[360px] h-[180px] rounded-[0.4rem] md:rounded-t-[0.4rem] bg-cover" />
                     </div>
+                    <div className="md:p-2 px-1 py-0">
+                        <h2 className="font-semibold leading-tight py-2">Lorem illendus aliquam invrm iusto fugit voluptas!</h2>
+                        <p className="text-[#65758B] md:text-[15px] text-[13px] py-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nostrum beatae Unde, ab?</p>
+                        <div className="flex justify-between w-full md:py-2 py-1">
+                            <span className="font-semibold text-[#65758B]"> oct/28</span>
+                            <Link className="text-[#D6AE3E] flex justify-center items-center" to={"/blog"}>view more  <FiArrowRight />
+                            </Link>
+                        </div>
                     </div>
-                 </article>
+                </article>
+                <article className="flex items-center justify-center flex-row md:flex-col md:h-[223] h-180px md:w-[308px] w-full shadow-none md:shadow-sm ">
+                    <div className="">
+                        <img src="/Blog3-bg.jpg" alt="blog" className="md:w-[308px] md:h-[144px] w-[360px] h-[180px] rounded-[0.4rem] md:rounded-t-[0.4rem] bg-cover" />
+                    </div>
+                    <div className="md:p-2 px-1 py-0">
+                        <h2 className="font-semibold leading-tight py-2">Lorem illendus aliquam invrm iusto fugit voluptas!</h2>
+                        <p className="text-[#65758B] md:text-[15px] text-[13px] py-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nostrum beatae Unde, ab?</p>
+                        <div className="flex justify-between w-full md:py-2 py-1">
+                            <span className="font-semibold text-[#65758B]"> oct/28</span>
+                            <Link className="text-[#D6AE3E] flex justify-center items-center" to={"/blog"}>view more  <FiArrowRight />
+                            </Link>
+                        </div>
+                    </div>
+                </article>
                  
                  
                </div>
