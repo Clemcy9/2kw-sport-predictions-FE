@@ -12,9 +12,11 @@
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^7.1.0",
     "@fortawesome/react-fontawesome": "^3.1.0",
+    "@lottiefiles/dotlottie-react": "^0.17.6",
     "@tailwindcss/vite": "^4.1.14",
     "framer-motion": "^12.23.22",
     "gsap": "^3.13.0",
+    "lottie-react": "^2.4.1",
     "lucide-react": "^0.545.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",

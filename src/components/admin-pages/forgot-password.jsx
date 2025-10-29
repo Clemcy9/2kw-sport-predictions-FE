@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 // import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import Footer from "../shared/Footer";
 import AdminHeader from "./header";
 
 export default function ForgotPassword () {
@@ -40,8 +39,8 @@ export default function ForgotPassword () {
     return (
         <div>
             <AdminHeader />
-        <div className="min-h-screen flex justify-center items-center bg-white w-full">
-            <div className="l  bg-[#C1CAD8]  shadow-sm px-4 py-4 space-y-10 flex justify-center items-center flex-col md:px-15 md:py-10">
+        <div className=" flex justify-center items-center bg-white w-full">
+            <div className=" bg-[#C1CAD8] shadow-sm px-4 py-4 space-y-10 flex md:w-[36rem] justify-center items-center flex-col md:px-15 md:my-5 md:py-12">
                 <h1
                     className="text-3xl cursor-pointer flex items-center font-bold justify-center font-serif text-[#1A365D] py-5"
                 >
@@ -54,15 +53,15 @@ export default function ForgotPassword () {
                     </motion.span>
                     2KwPredicts
                 </h1>
-                    <h2 className="font-sans text-[#1E1E1E] text-2xl">
+                    <h2 className="font-[sora] font-semibold text-[#1E1E1E] text-2xl">
                     Forgot Password
                 </h2>
-                    <h3 className="font-sans text-[#1E1E1E] text-[20px]"> 
+                    <h3 className="font-[sora] font-normal text-[#1E1E1E] text-[20px]"> 
                     Enter Your Email
                 </h3>
-                <form onClick={handleSubmit} className=" justify-center items-center flex-col flex space-y-8 ">
+                <form onClick={handleSubmit} className=" justify-center items-center flex-col flex space-y-8 w-full">
 
-                    <div className="">
+                    <div className="w-full">
                         <label className="block text-[#1E1E1E] font-sans">Email</label>
                         <input
                             type="email"
@@ -71,17 +70,17 @@ export default function ForgotPassword () {
                             value={email}
                             placeholder="example04@gamail.com"
                             onChange={(e) => setEmail(e.target.value)}
-                            className=" bg-[#F5F2F2] w-full md:min-w-[381px] py-1 px-3 rounded-[0.4rem] focus:ring-[#1A365D] outline-none focus:ring-1 placeholder-[#1A365D]/80" />
+                            className=" bg-[#F5F2F2] w-full py-1 px-3 rounded-[0.4rem] focus:ring-[#1A365D] outline-none focus:ring-1 placeholder-[#1A365D]/80" />
                     </div>
 
                         
-                        <button type="button" onClick={handleSendOTP} className="bg-[#1A365D] text-white w-70 rounded-[0.4rem] py-2 my-6">
+                        <button type="button" onClick={handleSendOTP} className="bg-[#1A365D] text-white md:w-70 w-56 rounded-[0.7rem] py-2 my-6">
                         Send OTP
                     </button>
                 </form>
             </div>    
         </div>
-         <Footer />
+       
         </div>
     )
 }

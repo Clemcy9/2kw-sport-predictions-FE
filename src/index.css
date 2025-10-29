@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inria+Sans:wght@300;400;700&family=Inria+Serif:wght@300;400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
 
 @import "tailwindcss";
 
@@ -8,12 +12,18 @@
     --font-sans: "Inria Sans", sans-serif;
     --font-serif: "Inria Serif", serif;
     --font-pop: "Poppins", sans-serif;
+    --font-family: "Sora", sans-serif;
+    
   }
 
-  html {
+  /* html {
     font-family: var(--font-sans);
-  }
+  } */
 }
+
+/* .font-sora {
+  font-family: 'Sora', sans-serif;
+} */
 
 ::-webkit-scrollbar{
   display: none;
@@ -49,4 +59,19 @@ html, body{
 
 .animate-glow-flash {
   animation: glow-flash 1.3s ease-out forwards;
+}
+
+@layer base {
+
+  /* Chrome, Edge, Safari: remove spinner buttons */
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox & modern browsers: hide native spinner using unprefixed appearance */
+  input[type="number"] {
+    appearance: textfield;
+  }
 }

@@ -22,6 +22,8 @@ import SignIn from "./components/admin-pages/sign-in";
 import SignUp from "./components/admin-pages/sign-Up";
 import DashBoard from "./components/admin-pages/dashboard";
 import ForgotPassword from "./components/admin-pages/forgot-password";
+import SendOtp from "./components/admin-pages/send-otp";
+import SuccessAnimation from "./components/admin-pages/success-otp";
 
 export default function App(){
   const [loading, setLoading] = useState(true);
@@ -51,6 +53,8 @@ export default function App(){
             <Route path="/" element={<LandingPage />} />
             <Route path="sign-in" element={ <SignIn />} />
             <Route path="/forgot-password" element={ <ForgotPassword />} />
+            <Route path="/success-otp" element={ <SuccessAnimation />} />
+            <Route path="/send-otp" element={ <SendOtp />} />
             <Route path="sign-up" element={ <SignUp />} />
             <Route path="/dashboard" element={ <DashBoard/>} />
             <Route path="/details" element={<PredictionDetails />} />
