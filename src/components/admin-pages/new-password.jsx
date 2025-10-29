@@ -4,6 +4,7 @@ import { Eye, EyeOff } from "lucide-react";
 import { motion } from "framer-motion";
 import Footer from "../shared/Footer";
 import AdminHeader from "./header";
+import { useNavigate } from "react-router-dom";
 
 export default function ResetPassword() {
 
@@ -13,6 +14,8 @@ export default function ResetPassword() {
     const [showPassword, setShowassword] = useState(false);
     const [eyePassword, setEyePassword] = useState(false);
     const [confirmPassword, setConfirmPassword] = useState("");
+
+    const navigate = useNavigate()
 
     const handleSendOTP = () => {
         navigate("/success-otp");
