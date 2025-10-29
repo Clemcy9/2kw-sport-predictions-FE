@@ -12,7 +12,7 @@ export default function SendOtp () {
     const navigate = useNavigate();
 
     const handleSendOTP = () => {
-        navigate("/success-otp");
+        navigate("/new-password");
     };
 
     const handleInput = (e, index) => {
