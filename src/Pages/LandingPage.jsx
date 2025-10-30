@@ -40,8 +40,8 @@ export default function LandingPage () {
           <HeroSection />
           <FreeTips />
           <div className="flex justify-end items-end m-1">
-            <div className="fixed border border-[#D6AE3E] bg-[#1A365D] rounded-full h-8 w-8 flex justify-center items-center animate-pulse text-[#D6AE3E] z-50" onClick={moveToTop}>
-              <FiArrowUp className=" font-semibold text-xl" />
+            <div className="fixed border border-[#D6AE3E] hover:scale-95 transition-all bg-[#1A365D] rounded-full h-8 w-8 flex justify-center items-center text-[#D6AE3E] z-50" onClick={moveToTop}>
+              <FiArrowUp className="font-extrabold text-xl" />
             </div>
           </div>
           <div className="px-1 md:px-4 pb-4 md:py-4 pt-2  min-h-screen w-full max-w-full md:overflow-x-hidden">

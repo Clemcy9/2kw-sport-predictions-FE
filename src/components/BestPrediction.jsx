@@ -16,7 +16,7 @@ export default function BestPredictionCard () {
     }
        
     return (
-        <div className="relative  border-none mt-40 min-[440px]:mt-25 min-[450px]:mt-27 max-[332px]:mt-53 max-[300px]:mt-55 max-[241px]:mt-75 md:mt-5 md:h-[300px] h-[250px] min-h-[180px] rounded-[0.6rem] md:mb-0 p-4 bg-[#1a365d] md:max-w-[340px] w-full flex items-center flex-col md:space-y-0 shadow-lg transition-all ">
+        <div className="relative  border-none mt-40 min-[440px]:mt-25 min-[450px]:mt-27 max-[332px]:mt-53 max-[300px]:mt-55 max-[241px]:mt-75 md:mt-5 md:h-[300px] h-[230px] min-h-[180px] rounded-[0.6rem] md:mb-0 p-4 bg-[#1a365d] md:max-w-[340px] w-full flex items-center flex-col md:space-y-0 shadow-lg transition-all ">
             <h2 className="text-center text-lg sm:text-xl font-semibold text-white md:py-2 py-0">
                 Best Prediction of the Day
             </h2>
@@ -31,7 +31,7 @@ export default function BestPredictionCard () {
                         <img
                             src={predictions.homeLogo}
                             alt={predictions.homeTeam}
-                            className="w-10 h-10 rounded-full"
+                            className="md:w-10 md:h-10 w-6 h-6 rounded-full"
                         />
                         <span className="text-sm font-medium">{predictions.homeTeam}</span>
                     </div>

@@ -39,7 +39,7 @@ function LeagueTable({ title, leagues, activeLeague, setActiveLeague, data, isSc
 
             {/*Table Header and leagues*/}
             <div className="flex flex-col pb-3 mb-3 gap-1 shadow-b-sm md:m-6">
-                <h2 className="font-semibold text-2xl text-[#1F2128]">{title}</h2>
+                <h2 className="font-semibold text-2xl font-[Poppins] text-[#1F2128]">{title}</h2>
                 <div className="flex sm:justify-center gap-2 bg-[#E5E7EB]/80 w-full rounded-[0.4rem] p-1">
                     {leagues.map((lg) => (
                         <button
