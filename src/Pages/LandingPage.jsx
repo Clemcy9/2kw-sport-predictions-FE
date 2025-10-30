@@ -40,12 +40,12 @@ export default function LandingPage () {
           <HeroSection />
           <FreeTips />
           <div className="flex justify-end items-end m-1">
-            <div className="fixed border border-[#D6AE3E] rounded-full h-8 w-8 flex justify-center items-center animate-pulse text-[#D6AE3E] z-50" onClick={moveToTop}>
+            <div className="fixed border border-[#D6AE3E] bg-[#1A365D] rounded-full h-8 w-8 flex justify-center items-center animate-pulse text-[#D6AE3E] z-50" onClick={moveToTop}>
               <FiArrowUp className=" font-semibold text-xl" />
             </div>
           </div>
           <div className="px-1 md:px-4 pb-4 md:py-4 pt-2  min-h-screen w-full max-w-full md:overflow-x-hidden">
-              <div className="grid grid-cols-1 xl:grid-cols-[2fr_2fr] gap-2 max-w-full w-full justify-center">
+              <div className="grid grid-cols-1  md:grid-cols-[1fr_2fr] gap-2 max-w-full w-full justify-center">
 
                    <div className="space-y-2 items-center flex flex-col bg-white -z-20">
                       <BestPredictionCard />
@@ -56,7 +56,7 @@ export default function LandingPage () {
                        <ContentNavBar />
                      </div>
 
-                      <div>
+                      <div className="flex justify-center items-center flex-col">
                         <PremierLeagueCard />
                         <LeagueTables />
                         {/* <LaLigaCard />

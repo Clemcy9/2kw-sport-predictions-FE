@@ -1,7 +1,6 @@
 import { Routes, Route, } from "react-router-dom";
 import LandingPage from "./Pages/LandingPage";
 import { useState, useEffect } from "react";
-import NigeriaNPFL from "./components/Predictioncards/Nigeria-npfl";
 import EnglandPremierLeague from "./components/Predictioncards/England-Premier-League";
 import SpainLaLiga from "./components/Predictioncards/Spain-La-Liga";
 import LoadingAnimation from "./components/animations/Loading";
@@ -11,9 +10,7 @@ import ItalySerieA from "./components/Predictioncards/Italy-Serie-A";
 import GermanyBundesliga from "./components/Predictioncards/Germany-Bundesliga";
 import FranceLeague from "./components/Predictioncards/France-Ligue-1";
 import PortugalLiga from "./components/Predictioncards/Portugal-Liga-Portugal";
-import NetherlandsEredivise from "./components/Predictioncards/Netherlands-Eredivisie";
 import BelguimProLeague from "./components/Predictioncards/Belgium-Pro-League";
-import SouthAfricaLeague from "./components/Predictioncards/South-Africa-Premier-Soccer-League";
 import BlogPost from "./Pages/Blog";
 import AdminDashboard from "./Pages/admin";
 import HomeWin from "./components/home-win";
@@ -63,7 +60,6 @@ export default function App(){
             <Route path="/blog" element={ <BlogPost />} />
             <Route path="/admin" element={ <AdminDashboard />} />
             <Route path="/home-win" element={ <HomeWin />} />
-            <Route path="/leagues/nigeria-npfl" element={<NigeriaNPFL/>} />
             <Route path="/leagues/england-premier-league" element={<EnglandPremierLeague />}/>
             <Route path="/leagues/spain-la-liga" element={<SpainLaLiga />} />
             <Route path="/leagues/europe-uefa-champions-league" element ={<EuropeUEFAChampionsLeague />} />
@@ -72,9 +68,7 @@ export default function App(){
             <Route path="/leagues/germany-bundesliga" element={<GermanyBundesliga/>} />
             <Route path="/leagues/france-ligue-1" element={<FranceLeague />} />
             <Route path="/leagues/portugal-liga-portugal" element={<PortugalLiga />} />
-            <Route path="/leagues/netherlands-eredivisie" element={<NetherlandsEredivise />} />
             <Route path="/leagues/belgium-pro-league" element={<BelguimProLeague/> } />
-            <Route path="/leagues/south-africa-premier-soccer-league" element={<SouthAfricaLeague/> } />
           </Routes>
     )}
 

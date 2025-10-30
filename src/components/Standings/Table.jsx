@@ -69,7 +69,7 @@ function LeagueTable({ title, leagues, activeLeague, setActiveLeague, data, isSc
                         <div className="overflow-y-auto max-h-72 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
 
                             <table className="w-full text-sm text-left">
-                                <thead className="text-[#1A365D]/70 sticky top-0 z-50 bg-white shadow-sm">
+                                <thead className="text-[#1A365D]/70 sticky top-0 z-40 bg-white shadow-sm">
                                     <tr>
                                         {isScorers ? (
                                             <>

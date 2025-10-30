@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Eye, EyeOff } from "lucide-react";
 import { motion } from "framer-motion";
-import Footer from "../shared/Footer";
 import AdminHeader from "./header";
 
 export default function SignIn () {
@@ -102,7 +101,6 @@ export default function SignIn () {
                 </form>
             </div>    
         </div>
-         <Footer />
         </div>
     )
 }

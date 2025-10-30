@@ -1,13 +1,5 @@
 export const leagues = [
     {
-        slug: "Nigeria-NPFL",
-        name: "Nigeria NPFL",
-        country: "Nigeria",
-        logo: "/NPFL.jpg",
-        heroImage: "/images/npfl-hero.jpg",
-        component: "NigeriaNPFLCard",
-    },
-    {
         slug: "England-premier-league",
         name: "England Premier League",
         country: "England",
@@ -72,27 +64,11 @@ export const leagues = [
         component: "LigaPortugalCard",
     },
     {
-        slug: "Netherlands-eredivisie",
-        name: "Netherlands Eredivisie",
-        country: "Netherlands",
-        logo: "/netherlands.png",
-        heroImage: "/eredivisie-hero.jpg",
-        component: "EredivisieCard",
-    },
-    {
         slug: "Belgium-pro-league",
         name: "Belgium Pro League",
         country: "Belgium",
         logo: "/belguim-pro.png",
         heroImage: "/belgium-hero.jpg",
         component: "ProLeagueCard",
-    },
-    {
-        slug: "South-africa-premier-soccer-league",
-        name: "South Africa Premier",
-        country: "South Africa",
-        logo: "/south-africa.png",
-        heroImage: "/south-africa-hero.jpg",
-        component: "SouthAfricaCard",
     },
 ];

@@ -16,7 +16,7 @@ export default function BestPredictionCard () {
     }
        
     return (
-        <div className="relative  border-none mt-40 min-[440px]:mt-25 min-[450px]:mt-27 max-[332px]:mt-53 max-[300px]:mt-55 max-[241px]:mt-75 md:mt-5 md:h-[320px] h-[260px] min-h-[180px] rounded-[0.6rem] md:mb-0 p-4 bg-[#1a365d] md:max-w-[340px] w-full flex items-center flex-col md:space-y-2 shadow-lg transition-all ">
+        <div className="relative  border-none mt-40 min-[440px]:mt-25 min-[450px]:mt-27 max-[332px]:mt-53 max-[300px]:mt-55 max-[241px]:mt-75 md:mt-5 md:h-[300px] h-[250px] min-h-[180px] rounded-[0.6rem] md:mb-0 p-4 bg-[#1a365d] md:max-w-[340px] w-full flex items-center flex-col md:space-y-0 shadow-lg transition-all ">
             <h2 className="text-center text-lg sm:text-xl font-semibold text-white md:py-2 py-0">
                 Best Prediction of the Day
             </h2>
@@ -66,17 +66,16 @@ export default function BestPredictionCard () {
             </motion.div>
 
                 <div className="border-1 border-b-0 border-x-0 border-t-white/20 w-full flex items-center justify-center flex-col">
-                    {/* <h3 className="text-white font-semibold my-1 md:p-2 p-0 text-sm text-center">Match Odds</h3> */}
-                    <div className="flex justify-center items-center text-sm space-y-2 text-white/80 w-full gap-2 sm:gap-3 mt-2">
-                        <div className="flex justify-center items-center  sm:px-4">
+                    <div className="flex justify-between items-center text-sm space-y-1 text-white/80 w-full gap-2 sm:gap-2 mt-2">
+                        <div className="flex justify-center items-center  sm:px-2">
                             <p className="px-1">Home</p>
                             <p className="font-bold text-white rounded-[0.6rem] bg-[#D6AE3E] px-3 py-2">{predictions.odds.home}</p>
                         </div>
-                        <div className="flex justify-center items-center sm:px-4">
+                        <div className="flex justify-center items-center sm:px-2">
                             <p className="px-1">Draw</p>
                             <p className="font-bold text-white rounded-[0.6rem] bg-[#D6AE3E] px-3 py-2">{predictions.odds.draw}</p>
                         </div>
-                        <div className="flex justify-center items-center pb-2.5 sm:px-4">
+                        <div className="flex justify-center items-center pb-2.5 sm:px-2">
                             <p className="px-1">Away</p>
                             <p className="font-bold text-white rounded-[0.6rem] bg-[#D6AE3E] px-3 py-2 ">{predictions.odds.away}</p>
                         </div>

@@ -26,7 +26,7 @@ export default function PremierLeagueCard () {
     }
        
     return (
-        <div className="border-none md:p-4 my-2 flex justify-center items-center flex-col text-white space-y-4 md:space-y-2">
+        <div className="w-full border-none md:p-4 my-2 flex justify-center items-center flex-col text-white space-y-4 md:space-y-2">
             
                 <div className="bg-[#1A365D] w-full flex justify-between items-center p-2 rounded-[0.6rem] hover:shadow-lg transition-all">
                     <h2 className="font-sans font-semibold">
@@ -42,26 +42,27 @@ export default function PremierLeagueCard () {
                </div>
                {open && (
             <motion.div
-                className="md:grid lg:flex min-w-full w-full text-white space-y-0 md:space-y-0 flex md:flex-row flex-col justify-center gap-5 items-center"
+                className="md:grid lg:flex min-w-full w-full text-white space-y-0 md:space-y-0 flex flex-col justify-center gap-2 items-center"
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, ease: "easeOut" }}
             >
-             <div className="hover:shadow-lg transition-all mt-1 border border-[#D6AE3E] flex justify-between items-center w-ful flex-col md:flex-row md:p-0 rounded-[0.6rem] max-w-full lg:max-w-fit">
-
-                <div className="text-[#1A365D] flex justify-between items-center flex-col md:flex-row w-full space-y-2">
-                    <div className="flex py-1 md:px-2">
-                        <span className="font-sans font-semibold text-[#1A365D]">13:28</span>
-                    </div>
-                       <div className="flex justify-center md:flex-col items-start min-w-[130px] space-x-10 px-1 gap-18 md:gap-0 md:space-x-0 space-y-2 md:p-0 w-full">
+               <div className="hover:shadow-lg transition-all mt-1 border border-[#D6AE3E] flex justify-between items-center w-full flex-col md:flex-row md:p-0 rounded-[0.6rem] p-2">
+                  <div className="text-[#1A365D] flex justify-between items-center flex-col md:flex-row w-full space-y-2">
+                            <div className="flex  md:px-2 md:mx-3">
+                                <span className="font-sans font-normal text-sm text-[#1A365D]">13:28</span>
+                            </div>
+                       <div className="flex justify-between md:justify-center md:flex-col items-start min-w-[130px] space-x-10 px-1 md:gap-0 md:space-x-0  space-y-2 md:p-0 w-full">
                             <div className="flex justify-center items-center space-y-1">
                                 <img
                                     src={predictions.homeLogo}
                                     // alt={predictions.homeTeam}
                                     className="md:w-10 md:h-10 w-6 h-6 rounded-full"
                                 />
-                                <span className="font-sans text-sm font-medium">{predictions.homeTeam}</span>
+                                <span className="font-sans text-sm font-normal">{predictions.homeTeam}</span>
                             </div>
+
+                            
 
                             <div className="flex justify-center items-center">
                                 <img
@@ -69,74 +70,76 @@ export default function PremierLeagueCard () {
                                     // alt={predictions.awayTeam}
                                     className="md:w-10 md:h-10 w-6 h-6 rounded-full"
                                 />
-                                <p className="text-sm font-sans font-medium">{predictions.awayTeam}</p>
+                                <p className="text-sm font-sans font-normal">{predictions.awayTeam}</p>
                             </div>
                        </div>
                    </div>
 
                  {/* Odds Section */}
 
-                    <div className="flex justify-center items-center text-sm space-y-1 text-[#1A365D] gap-10 md:gap-4 md:p-4">
-                        <div className="flex justify-center items-center flex-col w-full space-y-3 md:space-y-6">
-                                <p className="px-3 font-semibold font-sans text-[#D6AE3E]">Odds</p>
-                            <p className="font-bold text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-3 py-2 w-16">{predictions.odd.Odds}</p>
+                    <div className="flex justify-between md:justify-end md:items-start items-start min-w-[130px]  space-x-10 px-1 md:gap-4 md:space-x-0 md:p-4 w-full">
+                        <div className="flex justify-center items-center flex-col space-y-1 md:space-y-3">
+                                <p className="px-3 font-bold font-sans text-[#D6AE3E]">Odds</p>
+                                <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-1 text-[15px] py-1 min-w-[50px]  w-16 text-center">{predictions.odd.Odds}</p>
                         </div>
-                        <div className="flex justify-center items-center flex-col space-y-3 md:space-y-6">
-                                <p className="px-3 font-semibold font-sans text-[#D6AE3E]">Tips</p>
-                                <p className="font-bold text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-1 text-[11px] py-2 min-w-[50px]  w-16 text-center">{predictions.odd.Tips}</p>
+                        <div className="flex justify-center items-center flex-col space-y-1 md:space-y-3">
+                                <p className="px-3 font-bold font-sans text-[#D6AE3E]">Tips</p>
+                                <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-1 text-[15px] py-1 min-w-[50px]  w-16 text-center">{predictions.odd.Tips}</p>
                         </div>
-                        <div className="flex justify-center items-center pb-2.5 flex-col space-y-3 md:space-y-6">
-                                <p className="px-3 font-semibold font-sans text-[#D6AE3E]">Prop%</p>
-                                <p className="font-bold text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-3 py-2   w-16">{predictions.odd.Prop}</p>
+                        <div className="flex justify-center items-center flex-col space-y-1 md:space-y-3">
+                                <p className="px-3 font-bold font-sans text-[#D6AE3E]">Prop%</p>
+                                <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-1 text-[15px] py-1 min-w-[50px]  w-16 text-center">{predictions.odd.Prop}</p>
                         </div>
                     </div>
-             </div>
+              </div>
 
              {/* second row */}
-            <div className="hover:shadow-lg transition-all border border-[#D6AE3E] flex justify-between items-center w-ful flex-col md:flex-row md:p-0 rounded-[0.6rem]">
 
-                <div className="text-[#1A365D] flex justify-between items-center flex-col md:flex-row w-full space-y-5">
-                    <div className="flex py-1 md:px-2">
-                        <span className="font-sans font-semibold text-[#1A365D]">13:28</span>
-                    </div>
-                       <div className="flex justify-center md:flex-col items-start min-w-[130px] space-x-10 gap-18  px-1 md:gap-0 md:space-x-0 md:space-y-6 space-y-2 md:p-0 w-full">
-                            <div className="flex justify-center items-center space-y-1">
-                                <img
-                                    src={predictions.homeLogo}
-                                    // alt={predictions.homeTeam}
-                                    className="md:w-10 md:h-10 w-6 h-6 rounded-full"
-                                />
-                                <span className="font-sans text-sm font-medium">{predictions.homeTeam}</span>
+                    <div className="hover:shadow-lg transition-all border border-[#D6AE3E] flex justify-between items-center w-full flex-col md:flex-row md:p-0 rounded-[0.6rem] p-2">
+                        <div className="text-[#1A365D] flex justify-between items-center flex-col md:flex-row w-full space-y-2">
+                            <div className="flex  md:px-2 md:mx-3">
+                                <span className="font-sans font-normal text-sm text-[#1A365D]">13:28</span>
                             </div>
+                            <div className="flex justify-between md:justify-center md:flex-col items-start min-w-[130px] space-x-10 px-1 md:gap-0 md:space-x-0  space-y-2 md:p-0 w-full">
+                                <div className="flex justify-center items-center space-y-1">
+                                    <img
+                                        src={predictions.homeLogo}
+                                        // alt={predictions.homeTeam}
+                                        className="md:w-10 md:h-10 w-6 h-6 rounded-full"
+                                    />
+                                    <span className="font-sans text-sm font-normal">{predictions.homeTeam}</span>
+                                </div>
 
-                            <div className="flex justify-center items-center">
-                                <img
-                                    src={predictions.awayLogo}
-                                    // alt={predictions.awayTeam}
-                                    className="md:w-10 md:h-10 w-6 h-6 rounded-full"
-                                />
-                                <p className="text-sm font-sans font-medium">{predictions.awayTeam}</p>
+
+
+                                <div className="flex justify-center items-center">
+                                    <img
+                                        src={predictions.awayLogo}
+                                        // alt={predictions.awayTeam}
+                                        className="md:w-10 md:h-10 w-6 h-6 rounded-full"
+                                    />
+                                    <p className="text-sm font-sans font-normal">{predictions.awayTeam}</p>
+                                </div>
                             </div>
-                       </div>
-                   </div>
-
-                 {/* Odds Section */}
-
-                    <div className="flex justify-center items-center text-sm space-y-1 text-[#1A365D] gap-10 md:gap-4 md:p-4">
-                        <div className="flex justify-center items-center flex-col w-full space-y-3 md:space-y-6">
-                                <p className="px-3 font-semibold font-sans text-[#D6AE3E]">Odds</p>
-                                <p className="font-bold text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-3 py-2  w-16">{predictions.odd.Odds}</p>
                         </div>
-                        <div className="flex justify-center items-center flex-col space-y-3 md:space-y-6">
-                                <p className="px-3 font-semibold font-sans text-[#D6AE3E]">Tips</p>
-                                <p className="font-bold text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-1 text-[11px] py-2 min-w-[50px]  w-16 text-center">{predictions.odd.Tips}</p>
-                        </div>
-                        <div className="flex justify-center items-center pb-2.5 flex-col space-y-3 md:space-y-6">
-                                <p className="px-3 font-semibold font-sans text-[#D6AE3E]">Prop%</p>
-                                <p className="font-bold text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-3 py-2  w-16">{predictions.odd.Prop}</p>
+
+                        {/* Odds Section */}
+
+                        <div className="flex justify-between md:justify-end md:items-start items-start min-w-[130px]  space-x-10 px-1 md:gap-4 md:space-x-0 md:p-4 w-full">
+                            <div className="flex justify-center items-center flex-col space-y-1 md:space-y-3">
+                                <p className="px-3 font-bold font-sans text-[#D6AE3E]">Odds</p>
+                                <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-1 text-[15px] py-1 min-w-[50px]  w-16 text-center">{predictions.odd.Odds}</p>
+                            </div>
+                            <div className="flex justify-center items-center flex-col space-y-1 md:space-y-3">
+                                <p className="px-3 font-bold font-sans text-[#D6AE3E]">Tips</p>
+                                <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-1 text-[15px] py-1 min-w-[50px]  w-16 text-center">{predictions.odd.Tips}</p>
+                            </div>
+                            <div className="flex justify-center items-center flex-col space-y-1 md:space-y-3">
+                                <p className="px-3 font-bold font-sans text-[#D6AE3E]">Prop%</p>
+                                <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-1 text-[15px] py-1 min-w-[50px]  w-16 text-center">{predictions.odd.Prop}</p>
+                            </div>
                         </div>
                     </div>
-            </div>
             </motion.div>
             )}
                 <div className="bg-[#1A365D] w-full flex justify-between items-center p-2 rounded-[0.6rem] hover:shadow-lg transition-all">
@@ -153,101 +156,104 @@ export default function PremierLeagueCard () {
                </div>
                {show && (
             <motion.div
-                className="md:grid lg:flex min-w-full w-full text-white space-y-0 md:space-y-0 flex md:flex-row flex-col justify-center gap-5 items-center"
+                className="md:grid lg:flex min-w-full w-full text-white space-y-0 md:space-y-0 flex flex-col justify-center gap-2 items-center"
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, ease: "easeOut" }}
             >
-             <div className="hover:shadow-lg transition-all mt-1 border border-[#D6AE3E] flex justify-between items-center w-ful flex-col md:flex-row md:p-0 rounded-[0.6rem] max-w-full lg:max-w-fit">
-
-                <div className="text-[#1A365D] flex justify-between items-center flex-col md:flex-row w-full space-y-2">
-                    <div className="flex py-1 md:px-2">
-                        <span className="font-sans font-semibold text-[#1A365D]">13:28</span>
-                    </div>
-                       <div className="flex justify-center md:flex-col items-start min-w-[130px] space-x-10 px-1 gap-18 md:gap-0 md:space-x-0 space-y-2 md:p-0 w-full">
-                            <div className="flex justify-center items-center space-y-1">
-                                <img
-                                    src={predictions.homeLogo}
-                                    // alt={predictions.homeTeam}
-                                    className="md:w-10 md:h-10 w-6 h-6 rounded-full"
-                                />
-                                <span className="font-sans text-sm font-medium">{predictions.homeTeam}</span>
+                    <div className="hover:shadow-lg transition-all mt-1 border border-[#D6AE3E] flex justify-between items-center w-full flex-col md:flex-row md:p-0 rounded-[0.6rem] p-2">
+                        <div className="text-[#1A365D] flex justify-between items-center flex-col md:flex-row w-full space-y-2">
+                            <div className="flex  md:px-2 md:mx-3">
+                                <span className="font-sans font-normal text-sm text-[#1A365D]">13:28</span>
                             </div>
+                            <div className="flex justify-between md:justify-center md:flex-col items-start min-w-[130px] space-x-10 px-1 md:gap-0 md:space-x-0  space-y-2 md:p-0 w-full">
+                                <div className="flex justify-center items-center space-y-1">
+                                    <img
+                                        src={predictions.homeLogo}
+                                        // alt={predictions.homeTeam}
+                                        className="md:w-10 md:h-10 w-6 h-6 rounded-full"
+                                    />
+                                    <span className="font-sans text-sm font-normal">{predictions.homeTeam}</span>
+                                </div>
 
-                            <div className="flex justify-center items-center">
-                                <img
-                                    src={predictions.awayLogo}
-                                    // alt={predictions.awayTeam}
-                                    className="md:w-10 md:h-10 w-6 h-6 rounded-full"
-                                />
-                                <p className="text-sm font-sans font-medium">{predictions.awayTeam}</p>
+
+
+                                <div className="flex justify-center items-center">
+                                    <img
+                                        src={predictions.awayLogo}
+                                        // alt={predictions.awayTeam}
+                                        className="md:w-10 md:h-10 w-6 h-6 rounded-full"
+                                    />
+                                    <p className="text-sm font-sans font-normal">{predictions.awayTeam}</p>
+                                </div>
                             </div>
-                       </div>
-                   </div>
-
-                 {/* Odds Section */}
-
-                    <div className="flex justify-center items-center text-sm space-y-1 text-[#1A365D] gap-10 md:gap-4 md:p-4">
-                        <div className="flex justify-center items-center flex-col w-full space-y-3 md:space-y-6">
-                                <p className="px-3 font-semibold font-sans text-[#D6AE3E]">Odds</p>
-                            <p className="font-bold text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-3 py-2 w-16">{predictions.odd.Odds}</p>
                         </div>
-                        <div className="flex justify-center items-center flex-col space-y-3 md:space-y-6">
-                                <p className="px-3 font-semibold font-sans text-[#D6AE3E]">Tips</p>
-                                <p className="font-bold text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-1 text-[11px] py-2 min-w-[50px]  w-16 text-center">{predictions.odd.Tips}</p>
-                        </div>
-                        <div className="flex justify-center items-center pb-2.5 flex-col space-y-3 md:space-y-6">
-                                <p className="px-3 font-semibold font-sans text-[#D6AE3E]">Prop%</p>
-                                <p className="font-bold text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-3 py-2   w-16">{predictions.odd.Prop}</p>
+
+                        {/* Odds Section */}
+
+                        <div className="flex justify-between md:justify-end md:items-start items-start min-w-[130px]  space-x-10 px-1 md:gap-4 md:space-x-0 md:p-4 w-full">
+                            <div className="flex justify-center items-center flex-col space-y-1 md:space-y-3">
+                                <p className="px-3 font-bold font-sans text-[#D6AE3E]">Odds</p>
+                                <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-1 text-[15px] py-1 min-w-[50px]  w-16 text-center">{predictions.odd.Odds}</p>
+                            </div>
+                            <div className="flex justify-center items-center flex-col space-y-1 md:space-y-3">
+                                <p className="px-3 font-bold font-sans text-[#D6AE3E]">Tips</p>
+                                <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-1 text-[15px] py-1 min-w-[50px]  w-16 text-center">{predictions.odd.Tips}</p>
+                            </div>
+                            <div className="flex justify-center items-center flex-col space-y-1 md:space-y-3">
+                                <p className="px-3 font-bold font-sans text-[#D6AE3E]">Prop%</p>
+                                <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-1 text-[15px] py-1 min-w-[50px]  w-16 text-center">{predictions.odd.Prop}</p>
+                            </div>
                         </div>
                     </div>
-             </div>
 
              {/* second row */}
-            <div className="hover:shadow-lg transition-all border border-[#D6AE3E] flex justify-between items-center w-ful flex-col md:flex-row md:p-0 rounded-[0.6rem]">
 
-                <div className="text-[#1A365D] flex justify-between items-center flex-col md:flex-row w-full space-y-5">
-                    <div className="flex py-1 md:px-2">
-                        <span className="font-sans font-semibold text-[#1A365D]">13:28</span>
-                    </div>
-                       <div className="flex justify-center md:flex-col items-start min-w-[130px] space-x-10 gap-18  px-1 md:gap-0 md:space-x-0 md:space-y-6 space-y-2 md:p-0 w-full">
-                            <div className="flex justify-center items-center space-y-1">
-                                <img
-                                    src={predictions.homeLogo}
-                                    // alt={predictions.homeTeam}
-                                    className="md:w-10 md:h-10 w-6 h-6 rounded-full"
-                                />
-                                <span className="font-sans text-sm font-medium">{predictions.homeTeam}</span>
+                    <div className="hover:shadow-lg transition-all border border-[#D6AE3E] flex justify-between items-center w-full flex-col md:flex-row md:p-0 rounded-[0.6rem] p-2">
+                        <div className="text-[#1A365D] flex justify-between items-center flex-col md:flex-row w-full space-y-2">
+                            <div className="flex  md:px-2 md:mx-3">
+                                <span className="font-sans font-normal text-sm text-[#1A365D]">13:28</span>
                             </div>
+                            <div className="flex justify-between md:justify-center md:flex-col items-start min-w-[130px] space-x-10 px-1 md:gap-0 md:space-x-0  space-y-2 md:p-0 w-full">
+                                <div className="flex justify-center items-center space-y-1">
+                                    <img
+                                        src={predictions.homeLogo}
+                                        // alt={predictions.homeTeam}
+                                        className="md:w-10 md:h-10 w-6 h-6 rounded-full"
+                                    />
+                                    <span className="font-sans text-sm font-normal">{predictions.homeTeam}</span>
+                                </div>
 
-                            <div className="flex justify-center items-center">
-                                <img
-                                    src={predictions.awayLogo}
-                                    // alt={predictions.awayTeam}
-                                    className="md:w-10 md:h-10 w-6 h-6 rounded-full"
-                                />
-                                <p className="text-sm font-sans font-medium">{predictions.awayTeam}</p>
+
+
+                                <div className="flex justify-center items-center">
+                                    <img
+                                        src={predictions.awayLogo}
+                                        // alt={predictions.awayTeam}
+                                        className="md:w-10 md:h-10 w-6 h-6 rounded-full"
+                                    />
+                                    <p className="text-sm font-sans font-normal">{predictions.awayTeam}</p>
+                                </div>
                             </div>
-                       </div>
-                   </div>
-
-                 {/* Odds Section */}
-
-                    <div className="flex justify-center items-center text-sm space-y-1 text-[#1A365D] gap-10 md:gap-4 md:p-4">
-                        <div className="flex justify-center items-center flex-col w-full space-y-3 md:space-y-6">
-                                <p className="px-3 font-semibold font-sans text-[#D6AE3E]">Odds</p>
-                                <p className="font-bold text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-3 py-2  w-16">{predictions.odd.Odds}</p>
                         </div>
-                        <div className="flex justify-center items-center flex-col space-y-3 md:space-y-6">
-                                <p className="px-3 font-semibold font-sans text-[#D6AE3E]">Tips</p>
-                                <p className="font-bold text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-1 text-[11px] py-2 min-w-[50px]  w-16 text-center">{predictions.odd.Tips}</p>
-                        </div>
-                        <div className="flex justify-center items-center pb-2.5 flex-col space-y-3 md:space-y-6">
-                                <p className="px-3 font-semibold font-sans text-[#D6AE3E]">Prop%</p>
-                                <p className="font-bold text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-3 py-2  w-16">{predictions.odd.Prop}</p>
+
+                        {/* Odds Section */}
+
+                        <div className="flex justify-between md:justify-end md:items-start items-start min-w-[130px]  space-x-10 px-1 md:gap-4 md:space-x-0 md:p-4 w-full">
+                            <div className="flex justify-center items-center flex-col space-y-1 md:space-y-3">
+                                <p className="px-3 font-bold font-sans text-[#D6AE3E]">Odds</p>
+                                <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-1 text-[15px] py-1 min-w-[50px]  w-16 text-center">{predictions.odd.Odds}</p>
+                            </div>
+                            <div className="flex justify-center items-center flex-col space-y-1 md:space-y-3">
+                                <p className="px-3 font-bold font-sans text-[#D6AE3E]">Tips</p>
+                                <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-1 text-[15px] py-1 min-w-[50px]  w-16 text-center">{predictions.odd.Tips}</p>
+                            </div>
+                            <div className="flex justify-center items-center flex-col space-y-1 md:space-y-3">
+                                <p className="px-3 font-bold font-sans text-[#D6AE3E]">Prop%</p>
+                                <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-1 text-[15px] py-1 min-w-[50px]  w-16 text-center">{predictions.odd.Prop}</p>
+                            </div>
                         </div>
                     </div>
-            </div>
             </motion.div>
             )}
                 <div className="bg-[#1A365D] w-full flex justify-between items-center p-2 rounded-[0.6rem] hover:shadow-lg transition-all">
@@ -264,101 +270,104 @@ export default function PremierLeagueCard () {
                </div>
                {drop && (
             <motion.div
-                className="md:grid lg:flex min-w-full w-full text-white space-y-0 md:space-y-0 flex md:flex-row flex-col justify-center gap-5 items-center"
+                className="md:grid lg:flex min-w-full w-full text-white space-y-0 md:space-y-0 flex flex-col justify-center gap-2 items-center"
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, ease: "easeOut" }}
             >
-             <div className="hover:shadow-lg transition-all mt-1 border border-[#D6AE3E] flex justify-between items-center w-ful flex-col md:flex-row md:p-0 rounded-[0.6rem] max-w-full lg:max-w-fit">
-
-                <div className="text-[#1A365D] flex justify-between items-center flex-col md:flex-row w-full space-y-2">
-                    <div className="flex py-1 md:px-2">
-                        <span className="font-sans font-semibold text-[#1A365D]">13:28</span>
-                    </div>
-                       <div className="flex justify-center md:flex-col items-start min-w-[130px] space-x-10 px-1 gap-18 md:gap-0 md:space-x-0 space-y-2 md:p-0 w-full">
-                            <div className="flex justify-center items-center space-y-1">
-                                <img
-                                    src={predictions.homeLogo}
-                                    // alt={predictions.homeTeam}
-                                    className="md:w-10 md:h-10 w-6 h-6 rounded-full"
-                                />
-                                <span className="font-sans text-sm font-medium">{predictions.homeTeam}</span>
+                    <div className="hover:shadow-lg transition-all mt-1 border border-[#D6AE3E] flex justify-between items-center w-full flex-col md:flex-row md:p-0 rounded-[0.6rem] p-2">
+                        <div className="text-[#1A365D] flex justify-between items-center flex-col md:flex-row w-full space-y-2">
+                            <div className="flex  md:px-2 md:mx-3">
+                                <span className="font-sans font-normal text-sm text-[#1A365D]">13:28</span>
                             </div>
+                            <div className="flex justify-between md:justify-center md:flex-col items-start min-w-[130px] space-x-10 px-1 md:gap-0 md:space-x-0  space-y-2 md:p-0 w-full">
+                                <div className="flex justify-center items-center space-y-1">
+                                    <img
+                                        src={predictions.homeLogo}
+                                        // alt={predictions.homeTeam}
+                                        className="md:w-10 md:h-10 w-6 h-6 rounded-full"
+                                    />
+                                    <span className="font-sans text-sm font-normal">{predictions.homeTeam}</span>
+                                </div>
 
-                            <div className="flex justify-center items-center">
-                                <img
-                                    src={predictions.awayLogo}
-                                    // alt={predictions.awayTeam}
-                                    className="md:w-10 md:h-10 w-6 h-6 rounded-full"
-                                />
-                                <p className="text-sm font-sans font-medium">{predictions.awayTeam}</p>
+
+
+                                <div className="flex justify-center items-center">
+                                    <img
+                                        src={predictions.awayLogo}
+                                        // alt={predictions.awayTeam}
+                                        className="md:w-10 md:h-10 w-6 h-6 rounded-full"
+                                    />
+                                    <p className="text-sm font-sans font-normal">{predictions.awayTeam}</p>
+                                </div>
                             </div>
-                       </div>
-                   </div>
-
-                 {/* Odds Section */}
-
-                    <div className="flex justify-center items-center text-sm space-y-1 text-[#1A365D] gap-10 md:gap-4 md:p-4">
-                        <div className="flex justify-center items-center flex-col w-full space-y-3 md:space-y-6">
-                                <p className="px-3 font-semibold font-sans text-[#D6AE3E]">Odds</p>
-                            <p className="font-bold text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-3 py-2 w-16">{predictions.odd.Odds}</p>
                         </div>
-                        <div className="flex justify-center items-center flex-col space-y-3 md:space-y-6">
-                                <p className="px-3 font-semibold font-sans text-[#D6AE3E]">Tips</p>
-                                <p className="font-bold text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-1 text-[11px] py-2 min-w-[50px]  w-16 text-center">{predictions.odd.Tips}</p>
-                        </div>
-                        <div className="flex justify-center items-center pb-2.5 flex-col space-y-3 md:space-y-6">
-                                <p className="px-3 font-semibold font-sans text-[#D6AE3E]">Prop%</p>
-                                <p className="font-bold text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-3 py-2   w-16">{predictions.odd.Prop}</p>
+
+                        {/* Odds Section */}
+
+                        <div className="flex justify-between md:justify-end md:items-start items-start min-w-[130px]  space-x-10 px-1 md:gap-4 md:space-x-0 md:p-4 w-full">
+                            <div className="flex justify-center items-center flex-col space-y-1 md:space-y-3">
+                                <p className="px-3 font-bold font-sans text-[#D6AE3E]">Odds</p>
+                                <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-1 text-[15px] py-1 min-w-[50px]  w-16 text-center">{predictions.odd.Odds}</p>
+                            </div>
+                            <div className="flex justify-center items-center flex-col space-y-1 md:space-y-3">
+                                <p className="px-3 font-bold font-sans text-[#D6AE3E]">Tips</p>
+                                <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-1 text-[15px] py-1 min-w-[50px]  w-16 text-center">{predictions.odd.Tips}</p>
+                            </div>
+                            <div className="flex justify-center items-center flex-col space-y-1 md:space-y-3">
+                                <p className="px-3 font-bold font-sans text-[#D6AE3E]">Prop%</p>
+                                <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-1 text-[15px] py-1 min-w-[50px]  w-16 text-center">{predictions.odd.Prop}</p>
+                            </div>
                         </div>
                     </div>
-             </div>
 
              {/* second row */}
-            <div className="hover:shadow-lg transition-all border border-[#D6AE3E] flex justify-between items-center w-ful flex-col md:flex-row md:p-0 rounded-[0.6rem]">
 
-                <div className="text-[#1A365D] flex justify-between items-center flex-col md:flex-row w-full space-y-5">
-                    <div className="flex py-1 md:px-2">
-                        <span className="font-sans font-semibold text-[#1A365D]">13:28</span>
-                    </div>
-                       <div className="flex justify-center md:flex-col items-start min-w-[130px] space-x-10 gap-18  px-1 md:gap-0 md:space-x-0 md:space-y-6 space-y-2 md:p-0 w-full">
-                            <div className="flex justify-center items-center space-y-1">
-                                <img
-                                    src={predictions.homeLogo}
-                                    // alt={predictions.homeTeam}
-                                    className="md:w-10 md:h-10 w-6 h-6 rounded-full"
-                                />
-                                <span className="font-sans text-sm font-medium">{predictions.homeTeam}</span>
+                    <div className="hover:shadow-lg transition-all border border-[#D6AE3E] flex justify-between items-center w-full flex-col md:flex-row md:p-0 rounded-[0.6rem] p-2">
+                        <div className="text-[#1A365D] flex justify-between items-center flex-col md:flex-row w-full space-y-2">
+                            <div className="flex  md:px-2 md:mx-3">
+                                <span className="font-sans font-normal text-sm text-[#1A365D]">13:28</span>
                             </div>
+                            <div className="flex justify-between md:justify-center md:flex-col items-start min-w-[130px] space-x-10 px-1 md:gap-0 md:space-x-0  space-y-2 md:p-0 w-full">
+                                <div className="flex justify-center items-center space-y-1">
+                                    <img
+                                        src={predictions.homeLogo}
+                                        // alt={predictions.homeTeam}
+                                        className="md:w-10 md:h-10 w-6 h-6 rounded-full"
+                                    />
+                                    <span className="font-sans text-sm font-normal">{predictions.homeTeam}</span>
+                                </div>
 
-                            <div className="flex justify-center items-center">
-                                <img
-                                    src={predictions.awayLogo}
-                                    // alt={predictions.awayTeam}
-                                    className="md:w-10 md:h-10 w-6 h-6 rounded-full"
-                                />
-                                <p className="text-sm font-sans font-medium">{predictions.awayTeam}</p>
+
+
+                                <div className="flex justify-center items-center">
+                                    <img
+                                        src={predictions.awayLogo}
+                                        // alt={predictions.awayTeam}
+                                        className="md:w-10 md:h-10 w-6 h-6 rounded-full"
+                                    />
+                                    <p className="text-sm font-sans font-normal">{predictions.awayTeam}</p>
+                                </div>
                             </div>
-                       </div>
-                   </div>
-
-                 {/* Odds Section */}
-
-                    <div className="flex justify-center items-center text-sm space-y-1 text-[#1A365D] gap-10 md:gap-4 md:p-4">
-                        <div className="flex justify-center items-center flex-col w-full space-y-3 md:space-y-6">
-                                <p className="px-3 font-semibold font-sans text-[#D6AE3E]">Odds</p>
-                                <p className="font-bold text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-3 py-2  w-16">{predictions.odd.Odds}</p>
                         </div>
-                        <div className="flex justify-center items-center flex-col space-y-3 md:space-y-6">
-                                <p className="px-3 font-semibold font-sans text-[#D6AE3E]">Tips</p>
-                                <p className="font-bold text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-1 text-[11px] py-2 min-w-[50px]  w-16 text-center">{predictions.odd.Tips}</p>
-                        </div>
-                        <div className="flex justify-center items-center pb-2.5 flex-col space-y-3 md:space-y-6">
-                                <p className="px-3 font-semibold font-sans text-[#D6AE3E]">Prop%</p>
-                                <p className="font-bold text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-3 py-2  w-16">{predictions.odd.Prop}</p>
+
+                        {/* Odds Section */}
+
+                        <div className="flex justify-between md:justify-end md:items-start items-start min-w-[130px]  space-x-10 px-1 md:gap-4 md:space-x-0 md:p-4 w-full">
+                            <div className="flex justify-center items-center flex-col space-y-1 md:space-y-3">
+                                <p className="px-3 font-bold font-sans text-[#D6AE3E]">Odds</p>
+                                <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-1 text-[15px] py-1 min-w-[50px]  w-16 text-center">{predictions.odd.Odds}</p>
+                            </div>
+                            <div className="flex justify-center items-center flex-col space-y-1 md:space-y-3">
+                                <p className="px-3 font-bold font-sans text-[#D6AE3E]">Tips</p>
+                                <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-1 text-[15px] py-1 min-w-[50px]  w-16 text-center">{predictions.odd.Tips}</p>
+                            </div>
+                            <div className="flex justify-center items-center flex-col space-y-1 md:space-y-3">
+                                <p className="px-3 font-bold font-sans text-[#D6AE3E]">Prop%</p>
+                                <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-1 text-[15px] py-1 min-w-[50px]  w-16 text-center">{predictions.odd.Prop}</p>
+                            </div>
                         </div>
                     </div>
-            </div>
             </motion.div>
             )}
                 <div className="bg-[#1A365D] w-full flex justify-between items-center p-2 rounded-[0.6rem] hover:shadow-lg transition-all">
@@ -375,101 +384,104 @@ export default function PremierLeagueCard () {
                </div>
                {flow && (
             <motion.div
-                className="md:grid lg:flex min-w-full w-full text-white space-y-0 md:space-y-0 flex md:flex-row flex-col justify-center gap-5 items-center"
+                className="md:grid lg:flex min-w-full w-full text-white space-y-0 md:space-y-0 flex flex-col justify-center gap-2 items-center"
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, ease: "easeOut" }}
             >
-             <div className="hover:shadow-lg transition-all mt-1 border border-[#D6AE3E] flex justify-between items-center w-ful flex-col md:flex-row md:p-0 rounded-[0.6rem] max-w-full lg:max-w-fit">
-
-                <div className="text-[#1A365D] flex justify-between items-center flex-col md:flex-row w-full space-y-2">
-                    <div className="flex py-1 md:px-2">
-                        <span className="font-sans font-semibold text-[#1A365D]">13:28</span>
-                    </div>
-                       <div className="flex justify-center md:flex-col items-start min-w-[130px] space-x-10 px-1 gap-18 md:gap-0 md:space-x-0 space-y-2 md:p-0 w-full">
-                            <div className="flex justify-center items-center space-y-1">
-                                <img
-                                    src={predictions.homeLogo}
-                                    // alt={predictions.homeTeam}
-                                    className="md:w-10 md:h-10 w-6 h-6 rounded-full"
-                                />
-                                <span className="font-sans text-sm font-medium">{predictions.homeTeam}</span>
+                    <div className="hover:shadow-lg transition-all mt-1 border border-[#D6AE3E] flex justify-between items-center w-full flex-col md:flex-row md:p-0 rounded-[0.6rem] p-2">
+                        <div className="text-[#1A365D] flex justify-between items-center flex-col md:flex-row w-full space-y-2">
+                            <div className="flex  md:px-2 md:mx-3">
+                                <span className="font-sans font-normal text-sm text-[#1A365D]">13:28</span>
                             </div>
+                            <div className="flex justify-between md:justify-center md:flex-col items-start min-w-[130px] space-x-10 px-1 md:gap-0 md:space-x-0  space-y-2 md:p-0 w-full">
+                                <div className="flex justify-center items-center space-y-1">
+                                    <img
+                                        src={predictions.homeLogo}
+                                        // alt={predictions.homeTeam}
+                                        className="md:w-10 md:h-10 w-6 h-6 rounded-full"
+                                    />
+                                    <span className="font-sans text-sm font-normal">{predictions.homeTeam}</span>
+                                </div>
 
-                            <div className="flex justify-center items-center">
-                                <img
-                                    src={predictions.awayLogo}
-                                    // alt={predictions.awayTeam}
-                                    className="md:w-10 md:h-10 w-6 h-6 rounded-full"
-                                />
-                                <p className="text-sm font-sans font-medium">{predictions.awayTeam}</p>
+
+
+                                <div className="flex justify-center items-center">
+                                    <img
+                                        src={predictions.awayLogo}
+                                        // alt={predictions.awayTeam}
+                                        className="md:w-10 md:h-10 w-6 h-6 rounded-full"
+                                    />
+                                    <p className="text-sm font-sans font-normal">{predictions.awayTeam}</p>
+                                </div>
                             </div>
-                       </div>
-                   </div>
-
-                 {/* Odds Section */}
-
-                    <div className="flex justify-center items-center text-sm space-y-1 text-[#1A365D] gap-10 md:gap-4 md:p-4">
-                        <div className="flex justify-center items-center flex-col w-full space-y-3 md:space-y-6">
-                                <p className="px-3 font-semibold font-sans text-[#D6AE3E]">Odds</p>
-                            <p className="font-bold text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-3 py-2 w-16">{predictions.odd.Odds}</p>
                         </div>
-                        <div className="flex justify-center items-center flex-col space-y-3 md:space-y-6">
-                                <p className="px-3 font-semibold font-sans text-[#D6AE3E]">Tips</p>
-                                <p className="font-bold text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-1 text-[11px] py-2 min-w-[50px]  w-16 text-center">{predictions.odd.Tips}</p>
-                        </div>
-                        <div className="flex justify-center items-center pb-2.5 flex-col space-y-3 md:space-y-6">
-                                <p className="px-3 font-semibold font-sans text-[#D6AE3E]">Prop%</p>
-                                <p className="font-bold text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-3 py-2   w-16">{predictions.odd.Prop}</p>
+
+                        {/* Odds Section */}
+
+                        <div className="flex justify-between md:justify-end md:items-start items-start min-w-[130px]  space-x-10 px-1 md:gap-4 md:space-x-0 md:p-4 w-full">
+                            <div className="flex justify-center items-center flex-col space-y-1 md:space-y-3">
+                                <p className="px-3 font-bold font-sans text-[#D6AE3E]">Odds</p>
+                                <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-1 text-[15px] py-1 min-w-[50px]  w-16 text-center">{predictions.odd.Odds}</p>
+                            </div>
+                            <div className="flex justify-center items-center flex-col space-y-1 md:space-y-3">
+                                <p className="px-3 font-bold font-sans text-[#D6AE3E]">Tips</p>
+                                <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-1 text-[15px] py-1 min-w-[50px]  w-16 text-center">{predictions.odd.Tips}</p>
+                            </div>
+                            <div className="flex justify-center items-center flex-col space-y-1 md:space-y-3">
+                                <p className="px-3 font-bold font-sans text-[#D6AE3E]">Prop%</p>
+                                <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-1 text-[15px] py-1 min-w-[50px]  w-16 text-center">{predictions.odd.Prop}</p>
+                            </div>
                         </div>
                     </div>
-             </div>
 
              {/* second row */}
-            <div className="hover:shadow-lg transition-all border border-[#D6AE3E] flex justify-between items-center w-ful flex-col md:flex-row md:p-0 rounded-[0.6rem]">
 
-                <div className="text-[#1A365D] flex justify-between items-center flex-col md:flex-row w-full space-y-5">
-                    <div className="flex py-1 md:px-2">
-                        <span className="font-sans font-semibold text-[#1A365D]">13:28</span>
-                    </div>
-                       <div className="flex justify-center md:flex-col items-start min-w-[130px] space-x-10 gap-18  px-1 md:gap-0 md:space-x-0 md:space-y-6 space-y-2 md:p-0 w-full">
-                            <div className="flex justify-center items-center space-y-1">
-                                <img
-                                    src={predictions.homeLogo}
-                                    // alt={predictions.homeTeam}
-                                    className="md:w-10 md:h-10 w-6 h-6 rounded-full"
-                                />
-                                <span className="font-sans text-sm font-medium">{predictions.homeTeam}</span>
+                    <div className="hover:shadow-lg transition-all mt-1 border border-[#D6AE3E] flex justify-between items-center w-full flex-col md:flex-row md:p-0 rounded-[0.6rem] p-2">
+                        <div className="text-[#1A365D] flex justify-between items-center flex-col md:flex-row w-full space-y-2">
+                            <div className="flex  md:px-2 md:mx-3">
+                                <span className="font-sans font-normal text-sm text-[#1A365D]">13:28</span>
                             </div>
+                            <div className="flex justify-between md:justify-center md:flex-col items-start min-w-[130px] space-x-10 px-1 md:gap-0 md:space-x-0  space-y-2 md:p-0 w-full">
+                                <div className="flex justify-center items-center space-y-1">
+                                    <img
+                                        src={predictions.homeLogo}
+                                        // alt={predictions.homeTeam}
+                                        className="md:w-10 md:h-10 w-6 h-6 rounded-full"
+                                    />
+                                    <span className="font-sans text-sm font-normal">{predictions.homeTeam}</span>
+                                </div>
 
-                            <div className="flex justify-center items-center">
-                                <img
-                                    src={predictions.awayLogo}
-                                    // alt={predictions.awayTeam}
-                                    className="md:w-10 md:h-10 w-6 h-6 rounded-full"
-                                />
-                                <p className="text-sm font-sans font-medium">{predictions.awayTeam}</p>
+
+
+                                <div className="flex justify-center items-center">
+                                    <img
+                                        src={predictions.awayLogo}
+                                        // alt={predictions.awayTeam}
+                                        className="md:w-10 md:h-10 w-6 h-6 rounded-full"
+                                    />
+                                    <p className="text-sm font-sans font-normal">{predictions.awayTeam}</p>
+                                </div>
                             </div>
-                       </div>
-                   </div>
-
-                 {/* Odds Section */}
-
-                    <div className="flex justify-center items-center text-sm space-y-1 text-[#1A365D] gap-10 md:gap-4 md:p-4">
-                        <div className="flex justify-center items-center flex-col w-full space-y-3 md:space-y-6">
-                                <p className="px-3 font-semibold font-sans text-[#D6AE3E]">Odds</p>
-                                <p className="font-bold text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-3 py-2  w-16">{predictions.odd.Odds}</p>
                         </div>
-                        <div className="flex justify-center items-center flex-col space-y-3 md:space-y-6">
-                                <p className="px-3 font-semibold font-sans text-[#D6AE3E]">Tips</p>
-                                <p className="font-bold text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-1 text-[11px] py-2 min-w-[50px]  w-16 text-center">{predictions.odd.Tips}</p>
-                        </div>
-                        <div className="flex justify-center items-center pb-2.5 flex-col space-y-3 md:space-y-6">
-                                <p className="px-3 font-semibold font-sans text-[#D6AE3E]">Prop%</p>
-                                <p className="font-bold text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-3 py-2  w-16">{predictions.odd.Prop}</p>
+
+                        {/* Odds Section */}
+
+                        <div className="flex justify-between md:justify-end md:items-start items-start min-w-[130px]  space-x-10 px-1 md:gap-4 md:space-x-0 md:p-4 w-full">
+                            <div className="flex justify-center items-center flex-col space-y-1 md:space-y-3">
+                                <p className="px-3 font-bold font-sans text-[#D6AE3E]">Odds</p>
+                                <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-1 text-[15px] py-1 min-w-[50px]  w-16 text-center">{predictions.odd.Odds}</p>
+                            </div>
+                            <div className="flex justify-center items-center flex-col space-y-1 md:space-y-3">
+                                <p className="px-3 font-bold font-sans text-[#D6AE3E]">Tips</p>
+                                <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-1 text-[15px] py-1 min-w-[50px]  w-16 text-center">{predictions.odd.Tips}</p>
+                            </div>
+                            <div className="flex justify-center items-center flex-col space-y-1 md:space-y-3">
+                                <p className="px-3 font-bold font-sans text-[#D6AE3E]">Prop%</p>
+                                <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-1 text-[15px] py-1 min-w-[50px]  w-16 text-center">{predictions.odd.Prop}</p>
+                            </div>
                         </div>
                     </div>
-            </div>
             </motion.div>
             )}
                 <div className="bg-[#1A365D] w-full flex justify-between items-center p-2 rounded-[0.6rem] hover:shadow-lg transition-all">
@@ -486,101 +498,104 @@ export default function PremierLeagueCard () {
                </div>
                {see && (
             <motion.div
-                className="md:grid lg:flex min-w-full w-full text-white space-y-0 md:space-y-0 flex md:flex-row flex-col justify-center gap-5 items-center"
+                className="md:grid lg:flex min-w-full w-full text-white space-y-0 md:space-y-0 flex flex-col justify-center gap-2 items-center"
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, ease: "easeOut" }}
             >
-             <div className="hover:shadow-lg transition-all mt-1 border border-[#D6AE3E] flex justify-between items-center w-ful flex-col md:flex-row md:p-0 rounded-[0.6rem] max-w-full lg:max-w-fit">
-
-                <div className="text-[#1A365D] flex justify-between items-center flex-col md:flex-row w-full space-y-2">
-                    <div className="flex py-1 md:px-2">
-                        <span className="font-sans font-semibold text-[#1A365D]">13:28</span>
-                    </div>
-                       <div className="flex justify-center md:flex-col items-start min-w-[130px] space-x-10 px-1 gap-18 md:gap-0 md:space-x-0 space-y-2 md:p-0 w-full">
-                            <div className="flex justify-center items-center space-y-1">
-                                <img
-                                    src={predictions.homeLogo}
-                                    // alt={predictions.homeTeam}
-                                    className="md:w-10 md:h-10 w-6 h-6 rounded-full"
-                                />
-                                <span className="font-sans text-sm font-medium">{predictions.homeTeam}</span>
+                    <div className="hover:shadow-lg transition-all mt-1 border border-[#D6AE3E] flex justify-between items-center w-full flex-col md:flex-row md:p-0 rounded-[0.6rem] p-2">
+                        <div className="text-[#1A365D] flex justify-between items-center flex-col md:flex-row w-full space-y-2">
+                            <div className="flex  md:px-2 md:mx-3">
+                                <span className="font-sans font-normal text-sm text-[#1A365D]">13:28</span>
                             </div>
+                            <div className="flex justify-between md:justify-center md:flex-col items-start min-w-[130px] space-x-10 px-1 md:gap-0 md:space-x-0  space-y-2 md:p-0 w-full">
+                                <div className="flex justify-center items-center space-y-1">
+                                    <img
+                                        src={predictions.homeLogo}
+                                        // alt={predictions.homeTeam}
+                                        className="md:w-10 md:h-10 w-6 h-6 rounded-full"
+                                    />
+                                    <span className="font-sans text-sm font-normal">{predictions.homeTeam}</span>
+                                </div>
 
-                            <div className="flex justify-center items-center">
-                                <img
-                                    src={predictions.awayLogo}
-                                    // alt={predictions.awayTeam}
-                                    className="md:w-10 md:h-10 w-6 h-6 rounded-full"
-                                />
-                                <p className="text-sm font-sans font-medium">{predictions.awayTeam}</p>
+
+
+                                <div className="flex justify-center items-center">
+                                    <img
+                                        src={predictions.awayLogo}
+                                        // alt={predictions.awayTeam}
+                                        className="md:w-10 md:h-10 w-6 h-6 rounded-full"
+                                    />
+                                    <p className="text-sm font-sans font-normal">{predictions.awayTeam}</p>
+                                </div>
                             </div>
-                       </div>
-                   </div>
-
-                 {/* Odds Section */}
-
-                    <div className="flex justify-center items-center text-sm space-y-1 text-[#1A365D] gap-10 md:gap-4 md:p-4">
-                        <div className="flex justify-center items-center flex-col w-full space-y-3 md:space-y-6">
-                                <p className="px-3 font-semibold font-sans text-[#D6AE3E]">Odds</p>
-                            <p className="font-bold text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-3 py-2 w-16">{predictions.odd.Odds}</p>
                         </div>
-                        <div className="flex justify-center items-center flex-col space-y-3 md:space-y-6">
-                                <p className="px-3 font-semibold font-sans text-[#D6AE3E]">Tips</p>
-                                <p className="font-bold text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-1 text-[11px] py-2 min-w-[50px]  w-16 text-center">{predictions.odd.Tips}</p>
-                        </div>
-                        <div className="flex justify-center items-center pb-2.5 flex-col space-y-3 md:space-y-6">
-                                <p className="px-3 font-semibold font-sans text-[#D6AE3E]">Prop%</p>
-                                <p className="font-bold text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-3 py-2   w-16">{predictions.odd.Prop}</p>
+
+                        {/* Odds Section */}
+
+                        <div className="flex justify-between md:justify-end md:items-start items-start min-w-[130px]  space-x-10 px-1 md:gap-4 md:space-x-0 md:p-4 w-full">
+                            <div className="flex justify-center items-center flex-col space-y-1 md:space-y-3">
+                                <p className="px-3 font-bold font-sans text-[#D6AE3E]">Odds</p>
+                                <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-1 text-[15px] py-1 min-w-[50px]  w-16 text-center">{predictions.odd.Odds}</p>
+                            </div>
+                            <div className="flex justify-center items-center flex-col space-y-1 md:space-y-3">
+                                <p className="px-3 font-bold font-sans text-[#D6AE3E]">Tips</p>
+                                <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-1 text-[15px] py-1 min-w-[50px]  w-16 text-center">{predictions.odd.Tips}</p>
+                            </div>
+                            <div className="flex justify-center items-center flex-col space-y-1 md:space-y-3">
+                                <p className="px-3 font-bold font-sans text-[#D6AE3E]">Prop%</p>
+                                <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-1 text-[15px] py-1 min-w-[50px]  w-16 text-center">{predictions.odd.Prop}</p>
+                            </div>
                         </div>
                     </div>
-             </div>
 
              {/* second row */}
-            <div className="hover:shadow-lg transition-all border border-[#D6AE3E] flex justify-between items-center w-ful flex-col md:flex-row md:p-0 rounded-[0.6rem]">
 
-                <div className="text-[#1A365D] flex justify-between items-center flex-col md:flex-row w-full space-y-5">
-                    <div className="flex py-1 md:px-2">
-                        <span className="font-sans font-semibold text-[#1A365D]">13:28</span>
-                    </div>
-                       <div className="flex justify-center md:flex-col items-start min-w-[130px] space-x-10 gap-18  px-1 md:gap-0 md:space-x-0 md:space-y-6 space-y-2 md:p-0 w-full">
-                            <div className="flex justify-center items-center space-y-1">
-                                <img
-                                    src={predictions.homeLogo}
-                                    // alt={predictions.homeTeam}
-                                    className="md:w-10 md:h-10 w-6 h-6 rounded-full"
-                                />
-                                <span className="font-sans text-sm font-medium">{predictions.homeTeam}</span>
+                    <div className="hover:shadow-lg transition-all border border-[#D6AE3E] flex justify-between items-center w-full flex-col md:flex-row md:p-0 rounded-[0.6rem] p-2">
+                        <div className="text-[#1A365D] flex justify-between items-center flex-col md:flex-row w-full space-y-2">
+                            <div className="flex  md:px-2 md:mx-3">
+                                <span className="font-sans font-normal text-sm text-[#1A365D]">13:28</span>
                             </div>
+                            <div className="flex justify-between md:justify-center md:flex-col items-start min-w-[130px] space-x-10 px-1 md:gap-0 md:space-x-0  space-y-2 md:p-0 w-full">
+                                <div className="flex justify-center items-center space-y-1">
+                                    <img
+                                        src={predictions.homeLogo}
+                                        // alt={predictions.homeTeam}
+                                        className="md:w-10 md:h-10 w-6 h-6 rounded-full"
+                                    />
+                                    <span className="font-sans text-sm font-normal">{predictions.homeTeam}</span>
+                                </div>
 
-                            <div className="flex justify-center items-center">
-                                <img
-                                    src={predictions.awayLogo}
-                                    // alt={predictions.awayTeam}
-                                    className="md:w-10 md:h-10 w-6 h-6 rounded-full"
-                                />
-                                <p className="text-sm font-sans font-medium">{predictions.awayTeam}</p>
+
+
+                                <div className="flex justify-center items-center">
+                                    <img
+                                        src={predictions.awayLogo}
+                                        // alt={predictions.awayTeam}
+                                        className="md:w-10 md:h-10 w-6 h-6 rounded-full"
+                                    />
+                                    <p className="text-sm font-sans font-normal">{predictions.awayTeam}</p>
+                                </div>
                             </div>
-                       </div>
-                   </div>
-
-                 {/* Odds Section */}
-
-                    <div className="flex justify-center items-center text-sm space-y-1 text-[#1A365D] gap-10 md:gap-4 md:p-4">
-                        <div className="flex justify-center items-center flex-col w-full space-y-3 md:space-y-6">
-                                <p className="px-3 font-semibold font-sans text-[#D6AE3E]">Odds</p>
-                                <p className="font-bold text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-3 py-2  w-16">{predictions.odd.Odds}</p>
                         </div>
-                        <div className="flex justify-center items-center flex-col space-y-3 md:space-y-6">
-                                <p className="px-3 font-semibold font-sans text-[#D6AE3E]">Tips</p>
-                                <p className="font-bold text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-1 text-[11px] py-2 min-w-[50px]  w-16 text-center">{predictions.odd.Tips}</p>
-                        </div>
-                        <div className="flex justify-center items-center pb-2.5 flex-col space-y-3 md:space-y-6">
-                                <p className="px-3 font-semibold font-sans text-[#D6AE3E]">Prop%</p>
-                                <p className="font-bold text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-3 py-2  w-16">{predictions.odd.Prop}</p>
+
+                        {/* Odds Section */}
+
+                        <div className="flex justify-between md:justify-end md:items-start items-start min-w-[130px]  space-x-10 px-1 md:gap-4 md:space-x-0 md:p-4 w-full">
+                            <div className="flex justify-center items-center flex-col space-y-1 md:space-y-3">
+                                <p className="px-3 font-bold font-sans text-[#D6AE3E]">Odds</p>
+                                <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-1 text-[15px] py-1 min-w-[50px]  w-16 text-center">{predictions.odd.Odds}</p>
+                            </div>
+                            <div className="flex justify-center items-center flex-col space-y-1 md:space-y-3">
+                                <p className="px-3 font-bold font-sans text-[#D6AE3E]">Tips</p>
+                                <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-1 text-[15px] py-1 min-w-[50px]  w-16 text-center">{predictions.odd.Tips}</p>
+                            </div>
+                            <div className="flex justify-center items-center flex-col space-y-1 md:space-y-3">
+                                <p className="px-3 font-bold font-sans text-[#D6AE3E]">Prop%</p>
+                                <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-1 text-[15px] py-1 min-w-[50px]  w-16 text-center">{predictions.odd.Prop}</p>
+                            </div>
                         </div>
                     </div>
-            </div>
             </motion.div>
             )}
         </div>
