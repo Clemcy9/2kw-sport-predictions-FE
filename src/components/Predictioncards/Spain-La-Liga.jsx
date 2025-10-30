@@ -18,7 +18,7 @@ import FreeTips from "../shared/FreetipsCard";
 import FootballLeagues from "../Leagues/FootballLeagues";
 // import BestPredictionCard from "../../BestPrediction";
 import BestPredictionCard from "../BestPrediction";
-import LaLigaCard from "../La-liga";
+// import LaLigaCard from "../La-liga";
 import ContentNavBar from "../Prediction-days/Content-Nav";
 
 
@@ -73,7 +73,7 @@ export default function SpainLaLiga() {
                          <div className="flex items-start justify-center w-full">
                            <ContentNavBar />
                          </div>
-                            <LaLigaCard />
+                            {/* <LaLigaCard /> */}
                         </div>
                       </div>
                   </div>

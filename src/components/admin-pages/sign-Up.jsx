@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 export default function SignUp () {
 
@@ -12,6 +13,9 @@ export default function SignUp () {
     const [showPassword, setShowassword] = useState(false);
     const [confirmPassword, setConfirmPassword] = useState("");
 
+    const navigate = useNavigate();
+
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -21,7 +25,7 @@ export default function SignUp () {
         }
 
         try{
-            const res = await fetch ("backend/api/url", {
+            const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
                 method: "POST",
                 headers: {"Content-Type": "application/json" },
                 body: JSON.stringify({ name, email, password, confirmPassword}),
@@ -32,16 +36,17 @@ export default function SignUp () {
             if(!res.ok) 
                 throw new Error(data.msg || "sign-Up not successful");
 
-            localStorage.setItem("name", JSON.stringify(name));
+            localStorage.setItem(name, JSON.stringify(name));
             localStorage.setItem("authToken", data.token);
 
             setMessage("sign-Up successful");
+            navigate("/sign-in");
             setName("");
             setEmail("");
             setPassword("");
             setConfirmPassword("");
         }catch (ero) {
-            setMessage(ero.msg);
+            setMessage(ero.message);
         }
     };
 
@@ -60,7 +65,7 @@ export default function SignUp () {
                     </motion.span>
                     2KwPredicts
                 </h1>
-                <form onClick={handleSubmit} className=" justify-center items-center flex-col flex space-y-4 ">
+                <form onSubmit={handleSubmit} className=" justify-center items-center flex-col flex space-y-4 ">
 
                     <div className="">
                         <label className="block text-[#1E1E1E] font-sans">Full Name</label>
@@ -126,10 +131,16 @@ export default function SignUp () {
 
                     </div>
 
-                    <button type="submit" className="bg-[#1A365D] text-white w-70 rounded-[0.4rem] py-2 my-6">
+                    <button type="button" onClick={handleSubmit} className="bg-[#1A365D] text-white w-70 rounded-[0.4rem] py-2 my-6">
                         Sign UP
                     </button>
                 </form>
+
+                {message &&(
+                    <p className="text-red-600">
+                        {message}
+                    </p>
+                )}
             </div>
                
         </div>

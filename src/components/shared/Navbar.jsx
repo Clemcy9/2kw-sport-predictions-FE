@@ -27,9 +27,7 @@ export default function Navbar() {
         },
         { title: "Blog", path: "/blog" },
         { title: "Links", path: "/links" },
-        { title: "Admin", path: "/admin" },
-        { title: "Sign-In", path: "/sign-in" },
-        { title: "Sign-Up", path: "/sign-up" },
+        { title: "Admin", path: "/sign-up" },
 
     ];
 

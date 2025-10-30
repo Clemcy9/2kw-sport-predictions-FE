@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 // import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import AdminHeader from "./header";
 
 export default function ForgotPassword () {
 
@@ -38,7 +37,6 @@ export default function ForgotPassword () {
 
     return (
         <div>
-            <AdminHeader />
         <div className=" flex justify-center items-center bg-white w-full">
             <div className=" bg-[#C1CAD8] shadow-sm px-4 py-4 space-y-10 flex md:w-[36rem] justify-center items-center flex-col md:px-15 md:my-5 md:py-12">
                 <h1

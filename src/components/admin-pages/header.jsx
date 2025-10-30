@@ -7,7 +7,7 @@ export default function AdminHeader() {
 
     return (
         <header className="bg-[#1A365D] top-0 w-full z-50 shadow-sm backdrop-blur-md relative">
-            <div className="max-w-7xl mx-auto px-2 sm:px-3 lg:px-0">
+            <div className="max-w-7xl lg:max-w-full mx-auto px-2 sm:px-3 lg:px-2">
                 <div className="flex justify-between items-center h-16">
                     {/* Logo */}
                     <button
@@ -25,8 +25,8 @@ export default function AdminHeader() {
                     </button>
 
                     <div className="flex justify-center items-center">
-                        <h1 className="font-serif text-white md:text-2xl text-[16px] flex justify-center items-end  flex-col">
-                            {name}FrontEnd
+                        <h1 className=" font-serif text-white md:text-2xl text-[16px] flex justify-center items-end  flex-col">
+                            {name}
                             <span className="font-sans text-white/80 md:text-[16px] text-[10px]">
                                 Admin
                             </span>

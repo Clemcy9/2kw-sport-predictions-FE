@@ -1,4 +1,5 @@
 import {useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FaPlus, FaMinus } from "react-icons/fa";
 
@@ -8,6 +9,12 @@ export default function PremierLeagueCard () {
     const [drop, setDrop] = useState(true);
     const [flow, setFlow] = useState(true);
     const [see, setSee] = useState(true);
+
+    const navigation = useNavigate();
+
+    const click = () => {
+        navigation("/details")
+    }
 
     const predictions ={
         homeLogo: "",
@@ -42,12 +49,12 @@ export default function PremierLeagueCard () {
                </div>
                {open && (
             <motion.div
-                className="lg:grid lg:flex min-w-full w-full text-white space-y-0 lg:space-y-0 flex flex-col justify-center gap-2 items-center"
+                className="lg:flex min-w-full w-full text-white space-y-0 lg:space-y-0 flex flex-col justify-center gap-2 items-center"
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, ease: "easeOut" }}
             >
-               <div className="hover:shadow-lg transition-all mt-1 border border-[#D6AE3E] flex justify-between items-center w-full flex-col lg:flex-row lg:p-0 rounded-[0.6rem] p-2">
+               <div onClick={click} className=" hover:shadow-lg transition-all mt-1 border border-[#D6AE3E] flex justify-between items-center w-full flex-col lg:flex-row lg:p-0 rounded-[0.6rem] p-2">
                   <div className="text-[#1A365D] flex justify-between items-center flex-col lg:flex-row w-full space-y-2">
                             <div className="flex  lg:px-2 lg:mx-3">
                                 <span className="font-sans font-normal text-sm text-[#1A365D]">13:28</span>
@@ -156,7 +163,7 @@ export default function PremierLeagueCard () {
                </div>
                {show && (
             <motion.div
-                className="lg:grid lg:flex min-w-full w-full text-white space-y-0 lg:space-y-0 flex flex-col justify-center gap-2 items-center"
+                className="lg:flex min-w-full w-full text-white space-y-0 lg:space-y-0 flex flex-col justify-center gap-2 items-center"
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, ease: "easeOut" }}
@@ -270,7 +277,7 @@ export default function PremierLeagueCard () {
                </div>
                {drop && (
             <motion.div
-                className="lg:grid lg:flex min-w-full w-full text-white space-y-0 lg:space-y-0 flex flex-col justify-center gap-2 items-center"
+                className="lg:flex min-w-full w-full text-white space-y-0 lg:space-y-0 flex flex-col justify-center gap-2 items-center"
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, ease: "easeOut" }}
@@ -384,7 +391,7 @@ export default function PremierLeagueCard () {
                </div>
                {flow && (
             <motion.div
-                className="lg:grid lg:flex min-w-full w-full text-white space-y-0 lg:space-y-0 flex flex-col justify-center gap-2 items-center"
+                className="lg:flex min-w-full w-full text-white space-y-0 lg:space-y-0 flex flex-col justify-center gap-2 items-center"
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, ease: "easeOut" }}
@@ -498,7 +505,7 @@ export default function PremierLeagueCard () {
                </div>
                {see && (
             <motion.div
-                className="lg:grid lg:flex min-w-full w-full text-white space-y-0 lg:space-y-0 flex flex-col justify-center gap-2 items-center"
+                className="lg:flex min-w-full w-full text-white space-y-0 lg:space-y-0 flex flex-col justify-center gap-2 items-center"
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, ease: "easeOut" }}

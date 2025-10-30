@@ -22,6 +22,8 @@ import ForgotPassword from "./components/admin-pages/forgot-password";
 import SendOtp from "./components/admin-pages/send-otp";
 import SuccessAnimation from "./components/admin-pages/success-otp";
 import ResetPassword from "./components/admin-pages/new-password";
+import LoginOtp from "./components/admin-pages/login-otp";
+import LoginCompleted from "./components/admin-pages/login-complete";
 
 export default function App(){
   const [loading, setLoading] = useState(true);
@@ -54,6 +56,8 @@ export default function App(){
             <Route path="/new-password" element={ <ResetPassword />} />
             <Route path="/success-otp" element={ <SuccessAnimation />} />
             <Route path="/send-otp" element={ <SendOtp />} />
+            <Route path="/login-otp" element={ <LoginOtp />} />
+            <Route path="/login-complete" element={ <LoginCompleted />} />
             <Route path="sign-up" element={ <SignUp />} />
             <Route path="/dashboard" element={ <DashBoard/>} />
             <Route path="/details" element={<PredictionDetails />} />

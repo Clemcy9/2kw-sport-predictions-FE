@@ -8,10 +8,6 @@ import BestPredictionCard from "../components/BestPrediction";
 import FootballLeaguesTable from "../components/Leagues/FootballLeagues";
 import ContentNavBar from "../components/Prediction-days/Content-Nav";
 import PremierLeagueCard from "../components/Premier-league";
-// import LaLigaCard from "../components/La-liga";
-// import DenmarkCard from "../components/Denmark-Division";
-// import ArgentainaCard from "../components/Argentina-premier";
-// import BrasilCard from "../components/Brasil-serie-A";
 import { motion } from "framer-motion";
 import LeagueTables from "../components/Standings/Table";
 import DummyBlog from "../components/dummy-blog";
@@ -45,9 +41,9 @@ export default function LandingPage () {
             </div>
           </div>
           <div className="px-1 lg:px-4 pb-4 lg:py-4 pt-2  min-h-screen w-full max-w-full lg:overflow-x-hidden">
-              <div className="grid grid-cols-1  lg:grid-cols-[1fr_2.5fr] gap-2 max-w-full w-full justify-center">
+              <div className="grid grid-cols-1  lg:grid-cols-[350px_3fr] gap-2 max-w-full w-full justify-center">
 
-                   <div className="space-y-2 items-center flex flex-col bg-white -z-20">
+                   <div className="space-y-2 items-center flex flex-col bg-white -z-20 ">
                       <BestPredictionCard />
                       <FootballLeaguesTable />
                     </div>
@@ -59,11 +55,7 @@ export default function LandingPage () {
                       <div className="flex justify-center items-center flex-col">
                         <PremierLeagueCard />
                         <LeagueTables />
-                        {/* <LaLigaCard />
-                        <BrasilCard />
-                        <ArgentainaCard />
-                        <DenmarkCard />
-                         */}
+                        
                         <div className="flex justify-end items-end">
                           <DummyBlog />
                         </div>

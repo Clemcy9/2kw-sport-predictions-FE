@@ -87,7 +87,7 @@ export default function FootballLeagues() {
 
 
     return (
-        <div className="hidden lg:flex lg:flex-col lg:max-w-[340px] w-full lg:border lg:border-[#D6AE3E]/70 rounded-[0.6rem] lg:shadow-lg my-5 ">
+        <div className="hidden lg:flex lg:flex-col lg:max-w-full w-full lg:border lg:border-[#D6AE3E]/70 rounded-[0.6rem] lg:shadow-lg my-5 ">
             {/* Header */}
             <h2 className="text-3xl font-semibold text-white font-sans bg-[#D6AE3E] text-center py-4 lg:rounded-t-[0.6rem]">
                 Football Leagues

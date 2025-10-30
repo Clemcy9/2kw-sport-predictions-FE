@@ -10,7 +10,7 @@ export default function LeagueTables() {
     const leagueData = leaguesData[activeLeague];
 
     return (
-        <div className=" flex flex-col font-serif lg:flex-row gap-6 p-0 lg:p-0 lg:justify-between max-w-7xl w-full lg:gap-10">
+        <div className=" flex flex-col font-serif lg:flex-row gap-6 p-0 lg:p-0 lg:justify-between max-w-7xl lg:max-w-full w-full lg:gap-10">
             {/* LEAGUE TABLE */}
             <LeagueTable
                 title="League Table"
@@ -40,7 +40,7 @@ function LeagueTable({ title, leagues, activeLeague, setActiveLeague, data, isSc
             {/*Table Header and leagues*/}
             <div className="flex flex-col pb-3 mb-3 gap-1 shadow-b-lg lg:m-6">
                 <h2 className="font-semibold text-2xl font-[Poppins] text-[#1F2128]">{title}</h2>
-                <div className="flex lg:justify-center gap-2 bg-[#E5E7EB]/80 w-full rounded-[0.4rem] p-1">
+                <div className="flex lg:justify-start gap-2 bg-[#E5E7EB]/80 w-full rounded-[0.4rem] p-1">
                     {leagues.map((lg) => (
                         <button
                             key={lg}
@@ -66,7 +66,7 @@ function LeagueTable({ title, leagues, activeLeague, setActiveLeague, data, isSc
                     transition={{ duration: 0.4 }}
                 >
                     {data.length > 0 ? (
-                        <div className="overflow-y-auto max-h-72 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
+                        <div className="overflow-y-auto max-h-72 lg:max-h-96 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
 
                             <table className="w-full text-lg text-left">
                                 <thead className="text-[#1A365D]/70 sticky top-0 z-40 bg-white shadow-lg">

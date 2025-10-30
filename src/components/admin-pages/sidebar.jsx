@@ -84,7 +84,7 @@ export default function Sidebar() {
     ];
 
     return (
-        <aside className="bg-[#1A365D29] text-[#1A365D] md:w-72 w-full min-h-screen p-4 flex flex-col shadow-lg py-10">
+        <aside className="bg-[#1A365D29] text-[#1A365D] sm:w-72 lg:w-96 w-full min-h-screen p-4 flex flex-col shadow-lg py-10">
            {/* <button onClick={() => setOpen(!open)}>
                 <MenuSquare />
            </button> */}

@@ -37,7 +37,7 @@ export default function ContentNavBar() {
 
     return(
 
-        <div className="lg:flex flex items-center justify-center flex-col w-full lg:grid lg:grid-cols-1 ">
+        <div className="lg:flex flex items-center justify-center flex-col w-full ">
             <div className="w-full max-w-[420px]  flex justify-center">
                 <nav className="flex justify-between items-center gap-4 w-full">
                     {navdays.map((content) => (

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Eye, EyeOff } from "lucide-react";
 import { motion } from "framer-motion";
 import AdminHeader from "./header";
@@ -7,9 +7,12 @@ import AdminHeader from "./header";
 export default function SignIn () {
 
     const [email, setEmail] = useState("");
-    const [message, setMessage] = useState ("");
     const [password, setPassword] = useState("");
+    const [message, setMessage] = useState ("");
     const [eyePassword, setEyePassword] = useState(false);
+
+    const navigate = useNavigate();
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -20,7 +23,7 @@ export default function SignIn () {
         }
 
         try{
-            const res = await fetch ("backend/api/url", {
+            const res = await fetch ("https://jsonplaceholder.typicode.com/posts", {
                 method: "POST",
                 headers: {"Content-Type": "application/json" },
                 body: JSON.stringify({ email, password}),
@@ -34,11 +37,13 @@ export default function SignIn () {
             localStorage.setItem("auth Token", data.token);
 
             setMessage("sign-In successful");
+            navigate("/login-otp");
             setEmail("");
             setPassword("");
         }catch (ero) {
-            setMessage(ero.msg);
+            setMessage(ero.message);
         }
+
     };
 
     return (
@@ -58,7 +63,7 @@ export default function SignIn () {
                     </motion.span>
                     2KwPredicts
                 </h1>
-                <form onClick={handleSubmit} className=" justify-center items-center flex-col flex space-y-8 ">
+                <form onSubmit={handleSubmit} className=" justify-center items-center flex-col flex space-y-8 ">
 
                     <div className="">
                         <label className="block text-[#1E1E1E] font-sans">Email</label>
@@ -93,6 +98,10 @@ export default function SignIn () {
 
                         <Link to={"/forgot-password"} className="text-[#1A365D] ">Forgot Password</Link>
                         
+                        {message && (
+                                <p className="text-red-600">{message}</p>
+
+                        )}
                     </div>
 
                     <button type="submit" className="bg-[#1A365D] text-white w-70 rounded-[0.4rem] py-2 my-6">
