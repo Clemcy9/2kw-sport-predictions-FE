@@ -44,8 +44,8 @@ export default function LandingPage () {
               <FiArrowUp className="font-extrabold text-xl" />
             </div>
           </div>
-          <div className="px-1 md:px-4 pb-4 md:py-4 pt-2  min-h-screen w-full max-w-full md:overflow-x-hidden">
-              <div className="grid grid-cols-1  md:grid-cols-[1fr_2fr] gap-2 max-w-full w-full justify-center">
+          <div className="px-1 lg:px-4 pb-4 lg:py-4 pt-2  min-h-screen w-full max-w-full lg:overflow-x-hidden">
+              <div className="grid grid-cols-1  lg:grid-cols-[1fr_2.5fr] gap-2 max-w-full w-full justify-center">
 
                    <div className="space-y-2 items-center flex flex-col bg-white -z-20">
                       <BestPredictionCard />
@@ -71,7 +71,7 @@ export default function LandingPage () {
                    </div>
                 </div>
               </div>
-             {/* <div className="text-[#1A365D] border-[#1A365D] bg-white/60 md:p-10 md:m-5 border p-2 flex justify-center flex-col rounded-[0.3rem] shadow-sm">
+             {/* <div className="text-[#1A365D] border-[#1A365D] bg-white/60 lg:p-10 lg:m-5 border p-2 flex justify-center flex-col rounded-[0.3rem] shadow-sm">
                 <h1>⚽2KwPredicts</h1>
                 <h5>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Id eligendi laudantium, temporibus, itaque eius ratione eos nemo sapiente quis sint explicabo, porro natus quibusdam labore ex. Ipsa expedita excepturi aperiam?

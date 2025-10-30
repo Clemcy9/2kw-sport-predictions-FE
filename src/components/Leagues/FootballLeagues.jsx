@@ -38,25 +38,25 @@
 //     return (
 
         
-//         <div className="hidden md:flex md:flex-col md:max-w-[400px] w-full md:border md:border-[#D6AE3E]/70 rounded-[0.6rem] md:shadow-lg my-5">
-//             <h2 className="text-3xl font-semibold text-white font-sans bg-[#D6AE3E] text-center py-4 md:rounded-t-[0.6rem] md:block rounded-none">Football Leagues</h2>
+//         <div className="hidden lg:flex lg:flex-col lg:max-w-[400px] w-full lg:border lg:border-[#D6AE3E]/70 rounded-[0.6rem] lg:shadow-lg my-5">
+//             <h2 className="text-3xl font-semibold text-white font-sans bg-[#D6AE3E] text-center py-4 lg:rounded-t-[0.6rem] lg:block rounded-none">Football Leagues</h2>
 
-//             <div className="flex items-center md:justify-center md:mx-0 md:flex-col flex-nowrap scroll-smooth whitespace-nowrap overflow-x-auto md:overflow-visible p-2 md:p-0 w-full gap-3 md:gap-0">
+//             <div className="flex items-center lg:justify-center lg:mx-0 lg:flex-col flex-nowrap scroll-smooth whitespace-nowrap overflow-x-auto lg:overflow-visible p-2 lg:p-0 w-full gap-3 lg:gap-0">
 //                 {leagues.map((league, index) => (
 //                     <motion.div
 //                         key={index}
 //                         // whileHover={{ scale: 1.02 }}
 //                         onClick={() => handleLeagueClick(league.name)}
-//                         className="flex  whitespace-nowrap scroll-smooth items-center justify-between bg-white text-[#1A365D] md:p-5 py-2 cursor-pointer border border-[#d6ae3e]/70 min-w-[280px] md:min-w-full hover:shadow-lg hover:bg-[#d6ae3e]/80 transition-all"
+//                         className="flex  whitespace-nowrap scroll-smooth items-center justify-between bg-white text-[#1A365D] lg:p-5 py-2 cursor-pointer border border-[#d6ae3e]/70 min-w-[280px] lg:min-w-full hover:shadow-lg hover:bg-[#d6ae3e]/80 transition-all"
 //                     >
 //                         <div className="flex items-center justify-center">
 //                             <img src={league.logo} alt={league.name} className="w-8 h-8 m-2" />
 //                             <div>
-//                                 <h4 className="font-semibold text-sm md:text-[1.1rem]">{league.name}</h4>
+//                                 <h4 className="font-semibold text-sm lg:text-[1.1rem]">{league.name}</h4>
 //                                 <p className="text-xs text-gray-500">{league.country}</p>
 //                             </div>
 //                         </div>
-//                         <FaChevronRight  className=" hidden md:block"/>
+//                         <FaChevronRight  className=" hidden lg:block"/>
 //                     </motion.div>
 //                 ))}
 //             </div>
@@ -87,20 +87,20 @@ export default function FootballLeagues() {
 
 
     return (
-        <div className="hidden md:flex md:flex-col md:max-w-[340px] w-full md:border md:border-[#D6AE3E]/70 rounded-[0.6rem] md:shadow-lg my-5 ">
+        <div className="hidden lg:flex lg:flex-col lg:max-w-[340px] w-full lg:border lg:border-[#D6AE3E]/70 rounded-[0.6rem] lg:shadow-lg my-5 ">
             {/* Header */}
-            <h2 className="text-3xl font-semibold text-white font-sans bg-[#D6AE3E] text-center py-4 md:rounded-t-[0.6rem]">
+            <h2 className="text-3xl font-semibold text-white font-sans bg-[#D6AE3E] text-center py-4 lg:rounded-t-[0.6rem]">
                 Football Leagues
             </h2>
 
             {/* Leagues list */}
-            <div className="flex items-center md:justify-center md:mx-0 md:flex-col flex-nowrap scroll-smooth whitespace-nowrap overflow-x-auto md:overflow-visible p-2 md:p-0 w-full gap-3 md:gap-0">
+            <div className="flex items-center lg:justify-center lg:mx-0 lg:flex-col flex-nowrap scroll-smooth whitespace-nowrap overflow-x-auto lg:overflow-visible p-2 lg:p-0 w-full gap-3 lg:gap-0">
                 {leagues.map((league, index) => (
                     <motion.div
                         key={index}
                         whileHover={{ scale: 1.02 }}
                         onClick={() => handleLeagueClick(league.slug)}
-                        className="flex items-center justify-between bg-white text-[#1A365D] md:p-3 py-2 cursor-pointer border border-[#d6ae3e]/70 min-w-[280px] md:min-w-full hover:shadow-lg hover:bg-[#d6ae3e]/80 transition-all"
+                        className="flex items-center justify-between bg-white text-[#1A365D] lg:p-3 py-2 cursor-pointer border border-[#d6ae3e]/70 min-w-[280px] lg:min-w-full hover:shadow-lg hover:bg-[#d6ae3e]/80 transition-all"
                     >
                         {/* League logo and text */}
                         <div className="flex items-center justify-center">
@@ -110,7 +110,7 @@ export default function FootballLeagues() {
                                 className="w-8 h-8 m-2"
                             />
                             <div>
-                                <h4 className="font-semibold text-sm md:text-[1rem]">
+                                <h4 className="font-semibold text-sm lg:text-[1rem]">
                                     {league.name}
                                 </h4>
                                 <p className="text-xs text-gray-500">{league.country}</p>
@@ -118,7 +118,7 @@ export default function FootballLeagues() {
                         </div>
 
                         {/* Chevron icon (only desktop) */}
-                        <FaChevronRight className="hidden md:block" />
+                        <FaChevronRight className="hidden lg:block" />
                     </motion.div>
                 ))}
             </div>

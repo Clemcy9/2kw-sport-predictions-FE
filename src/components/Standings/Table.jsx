@@ -10,7 +10,7 @@ export default function LeagueTables() {
     const leagueData = leaguesData[activeLeague];
 
     return (
-        <div className="flex flex-col font-serif lg:flex-row gap-6 p-0 sm:p-0 sm:justify-between max-w-7xl w-full sm:gap-10">
+        <div className=" flex flex-col font-serif lg:flex-row gap-6 p-0 lg:p-0 lg:justify-between max-w-7xl w-full lg:gap-10">
             {/* LEAGUE TABLE */}
             <LeagueTable
                 title="League Table"
@@ -35,17 +35,17 @@ export default function LeagueTables() {
 
 function LeagueTable({ title, leagues, activeLeague, setActiveLeague, data, isScorers }) {
     return (
-        <div className="border-[#E5E7EB]/80 border font-sans bg-white rounded-[0.4rem] max-w-full w-full sm:p-0">
+        <div className="border-[#E5E7EB]/80 border p-3 font-sans bg-white rounded-[0.4rem] max-w-full w-full lg:p-0">
 
             {/*Table Header and leagues*/}
-            <div className="flex flex-col pb-3 mb-3 gap-1 shadow-b-sm md:m-6">
+            <div className="flex flex-col pb-3 mb-3 gap-1 shadow-b-lg lg:m-6">
                 <h2 className="font-semibold text-2xl font-[Poppins] text-[#1F2128]">{title}</h2>
-                <div className="flex sm:justify-center gap-2 bg-[#E5E7EB]/80 w-full rounded-[0.4rem] p-1">
+                <div className="flex lg:justify-center gap-2 bg-[#E5E7EB]/80 w-full rounded-[0.4rem] p-1">
                     {leagues.map((lg) => (
                         <button
                             key={lg}
                             onClick={() => setActiveLeague(lg)}
-                            className={`px-3 py-2 text-sm rounded-[0.4em] transition-all ${activeLeague === lg
+                            className={`px-3 py-2 text-lg rounded-[0.4em] transition-all ${activeLeague === lg
                                 ? "bg-[#D6AE3E] text-white"
                                 : "text-[#1A365D] hover:bg-[#1A365D]/20"
                                 }`}
@@ -68,8 +68,8 @@ function LeagueTable({ title, leagues, activeLeague, setActiveLeague, data, isSc
                     {data.length > 0 ? (
                         <div className="overflow-y-auto max-h-72 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
 
-                            <table className="w-full text-sm text-left">
-                                <thead className="text-[#1A365D]/70 sticky top-0 z-40 bg-white shadow-sm">
+                            <table className="w-full text-lg text-left">
+                                <thead className="text-[#1A365D]/70 sticky top-0 z-40 bg-white shadow-lg">
                                     <tr>
                                         {isScorers ? (
                                             <>
@@ -132,7 +132,7 @@ function LeagueTable({ title, leagues, activeLeague, setActiveLeague, data, isSc
                         </div>
                     ) : (
                         // if there is no data for the standings table this will show
-                        <div className="text-gray-400 text-center py-6 text-sm">
+                        <div className="text-gray-400 text-center py-6 text-lg">
                             No data available for {activeLeague}.
                         </div>
                     )}

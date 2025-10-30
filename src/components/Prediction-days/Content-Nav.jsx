@@ -37,8 +37,8 @@ export default function ContentNavBar() {
 
     return(
 
-        <div className="lg:flex flex items-center justify-center flex-col w-full sm:grid sm:grid-cols-1 ">
-            <div className="w-full max-w-[420px] sm:max-w-[470px] flex justify-center">
+        <div className="lg:flex flex items-center justify-center flex-col w-full lg:grid lg:grid-cols-1 ">
+            <div className="w-full max-w-[420px]  flex justify-center">
                 <nav className="flex justify-between items-center gap-4 w-full">
                     {navdays.map((content) => (
                         <div
@@ -47,12 +47,12 @@ export default function ContentNavBar() {
                             className="flex-1 min-w-0"
                         >
                             <div
-                                className={`rounded-[0.6rem] hover:bg-[#D6AE3E] hover:text-white active:text-white active:bg-[#1A365D] border border-[#D6AE3E] text-[#1A365D] hover:shadow-lg hover:scale-105 flex flex-col items-center justify-center text-center px-[0.6rem] py-[0.7rem] sm:px-3 sm:py-3 font-sans font-semibold transition-all duration-200`}
+                                className={`rounded-[0.6rem] hover:bg-[#D6AE3E] hover:text-white active:text-white active:bg-[#1A365D] border border-[#D6AE3E] text-[#1A365D] hover:shadow-lg hover:scale-105 flex flex-col items-center justify-center text-center px-[0.6rem] py-[0.7rem] lg:px-3 lg:py-3 font-sans font-semibold transition-all duration-200`}
                             >
-                                <h2 className="text-[0.75rem] sm:text-[0.9rem] leading-tight uppercase">
+                                <h2 className="text-[0.75rem] lg:text-[0.9rem] leading-tight uppercase">
                                     {content.name}
                                 </h2>
-                                <h4 className="text-[0.7rem] sm:text-[0.85rem] leading-tight">
+                                <h4 className="text-[0.7rem] lg:text-[0.85rem] leading-tight">
                                     {content.day}
                                 </h4>
                             </div>
