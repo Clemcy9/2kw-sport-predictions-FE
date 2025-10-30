@@ -9,14 +9,14 @@ export default function LoginCompleted() {
     
     const navigate = useNavigate();
 
-    const handleSendOTP = () => {
+    const handleSendOTP = (e) => {
         navigate("/admin");
-    };
-
-    const handleSubmit = async (e) => {
         e.preventDefault();
-
     };
+
+    // const handleSubmit = async (e) => {
+
+    // };
 
     
 
@@ -39,6 +39,7 @@ export default function LoginCompleted() {
 
                 <AnimatePresence>
                     <motion.h2 initial={{ opacity: 0, y: 10 }}
+                        key="otp title"
                         animate={{ opacity: 1, y: 0 }}
                         transition={{
                             delay: 0.6,
@@ -49,6 +50,7 @@ export default function LoginCompleted() {
                     </motion.h2>
 
                         <motion.div
+                            key="lottie animation"
                             initial={{ scale: 0.5, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
                             exit={{ opacity: 0 }}
@@ -73,6 +75,7 @@ export default function LoginCompleted() {
                                 </motion.div> */}
 
                         <Lottie
+                        key="animation"
                             animationData={successAnimation}
                             loop={true}
                             autoplay
@@ -82,7 +85,7 @@ export default function LoginCompleted() {
                                 </motion.div>
                             <motion.h3
                                 
-
+                                key="mode"
                                 initial={{ opacity: 0, y: 10 }}
                                 animate={{ opacity: 0.8, y: 0 }}
                                 transition={{

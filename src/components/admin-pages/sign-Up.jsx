@@ -131,7 +131,7 @@ export default function SignUp () {
 
                     </div>
 
-                    <button type="button" onClick={handleSubmit} className="bg-[#1A365D] text-white w-70 rounded-[0.4rem] py-2 my-6">
+                    <button type="submit"  className="bg-[#1A365D] text-white w-70 rounded-[0.4rem] py-2 my-6">
                         Sign UP
                     </button>
                 </form>
