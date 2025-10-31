@@ -51,8 +51,8 @@ export default function SignUp () {
     };
 
     return (
-        <div className="min-h-screen flex justify-center items-center bg-white w-full">
-            <div className="l  bg-[#C1CAD8]  shadow-lg px-4 py-4 space-y-5 flex justify-center items-center flex-col md:px-20">
+        <div className="min-h-screen flex justify-center items-center bg-white w-full ">
+            <div className="w-full md:w-auto bg-[#C1CAD8] shadow-lg px-4 py-4 space-y-5 flex justify-center items-center flex-col md:px-20 md:mx-0 mx-2">
                 <h1
                     className="text-3xl cursor-pointer flex items-center font-bold justify-center font-serif text-[#1A365D] py-5"
                 >
@@ -65,9 +65,9 @@ export default function SignUp () {
                     </motion.span>
                     2KwPredicts
                 </h1>
-                <form onSubmit={handleSubmit} className=" justify-center items-center flex-col flex space-y-4 ">
+                <form onSubmit={handleSubmit} className="w-full md:w-auto justify-center items-center flex-col flex space-y-4 ">
 
-                    <div className="">
+                    <div className="w-full">
                         <label className="block text-[#1E1E1E] font-sans">Full Name</label>
                         <input
                             type="text"
@@ -79,7 +79,7 @@ export default function SignUp () {
                             className=" bg-[#F5F2F2] w-full md:min-w-[381px] py-1 px-3 rounded-[0.4rem] focus:ring-[#1A365D] outline-none focus:ring-1 placeholder-[#1A365D]/80" />
                     </div>
 
-                    <div className="">
+                    <div className="w-full">
                         <label className="block text-[#1E1E1E] font-sans">Email</label>
                         <input
                             type="email"
@@ -91,7 +91,7 @@ export default function SignUp () {
                             className=" bg-[#F5F2F2] w-full md:min-w-[381px] py-1 px-3 rounded-[0.4rem] focus:ring-[#1A365D] outline-none focus:ring-1 placeholder-[#1A365D]/80" />
                     </div>
 
-                    <div className="">
+                    <div className="w-full">
                         <label className="block text-[#1E1E1E] font-sans">Password</label>
                         <div className="relative">
                             <input
@@ -110,7 +110,7 @@ export default function SignUp () {
                                 </button>
                         </div>
                     </div>
-                    <div className="">
+                    <div className="w-full">
                         <label className="block text-[#1E1E1E] font-sans">Confirm Password</label>
                         <div className="relative">
                             <input
@@ -131,7 +131,7 @@ export default function SignUp () {
 
                     </div>
 
-                    <button type="submit"  className="bg-[#1A365D] text-white w-70 rounded-[0.4rem] py-2 my-6">
+                    <button type="submit"  className="bg-[#1A365D] text-white w-40 md:w-70 rounded-[0.4rem] py-2 my-6">
                         Sign UP
                     </button>
                 </form>

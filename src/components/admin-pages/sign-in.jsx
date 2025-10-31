@@ -49,7 +49,7 @@ export default function SignIn () {
     return (
         <div>
         <div className="min-h-screen flex justify-center items-center bg-white w-full">
-            <div className="l  bg-[#C1CAD8]  shadow-sm px-4 py-4 space-y-10 flex justify-center items-center flex-col md:px-20">
+            <div className="w-full md:w-auto mx-2 md:mx-0 bg-[#C1CAD8]  shadow-sm px-4 py-4 space-y-10 flex justify-center items-center flex-col md:px-20">
                 <h1
                     className="text-3xl cursor-pointer flex items-center font-bold justify-center font-serif text-[#1A365D] py-5"
                 >
@@ -62,9 +62,9 @@ export default function SignIn () {
                     </motion.span>
                     2KwPredicts
                 </h1>
-                <form onSubmit={handleSubmit} className=" justify-center items-center flex-col flex space-y-8 ">
+                <form onSubmit={handleSubmit} className="w-full md:w-auto justify-center items-center flex-col flex space-y-6 md:space-y-8 ">
 
-                    <div className="">
+                    <div className="w-full">
                         <label className="block text-[#1E1E1E] font-sans">Email</label>
                         <input
                             type="email"
@@ -76,7 +76,7 @@ export default function SignIn () {
                             className=" bg-[#F5F2F2] w-full md:min-w-[381px] py-1 px-3 rounded-[0.4rem] focus:ring-[#1A365D] outline-none focus:ring-1 placeholder-[#1A365D]/80" />
                     </div>
 
-                    <div className="mb-2">
+                    <div className="mb-2 w-full">
                         <label className="block text-[#1E1E1E] font-sans">Password</label>
                         <div className="relative">
                             <input
@@ -103,7 +103,7 @@ export default function SignIn () {
                         )}
                     </div>
 
-                    <button type="submit" className="bg-[#1A365D] text-white w-70 rounded-[0.4rem] py-2 my-6">
+                    <button type="submit" className="bg-[#1A365D] text-white w-40 md:w-70 rounded-[0.4rem] py-2 my-6">
                         Sign In
                     </button>
                 </form>
