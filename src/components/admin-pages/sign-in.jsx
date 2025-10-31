@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Eye, EyeOff } from "lucide-react";
 import { motion } from "framer-motion";
-import AdminHeader from "./header";
+
 
 export default function SignIn () {
 
@@ -48,7 +48,6 @@ export default function SignIn () {
 
     return (
         <div>
-            <AdminHeader />
         <div className="min-h-screen flex justify-center items-center bg-white w-full">
             <div className="l  bg-[#C1CAD8]  shadow-sm px-4 py-4 space-y-10 flex justify-center items-center flex-col md:px-20">
                 <h1

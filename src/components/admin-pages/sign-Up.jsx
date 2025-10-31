@@ -36,7 +36,7 @@ export default function SignUp () {
             if(!res.ok) 
                 throw new Error(data.msg || "sign-Up not successful");
 
-            localStorage.setItem(name, JSON.stringify(name));
+            localStorage.setItem("name", JSON.stringify(name));
             localStorage.setItem("authToken", data.token);
 
             setMessage("sign-Up successful");
