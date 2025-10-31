@@ -10,16 +10,12 @@ export default function ForgotPassword () {
 
     const navigate = useNavigate();
 
-    const handleSendOTP = () => {
-        navigate("/send-otp");
-    };
-
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         
         try{
-            const res = await fetch ("backend/api/url", {
+            const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
                 method: "POST",
                 headers: {"Content-Type": "application/json" },
                 body: JSON.stringify({ email}),
@@ -30,15 +26,16 @@ export default function ForgotPassword () {
             
             setMessage("email upload successful");
             setEmail("");
+            navigate("/reset-otp");
         }catch (ero) {
-            setMessage(ero.msg);
+            setMessage(ero.message);
         }
     };
 
     return (
         <div>
-        <div className=" flex justify-center items-center bg-white w-full">
-            <div className=" bg-[#C1CAD8] shadow-sm px-4 py-4 space-y-10 flex md:w-[36rem] justify-center items-center flex-col md:px-15 md:my-5 md:py-12">
+        <div className="min-h-screen flex justify-center items-center bg-white w-full">
+            <div className="w-full md:w-auto mx-2 md:mx-0 bg-[#C1CAD8] shadow-sm px-4 py-4 space-y-10 flex justify-center items-center flex-col md:px-15 md:my-5 md:py-12">
                 <h1
                     className="text-3xl cursor-pointer flex items-center font-bold justify-center font-serif text-[#1A365D] py-5"
                 >
@@ -57,7 +54,7 @@ export default function ForgotPassword () {
                     <h3 className="font-[sora] font-normal text-[#1E1E1E] text-[20px]"> 
                     Enter Your Email
                 </h3>
-                <form onClick={handleSubmit} className=" justify-center items-center flex-col flex space-y-8 w-full">
+                <form onSubmit={handleSubmit} className=" justify-center items-center flex-col flex space-y-8 w-full">
 
                     <div className="w-full">
                         <label className="block text-[#1E1E1E] font-sans">Email</label>
@@ -72,7 +69,7 @@ export default function ForgotPassword () {
                     </div>
 
                         
-                        <button type="button" onClick={handleSendOTP} className="bg-[#1A365D] text-white md:w-70 w-56 rounded-[0.7rem] py-2 my-6">
+                        <button type="submit" className="bg-[#1A365D] text-white md:w-70 w-56 rounded-[0.7rem] py-2 my-6">
                         Send OTP
                     </button>
                 </form>

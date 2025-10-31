@@ -21,9 +21,9 @@ export default function SuccessAnimation() {
     
 
     return (
-        <div className="flex  justify-center  bg-white">
+        <div className="flex items-center min-h-screen   justify-center  bg-white">
 
-            <div className=" bg-[#C1CAD8] shadow-sm px-4 py-4 space-y-10 flex md:w-[36rem] justify-center items-center flex-col md:px-15 md:my-5 md:py-12">
+            <div className="mx-2 md:mx-0 w-full bg-[#C1CAD8] shadow-sm px-4 py-4 space-y-10 flex md:w-auto justify-center items-center flex-col md:px-15 md:my-5 md:py-12">
                 <h1
                     className="text-3xl cursor-pointer flex items-center font-bold justify-center font-serif text-[#1A365D] py-5"
                 >
@@ -40,6 +40,7 @@ export default function SuccessAnimation() {
                 <AnimatePresence>
                     <motion.h2 initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
+                        key="reset"
                         transition={{
                             delay: 0.6,
                             duration: 0.5,
@@ -50,6 +51,7 @@ export default function SuccessAnimation() {
 
                         <motion.div
                             initial={{ scale: 0.5, opacity: 0 }}
+                            key="animation"
                             animate={{ scale: 1, opacity: 1 }}
                             exit={{ opacity: 0 }}
                             transition={{

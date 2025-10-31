@@ -14,12 +14,12 @@ export default function AdminDashboard() {
         <motion.div initial={{ opacity: 0.5 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.1 }}>
             <>
                 <AdminHeader />
-                <div className="lg:grid lg:grid-cols-[1fr_3fr] sm:grid sm:grid-cols-[1fr_2fr]">
+                <div className="lg:grid lg:grid-cols-[0.8fr_3fr] sm:grid sm:grid-cols-[1fr_2fr]">
                     <div>
                         <Sidebar />
                     </div>
                     
-                    <div className=" sm:flex sm:items-center sm:justify-center text-shadow-xl ">
+                    <div className="hidden sm:flex sm:items-center sm:justify-center text-shadow-xl ">
 
                         <CinematicBouncyText text={`Welcome ${welcome}`} />
 

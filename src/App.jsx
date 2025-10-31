@@ -19,11 +19,12 @@ import SignIn from "./components/admin-pages/sign-in";
 import SignUp from "./components/admin-pages/sign-Up";
 import DashBoard from "./components/admin-pages/dashboard";
 import ForgotPassword from "./components/admin-pages/forgot-password";
-import SendOtp from "./components/admin-pages/send-otp";
-import SuccessAnimation from "./components/admin-pages/success-otp";
-import ResetPassword from "./components/admin-pages/new-password";
+import SendOtp from "./components/admin-pages/reset-otp";
+import SuccessAnimation from "./components/admin-pages/reset-success-otp";
+import ResetPassword from "./components/admin-pages/reset-password";
 import LoginOtp from "./components/admin-pages/login-otp";
 import LoginCompleted from "./components/admin-pages/login-complete";
+import Predictions from "./components/admin-pages/predictions";
 
 export default function App(){
   const [loading, setLoading] = useState(true);
@@ -53,13 +54,14 @@ export default function App(){
             <Route path="/" element={<LandingPage />} />
             <Route path="sign-in" element={ <SignIn />} />
             <Route path="/forgot-password" element={ <ForgotPassword />} />
-            <Route path="/new-password" element={ <ResetPassword />} />
-            <Route path="/success-otp" element={ <SuccessAnimation />} />
-            <Route path="/send-otp" element={ <SendOtp />} />
+            <Route path="/reset-password" element={ <ResetPassword />} />
+            <Route path="/reset-success-otp" element={ <SuccessAnimation />} />
+            <Route path="/reset-otp" element={ <SendOtp />} />
             <Route path="/login-otp" element={ <LoginOtp />} />
             <Route path="/login-complete" element={ <LoginCompleted />} />
             <Route path="sign-up" element={ <SignUp />} />
             <Route path="/dashboard" element={ <DashBoard/>} />
+            <Route path="/predictions" element={ <Predictions />} />
             <Route path="/details" element={<PredictionDetails />} />
             <Route path="/blog" element={ <BlogPost />} />
             <Route path="/admin" element={ <AdminDashboard />} />

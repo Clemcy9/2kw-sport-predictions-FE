@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 export default function SignUp () {
 
@@ -146,4 +147,6 @@ export default function SignUp () {
         </div>
     )
 }
+
+
 

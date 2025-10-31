@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 export default function BestPredictionCard () {
 
     const predictions ={
-        homeLogo: "",
+        homeLogo: "/",
         homeTeam: "Everton",
-        awayLogo: "",
+        awayLogo: "/",
         awayTeam: "Crystal Palace",
         leagueLogo: "/NPFL.jpg",
         league: "Premier League",
