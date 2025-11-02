@@ -32,11 +32,11 @@ export default function App(){
   useEffect(() => {
 
     //  preveunt the loading screen from showing every time a user go back
-    // const loadOnlyOnce = sessionStorage.getItem("loadOnlyOnce");
-    // if (loadOnlyOnce) {
-    //   setLoading(false);
-    //   return;
-    // }
+    const loadOnlyOnce = sessionStorage.getItem("loadOnlyOnce");
+    if (loadOnlyOnce) {
+      setLoading(false);
+      return;
+    }
     sessionStorage.setItem("loadOnlyOnce", "true");
     
     const setTimer = setTimeout(() => setLoading(false), 9000);
