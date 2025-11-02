@@ -14,7 +14,7 @@ export default function LoadingAnimation() {
                 className="flex items-center justify-center flex-col"
             >
 
-                <h1 className="text-4xl font-bold mb-4 text-blue-100 drop-shadow-lg flex items-center justify-center gap-2 p-4 text-shadow-lg">
+                <h1 className="text-3xl md:text-4xl font-bold mb-4 text-blue-100 drop-shadow-lg flex items-center justify-center gap-2 p-4 text-shadow-lg">
                     Welcome
                     <motion.span
                         animate={{ y: [0, -50, 0] }}
