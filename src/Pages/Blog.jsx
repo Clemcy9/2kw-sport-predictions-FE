@@ -66,7 +66,7 @@ export default function BlogPost () {
                 </motion.div>
 
             </section>
-            <div className=" lg:mx-10 sm:mx-2 mx-2 my-14 justify-center items-center lg:grid lg:grid-cols-3 sm:grid sm:grid-cols-2 sm:gap-6 gap-3 w-full sm:items-center sm:w-full sm:justify-center flex flex-col ">
+            <div className=" lg:mx-2 sm:mx-2 mx-2 my-14 justify-center items-center lg:grid lg:grid-cols-4 sm:grid sm:grid-cols-2 sm:gap-6 gap-3 w-full sm:items-center sm:w-full sm:justify-center flex flex-col ">
                 <article className="flex items-center justify-center flex-row lg:flex-col sm:flex-col lg:rounded-[0.5em] gap-1 rounded-[0.2em] lg:h-auto h-[180px] hover:scale-95 transition-all lg:w-[308px] w-[408px] min-w-[08px] sm:w-auto sm:h-auto  shadow-sm  lg:shadow-sm ">
                     <div className="lg:w-[308px] lg:h-auto sm:w-auto sm:h-auto w-[360px] h-[180px]">
                         <img src="/Blog-bg.jpg" alt="blog" className=" rounded-l-[0.5rem] h-full w-full lg:rounded-bl-none lg:rounded-t-[0.4rem] sm:rounded-bl-none sm:rounded-t-[0.5rem] bg-cover" />

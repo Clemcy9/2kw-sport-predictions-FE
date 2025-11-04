@@ -25,6 +25,8 @@ import ResetPassword from "./components/admin-pages/reset-password";
 import LoginOtp from "./components/admin-pages/login-otp";
 import LoginCompleted from "./components/admin-pages/login-complete";
 import Predictions from "./components/admin-pages/predictions";
+import MakePredictions from "./components/admin-pages/fixtures";
+import WelcomeText from "./components/animations/welcome";
 
 export default function App(){
   const [loading, setLoading] = useState(true);
@@ -51,6 +53,12 @@ export default function App(){
       
     ) : (
           <Routes>
+            <Route path="/admin" element={ <AdminDashboard />} >
+              <Route index element={ <WelcomeText />} />
+              <Route path="dashboard" element={<DashBoard />} />
+              <Route path="predictions" element={<Predictions />} />
+              <Route path="fixtures" element={<MakePredictions />} />
+            </Route>
             <Route path="/" element={<LandingPage />} />
             <Route path="sign-in" element={ <SignIn />} />
             <Route path="/forgot-password" element={ <ForgotPassword />} />
@@ -60,11 +68,11 @@ export default function App(){
             <Route path="/login-otp" element={ <LoginOtp />} />
             <Route path="/login-complete" element={ <LoginCompleted />} />
             <Route path="sign-up" element={ <SignUp />} />
-            <Route path="/dashboard" element={ <DashBoard/>} />
-            <Route path="/predictions" element={ <Predictions />} />
+            
             <Route path="/details" element={<PredictionDetails />} />
             <Route path="/blog" element={ <BlogPost />} />
-            <Route path="/admin" element={ <AdminDashboard />} />
+            
+            
             <Route path="/home-win" element={ <HomeWin />} />
             <Route path="/leagues/england-premier-league" element={<EnglandPremierLeague />}/>
             <Route path="/leagues/spain-la-liga" element={<SpainLaLiga />} />

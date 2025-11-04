@@ -7,7 +7,7 @@ export default function AdminHeader() {
 
     return (
         <header className="bg-[#1A365D] top-0 w-full z-50 shadow-sm backdrop-blur-md relative">
-            <div className="max-w-7xl lg:max-w-full mx-auto px-2 sm:px-3 lg:px-2">
+            <div className="max-w-full lg:max-w-full mx-auto px-2 sm:px-3 lg:px-2">
                 <div className="flex justify-between items-center h-16">
                     {/* Logo */}
                     <button

@@ -14,14 +14,6 @@ import DummyBlog from "../components/dummy-blog";
 
 export default function LandingPage () {
 
-  // const focus = useRef(null);
-
-  // useEffect(() => {
-  //   focus.current?.scrollIntoView({
-  //     behaviour: "smooth" 
-  //   });
-  // }, []);
-
   const moveToTop = () => {
     window.scrollTo({
       top: 0,
@@ -30,10 +22,11 @@ export default function LandingPage () {
   };
 
     return(
+      <>
+        <Navbar />
        <motion.div initial={{opacity:0.5}} animate={{opacity:1}} transition={{duration:1, delay:0.1}}>
-        <>
-          <Navbar />
           <HeroSection />
+        </motion.div>
           <FreeTips />
           <div className="flex justify-end items-end m-1">
             <div className="fixed border border-[#D6AE3E] hover:scale-95 transition-all bg-[#1A365D] rounded-full h-8 w-8 flex justify-center items-center text-[#D6AE3E] z-50" onClick={moveToTop}>
@@ -43,9 +36,11 @@ export default function LandingPage () {
           <div className="px-1 lg:px-4 pb-4 lg:py-4 pt-2  min-h-screen w-full max-w-full lg:overflow-x-hidden">
               <div className="grid grid-cols-1  lg:grid-cols-[350px_3fr] gap-2 max-w-full w-full justify-center">
 
-                   <div className="space-y-2 items-center flex flex-col bg-white -z-20 ">
+                   <div className="space-y-2 items-center flex flex-col bg-white">
                       <BestPredictionCard />
-                      <FootballLeaguesTable />
+                      <div className="sticky top-24 w-full">
+                        <FootballLeaguesTable />
+                      </div>
                     </div>
                     <div className="flex flex-col">
                      <div className="flex items-start justify-center w-full">
@@ -63,26 +58,8 @@ export default function LandingPage () {
                    </div>
                 </div>
               </div>
-             {/* <div className="text-[#1A365D] border-[#1A365D] bg-white/60 lg:p-10 lg:m-5 border p-2 flex justify-center flex-col rounded-[0.3rem] shadow-sm">
-                <h1>⚽2KwPredicts</h1>
-                <h5>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Id eligendi laudantium, temporibus, itaque eius ratione eos nemo sapiente quis sint explicabo, porro natus quibusdam labore ex. Ipsa expedita excepturi aperiam?
-                  Repudiandae dolorum accusamus quaerat mollitia reiciendis distinctio, consequatur expedita sunt quod natus pariatur enim culpa suscipit impedit, temporibus consectetur tempora voluptatum, sint ea earum id. Laborum eos deleniti iure consequatur.
-                  Deleniti, dolorum ab laborum quasi molestias tenetur itaque commodi ullam asperiores deserunt. Quaerat quas corporis ipsa unde aspernatur quod, tempore illum, fugit adipisci molestiae beatae sint? Ea eos voluptate porro.
-                  Facere libero minus nisi dolore, facilis natus. Nihil ut molestiae distinctio, voluptatum veritatis delectus ab magni explicabo vel at quasi dignissimos animi optio dolorum accusamus ipsam eligendi ad iste blanditiis?
-                </h5>
-                <p>
-                  <span>⚽2KwPredicts</span>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dignissimos obcaecati expedita, optio odio quae accusamus doloribus ad possimus. Velit nesciunt iste illum numquam recusandae, accusantium quae ut voluptas perferendis.
-                </p>
-                  <article>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis ducimus velit amet enim incidunt ipsam sit molestias optio deleniti, tenetur voluptatem atque, praesentium harum nam, sint veniam perferendis corporis laudantium?
-                    Sit explicabo eligendi ad dolore placeat ratione unde magnam ipsam. Dolor, minus. Enim voluptatibus blanditiis sed hic nam quisquam ipsa sint aliquam rem, quibusdam harum quidem incidunt ipsam tempora obcaecati!
-                    Laborum assumenda voluptatum reprehenderit ut voluptate incidunt alias? Tempore error perferendis excepturi adipisci consectetur delectus? Minima adipisci ea maiores sint minus officiis hic illo at dolore molestiae, culpa, optio in?
-                  </article>
-             </div> */}
           <Footer />
        </>
-       </motion.div>
+       
     );
 }

@@ -1,8 +1,8 @@
 import {useState, useEffect } from "react";
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
-import AdminHeader from "./header";
+// import AdminHeader from "./header";
 import { FaArrowTrendUp, FaCheck, FaUser, FaTrash } from "react-icons/fa6";
-import Sidebar from "./sidebar";
+// import Sidebar from "./sidebar";
 
 export default function DashBoard() {
 
@@ -75,13 +75,9 @@ export default function DashBoard() {
 
     return (
         <div>
-            <AdminHeader />
-            <div className="flex">
-                <div className="hidden md:flex">
-               <Sidebar />
-                </div>
-                <div className="flex justify-center flex-col items-center w-full sm:mx-5 sm:my-3 ">
-                    <div className="flex justify-between gap-6 w-full sm:h-28 sm:m-10">
+            <div className="hidden md:flex">
+                <div className="flex justify-center flex-col w-full sm:mx-5 sm:my-3 ">
+                    <div className="flex justify-between w-full my-8">
                         <div className="p-4 bg-[#F3F8FF] text-[#1A365D] rounded-[0.4rem] w-60 ">
                             <h2 className="text-xl font-extralight font-sans mb-4 flex justify-center items-center gap-2">Total Predictioms
                                 <FaArrowTrendUp className="text-[#D6AE3E]" />
@@ -113,55 +109,54 @@ export default function DashBoard() {
                             </div>
                         </div>
                     </div>
-                     <div className="flex justify-start font-semibold font-sans text-2xl w-full">
+                    <div className="flex justify-start font-semibold font-sans text-2xl w-full">
                         <h2 className=" font-semibold mb-4 text-left">Recent Predictions</h2>
-
                     </div>
-                    <table className="w-full border-collapse ">
-                        <thead>
-                            <tr className="font-bold text-left text-[18px]">
-                                <th className="p-3">No.</th>
-                                <th className="p-3">League</th>
-                                <th className="p-3">Date/Time</th>
-                                <th className="p-3">Home</th>
-                                <th className="p-3">Away</th>
-                                <th className="p-3">Tips</th>
-                                <th className="p-3">Action</th>
-                            </tr>
-                        </thead>
-
-                        <tbody className="">
-                            {predictions.map((item, index) => (
-                                <tr key={item.id} className=" leading-tight">
-                                    <td className="py-7">{index + 1}</td>
-                                    <td className="py-7">{item.league}</td>
-                                    <td className="py-7">{item.date}</td>
-                                    <td className="py-7">
-                                        <span className=" font-semibold">🛡️</span>
-                                        {item.awayTeam}
-                                    </td>
-                                    <td className="py-7">
-                                        <span className=" font-semibold">⚽</span>
-                                        {item.homeTeam}
-                                    </td>
-                                    
-                                    <td className="py-7">{item.tip}</td>
-                                    <td className="py-7">
-                                        <button
-                                            className="text-[#FB3B3B] hover:text-red-800 transition"
-                                            onClick={() => handleDelete(item.id)}
-                                        >
-                                            <FaTrash size={14} />
-                                        </button>
-                                    </td>
+                   <div className="flex justify-center flex-col items-center w-full sm:mx-5 my-1">
+                        <table className="w-full border-collapse ">
+                            <thead>
+                                <tr className="font-bold text-left text-[18px]">
+                                    <th className="p-3">No.</th>
+                                    <th className="p-3">League</th>
+                                    <th className="p-3">Date/Time</th>
+                                    <th className="p-3">Home</th>
+                                    <th className="p-3">Away</th>
+                                    <th className="p-3">Tips</th>
+                                    <th className="p-3">Action</th>
                                 </tr>
-                            ))}
-                        </tbody>
-                    </table>
+                            </thead>
+
+                            <tbody className="">
+                                {predictions.map((item, index) => (
+                                    <tr key={item.id} className=" leading-tight">
+                                        <td className="py-7">{index + 1}</td>
+                                        <td className="py-7">{item.league}</td>
+                                        <td className="py-7">{item.date}</td>
+                                        <td className="py-7">
+                                            <span className=" font-semibold">🛡️</span>
+                                            {item.awayTeam}
+                                        </td>
+                                        <td className="py-7">
+                                            <span className=" font-semibold">⚽</span>
+                                            {item.homeTeam}
+                                        </td>
+
+                                        <td className="py-7">{item.tip}</td>
+                                        <td className="py-7">
+                                            <button
+                                                className="text-[#FB3B3B] hover:text-red-800 transition"
+                                                onClick={() => handleDelete(item.id)}
+                                            >
+                                                <FaTrash size={14} />
+                                            </button>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                   </div>
                 </div>
             </div>
-           
-
         </div>
     );
 }

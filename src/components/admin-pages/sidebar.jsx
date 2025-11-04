@@ -24,20 +24,20 @@ export default function Sidebar() {
     const menuItems = [
         {
             title: "Dashboard",
-            path: "/dashboard",
+            path: "/admin/dashboard",
             icon: <FaTachometerAlt />,
         },
         {
             title: "Fixtures",
             icon: <FaFutbol />,
             dropdown: [
-                { name: "Male Predictions", path: "/fixtures" },
+                { name: "Male Predictions", path: "/admin/fixtures" },
                 { name: "Leagues", path: "/fixtures/add" },
             ],
         },
         {
             title: "Predictions",
-            path: "/predictions",
+            path: "/admin/predictions",
             icon: <FaChartLine />,
         },
         {
@@ -84,7 +84,7 @@ export default function Sidebar() {
     ];
 
     return (
-        <aside className="bg-[#1A365D29] text-[#1A365D] sm:w-72 lg:w-96 w-full min-h-screen p-4 flex flex-col shadow-lg py-10">
+        <aside className="bg-[#1A365D29] text-[#1A365D] sm:w-72 lg:w-80 w-full min-h-screen p-4 flex flex-col shadow-lg py-10">
            {/* <button onClick={() => setOpen(!open)}>
                 <MenuSquare />
            </button> */}
