@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
-// import { useEffect } from "react";
+import { FaApple} from "react-icons/fa6";
+import {FcGoogle} from "react-icons/fc";
+import { useNavigate, Link } from "react-router-dom";
 
 export default function SignUp () {
 
@@ -52,10 +53,10 @@ export default function SignUp () {
     };
 
     return (
-        <div className="min-h-screen flex justify-center items-center bg-white w-full ">
-            <div className="w-full md:w-auto bg-[#C1CAD8] shadow-lg px-4 py-4 space-y-5 flex justify-center items-center flex-col md:px-20 md:mx-0 mx-2">
+        <div className="min-h-screen flex justify-center md:items-center bg-white w-full ">
+            <div className=" w-full md:w-auto md:bg-[#C1CAD8] md:shadow-lg px-4 py-4 space-y-5 flex md:justify-center md:items-center flex-col md:px-20 md:mx-0 mx-2">
                 <h1
-                    className="text-3xl cursor-pointer flex items-center font-bold justify-center font-serif text-[#1A365D] py-5"
+                    className="text-3xl cursor-pointer flex items-center font-bold justify-center font-serif text-[#1A365D] pt-5"
                 >
                     <motion.span
                         animate={{ rotate: 360 }}
@@ -66,9 +67,12 @@ export default function SignUp () {
                     </motion.span>
                     2KwPredicts
                 </h1>
-                <form onSubmit={handleSubmit} className="w-full md:w-auto justify-center items-center flex-col flex space-y-4 ">
+                <h2 className="md:hidden text-center py-4 text-[#1E1E1E] font-semibold font-[Sora] text-[1.2rem]">
+                    Sign Up
+                </h2>
+                <form onSubmit={handleSubmit} className="w-full md:w-auto justify-center items-center flex-col flex md:space-y-4 ">
 
-                    <div className="w-full">
+                    <div className="w-full my-3 md:my-0">
                         <label className="block text-[#1E1E1E] font-sans">Full Name</label>
                         <input
                             type="text"
@@ -77,10 +81,10 @@ export default function SignUp () {
                             value={name}
                             placeholder="Your Full Name"
                             onChange={(e) => setName(e.target.value)}
-                            className=" bg-[#F5F2F2] w-full md:min-w-[381px] py-1 px-3 rounded-[0.4rem] focus:ring-[#1A365D] outline-none focus:ring-1 placeholder-[#1A365D]/80" />
+                            className="border border-[#00000066] md:border-none md:bg-[#F5F2F2] w-full md:min-w-[381px] md:py-1 py-2 md:px-3 px-4 rounded-[0.6rem] focus:ring-[#1A365D] outline-none focus:ring-1 placeholder-[#1A365D]/80" />
                     </div>
 
-                    <div className="w-full">
+                    <div className="w-full my-3 md:my-0">
                         <label className="block text-[#1E1E1E] font-sans">Email</label>
                         <input
                             type="email"
@@ -89,10 +93,10 @@ export default function SignUp () {
                             value={email}
                             placeholder="example04@gamail.com"
                             onChange={(e) => setEmail(e.target.value)}
-                            className=" bg-[#F5F2F2] w-full md:min-w-[381px] py-1 px-3 rounded-[0.4rem] focus:ring-[#1A365D] outline-none focus:ring-1 placeholder-[#1A365D]/80" />
+                            className="border border-[#00000066] md:border-none md:bg-[#F5F2F2] w-full md:min-w-[381px] md:py-1 py-2 md:px-3 px-4 rounded-[0.6rem] focus:ring-[#1A365D] outline-none focus:ring-1 placeholder-[#1A365D]/80" />
                     </div>
 
-                    <div className="w-full">
+                    <div className="w-full my-3 md:my-0">
                         <label className="block text-[#1E1E1E] font-sans">Password</label>
                         <div className="relative">
                             <input
@@ -102,7 +106,7 @@ export default function SignUp () {
                                 value={password}
                                 placeholder="......"
                                 onChange={(e) => setPassword(e.target.value)}
-                                className=" bg-[#F5F2F2] w-full md:min-w-[381px] py-1 px-3 rounded-[0.4rem] focus:ring-[#1A365D] outline-none focus:ring-1 placeholder-[#1A365D]/80" />
+                                className="border border-[#00000066] md:border-none placeholder:font-semibold placeholder:text-2xl placeholder:tracking-widest md:bg-[#F5F2F2] w-full md:min-w-[381px] md:py-1 py-2 md:px-3 px-4 rounded-[0.6rem] focus:ring-[#1A365D] outline-none focus:ring-1 placeholder-[#1A365D]/80" />
                                 <button
                                 className="absolute right-3 top-2.5 text-[#1E1E1E]/60"
                                     type="button"
@@ -111,7 +115,7 @@ export default function SignUp () {
                                 </button>
                         </div>
                     </div>
-                    <div className="w-full">
+                    <div className="w-full my-3 md:my-0">
                         <label className="block text-[#1E1E1E] font-sans">Confirm Password</label>
                         <div className="relative">
                             <input
@@ -121,7 +125,7 @@ export default function SignUp () {
                                 value={confirmPassword}
                                 placeholder="......"
                                 onChange={(e) => setConfirmPassword(e.target.value)}
-                                className=" bg-[#F5F2F2] w-full md:min-w-[381px] py-1 px-3 rounded-[0.4rem] focus:ring-[#1A365D] outline-none focus:ring-1 placeholder-[#1A365D]/80" />
+                                className="border border-[#00000066] md:border-none placeholder:font-semibold placeholder:text-2xl placeholder:tracking-widest md:bg-[#F5F2F2] w-full md:min-w-[381px] md:py-1 py-2 md:px-3 px-4 rounded-[0.6rem] focus:ring-[#1A365D] outline-none focus:ring-1 placeholder-[#1A365D]/80" />
                                 <button
                                 className="absolute right-3 top-2.5 text-[#1E1E1E]/60"
                                     type="button"
@@ -132,9 +136,15 @@ export default function SignUp () {
 
                     </div>
 
-                    <button type="submit"  className="bg-[#1A365D] text-white w-40 md:w-70 rounded-[0.4rem] py-2 my-6">
+                    <button type="submit"  className="bg-[#1A365D] text-white w-70 rounded-[0.6rem] py-2 mt-6">
                         Sign UP
                     </button>
+                    <p className="text-[#1E1E1E] p-0.5">
+                        Already have an account?
+                        <Link className="p-0.5 text-[#D7A006] font-normal font-[Sora]" to={"/sign-in"}>
+                           Sign-In 
+                        </Link>
+                    </p>
                 </form>
 
                 {message &&(
@@ -142,6 +152,26 @@ export default function SignUp () {
                         {message}
                     </p>
                 )}
+                <div className="flex justify-center items-center flex-col space-y-4 pt-8">
+                    <h3>
+                        Continue With
+                    </h3>
+                    <div className="flex gap-6 w-80">
+                       
+                        <button className="cursor-pointer flex justify-center items-center gap-2 border border-[#1A365D] px-4 py-2 rounded-[0.5rem] text-[#1A365D] font-normal font-[Sora] min-w-auto w-full">
+                            <FcGoogle />
+                            <span>
+                                Google
+                            </span>
+                        </button>
+                        <button className="cursor-pointer flex justify-center items-center gap-2 border border-[#1A365D] px-4 py-2 rounded-[0.5rem] text-[#1A365D] font-normal font-[Sora] min-w-auto w-full">
+                            <FaApple className="text-black"/>
+                            <span>
+                                Apple 
+                            </span>
+                        </button>
+                    </div>
+                </div>
             </div>
                
         </div>

@@ -60,14 +60,14 @@ export default function App(){
               <Route path="fixtures" element={<MakePredictions />} />
             </Route>
             <Route path="/" element={<LandingPage />} />
-            <Route path="sign-in" element={ <SignIn />} />
+            <Route path="/sign-in" element={ <SignIn />} />
             <Route path="/forgot-password" element={ <ForgotPassword />} />
             <Route path="/reset-password" element={ <ResetPassword />} />
             <Route path="/reset-success-otp" element={ <SuccessAnimation />} />
             <Route path="/reset-otp" element={ <SendOtp />} />
             <Route path="/login-otp" element={ <LoginOtp />} />
             <Route path="/login-complete" element={ <LoginCompleted />} />
-            <Route path="sign-up" element={ <SignUp />} />
+            <Route path="/sign-up" element={ <SignUp />} />
             
             <Route path="/details" element={<PredictionDetails />} />
             <Route path="/blog" element={ <BlogPost />} />

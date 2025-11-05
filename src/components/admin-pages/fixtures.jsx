@@ -10,8 +10,9 @@ export default function MakePredictions () {
 
     const handleDelete = (id) => {
             setPredictions(predictions.filter((item) => item.id !== id));
+            
         };
-    
+
         const [predictions, setPredictions] = useState([
             {
                 id: 1,
@@ -56,6 +57,7 @@ export default function MakePredictions () {
         ]);
 
     return(
+        
         <div>
             <div className="hidden md:flex mt-6">
                 <div className="flex flex-col justify-center w-full sm:mx-5 sm:my-1">

@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Eye, EyeOff } from "lucide-react";
 import { motion } from "framer-motion";
+import { FcGoogle } from "react-icons/fc";
+import { FaApple } from "react-icons/fa6";
 
 
 export default function SignIn () {
@@ -48,10 +50,10 @@ export default function SignIn () {
 
     return (
         <div>
-        <div className="min-h-screen flex justify-center items-center bg-white w-full">
-            <div className="w-full md:w-auto mx-2 md:mx-0 bg-[#C1CAD8]  shadow-sm px-4 py-4 space-y-10 flex justify-center items-center flex-col md:px-20">
+        <div className="min-h-screen flex justify-center md:items-center bg-white w-full">
+                <div className="w-full md:w-auto md:bg-[#C1CAD8] md:shadow-lg px-4 py-4 space-y-5 flex md:justify-center md:items-center flex-col md:px-20 md:mx-0 mx-2">
                 <h1
-                    className="text-3xl cursor-pointer flex items-center font-bold justify-center font-serif text-[#1A365D] py-5"
+                    className="text-3xl cursor-pointer flex items-center font-bold justify-center font-serif text-[#1A365D] pt-5"
                 >
                     <motion.span
                         animate={{ rotate: 360 }}
@@ -62,6 +64,9 @@ export default function SignIn () {
                     </motion.span>
                     2KwPredicts
                 </h1>
+                <h2 className="md:hidden text-center py-4 text-[#1E1E1E] font-semibold font-[Sora] text-[1.2rem]">
+                    Sign In
+                </h2>
                 <form onSubmit={handleSubmit} className="w-full md:w-auto justify-center items-center flex-col flex space-y-6 md:space-y-8 ">
 
                     <div className="w-full">
@@ -73,10 +78,10 @@ export default function SignIn () {
                             value={email}
                             placeholder="example04@gamail.com"
                             onChange={(e) => setEmail(e.target.value)}
-                            className=" bg-[#F5F2F2] w-full md:min-w-[381px] py-1 px-3 rounded-[0.4rem] focus:ring-[#1A365D] outline-none focus:ring-1 placeholder-[#1A365D]/80" />
+                            className="border border-[#00000066] md:border-none md:bg-[#F5F2F2] w-full md:min-w-[381px] md:py-1 py-2 md:px-3 px-4 rounded-[0.4rem] focus:ring-[#1A365D] outline-none focus:ring-1 placeholder-[#1A365D]/80" />
                     </div>
 
-                    <div className="mb-2 w-full">
+                    <div className="mb-1 w-full">
                         <label className="block text-[#1E1E1E] font-sans">Password</label>
                         <div className="relative">
                             <input
@@ -86,7 +91,7 @@ export default function SignIn () {
                                 value={password}
                                 placeholder="......"
                                 onChange={(e) => setPassword(e.target.value)}
-                                className=" bg-[#F5F2F2] w-full md:min-w-[381px] py-1 px-3 rounded-[0.4rem] focus:ring-[#1A365D] outline-none focus:ring-1 placeholder-[#1A365D]/80" />
+                                className="border border-[#00000066] md:border-none placeholder:font-semibold placeholder:text-2xl placeholder:tracking-widest md:bg-[#F5F2F2] w-full md:min-w-[381px] md:py-1 py-2 md:px-3 px-4 rounded-[0.4rem] focus:ring-[#1A365D] outline-none focus:ring-1 placeholder-[#1A365D]/80" />
                                 <button
                                 className="absolute right-3 top-2.5 text-[#1E1E1E]/60"
                                     type="button"
@@ -94,19 +99,54 @@ export default function SignIn () {
                                     {eyePassword ? <Eye size={15} /> : <EyeOff size={15} />}
                                 </button>
                         </div>
+                    </div>
+                    
+                    <div className="flex flex-col items-start w-full sp">
+                        <Link to={"/forgot-password"} className="text-[#1A365D] py-1">Forgot Password</Link>
+                        <label className="flex items-center gap-1 py-8">
+                            <input type="checkbox" className="accent-[#1A365D] w-5 h-5 rounded-[0.2rem] "/>
+                            <span>Remember me </span>
+                        </label>
 
-                        <Link to={"/forgot-password"} className="text-[#1A365D] ">Forgot Password</Link>
-                        
+
+                    </div>
                         {message && (
                                 <p className="text-red-600">{message}</p>
 
                         )}
-                    </div>
+                    
 
-                    <button type="submit" className="bg-[#1A365D] text-white w-40 md:w-70 rounded-[0.4rem] py-2 my-6">
+                    <button type="submit" className="bg-[#1A365D] text-white w-70 rounded-[0.6rem] py-2 mt-6">
                         Sign In
                     </button>
+                    <p className="text-[#1E1E1E] p-0.5">
+                        Dont have an account?
+                        <Link className="p-0.5 text-[#D7A006] font-normal font-[Sora]" to={"/sign-Up"}>
+                            Sign-Up
+                        </Link>
+                    </p>
                 </form>
+
+               <div className="flex justify-center items-center flex-col space-y-4 pt-8">
+                    <h3>
+                        Continue With
+                    </h3>
+                    <div className="flex gap-6 w-80">
+                       
+                        <button className="cursor-pointer flex justify-center items-center gap-2 border border-[#1A365D] px-4 py-2 rounded-[0.5rem] text-[#1A365D] font-normal font-[Sora] min-w-auto w-full">
+                            <FcGoogle />
+                            <span>
+                                Google
+                            </span>
+                        </button>
+                        <button className="cursor-pointer flex justify-center items-center gap-2 border border-[#1A365D] px-4 py-2 rounded-[0.5rem] text-[#1A365D] font-normal font-[Sora] min-w-auto w-full">
+                            <FaApple className="text-black"/>
+                            <span>
+                                Apple 
+                            </span>
+                        </button>
+                    </div>
+                </div>
             </div>    
         </div>
         </div>

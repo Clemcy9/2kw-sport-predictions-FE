@@ -231,8 +231,6 @@ export default function PremierLeagueCard () {
                                     <span className="font-sans text-sm font-normal">{predictions.homeTeam}</span>
                                 </div>
 
-
-
                                 <div className="flex justify-center items-center">
                                     <img
                                         src={predictions.awayLogo}
