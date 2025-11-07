@@ -53,7 +53,7 @@ export default function SignUp () {
     };
 
     return (
-        <div className="min-h-screen flex justify-center md:items-center bg-white w-full ">
+        <div className=" flex justify-center md:items-center bg-white w-full ">
             <div className=" w-full md:w-auto md:bg-[#C1CAD8] md:shadow-lg px-4 py-4 space-y-5 flex md:justify-center md:items-center flex-col md:px-20 md:mx-0 mx-2">
                 <h1
                     className="text-3xl cursor-pointer flex items-center font-bold justify-center font-serif text-[#1A365D] pt-5"

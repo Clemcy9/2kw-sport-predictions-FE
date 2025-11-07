@@ -75,11 +75,11 @@ export default function DashBoard() {
 
     return (
         <div>
-            <div className="hidden md:flex">
+            <div className="p-4">
                 <div className="flex justify-center flex-col w-full sm:mx-5 sm:my-3 ">
-                    <div className="flex justify-between w-full my-8">
-                        <div className="p-4 bg-[#F3F8FF] text-[#1A365D] rounded-[0.4rem] w-60 ">
-                            <h2 className="text-xl font-extralight font-sans mb-4 flex justify-center items-center gap-2">Total Predictioms
+                    <div className="md:flex md:justify-between w-full my-8 grid grid-cols-1 grid-rows-2 gap-4">
+                        <div className="col-span-2 w-full md:p-4 p-6 bg-[#F3F8FF] text-[#1A365D] rounded-[0.4rem] md:w-60 ">
+                            <h2 className="text-xl font-extralight font-sans mb-4 flex md:justify-center justify-between md:items-center gap-2">Total Predictioms
                                 <FaArrowTrendUp className="text-[#D6AE3E]" />
                             </h2>
 
@@ -88,8 +88,8 @@ export default function DashBoard() {
                                 <motion.span className="text-">{statistics1}</motion.span>
                             </div>
                         </div>
-                        <div className="p-4 bg-[#F3F8FF] text-[#1A365D] rounded-[0.4rem] w-60 ">
-                            <h2 className="text-xl font-extralight font-sans mb-4 flex justify-center items-center gap-2">Accuracy Rate
+                        <div className="mr-1 md:p-4 p-6 bg-[#F3F8FF] text-[#1A365D] rounded-[0.4rem] w-60">
+                            <h2 className="text-xl font-extralight font-sans mb-4 flex md:justify-center justify-between items-center gap-2">Accuracy Rate
                                 <span className="w-6 h-6 border-2 border-[#D6AE3E]"> <FaCheck className="text-[#D6AE3E]" /></span>
                             </h2>
 
@@ -98,8 +98,8 @@ export default function DashBoard() {
                                 <motion.span className="text-">{statistics2}</motion.span>
                             </div>
                         </div>
-                        <div className="p-4 bg-[#F3F8FF] text-[#1A365D] rounded-[0.4rem] w-60 ">
-                            <h2 className="text-xl font-extralight font-sans mb-4 flex justify-center items-center gap-2">Active Users
+                        <div className="ml-1 md:p-4 p-6 bg-[#F3F8FF] text-[#1A365D] rounded-[0.4rem] w-60">
+                            <h2 className="text-xl font-extralight font-sans mb-4 flex md:justify-center justify-between items-center gap-2">Active Users
                                 <FaUser className="text-[#D6AE3E]" />
                             </h2>
 
