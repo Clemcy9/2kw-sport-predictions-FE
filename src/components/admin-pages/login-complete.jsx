@@ -1,9 +1,7 @@
-// import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import Lottie from "lottie-react";
 import successAnimation from "../../assets/lottieflow-success-08-059D3F-linear.json"
-// import { CheckCircle } from "lucide-react";
 
 export default function LoginCompleted() {
     
@@ -13,17 +11,12 @@ export default function LoginCompleted() {
         navigate("/admin");
         e.preventDefault();
     };
-
-    // const handleSubmit = async (e) => {
-
-    // };
-
     
 
     return (
-        <div className="min-h-screen flex justify-center items-center bg-white w-full">
+        <div className="overflow-y-hidden md:min-h-screen flex justify-center md:items-center bg-white w-full">
 
-            <div className="w-full md:w-auto mx-2 md:mx-0 bg-[#C1CAD8] shadow-sm px-4 py-4 space-y-10 flex justify-center items-center flex-col md:px-15 md:my-5 md:py-8">
+            <div className="w-full md:w-auto mx-2 md:mx-0 md:bg-[#C1CAD8] shadow-sm px-4 py-6 space-y-10 flex justify-center items-center flex-col md:px-15 md:my-5 md:py-8">
                 <h1
                     className="text-3xl cursor-pointer flex items-center font-bold justify-center font-serif text-[#1A365D] py-5"
                 >
@@ -46,7 +39,7 @@ export default function LoginCompleted() {
                             duration: 0.5,
                             ease: "easeOut",
                         }} className="font-[sora] font-semibold text-[#1E1E1E] text-2xl">
-                          Confirm OTP
+                          OTP Confirmed
                     </motion.h2>
 
                         <motion.div
@@ -61,19 +54,7 @@ export default function LoginCompleted() {
                             }}
                             className="flex flex-col items-center"
                         >
-                          
-                                {/* <motion.div
-                                    initial={{ scale: 0 }}
-                                    animate={{ scale: [0, 1.3, 1] }}
-                                    transition={{
-                                        duration: 0.4,
-                                        ease: "easeOut",
-                                        delay: 0.2,
-                                    }}
-                                >
-                                    <CheckCircle className="text-green-600 w-16 h-16" />
-                                </motion.div> */}
-
+                        
                         <Lottie
                         key="animation"
                             animationData={successAnimation}
