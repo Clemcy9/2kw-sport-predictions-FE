@@ -34,10 +34,10 @@ export default function ForgotPassword () {
 
     return (
         <div>
-        <div className="min-h-screen flex justify-center items-center bg-white w-full">
-            <div className="w-full md:w-auto mx-2 md:mx-0 bg-[#C1CAD8] shadow-sm px-4 py-4 space-y-10 flex justify-center items-center flex-col md:px-15 md:my-5 md:py-12">
+            <div className="flex justify-center md:items-center md:min-h-screen bg-white w-full overflow-y-hidden">
+            <div className="w-full md:w-auto mx-2 md:mx-0 md:bg-[#C1CAD8] shadow-sm px-4 py-4 space-y-10 flex justify-center items-center flex-col md:px-15 md:my-5 md:py-12">
                 <h1
-                    className="text-3xl cursor-pointer flex items-center font-bold justify-center font-serif text-[#1A365D] py-5"
+                    className="text-3xl cursor-pointer flex items-center font-bold justify-center font-serif text-[#1A365D] py-6"
                 >
                     <motion.span
                         animate={{ rotate: 360 }}
@@ -65,11 +65,11 @@ export default function ForgotPassword () {
                             value={email}
                             placeholder="example04@gamail.com"
                             onChange={(e) => setEmail(e.target.value)}
-                            className=" bg-[#F5F2F2] w-full py-1 px-3 rounded-[0.4rem] focus:ring-[#1A365D] outline-none focus:ring-1 placeholder-[#1A365D]/80" />
+                            className="border border-[#00000066] md:border-none md:bg-[#F5F2F2] w-full md:min-w-[381px] md:py-1 py-2 md:px-3 px-4 rounded-[0.6rem] focus:ring-[#1A365D] outline-none focus:ring-1 placeholder-[#1A365D]/80" />
                     </div>
 
                         
-                        <button type="submit" className="bg-[#1A365D] text-white md:w-70 w-56 rounded-[0.7rem] py-2 my-6">
+                        <button type="submit" className="bg-[#1A365D] text-white w-70 rounded-[0.6rem] py-2 mt-6">
                         Send OTP
                     </button>
                 </form>
