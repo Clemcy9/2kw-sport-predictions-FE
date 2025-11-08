@@ -104,7 +104,7 @@ export default function SignIn () {
                     <div className="flex flex-col items-start w-full sp">
                         <Link to={"/forgot-password"} className="text-[#1A365D] py-1">Forgot Password</Link>
                         <label className="flex items-center gap-1 py-8">
-                            <input type="checkbox" className="accent-[#1A365D] w-5 h-5 rounded-[0.2rem] "/>
+                            <input type="checkbox" required className="accent-[#1A365D] w-5 h-5 rounded-[0.2rem] "/>
                             <span>Remember me </span>
                         </label>
 
