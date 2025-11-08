@@ -2,10 +2,14 @@ import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import Lottie from "lottie-react";
 import successAnimation from "../../assets/lottieflow-success-08-059D3F-linear.json"
+import { useState } from "react";
+import {AiOutlineCheckCircle} from "react-icons/ai"
 
 export default function LoginCompleted() {
     
     const navigate = useNavigate();
+    const [isDone, setIsDone] = useState(false);
+    
 
     const handleSendOTP = (e) => {
         navigate("/admin");
@@ -55,13 +59,31 @@ export default function LoginCompleted() {
                             className="flex flex-col items-center"
                         >
                         
-                        <Lottie
-                        key="animation"
-                            animationData={successAnimation}
-                            loop={true}
-                            autoplay
-                            className="w-30 h-30"
-                        />
+                        {!isDone ? (
+                            <Lottie
+                                key="animation"
+                                animationData={successAnimation}
+                                loop={false}
+                                autoplay={true}
+                                className="w-30 h-30 mx-auto"
+                                onComplete={() => setIsDone(true)}
+                            />
+
+                        ):(
+                                <motion.div
+                                    initial={{ scale: 0, opacity: 0 }}
+                                    animate={{
+                                        scale: [0, 1.2, 1],
+                                        opacity: [0, 1, 1],
+                                        transition: { duration: 0.6, ease: "easeOut" },
+                                    }}
+                                    className="flex items-center justify-center"
+                                >
+                                    <AiOutlineCheckCircle
+                                        className="w-30 h-30 rounded-full bg-[#059D3F] text-white drop-shadow-[0_0_10px_rgba(34,197,94,0.6)]"
+                                    />
+                                </motion.div>
+                        )}
 
                                 </motion.div>
                             <motion.h3
@@ -81,7 +103,7 @@ export default function LoginCompleted() {
                 </AnimatePresence>
 
 
-            <button type="button" onClick={handleSendOTP} className="bg-[#1A365D] text-white md:w-70 w-56 rounded-[0.7rem] py-2 my-6">
+            <button type="button" onClick={handleSendOTP} className="bg-[#1A365D] text-white w-70 rounded-[0.7rem] py-2 my-6">
                 Done
             </button>
 
