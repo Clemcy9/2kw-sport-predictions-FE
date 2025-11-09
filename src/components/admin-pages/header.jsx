@@ -159,6 +159,7 @@ export default function AdminHeader() {
                                                                 <NavLink
                                                                     key={j}
                                                                     to={sub.path}
+                                                                    onClick={() => {setOpenDropdown(null); setIsOpen(false);}}
                                                                     className="text-sm text-[#142850] hover:bg-[#D6AE3E] p-2 rounded-[0.4rem] w-full transition-all"
                                                                 >
                                                                     {sub.name}
@@ -170,6 +171,7 @@ export default function AdminHeader() {
                                             ) : (
                                                 <NavLink
                                                     to={item.path}
+                                                    onClick={()=> {setOpenDropdown(null); setIsOpen(false);}}
                                                     className={({ isActive }) =>
                                                         `flex items-center gap-3 p-2 rounded-md transition-all ${isActive
                                                                 ? "bg-[#fff] text-[#1A3761]"
@@ -189,6 +191,7 @@ export default function AdminHeader() {
                                             <Link
                                                 key={index}
                                                 to={item.path}
+                                                onClick={() => { setOpenDropdown(null); setIsOpen(false); }}
                                                 className="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-[#fff] hover:text-[#1A3761] transition"
                                             >
                                                 {item.icon}
