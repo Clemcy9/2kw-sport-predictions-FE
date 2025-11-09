@@ -197,7 +197,7 @@ export default function AdminHeader() {
                                         ))}
                                     </div>
 
-                                    <h1 className="md:hidden font-serif text-white px-3 md:text-2xl text-[16px] flex items-start  flex-col">
+                                    <h1 className="md:hidden font-serif text-white px-3 md:text-2xl text-[18px] flex items-start  flex-col">
                                         {name}
                                         <span className="font-sans text-white/80 md:text-[16px] text-[10px]">
                                             Admin
