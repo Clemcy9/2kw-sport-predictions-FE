@@ -88,7 +88,7 @@ export default function DashBoard() {
                                 <motion.span className="text-">{statistics1}</motion.span>
                             </div>
                         </div>
-                        <div className="mr-1 md:p-4 p-6 bg-[#F3F8FF] text-[#1A365D] rounded-[0.4rem]">
+                        <div className="mr-1 md:p-4 p-6 bg-[#F3F8FF] text-[#1A365D] rounded-[0.4rem] md:w-60">
                             <h2 className="text-xl font-extralight font-sans mb-4 flex md:justify-center justify-between items-center gap-2">Accuracy Rate
                                 <span className="w-6 h-6 border-2 border-[#D6AE3E]"> <FaCheck className="text-[#D6AE3E]" /></span>
                             </h2>
@@ -98,7 +98,7 @@ export default function DashBoard() {
                                 <motion.span className="text-">{statistics2}</motion.span>
                             </div>
                         </div>
-                        <div className="ml-1 md:p-4 p-6 bg-[#F3F8FF] text-[#1A365D] rounded-[0.4rem]">
+                        <div className="ml-1 md:p-4 p-6 bg-[#F3F8FF] text-[#1A365D] rounded-[0.4rem] md:w-60">
                             <h2 className="text-xl font-extralight font-sans mb-4 flex md:justify-center justify-between items-center gap-2">Active Users
                                 <FaUser className="text-[#D6AE3E]" />
                             </h2>

@@ -13,13 +13,10 @@ import {
     FaChevronRight,
     FaArrowLeft
 } from "react-icons/fa";
-// import { MenuSquare } from "lucide-react";
 
 export default function Sidebar() {
     const [openDropdown, setOpenDropdown] = useState(null);
-    
-    // const back = useNavigate();
-    // const [open , setOpen] = useState(false);
+   
 
     const menuItems = [
         {
@@ -84,19 +81,10 @@ export default function Sidebar() {
     ];
 
     return (
-        <aside className="bg-[#1A365D29] text-[#1A365D] sm:w-72 lg:w-80 w-full min-h-screen p-4 flex flex-col shadow-lg py-10">
-           {/* <button onClick={() => setOpen(!open)}>
-                <MenuSquare />
-           </button> */}
-
-
-            {/* Menu Items */}
-
-            {/* {open && ( */}
+        <aside className="hidden bg-[#1A365D29] text-[#1A365D] sm:w-72 lg:w-80 w-full min-h-screen p-4 md:flex flex-col shadow-lg py-10">
+           
             <nav className="flex flex-col gap-6">
-                {/* <button onClick={() => back(-1)} className="text-gray-700 ">
-                    <FaArrowLeft size={26} />``
-                </button> */}
+               
                 {menuItems.map((item, i) => (
                     <div key={i}>
                         {item.dropdown ? (
