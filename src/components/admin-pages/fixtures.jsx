@@ -1,5 +1,3 @@
-// import AdminHeader from "./header";
-// import Sidebar from "./sidebar";
 import { useState } from "react";
 import { FaPlusSquare } from "react-icons/fa";
 import { ChevronDown } from "lucide-react";
@@ -59,8 +57,8 @@ export default function MakePredictions () {
     return(
         
         <div>
-            <div className="hidden md:flex mt-6">
-                <div className="flex flex-col justify-center w-full sm:mx-5 sm:my-1">
+            <div className="p-4 min-h-screen">
+                <div className="flex justify-center flex-col w-full sm:mx-5 sm:my-3">
                     <div className="flex justify-start font-semibold font-sans text-2xl w-full">
                         <h2 className=" font-semibold mb-4 text-left">Fetch Football Fixtures</h2>
                     </div>

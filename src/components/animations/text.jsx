@@ -34,7 +34,7 @@ export default function CinematicBouncyText({ text }) {
             variants={container}
             initial="hidden"
             animate="show"
-            className={`text-4xl font-bold text-[#1A365D] flex flex-wrap ${glow ? "animate-glow-flash" : ""}`}
+            className={`text-shadow-xl md:text-4xl text-3xl justify-center items-center font-bold text-[#1A365D] flex flex-wrap ${glow ? "animate-glow-flash" : ""}`}
         >
             {letters.map((char, i) => (
                 <motion.span key={i} variants={child} className="inline-block">
