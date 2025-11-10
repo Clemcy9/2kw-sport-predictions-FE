@@ -75,7 +75,7 @@ export default function DashBoard() {
 
     return (
         <div>
-            <div className="p-4">
+            <div className="mini-h-screen p-4">
                 <div className="flex justify-center flex-col w-full sm:mx-5 sm:my-3 ">
                     <div className="md:flex md:justify-between w-full my-8 grid grid-cols-1 grid-rows-2 gap-4">
                         <div className="col-span-2 w-full md:p-4 p-6 bg-[#F3F8FF] text-[#1A365D] rounded-[0.4rem] md:w-60 ">

@@ -113,7 +113,7 @@ export default function AdminHeader() {
                             </span>
                         </h1>
 
-                        <div className="md:hidden relative">
+                        <div className="md:hidden relative ">
 
                            
                             <button
@@ -125,7 +125,7 @@ export default function AdminHeader() {
 
                             {/* Sidebar */}
                             <aside
-                                className={` mt-15.5 bg-[#1A365D] text-[#fff] md:hidden w-70 min-h-screen p-4 flex flex-col shadow-lg py-10 fixed top-0 left-0 z-40 transition-transform duration-300
+                                className={` mt-15.5 bg-[#1A365D] text-[#fff] md:hidden w-full min-h-screen p-4 flex flex-col shadow-lg py-10 fixed top-0 left-0 z-40 transition-transform duration-300
                                 ${isOpen ? "translate-x-0" : "-translate-x-full"} sm:translate-x-0`}
                             >
                                 <nav className="flex flex-col gap-6">
