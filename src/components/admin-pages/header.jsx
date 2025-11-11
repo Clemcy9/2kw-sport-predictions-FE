@@ -125,10 +125,10 @@ export default function AdminHeader() {
 
                             {/* Sidebar */}
                             <aside
-                                className={` mt-15.5 bg-[#1A365D] text-[#fff] md:hidden w-full overflow-y-hidden min-h-screen p-4 flex flex-col shadow-lg py-10 fixed top-0 left-0 z-40 transition-transform duration-300
-                                ${isOpen ? "translate-x-0" : "-translate-x-full"} sm:translate-x-0`}
+                                className={` bg-[#1A365D] text-[#fff] md:hidden w-full overflow-y-hidden p-4 flex flex-col shadow-lg py-10 fixed top-15 left-0 z-40 transition-transform duration-300
+                                ${isOpen ? "translate-x-0" : "-translate-x-full"} `}
                             >
-                                <nav className="flex flex-col gap-6">
+                                <nav className="flex flex-col gap-10">
                                     {menuItems.map((item, i) => (
                                         <div key={i}>
                                             {item.dropdown ? (
@@ -199,7 +199,7 @@ export default function AdminHeader() {
                                         ))}
                                     </div>
 
-                                    <h1 className="md:hidden font-serif text-white px-3 md:text-2xl text-[18px] flex items-start  flex-col">
+                                    <h1 className="md:hidden py-8 font-serif text-white px-3 md:text-2xl text-[18px] flex items-start  flex-col">
                                         {name}
                                         <span className="font-sans text-white/80 md:text-[16px] text-[10px]">
                                             Admin

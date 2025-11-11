@@ -60,7 +60,7 @@ export default function Predictions() {
 
     return (
         <div>
-            <div className="hidden md:flex mt-6">
+            <div className="flex mt-6">
                 <div className="flex justify-center flex-col w-full sm:mx-5 sm:my-3">
                     <div className="flex justify-start font-semibold font-sans text-2xl w-full">
                         <h2 className=" font-semibold mb-4 text-left">Predictions Manager</h2>
