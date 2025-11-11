@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Eye, EyeOff } from "lucide-react";
 import { motion } from "framer-motion";
@@ -14,6 +14,14 @@ export default function SignIn () {
     const [eyePassword, setEyePassword] = useState(false);
 
     const navigate = useNavigate();
+
+    useEffect(() => {
+        window.history.pushState(null, "", window.location.href);
+        window.addEventListener("popstate", () => {
+            window.history.pushState(null, "", window.location.href);
+        });
+    }, []);
+
 
 
     const handleSubmit = async (e) => {

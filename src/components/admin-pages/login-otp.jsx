@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 // import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -10,6 +10,13 @@ export default function LoginOtp () {
     const [message, setMessage] = useState ("");
 
     const inputsRef = useRef([])
+
+     useEffect(() => {
+            window.history.pushState(null, "", window.location.href);
+            window.addEventListener("popstate", () => {
+                window.history.pushState(null, "", window.location.href);
+            });
+        }, []);
 
     const navigate = useNavigate();
 

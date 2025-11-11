@@ -42,7 +42,7 @@ export default function SignUp () {
             localStorage.setItem("authToken", data.token);
 
             setMessage("sign-Up successful");
-            navigate("/sign-in");
+            navigate("/sign-in", { replace: true });
             setName("");
             setEmail("");
             setPassword("");

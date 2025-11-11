@@ -11,10 +11,11 @@ export default function LoginCompleted() {
     const [isDone, setIsDone] = useState(false);
     
     useEffect(() => {
-        const noGoingBack = () => navigate(1);
-        window.addEventListener("popstate", noGoingBack);
-        return() => window.removeEventListener("popstate", noGoingBack)
-    }, navigate)
+        window.history.pushState(null, "", window.location.href);
+        window.addEventListener("popstate", () => {
+            window.history.pushState(null, "", window.location.href);
+        });
+    }, []);
 
     const handleSendOTP = (e) => {
         navigate("/admin",  { replace: true });
