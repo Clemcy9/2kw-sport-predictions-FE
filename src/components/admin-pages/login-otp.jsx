@@ -14,7 +14,7 @@ export default function LoginOtp () {
     const navigate = useNavigate();
 
     const handleSendOTP = () => {
-        navigate("/login-complete");
+        navigate("/login-complete", { replace: true });
     };
 
     const handleInput = (e, index) => {

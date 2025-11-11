@@ -26,7 +26,7 @@ export default function ForgotPassword () {
             
             setMessage("email upload successful");
             setEmail("");
-            navigate("/reset-otp");
+            navigate("/reset-otp", { replace: true });
         }catch (ero) {
             setMessage(ero.message);
         }

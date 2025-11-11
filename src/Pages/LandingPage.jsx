@@ -11,6 +11,7 @@ import PremierLeagueCard from "../components/Premier-league";
 import { motion } from "framer-motion";
 import LeagueTables from "../components/Standings/Table";
 import DummyBlog from "../components/dummy-blog";
+import { Outlet } from "react-router-dom";
 
 export default function LandingPage () {
 
@@ -54,6 +55,7 @@ export default function LandingPage () {
                         <div className="flex justify-end items-end">
                           <DummyBlog />
                         </div>
+                        <Outlet />
                      </div>
                    </div>
                 </div>

@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import Lottie from "lottie-react";
 import successAnimation from "../../assets/lottieflow-success-08-059D3F-linear.json"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {AiOutlineCheckCircle} from "react-icons/ai"
 
 export default function LoginCompleted() {
@@ -10,9 +10,14 @@ export default function LoginCompleted() {
     const navigate = useNavigate();
     const [isDone, setIsDone] = useState(false);
     
+    useEffect(() => {
+        const noGoingBack = () => navigate(1);
+        window.addEventListener("popstate", noGoingBack);
+        return() => window.removeEventListener("popstate", noGoingBack)
+    }, navigate)
 
     const handleSendOTP = (e) => {
-        navigate("/admin");
+        navigate("/admin",  { replace: true });
         e.preventDefault();
     };
     

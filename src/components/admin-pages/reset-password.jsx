@@ -41,7 +41,7 @@ export default function ResetPassword() {
             setMessage("password successfully successful");
             setNewPassword("");
             setPassword("");
-            navigate("/reset-success-otp");
+            navigate("/reset-success-otp", { replace: true });
         } catch (ero) {
             setMessage(ero.message);
         }

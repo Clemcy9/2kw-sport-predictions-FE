@@ -39,7 +39,7 @@ export default function SignIn () {
             localStorage.setItem("auth Token", data.token);
 
             setMessage("sign-In successful");
-            navigate("/login-otp");
+            navigate("/login-otp", { replace: true });
             setEmail("");
             setPassword("");
         }catch (ero) {

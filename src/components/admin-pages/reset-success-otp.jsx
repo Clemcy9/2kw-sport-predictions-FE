@@ -12,7 +12,7 @@ export default function LoginCompleted() {
 
 
     const handleSendOTP = (e) => {
-        navigate("/admin");
+        navigate("/admin", { replace: true });
         e.preventDefault();
     };
 

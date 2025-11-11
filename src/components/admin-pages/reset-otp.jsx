@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
 
-export default function LoginOtp () {
+export default function ResetOtp () {
 
     const [otp, setOtp] = useState("");
     const [message, setMessage] = useState ("");
@@ -14,7 +14,7 @@ export default function LoginOtp () {
     const navigate = useNavigate();
 
     const handleSendOTP = () => {
-        navigate("/reset-password");
+        navigate("/reset-password", { replace: true });
     };
 
     const handleInput = (e, index) => {

@@ -19,7 +19,7 @@ import SignIn from "./components/admin-pages/sign-in";
 import SignUp from "./components/admin-pages/sign-Up";
 import DashBoard from "./components/admin-pages/dashboard";
 import ForgotPassword from "./components/admin-pages/forgot-password";
-import SendOtp from "./components/admin-pages/reset-otp";
+import ResetOtp from "./components/admin-pages/reset-otp";
 import SuccessAnimation from "./components/admin-pages/reset-success-otp";
 import ResetPassword from "./components/admin-pages/reset-password";
 import LoginOtp from "./components/admin-pages/login-otp";
@@ -64,7 +64,7 @@ export default function App(){
             <Route path="/forgot-password" element={ <ForgotPassword />} />
             <Route path="/reset-password" element={ <ResetPassword />} />
             <Route path="/reset-success-otp" element={ <SuccessAnimation />} />
-            <Route path="/reset-otp" element={ <SendOtp />} />
+            <Route path="/reset-otp" element={ <ResetOtp />} />
             <Route path="/login-otp" element={ <LoginOtp />} />
             <Route path="/login-complete" element={ <LoginCompleted />} />
             <Route path="/sign-up" element={ <SignUp />} />
