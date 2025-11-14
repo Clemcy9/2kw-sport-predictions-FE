@@ -16,16 +16,17 @@ export default function AdminDashboard() {
     return (
         <motion.div initial={{ opacity: 0.5 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.1 }}>
             <>
-                <AdminHeader />
-                <div className=" lg:grid lg:grid-cols-[0.8fr_3fr] sm:grid sm:grid-cols-[1fr_2fr]">
-                    <aside className="">
-                        <Sidebar />
-                    </aside>
-                   
-                    <main>
-                        <Outlet />
-                    </main>
-                   
+                <div className="min-h-screen">
+                    <AdminHeader />
+                    <div className="lg:grid lg:grid-cols-[0.8fr_3fr] ">
+                        <aside className="sticky top-0">
+                            <Sidebar />
+                        </aside>
+
+                        <main>
+                            <Outlet />
+                        </main>
+                    </div>
                 </div>
                 
             </>

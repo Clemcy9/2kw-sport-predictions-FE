@@ -81,7 +81,7 @@ export default function Sidebar() {
     ];
 
     return (
-        <aside className="hidden bg-[#1A365D29] text-[#1A365D] sm:w-72 lg:w-80 w-full min-h-screen p-4 md:flex flex-col shadow-lg py-10">
+        <aside className="hidden sticky top-0 bg-[#1A365D29] text-[#1A365D] lg:w-80 w-full min-h-screen p-4 lg:flex flex-col shadow-lg py-10">
            
             <nav className="flex flex-col gap-6">
                
@@ -93,7 +93,7 @@ export default function Sidebar() {
                                     onClick={() =>
                                         setOpenDropdown(openDropdown === item.title ? null : item.title)
                                     }
-                                    className={`flex justify-between items-center w-full px-3 py-2 rounded-md hover:bg-[#1A3761] hover:text-white transition  ${openDropdown === item.title ? "bg-[#1A3761] text-white"  : ""
+                                    className={`flex justify-between items-center w-full px-3 py-2 rounded-lg hover:bg-[#1A3761] hover:text-white transition  ${openDropdown === item.title ? "bg-[#1A3761] text-white"  : ""
                                         }`}
                                 >
                                     <div className="flex items-center gap-3">
@@ -125,7 +125,7 @@ export default function Sidebar() {
                         ) : (
                             <NavLink
                                 to={item.path}
-                                className={({ isActive }) =>  `flex items-center gap-3 p-2 rounded-md transition-all ${isActive ? "bg-[#1A3761] text-white" : "hover:bg-[#1A3761] hover:text-white" }`}
+                                className={({ isActive }) =>  `flex items-center gap-3 p-2 rounded-lg transition-all ${isActive ? "bg-[#1A3761] text-white" : "hover:bg-[#1A3761] hover:text-white" }`}
                             >
                                 {item.icon}
                                 <span>{item.title}</span>
@@ -139,7 +139,7 @@ export default function Sidebar() {
                         <Link
                             key={index}
                             to={item.path}
-                            className="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-[#1A3761] hover:text-white transition "
+                            className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#1A3761] hover:text-white transition "
                         >
                             {item.icon}
                             <span>{item.title}</span>

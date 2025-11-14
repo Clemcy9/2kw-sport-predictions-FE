@@ -1,8 +1,6 @@
 import {useState, useEffect } from "react";
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
-// import AdminHeader from "./header";
 import { FaArrowTrendUp, FaCheck, FaUser, FaTrash } from "react-icons/fa6";
-// import Sidebar from "./sidebar";
 
 export default function DashBoard() {
 
@@ -74,12 +72,12 @@ export default function DashBoard() {
     ]);
 
     return (
-        <div>
-            <div className="p-4">
-                <div className="flex justify-center flex-col w-full sm:mx-5 sm:my-3 ">
-                    <div className="md:flex md:justify-between w-full my-8 grid grid-cols-1 grid-rows-2 gap-4">
-                        <div className="col-span-2 w-full md:p-4 p-6 bg-[#F3F8FF] text-[#1A365D] rounded-[0.4rem] md:w-60 ">
-                            <h2 className="text-xl font-extralight font-sans mb-4 flex md:justify-center justify-between md:items-center gap-2">Total Predictioms
+        // <div>
+            <div className="p-4 relative">
+                <div className="flex justify-center flex-col w-full ">
+                    <div className="lg:flex lg:justify-center w-full lg:my-8 grid grid-cols-1 grid-rows-2 lg:gap-25">
+                        <div className="col-span-2 w-full lg:p-4 p-6 bg-[#F3F8FF] text-[#1A365D] rounded-[0.4rem] lg:w-65 ">
+                            <h2 className="text-xl font-extralight font-sans mb-4 flex  justify-between lg:items-center gap-2">Total Predictioms
                                 <FaArrowTrendUp className="text-[#D6AE3E]" />
                             </h2>
 
@@ -88,8 +86,9 @@ export default function DashBoard() {
                                 <motion.span className="text-">{statistics1}</motion.span>
                             </div>
                         </div>
-                        <div className="mr-1 md:p-4 p-6 bg-[#F3F8FF] text-[#1A365D] rounded-[0.4rem] md:w-60">
-                            <h2 className="text-xl font-extralight font-sans mb-4 flex md:justify-center justify-between items-center gap-2">Accuracy Rate
+                        <div className="flex gap-3 py-2 lg:py-0 lg:gap-25 justify-between lg:justify-center">
+                        <div className=" lg:mr-1 lg:p-4 p-3 bg-[#F3F8FF] text-[#1A365D] rounded-[0.4rem] lg:w-65 w-full">
+                            <h2 className="text-xl font-extralight font-sans mb-4 flex  justify-between items-center gap-2">Accuracy Rate
                                 <span className="w-6 h-6 border-2 border-[#D6AE3E]"> <FaCheck className="text-[#D6AE3E]" /></span>
                             </h2>
 
@@ -98,8 +97,8 @@ export default function DashBoard() {
                                 <motion.span className="text-">{statistics2}</motion.span>
                             </div>
                         </div>
-                        <div className="ml-1 md:p-4 p-6 bg-[#F3F8FF] text-[#1A365D] rounded-[0.4rem] md:w-60">
-                            <h2 className="text-xl font-extralight font-sans mb-4 flex md:justify-center justify-between items-center gap-2">Active Users
+                        <div className="lg:ml-1 lg:p-4 p-3 bg-[#F3F8FF] text-[#1A365D] rounded-[0.4rem] lg:w-65 w-full">
+                            <h2 className="text-xl font-extralight font-sans mb-4 flex  justify-between items-center gap-2">Active Users
                                 <FaUser className="text-[#D6AE3E]" />
                             </h2>
 
@@ -107,6 +106,7 @@ export default function DashBoard() {
 
                                 <motion.span className="text-">{statistics3}</motion.span>
                             </div>
+                        </div>
                         </div>
                     </div>
                     <div className="flex justify-start font-semibold font-sans text-2xl w-full">
@@ -157,6 +157,6 @@ export default function DashBoard() {
                    </div>
                 </div>
             </div>
-        </div>
+        // </div>
     );
 }

@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-// import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 
@@ -70,7 +69,7 @@ export default function LoginOtp () {
     return (
         <div>
             <div className="overflow-y-hidden md:min-h-screen flex justify-center md:items-center bg-white w-full">
-                <div className=" md:bg-[#C1CAD8] shadow-sm px-4 py-8 space-y-10 flex md:w-[36rem] justify-center items-center flex-col md:px-15 md:my-5 md:py-12">
+                <div className=" md:bg-[#C1CAD8] md:shadow-sm px-4 py-8 space-y-10 flex md:w-[36rem] justify-center items-center flex-col md:px-15 md:my-5 md:py-12">
                     <h1
                         className="text-3xl cursor-pointer flex items-center font-bold justify-center font-serif text-[#1A365D] py-5"
                     >
@@ -114,6 +113,3 @@ export default function LoginOtp () {
        </div>
     )
 }
-
-
-

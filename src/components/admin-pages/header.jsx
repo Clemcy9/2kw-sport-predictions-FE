@@ -86,13 +86,13 @@ export default function AdminHeader() {
     const name =JSON.parse(localStorage.getItem("name"));
 
     return (
-        <header className="bg-[#1A365D] top-0 w-full z-50 shadow-sm backdrop-blur-md relative">
+        <header className="bg-[#1A365D] top-0 w-full z-50 shadow-sm backdrop-blur-lg relative">
             <div className="max-w-full lg:max-w-full mx-auto px-2 sm:px-3 lg:px-2">
                 <div className="flex justify-between items-center h-16">
                     {/* Logo */}
                     <button
                         onClick={() => navigation("/")}
-                        className="cursor-pointer flex items-center font-bold font-serif text-gray-50 md:text-3xl text-[20px]"
+                        className="cursor-pointer flex items-center font-bold font-serif text-gray-50 lg:text-3xl text-[20px]"
                     >
                         <motion.span
                             animate={{ rotate: 360 }}
@@ -106,29 +106,29 @@ export default function AdminHeader() {
 
                     <div className="flex justify-center items-center">
 
-                        <h1 className="hidden font-serif text-white md:text-2xl text-[16px] md:flex justify-center items-end  flex-col">
+                        <h1 className="hidden font-serif text-white lg:text-2xl text-[16px] lg:flex justify-center items-end  flex-col">
                             {name}
-                            <span className="font-sans text-white/80 md:text-[16px] text-[10px]">
+                            <span className="font-sans text-white/80 lg:text-[16px] text-[10px]">
                                 Admin
                             </span>
                         </h1>
 
-                        <div className="md:hidden relative ">
+                        <div className="lg:hidden relative ">
 
                            
                             <button
                                 onClick={() => setIsOpen(!isOpen)}
-                                className="sm:hidden text-2xl text-[#fff]"
+                                className=" text-2xl text-[#fff]"
                             >
                                 {isOpen ? <X /> : <Menu />}
                             </button>
 
                             {/* Sidebar */}
                             <aside
-                                className={` bg-[#1A365D] text-[#fff] md:hidden w-full overflow-y-hidden p-4 flex flex-col shadow-lg py-10 fixed top-15 left-0 z-40 transition-transform duration-300
+                                className={`max-h-screen bg-[#1A365D] text-[#fff] w-full sm:w-94 overflow-y-hidden p-4 flex flex-col shadow-lg sm:py-10 fixed top-15 left-0 z-40 transition-transform duration-300
                                 ${isOpen ? "translate-x-0" : "-translate-x-full"} `}
                             >
-                                <nav className="flex flex-col gap-10">
+                                <nav className="flex flex-col sm:gap-13 gap-5">
                                     {menuItems.map((item, i) => (
                                         <div key={i}>
                                             {item.dropdown ? (
@@ -137,7 +137,7 @@ export default function AdminHeader() {
                                                         onClick={() =>
                                                             setOpenDropdown(openDropdown === item.title ? null : item.title)
                                                         }
-                                                        className={`flex justify-between items-center w-full px-3 py-2 rounded-md hover:bg-[#fff] hover:text-[#1A3761] transition ${openDropdown === item.title ? "bg-[#1A3761] text-white" : ""
+                                                        className={`flex justify-between items-center w-full px-3 py-2 rounded-lg hover:bg-[#fff] hover:text-[#1A3761] transition ${openDropdown === item.title ? "bg-[#1A3761] text-white" : ""
                                                             }`}
                                                     >
                                                         <div className="flex items-center gap-3">
@@ -172,7 +172,7 @@ export default function AdminHeader() {
                                                     to={item.path}
                                                     onClick={()=> {setOpenDropdown(null); setIsOpen(false);}}
                                                     className={({ isActive }) =>
-                                                        `flex items-center gap-3 p-2 rounded-md transition-all ${isActive
+                                                        `flex items-center gap-3 p-2 rounded-lg transition-all ${isActive
                                                                 ? "bg-[#fff] text-[#1A3761]"
                                                             : "hover:bg-[#fff] hover:text-[#1A3761]"
                                                         }`
@@ -191,7 +191,7 @@ export default function AdminHeader() {
                                                 key={index}
                                                 to={item.path}
                                                 onClick={() => { setOpenDropdown(null); setIsOpen(false); }}
-                                                className="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-[#fff] hover:text-[#1A3761] transition"
+                                                className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#fff] hover:text-[#1A3761] transition"
                                             >
                                                 {item.icon}
                                                 <span>{item.title}</span>
@@ -199,9 +199,9 @@ export default function AdminHeader() {
                                         ))}
                                     </div>
 
-                                    <h1 className="md:hidden py-8 font-serif text-white px-3 md:text-2xl text-[18px] flex items-start  flex-col">
+                                    <h1 className="lg:hidden sm:py-8 py-4 font-serif text-white px-3 lg:text-2xl text-[18px] flex items-start  flex-col">
                                         {name}
-                                        <span className="font-sans text-white/80 md:text-[16px] text-[10px]">
+                                        <span className="font-sans text-white/80 lg:text-[16px] text-[10px]">
                                             Admin
                                         </span>
                                     </h1>
