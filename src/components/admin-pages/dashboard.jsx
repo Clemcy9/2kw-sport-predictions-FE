@@ -69,13 +69,37 @@ export default function DashBoard() {
             awayTeam: "Burnley",
             tip: "Free Tips",
         },
+        {
+            id: 6,
+            league: "Premier League",
+            date: "05 Oct 2025 19:00",
+            homeTeam: "Everton",
+            awayTeam: "Burnley",
+            tip: "Free Tips",
+        },
+        {
+            id: 7,
+            league: "Premier League",
+            date: "05 Oct 2025 19:00",
+            homeTeam: "Everton",
+            awayTeam: "Burnley",
+            tip: "Free Tips",
+        },
+        {
+            id: 8,
+            league: "Premier League",
+            date: "05 Oct 2025 19:00",
+            homeTeam: "Everton",
+            awayTeam: "Burnley",
+            tip: "Free Tips",
+        },
     ]);
 
     return (
         // <div>
-            <div className="p-4 relative">
+            <div className="p-4 lg:min-h-screen">
                 <div className="flex justify-center flex-col w-full ">
-                    <div className="lg:flex lg:justify-center w-full lg:my-8 grid grid-cols-1 grid-rows-2 lg:gap-25">
+                    <div className="lg:flex lg:justify-center w-full lg:mt-8 grid grid-cols-1 grid-rows-2 lg:gap-25">
                         <div className="col-span-2 w-full lg:p-4 p-6 bg-[#F3F8FF] text-[#1A365D] rounded-[0.4rem] lg:w-65 ">
                             <h2 className="text-xl font-extralight font-sans mb-4 flex  justify-between lg:items-center gap-2">Total Predictioms
                                 <FaArrowTrendUp className="text-[#D6AE3E]" />

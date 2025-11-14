@@ -81,7 +81,7 @@ export default function Sidebar() {
     ];
 
     return (
-        <aside className="hidden sticky top-0 bg-[#1A365D29] text-[#1A365D] lg:w-80 w-full min-h-screen p-4 lg:flex flex-col shadow-lg py-10">
+        <aside className="hidden bg-[#1A365D29] text-[#1A365D] sticky top-0 lg:w-80 p-4 lg:flex flex-col shadow-lg py-10">
            
             <nav className="flex flex-col gap-6">
                
