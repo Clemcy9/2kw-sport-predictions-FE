@@ -81,7 +81,7 @@ export default function Sidebar() {
     ];
 
     return (
-        <aside className="hidden bg-[#1A365D29] text-[#1A365D] sticky top-0 lg:w-80 p-4 lg:flex flex-col shadow-lg py-10">
+        <aside className="hidden bg-[#1A365D29] text-[#1A365D] lg:sticky top-0 lg:w-80 p-4 lg:flex flex-col shadow-lg pt-10 lg:pt-6">
            
             <nav className="flex flex-col gap-6">
                
@@ -134,7 +134,7 @@ export default function Sidebar() {
                     </div>
                 ))}
 
-                <div className="mt-10">
+                <div className="mt-10 lg:space-y-5 lg:mt-5">
                     {lastMenu.map((item, index) => (
                         <Link
                             key={index}

@@ -96,11 +96,9 @@ export default function DashBoard() {
     ]);
 
     return (
-        // <div>
-            <div className="p-4 lg:min-h-screen">
-                <div className="flex justify-center flex-col w-full ">
-                    <div className="lg:flex lg:justify-center w-full lg:mt-8 grid grid-cols-1 grid-rows-2 lg:gap-25">
-                        <div className="col-span-2 w-full lg:p-4 p-6 bg-[#F3F8FF] text-[#1A365D] rounded-[0.4rem] lg:w-65 ">
+            <div className="p-4 lg:p-0 lg:min-h-screen flexr flex-col w-full">
+                    <div className="lg:flex lg:justify-center w-full my-5 space-y-4 lg:space-y-0 lg:my-10 grid grid-cols-1 grid-rows-2 lg:gap-24">
+                        <div className="col-span-2 w-full lg:p-4 p-6 bg-[#F3F8FF] text-[#1A365D] rounded-[0.4rem] lg:w-64 ">
                             <h2 className="text-xl font-extralight font-sans mb-4 flex  justify-between lg:items-center gap-2">Total Predictioms
                                 <FaArrowTrendUp className="text-[#D6AE3E]" />
                             </h2>
@@ -110,8 +108,8 @@ export default function DashBoard() {
                                 <motion.span className="text-">{statistics1}</motion.span>
                             </div>
                         </div>
-                        <div className="flex gap-3 py-2 lg:py-0 lg:gap-25 justify-between lg:justify-center">
-                        <div className=" lg:mr-1 lg:p-4 p-3 bg-[#F3F8FF] text-[#1A365D] rounded-[0.4rem] lg:w-65 w-full">
+                        <div className="flex gap-3 py-2 lg:py-0 lg:gap-24 justify-between lg:justify-center">
+                        <div className=" lg:mr-1 lg:p-4 p-3 bg-[#F3F8FF] text-[#1A365D] rounded-[0.4rem] lg:w-64 w-full">
                             <h2 className="text-xl font-extralight font-sans mb-4 flex  justify-between items-center gap-2">Accuracy Rate
                                 <span className="w-6 h-6 border-2 border-[#D6AE3E]"> <FaCheck className="text-[#D6AE3E]" /></span>
                             </h2>
@@ -121,7 +119,7 @@ export default function DashBoard() {
                                 <motion.span className="text-">{statistics2}</motion.span>
                             </div>
                         </div>
-                        <div className="lg:ml-1 lg:p-4 p-3 bg-[#F3F8FF] text-[#1A365D] rounded-[0.4rem] lg:w-65 w-full">
+                        <div className="lg:ml-1 lg:p-4 p-3 bg-[#F3F8FF] text-[#1A365D] rounded-[0.4rem] lg:w-64 w-full">
                             <h2 className="text-xl font-extralight font-sans mb-4 flex  justify-between items-center gap-2">Active Users
                                 <FaUser className="text-[#D6AE3E]" />
                             </h2>
@@ -133,40 +131,40 @@ export default function DashBoard() {
                         </div>
                         </div>
                     </div>
-                    <div className="flex justify-start font-semibold font-sans text-2xl w-full">
-                        <h2 className=" font-semibold mb-4 text-left">Recent Predictions</h2>
+                    <div className="flex justify-start mt-4 font-semibold font-sans text-2xl w-full lg:px-10">
+                        <h2 className=" lg:font-semibold font-normal text-left">Recent Predictions</h2>
                     </div>
-                   <div className="flex justify-center flex-col items-center w-full sm:mx-5 my-1">
+                   <div className="flex justify-center flex-col items-center w-full  my-1 lg:px-10">
                         <table className="w-full border-collapse ">
                             <thead>
                                 <tr className="font-bold text-left text-[18px]">
-                                    <th className="p-3">No.</th>
-                                    <th className="p-3">League</th>
-                                    <th className="p-3">Date/Time</th>
-                                    <th className="p-3">Home</th>
-                                    <th className="p-3">Away</th>
-                                    <th className="p-3">Tips</th>
-                                    <th className="p-3">Action</th>
+                                    <th className="py-3">No.</th>
+                                    <th className="py-3">League</th>
+                                    <th className="py-3">Date/Time</th>
+                                    <th className="py-3">Home</th>
+                                    <th className="py-3">Away</th>
+                                    <th className="py-3">Tips</th>
+                                    <th className="py-3">Action</th>
                                 </tr>
                             </thead>
 
                             <tbody className="">
                                 {predictions.map((item, index) => (
                                     <tr key={item.id} className=" leading-tight">
-                                        <td className="py-7">{index + 1}</td>
-                                        <td className="py-7">{item.league}</td>
-                                        <td className="py-7">{item.date}</td>
-                                        <td className="py-7">
+                                        <td className="py-5">{index + 1}</td>
+                                        <td className="py-5">{item.league}</td>
+                                        <td className="py-5">{item.date}</td>
+                                        <td className="py-5">
                                             <span className=" font-semibold">🛡️</span>
                                             {item.awayTeam}
                                         </td>
-                                        <td className="py-7">
+                                        <td className="py-5">
                                             <span className=" font-semibold">⚽</span>
                                             {item.homeTeam}
                                         </td>
 
-                                        <td className="py-7">{item.tip}</td>
-                                        <td className="py-7">
+                                        <td className="py-5">{item.tip}</td>
+                                        <td className="py-5">
                                             <button
                                                 className="text-[#FB3B3B] hover:text-red-800 transition"
                                                 onClick={() => handleDelete(item.id)}
@@ -180,7 +178,5 @@ export default function DashBoard() {
                         </table>
                    </div>
                 </div>
-            </div>
-        // </div>
     );
 }
