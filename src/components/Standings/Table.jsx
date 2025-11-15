@@ -1,5 +1,3 @@
-
-// src/components/LeagueTables.jsx
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { leaguesData } from "./Table-data";

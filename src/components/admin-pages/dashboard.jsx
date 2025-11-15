@@ -96,10 +96,10 @@ export default function DashBoard() {
     ]);
 
     return (
-            <div className="p-4 lg:p-0 lg:min-h-screen flexr flex-col w-full">
+              <div className="p-4 lg:p-0 lg:min-h-screen flex flex-col w-full">
                     <div className="lg:flex lg:justify-center w-full my-5 space-y-4 lg:space-y-0 lg:my-10 grid grid-cols-1 grid-rows-2 lg:gap-24">
                         <div className="col-span-2 w-full lg:p-4 p-6 bg-[#F3F8FF] text-[#1A365D] rounded-[0.4rem] lg:w-64 ">
-                            <h2 className="text-xl font-extralight font-sans mb-4 flex  justify-between lg:items-center gap-2">Total Predictioms
+                            <h2 className="text-xl font-extralight font-sans mb-4 flex  justify-between lg:items-center gap-2">Total Predictions
                                 <FaArrowTrendUp className="text-[#D6AE3E]" />
                             </h2>
 

@@ -50,7 +50,7 @@ export default function LandingPage () {
 
                       <div className="flex justify-center items-center flex-col">
                         <PremierLeagueCard />
-                        <LeagueTables />
+                        <LeagueTables className="sticky top-0 "/>
                         
                         <div className="flex justify-end items-end">
                           <DummyBlog />

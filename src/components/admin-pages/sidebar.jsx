@@ -28,8 +28,8 @@ export default function Sidebar() {
             title: "Fixtures",
             icon: <FaFutbol />,
             dropdown: [
-                { name: "Male Predictions", path: "/admin/fixtures" },
-                { name: "Leagues", path: "/fixtures/add" },
+                { name: "Make Predictions", path: "/admin/fixtures" },
+                { name: "Leagues", path: "/admin/fixtures-add" },
             ],
         },
         {
@@ -39,30 +39,30 @@ export default function Sidebar() {
         },
         {
             title: "Metadata",
-            path: "/metadata",
+            path: "/admin/metadata",
             icon: <FaFileAlt />,
         },
         {
             title: "Header & Footer Tags",
-            path: "/tags",
+            path: "/admin/tags",
             icon: <FaTags />,
         },
         {
             title: "Articles",
             icon: <FaFileAlt />,
             dropdown: [
-                { name: "All Articles", path: "/articles" },
-                { name: "Create Article", path: "/articles/create" },
+                { name: "All Articles", path: "/admin/articles" },
+                { name: "Create Article", path: "/admin/articles-create" },
             ],
         },
         {
             title: "SEO Pages",
-            path: "/seo",
+            path: "/admin/seo",
             icon: <FaTags />,
         },
         {
             title: "Affiliate/Partner Links",
-            path: "/affiliate",
+            path: "/admin/affiliate",
             icon: <FaLink />,
         },
     ];
@@ -70,12 +70,12 @@ export default function Sidebar() {
     const lastMenu = [
         {
             title: "Help & Support",
-            path: "/support",
+            path: "/admin/support",
             icon: <FaQuestionCircle />,
         },
         {
             title: "Log Out",
-            path: "/logout",
+            path: "/admin/logout",
             icon: <FaSignOutAlt />,
         },
     ];

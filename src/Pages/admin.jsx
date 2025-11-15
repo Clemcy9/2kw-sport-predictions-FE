@@ -20,7 +20,7 @@ export default function AdminDashboard() {
                     <AdminHeader />
                     <div className="lg:grid lg:grid-cols-[0.8fr_3fr] ">
                         
-                            <Sidebar className="sticky top-0 bottom-0"/>
+                            <Sidebar className="sticky top-0 "/>
                        
 
                         <main className="overflow-y-auto lg:max-h-screen">

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FaPlusSquare } from "react-icons/fa";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 import { Calendar } from "lucide-react";
 import { Search } from "lucide-react";
 
@@ -54,16 +54,30 @@ export default function MakePredictions () {
             },
         ]);
 
-    return(
-        
-        <div>
-            <div className="p-4 min-h-screen">
-                <div className="flex justify-center flex-col w-full sm:mx-5 sm:my-3">
-                    <div className="flex justify-start font-semibold font-sans text-2xl w-full">
-                        <h2 className=" font-semibold mb-4 text-left">Fetch Football Fixtures</h2>
-                    </div>
+        const[dropdown, setDropdown] = useState();
 
-                    <div className="w-full flex justify-between my-8">
+    const leagues = [
+        { name: "Nigeria NPFL", country: "Nigeria", logo: "/NPFL.jpg" },
+        { name: "England Premier League", country: "England", logo: "https://upload.wikimedia.org/wikipedia/en/f/f2/Premier_League_Logo.svg" },
+        { name: "Spain La Liga", country: "Spain", logo: "/spain-la-liga.png" },
+        { name: "Europe UEFA Champions ...", country: "Europe", logo: "/champions-league.png" },
+        { name: "Europe UEFA Europa League", country: "Europe", logo: "/europa.png" },
+        { name: "Italy Serie A", country: "Italy", logo: "/italy-serie-A.png" },
+        { name: "Germany Bundesliga", country: "Germany", logo: "https://upload.wikimedia.org/wikipedia/en/d/df/Bundesliga_logo_%282017%29.svg" },
+        { name: "France Ligue 1", country: "France", logo: "/france-league.png" },
+        { name: "Portugal Liga Portugal", country: "Portugal", logo: "/portugal.png" },
+        { name: "Netherlands Eredivisie", country: "Netherlands", logo: "/netherlands.png" },
+        { name: "Belgium Pro League", country: "Belgium", logo: "/belguim-pro.png" },
+        { name: "South Africa Premier", country: "South Africa", logo: "/south-africa.png" }
+    ];
+
+    return(
+            <div className="p-4 lg:px-10 lg:min-h-screen flex flex-col w-full">
+                <div className="flex justify-start font-semibold font-sans text-2xl w-full  lg:my-6">
+                   <h2 className="lg:font-semibold font-normal mb-4 text-left">Fetch Football Fixtures</h2>
+                </div>
+
+                    <div className="w-full flex justify-between lg:my-4 gap-4">
                        
                         <div className="relative w-60  flex justify-between items-center">
                             <input type="text" placeholder="Search By Name" className="w-full appearance-none border border-[#737373] rounded-[0.9em] py-1 pl-4 pr-10 text-[#737373] focus:ring focus:ring-[#1A365D] focus:border-[#1A365D] outline-none bg-white" />
@@ -71,7 +85,14 @@ export default function MakePredictions () {
                         </div>
                         <div className="relative w-60  flex justify-between items-center">
                             <input type="text" placeholder="Select League" className="w-full appearance-none border border-[#737373] rounded-[0.3em] py-1 pl-4 pr-10 text-[#737373] focus:ring focus:ring-[#1A365D] focus:border-[#1A365D] outline-none bg-white" />
-                            <ChevronDown size={18} className="absolute right-3 top-1/2 -translate-y-1/2 text-[#737373] pointer-events-none" />
+                            <button onClick={() => setDropdown()}>
+                            {dropdown ? (
+                             <ChevronUp size={18}  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#737373] pointer-events-none" />
+                            ) : (
+                             <ChevronDown size={18}  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#737373] pointer-events-none" />
+                            )}
+                            </button>
+                            
                         </div>
                         <div className="relative w-60 flex justify-between items-center">
                             <input type="text" placeholder="11/04/2025" className="w-full appearance-none border border-[#737373] rounded-[0.3em] py-1 pl-4 pr-10 text-[#737373] focus:ring focus:ring-[#1A365D] focus:border-[#1A365D] outline-none bg-white" />
@@ -84,27 +105,27 @@ export default function MakePredictions () {
                         </div>
                     </div>
 
-                  <table className="w-full border-collapse mx-4">
+                  <table className="w-full border-collapse">
                         <thead>
                             <tr className="font-bold text-left text-[18px]">
-                                <th className="p-2">No.</th>
-                                <th className="p-2">League</th>
-                                <th className="p-2">Fixtures</th>
-                                <th className="p-2">Date</th>
-                                <th className="p-2">Time</th>
-                                <th className="p-2">Action</th>
+                                <th className="py-3">No.</th>
+                                <th className="py-3">League</th>
+                                <th className="py-3">Fixtures</th>
+                                <th className="py-3">Date</th>
+                                <th className="py-3">Time</th>
+                                <th className="py-3">Action</th>
                             </tr>
                         </thead>
 
                         <tbody className="">
                             {predictions.map((item, index) => (
                                 <tr key={item.id} className=" leading-tight">
-                                    <td className="py-7">{index + 1}</td>
-                                    <td className="py-7">{item.league}</td>
-                                    <td className="py-7"> {item.awayTeam} vs {item.homeTeam}</td>
-                                    <td className="py-7">{item.date}</td>
-                                    <td className="py-7">{item.time}</td>
-                                    <td className="py-7">
+                                    <td className="py-5">{index + 1}</td>
+                                    <td className="py-5">{item.league}</td>
+                                    <td className="py-5"> {item.awayTeam} vs {item.homeTeam}</td>
+                                    <td className="py-5">{item.date}</td>
+                                    <td className="py-5">{item.time}</td>
+                                    <td className="py-5">
                                         <button
                                             className="text-[#04BA4A] transition"
                                             onClick={() => handleDelete(item.id)}
@@ -117,7 +138,5 @@ export default function MakePredictions () {
                         </tbody>
                     </table>
                 </div>
-            </div>
-        </div>
     )
 }

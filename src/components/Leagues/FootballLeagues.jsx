@@ -117,7 +117,7 @@ export default function FootballLeagues() {
                             </div>
                         </div>
 
-                        {/* Chevron icon (only desktop) */}
+                        {/* up icon (only desktop) */}
                         <FaChevronRight className="hidden lg:block" />
                     </motion.div>
                 ))}
