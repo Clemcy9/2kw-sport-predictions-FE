@@ -74,7 +74,7 @@ export default function MakePredictions () {
     return(
             <div className="p-4 lg:px-10 lg:min-h-screen flex flex-col w-full">
                 <div className="flex justify-start font-semibold font-sans text-2xl w-full  lg:my-6">
-                   <h2 className="lg:font-semibold font-normal mb-4 text-left">Fetch Football Fixtures</h2>
+                   <h2 className="lg:font-semibold font-bold font-[Inria Sans] mb-4 text-left">Fetch Football Fixtures</h2>
                 </div>
 
                     <div className="w-full flex justify-between lg:my-4 gap-4">
@@ -105,7 +105,7 @@ export default function MakePredictions () {
                         </div>
                     </div>
 
-                  <table className="w-full border-collapse">
+                  <table className="hidden md:block w-full border-collapse">
                         <thead>
                             <tr className="font-bold text-left text-[18px]">
                                 <th className="py-3">No.</th>

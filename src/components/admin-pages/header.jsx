@@ -125,10 +125,10 @@ export default function AdminHeader() {
 
                             {/* Sidebar */}
                             <aside
-                                className={`max-h-screen bg-[#1A365D] text-[#fff] w-full sm:w-94 overflow-y-hidden p-4 flex flex-col shadow-lg sm:py-10 fixed top-15 left-0 z-40 transition-transform duration-300
+                                className={`min-h-screen bg-[#1A365D] text-[#fff] sm:w-80 w-full overflow-y-hidden p-4 flex flex-col shadow-lg  fixed top-15 left-0 z-40 transition-transform duration-300
                                 ${isOpen ? "translate-x-0" : "-translate-x-full"} `}
                             >
-                                <nav className="flex flex-col sm:gap-13 gap-5">
+                                <nav className="flex flex-col space-y-9 gap-5 ">
                                     {menuItems.map((item, i) => (
                                         <div key={i}>
                                             {item.dropdown ? (
@@ -137,7 +137,7 @@ export default function AdminHeader() {
                                                         onClick={() =>
                                                             setOpenDropdown(openDropdown === item.title ? null : item.title)
                                                         }
-                                                        className={`flex justify-between items-center w-full px-3 py-2 rounded-lg hover:bg-[#fff] hover:text-[#1A3761] transition ${openDropdown === item.title ? "bg-[#1A3761] text-white" : ""
+                                                        className={`flex justify-between items-center w-full px-3 py-2 rounded-lg hover:bg-[#fff] hover:text-[#1A3761] transition ${openDropdown === item.title ? "bg-white text-[#1A3761]" : ""
                                                             }`}
                                                     >
                                                         <div className="flex items-center gap-3">

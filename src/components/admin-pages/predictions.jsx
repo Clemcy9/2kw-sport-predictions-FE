@@ -93,7 +93,7 @@ export default function Predictions() {
     return (
               <div className="p-4 lg:px-10 lg:min-h-screen flex flex-col w-full">
                    <div className="flex justify-start font-semibold font-sans text-2xl w-full lg:my-6">
-                       <h2 className="lg:font-semibold font-normal mb-4 text-left">Predictions Manager</h2>
+                       <h2 className="lg:font-semibold font-bold font-[Inria Sans] mb-4 text-left">Predictions Manager</h2>
                     </div>
 
                     <div className="flex justify-between w-full lg:my-4">
@@ -117,7 +117,7 @@ export default function Predictions() {
                     </div>
                     <div className="flex justify-center flex-col items-center w-full">
 
-                        <table className="w-full border-collapse ">
+                        <table className="hidden md:block w-full border-collapse ">
                             <thead>
                                 <tr className="font-bold text-left text-[18px]">
                                     <th className="py-3">No.</th>

@@ -96,8 +96,8 @@ export default function DashBoard() {
     ]);
 
     return (
-              <div className="p-4 lg:p-0 lg:min-h-screen flex flex-col w-full">
-                    <div className="lg:flex lg:justify-center w-full my-5 space-y-4 lg:space-y-0 lg:my-10 grid grid-cols-1 grid-rows-2 lg:gap-24">
+            <div className="p-4 lg:p-0 lg:min-h-screen flex flex-col w-full">
+                <div className="lg:flex lg:justify-center w-full my-5 space-y-4 lg:space-y-0 lg:my-10 grid grid-cols-1 grid-rows-2 lg:gap-24">
                         <div className="col-span-2 w-full lg:p-4 p-6 bg-[#F3F8FF] text-[#1A365D] rounded-[0.4rem] lg:w-64 ">
                             <h2 className="text-xl font-extralight font-sans mb-4 flex  justify-between lg:items-center gap-2">Total Predictions
                                 <FaArrowTrendUp className="text-[#D6AE3E]" />
@@ -108,7 +108,7 @@ export default function DashBoard() {
                                 <motion.span className="text-">{statistics1}</motion.span>
                             </div>
                         </div>
-                        <div className="flex gap-3 py-2 lg:py-0 lg:gap-24 justify-between lg:justify-center">
+                    <div className="flex gap-3 py-2 lg:py-0 lg:gap-24 justify-between lg:justify-center">
                         <div className=" lg:mr-1 lg:p-4 p-3 bg-[#F3F8FF] text-[#1A365D] rounded-[0.4rem] lg:w-64 w-full">
                             <h2 className="text-xl font-extralight font-sans mb-4 flex  justify-between items-center gap-2">Accuracy Rate
                                 <span className="w-6 h-6 border-2 border-[#D6AE3E]"> <FaCheck className="text-[#D6AE3E]" /></span>
@@ -129,13 +129,13 @@ export default function DashBoard() {
                                 <motion.span className="text-">{statistics3}</motion.span>
                             </div>
                         </div>
-                        </div>
                     </div>
-                    <div className="flex justify-start mt-4 font-semibold font-sans text-2xl w-full lg:px-10">
-                        <h2 className=" lg:font-semibold font-normal text-left">Recent Predictions</h2>
-                    </div>
+                </div>
+                <div className="flex justify-start mt-4 font-semibold font-sans text-2xl w-full lg:px-10">
+                    <h2 className=" lg:font-semibold font-bold font-[Inria Sans] text-left">Recent Predictions</h2>
+                </div>
                    <div className="flex justify-center flex-col items-center w-full  my-1 lg:px-10">
-                        <table className="w-full border-collapse ">
+                        <table className="hidden md:block w-full border-collapse ">
                             <thead>
                                 <tr className="font-bold text-left text-[18px]">
                                     <th className="py-3">No.</th>
@@ -177,6 +177,6 @@ export default function DashBoard() {
                             </tbody>
                         </table>
                    </div>
-                </div>
+            </div>
     );
 }
