@@ -128,7 +128,7 @@ export default function AdminHeader() {
                                 className={`min-h-screen bg-[#1A365D] text-[#fff] sm:w-80 w-full overflow-y-hidden p-4 flex flex-col shadow-lg  fixed top-15 left-0 z-40 transition-transform duration-300
                                 ${isOpen ? "translate-x-0" : "-translate-x-full"} `}
                             >
-                                <nav className="flex flex-col space-y-9 gap-5 ">
+                                <nav className="flex flex-col space-y-5 gap-3 ">
                                     {menuItems.map((item, i) => (
                                         <div key={i}>
                                             {item.dropdown ? (
@@ -185,7 +185,7 @@ export default function AdminHeader() {
                                         </div>
                                     ))}
 
-                                    <div className="mt-10">
+                                    <div className="mt-5">
                                         {lastMenu.map((item, index) => (
                                             <Link
                                                 key={index}

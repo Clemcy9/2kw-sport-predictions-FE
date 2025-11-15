@@ -96,7 +96,7 @@ export default function DashBoard() {
     ]);
 
     return (
-            <div className="p-4 lg:p-0 lg:min-h-screen flex flex-col w-full">
+        <div className="p-4 lg:p-0 lg:min-h-screen sm:min-h-screen flex flex-col w-full">
                 <div className="lg:flex lg:justify-center w-full my-5 space-y-4 lg:space-y-0 lg:my-10 grid grid-cols-1 grid-rows-2 lg:gap-24">
                         <div className="col-span-2 w-full lg:p-4 p-6 bg-[#F3F8FF] text-[#1A365D] rounded-[0.4rem] lg:w-64 ">
                             <h2 className="text-xl font-extralight font-sans mb-4 flex  justify-between lg:items-center gap-2">Total Predictions
@@ -134,9 +134,9 @@ export default function DashBoard() {
                 <div className="flex justify-start mt-4 font-semibold font-sans text-2xl w-full lg:px-10">
                     <h2 className=" lg:font-semibold font-bold font-[Inria Sans] text-left">Recent Predictions</h2>
                 </div>
-                   <div className="flex justify-center flex-col items-center w-full  my-1 lg:px-10">
+                   <div className="flex justify-center flex-col items-center w-full  my-1 sm:px-8 lg:px-10">
                         <table className="hidden md:block w-full border-collapse ">
-                            <thead>
+                            <thead className="">
                                 <tr className="font-bold text-left text-[18px]">
                                     <th className="py-3">No.</th>
                                     <th className="py-3">League</th>
