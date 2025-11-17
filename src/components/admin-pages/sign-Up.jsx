@@ -18,22 +18,29 @@ export default function SignUp () {
     const navigate = useNavigate();
 
 
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        if (name.trim().split(" ").length < 2) {
+            setMessage("Please enter your full name (firstName and lastName)");
+            return;
+        }
+
         if(password !== confirmPassword) {
-            setMessage("passwords do mot math");
+            setMessage("passwords do not match!");
             return;
         }
 
         try{
-            const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
+            const res = await fetch("https://twokw-backend.onrender.com/api/v1/auth/register", {
                 method: "POST",
                 headers: {"Content-Type": "application/json" },
-                body: JSON.stringify({ name, email, password, confirmPassword}),
+                body: JSON.stringify({ name, email, password}),
             });
 
             const data = await res.json();
+            console.log("Backend Response", data);
 
             if(!res.ok) 
                 throw new Error(data.msg || "sign-Up not successful");
@@ -48,7 +55,7 @@ export default function SignUp () {
             setPassword("");
             setConfirmPassword("");
         }catch (ero) {
-            setMessage(ero.message);
+            console.log(ero.message);
         }
     };
 
