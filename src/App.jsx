@@ -27,6 +27,7 @@ import LoginCompleted from "./components/admin-pages/login-complete";
 import Predictions from "./components/admin-pages/predictions";
 import MakePredictions from "./components/admin-pages/fixtures";
 import WelcomeText from "./components/animations/welcome";
+import AdvertTags from "./components/admin-pages/tags";
 
 export default function App(){
   const [loading, setLoading] = useState(true);
@@ -58,6 +59,7 @@ export default function App(){
               <Route path="dashboard" element={<DashBoard />} />
               <Route path="predictions" element={<Predictions />} />
               <Route path="fixtures" element={<MakePredictions />} />
+              <Route path="tags" element={<AdvertTags />} />
             </Route>
             <Route path="/" element={<LandingPage />} />
             <Route path="/sign-in" element={ <SignIn />} />

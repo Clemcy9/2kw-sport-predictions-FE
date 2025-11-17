@@ -47,7 +47,7 @@ export default function AdminHeader() {
         },
         {
             title: "Header & Footer Tags",
-            path: "/tags",
+            path: "/admin/tags",
             icon: <FaTags />,
         },
         {
