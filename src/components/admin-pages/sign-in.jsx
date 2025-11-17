@@ -9,7 +9,7 @@ import { FaApple } from "react-icons/fa6";
 export default function SignIn () {
 
     const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [password, setpassword] = useState("");
     const [message, setMessage] = useState ("");
     const [eyePassword, setEyePassword] = useState(false);
 
@@ -23,11 +23,11 @@ export default function SignIn () {
     }, []);
 
 
-
+    const userData = {email,password,token}; localStorage.setItem("user", JSON.stringify(userData));
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if(!email || !password) {
+        if (!email || !password) {
             setMessage("Please fill all data");
             return;
         }
@@ -36,7 +36,7 @@ export default function SignIn () {
             const res = await fetch("https://twokw-backend.onrender.com/api/v1/auth/login", {
                 method: "POST",
                 headers: {"Content-Type": "application/json" },
-                body: JSON.stringify({ email, password}),
+                body: JSON.stringify({email, password}),
             });
 
             const data = await res.json();
@@ -44,12 +44,12 @@ export default function SignIn () {
             if(!res.ok) 
                 throw new Error(data.msg || "sign-In not successful");
 
-            localStorage.setItem("auth Token", data.token);
+            localStorage.setItem("authToken", data.token);
 
             setMessage("sign-In successful");
-            navigate("/login-otp", { replace: true });
+            navigate("/admin", { replace: true });
             setEmail("");
-            setPassword("");
+            setpassword("");
         }catch (ero) {
             console.log(ero.message);
             setMessage("Unable to access server")
@@ -90,7 +90,7 @@ export default function SignIn () {
                             className="border border-[#00000066] md:border-none md:bg-[#F5F2F2] w-full md:min-w-[381px] md:py-1 py-2 md:px-3 px-4 rounded-[0.4rem] focus:ring-[#1A365D] outline-none focus:ring-1 placeholder-[#1A365D]/80" />
                     </div>
 
-                        <div className="w-full my-3">
+                    <div className="w-full my-3">
                         <label className="block text-[#1E1E1E] font-sans">Password</label>
                         <div className="relative">
                             <input
@@ -99,7 +99,7 @@ export default function SignIn () {
                                 required
                                 value={password}
                                 placeholder="......"
-                                onChange={(e) => setPassword(e.target.value)}
+                                onChange={(e) => setpassword(e.target.value)}
                                 className="border border-[#00000066] md:border-none placeholder:font-semibold placeholder:text-2xl placeholder:tracking-widest md:bg-[#F5F2F2] w-full md:min-w-[381px] md:py-1 py-2 md:px-3 px-4 rounded-[0.4rem] focus:ring-[#1A365D] outline-none focus:ring-1 placeholder-[#1A365D]/80" />
                                 <button
                                 className="absolute right-3 top-2.5 text-[#1E1E1E]/60"
@@ -109,21 +109,23 @@ export default function SignIn () {
                                 </button>
                         </div>
                     </div>
+                        
                     
                     <div className="flex flex-col items-start w-full sp">
-                        <Link to={"/forgot-password"} className="text-[#1A365D] py-1">Forgot Password</Link>
+                        <Link to={"/forgot-password"} className="text-[#1A365D] ">Forgot Password</Link>
+
+                            {message && (
+                                <p className=" py-1 mt-2 text-sm rounded-[0.4rem] w-fit text-[#1A365D]">
+                                    {message}
+                                </p>
+                            )}
+
                         <label className="flex items-center gap-1 py-8">
                             <input type="checkbox" required className="accent-[#1A365D] w-5 h-5 rounded-[0.2rem] "/>
                             <span>Remember me </span>
                         </label>
-
-
                     </div>
-                        {message && (
-                                <p className="text-red-600">{message}</p>
-
-                        )}
-                    
+                        
 
                     <button type="submit" className="bg-[#1A365D] text-white w-70 rounded-[0.6rem] py-2 mt-6">
                         Sign In

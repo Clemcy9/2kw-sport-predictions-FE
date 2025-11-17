@@ -15,7 +15,7 @@ export default function ForgotPassword () {
 
         
         try{
-            const res = await fetch("https://twokw-backend.onrender.com/api/v1/auth/forgot-password", {
+            const res = await fetch("http://localhost:5000/api/v1/auth/forgot-password", {
                 method: "POST",
                 headers: {"Content-Type": "application/json" },
                 body: JSON.stringify({ email}),
@@ -23,10 +23,15 @@ export default function ForgotPassword () {
 
             const data = await res.json();
 
+            if(!res.ok) {
+                setMessage(data.message || "Another Problem");
+                return;
+            }
             
             setMessage("email upload successful");
             setEmail("");
             navigate("/reset-otp", { replace: true });
+            
         }catch (ero) {
             setMessage(ero.message);
         }

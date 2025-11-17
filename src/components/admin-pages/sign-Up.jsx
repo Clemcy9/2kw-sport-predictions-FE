@@ -23,7 +23,12 @@ export default function SignUp () {
         e.preventDefault();
 
         if (name.trim().split(" ").length < 2) {
-            setMessage("Please enter your full name (firstName and lastName)");
+            setMessage("Please enter your full name FirstName and LastName");
+            return;
+        }
+
+        if(password.length<8){
+            setMessage("password to short!")
             return;
         }
 
@@ -42,11 +47,16 @@ export default function SignUp () {
             const data = await res.json();
             console.log("Backend Response", data);
 
-            if(!res.ok) 
-                throw new Error(data.msg || "sign-Up not successful");
+            if(!res.ok){
+                setMessage(data.message || "sign-Up not successful");
+                return;
+            }
+
+            setMessage(data.message || "Account Created Successfully");
 
             localStorage.setItem("name", JSON.stringify(name));
             localStorage.setItem("authToken", data.token);
+            localStorage.setItem("userId",data.userId);
 
             setMessage("sign-Up successful");
             navigate("/sign-in", { replace: true });
@@ -141,9 +151,15 @@ export default function SignUp () {
                                 </button>
                         </div>
 
+                        {message && (
+                            <p className= " py-1 mt-2 text-sm rounded-[0.4rem] w-fit text-[#1A365D]">
+                                {message}
+                            </p>
+                        )}
+
                     </div>
 
-                    <button type="submit"  className="bg-[#1A365D] text-white w-70 rounded-[0.6rem] py-2 mt-6">
+                    <button type="submit"  className="bg-[#1A365D] text-white w-70 rounded-[0.6rem] py-2 mt-4">
                         Sign UP
                     </button>
                     <p className="text-[#1E1E1E] p-0.5">
@@ -154,11 +170,7 @@ export default function SignUp () {
                     </p>
                 </form>
 
-                {message &&(
-                    <p className="text-red-600">
-                        {message}
-                    </p>
-                )}
+                
                 <div className="md:hidden flex justify-center items-center flex-col space-y-4 pt-8">
                     <h3>
                         Continue With

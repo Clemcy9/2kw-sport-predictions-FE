@@ -24,11 +24,16 @@ export default function ResetPassword() {
             return;
         }
 
+        if(password.length <8){
+            setMessage("password is too short")
+            return;
+        }
+
         try {
             const res = await fetch("https://twokw-backend.onrender.com/api/v1/auth/reset-password", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ newPassword, password }),
+                body: JSON.stringify({ password}),
             });
 
             const data = await res.json();
@@ -36,14 +41,14 @@ export default function ResetPassword() {
             if (!res.ok)
                 throw new Error(data.msg || "change password not successful");
 
-            localStorage.setItem("auth Token", data.token);
+            localStorage.setItem("authToken", data.token);
 
             setMessage("password successfully successful");
             setNewPassword("");
             setPassword("");
             navigate("/reset-success-otp", { replace: true });
         } catch (ero) {
-            setMessage(ero.message);
+            console.log(ero.message);
         }
     };
 
