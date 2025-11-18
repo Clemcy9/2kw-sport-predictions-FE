@@ -26,11 +26,8 @@ export default function LandingPage () {
 
     return(
       <>
-        <Navbar />
-       <motion.div initial={{opacity:0.5}} animate={{opacity:1}} transition={{duration:1, delay:0.1}}>
-          <HeroSection />
-        </motion.div>
-          <FreeTips />
+            <Navbar />
+            <HeroSection />
           <div className="flex justify-end items-end m-1">
            {visible && (
             <motion.div
@@ -42,33 +39,39 @@ export default function LandingPage () {
             </motion.div>
            )}
           </div>
-          <div className="px-1 lg:px-4 pb-4 lg:py-4 pt-2  min-h-screen w-full max-w-full lg:overflow-x-hidden">
-              <div className="grid grid-cols-1  lg:grid-cols-[350px_3fr] gap-2 max-w-full w-full justify-center">
+       <motion.div initial={{opacity:0.5}} animate={{opacity:1}} transition={{duration:1, delay:0.1}}>
+        <div className="min-h-screen">
+            <FreeTips />
+            {/* <div className="px-1 lg:px-4 pb-4 lg:py-4 pt-2 w-full "> */}
+            <div className="lg:grid lg:grid-cols-[0.8fr_3fr] px-1 lg:px-4 pb-4 lg:py-4 pt-2 w-full ">
+              <div className="lg:w-[350px] flex-shrink-0 space-y-0">
+              {/* <div className="relative"> */}
+              <BestPredictionCard />
 
-                   <div className="space-y-2 items-center flex flex-col bg-white">
-                      <BestPredictionCard />
-                      <div className="sticky top-24 w-full">
-                        <FootballLeaguesTable />
-                      </div>
-                    </div>
-                    <div className="flex flex-col">
-                     <div className="flex items-start justify-center w-full">
-                       <ContentNavBar />
-                     </div>
-
-                      <div className="flex justify-center items-center flex-col">
-                        <PremierLeagueCard />
-                        <LeagueTables className="sticky top-0 "/>
-                        
-                        <div className="flex justify-end items-end">
-                          <DummyBlog />
-                        </div>
-                        <Outlet />
-                     </div>
-                   </div>
-                </div>
+              <div className="sticky top-0 bottom-0">
+                <FootballLeaguesTable />
               </div>
-          <Footer />
+              {/* </div> */}
+              </div>
+
+              <main className="overflow-y-auto lg:max-h-screen top-0 flex-1 flex flex-col gap-4">
+                <div className="flex items-start justify-center w-full">
+                  <ContentNavBar />
+                </div>
+
+                <div className="flex justify-center items-center flex-col">
+                  <PremierLeagueCard />
+                  <LeagueTables />
+                  <Outlet />
+                  <DummyBlog />
+                </div>
+              </main>
+            </div>
+            {/* </div> */}
+        </div>
+        </motion.div>
+            <Footer />
+
        </>
        
     );

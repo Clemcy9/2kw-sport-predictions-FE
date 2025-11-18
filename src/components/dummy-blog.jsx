@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export default function DummyBlog () {
 
     return (
-        <div className="my-3 mt-7 w-full z-20 relative min-h-screen flex flex-col justify-center items-center bg-[#F3F4F64D]">
+        <div className="gap-5 border-none lg:p-4 my-3 mt-7 w-full z-20 relative min-h-screen flex flex-col justify-center items-center bg-[#F3F4F64D]">
             <h1 className="font-[Inria Sans] text-center text-3xl font-semibold text-[#1F2128] lg:pb-6 mb-8">2kwPredict Blog</h1>
             <div className="lg:grid lg:grid-cols-3 lg:gap-3 sm:grid sm:grid-cols-2 sm:gap-6 gap-3 w-full sm:items-center sm:w-full sm:justify-center flex flex-col ">
                 

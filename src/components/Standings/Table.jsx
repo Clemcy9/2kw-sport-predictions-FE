@@ -8,7 +8,7 @@ export default function LeagueTables() {
     const leagueData = leaguesData[activeLeague];
 
     return (
-        <div className=" flex flex-col font-serif lg:flex-row gap-6 p-0 lg:p-0 lg:justify-between max-w-7xl lg:max-w-full w-full lg:gap-10">
+        <div className="gap-5 w-full border-none lg:p-4 g my-2 flex justify-center items-center text-white ">
             {/* LEAGUE TABLE */}
             <LeagueTable
                 title="League Table"

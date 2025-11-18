@@ -87,18 +87,17 @@ export default function FootballLeagues() {
 
 
     return (
-        <div className="hidden lg:flex lg:flex-col lg:max-w-full w-full lg:border lg:border-[#D6AE3E]/70 rounded-[0.6rem] lg:shadow-lg my-5 ">
+        <div className="hidden lg:sticky top-0 lg:block w-full lg:border lg:border-[#D6AE3E]/70 rounded-[0.6rem] lg:shadow-lg mt-5 ">
             {/* Header */}
             <h2 className="text-3xl font-semibold text-white font-sans bg-[#D6AE3E] text-center py-4 lg:rounded-t-[0.6rem]">
                 Football Leagues
             </h2>
 
             {/* Leagues list */}
-            <div className="flex items-center lg:justify-center lg:mx-0 lg:flex-col flex-nowrap scroll-smooth whitespace-nowrap overflow-x-auto lg:overflow-visible p-2 lg:p-0 w-full gap-3 lg:gap-0">
+            <div className="flex items-center  flex-col w-full">
                 {leagues.map((league, index) => (
                     <motion.div
                         key={index}
-                        whileHover={{ scale: 1.02 }}
                         onClick={() => handleLeagueClick(league.slug)}
                         className="flex items-center justify-between bg-white text-[#1A365D] lg:p-3 py-2 cursor-pointer border border-[#d6ae3e]/70 min-w-[280px] lg:min-w-full hover:shadow-lg hover:bg-[#d6ae3e]/80 transition-all"
                     >
