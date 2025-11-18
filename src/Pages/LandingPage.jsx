@@ -12,15 +12,17 @@ import { motion } from "framer-motion";
 import LeagueTables from "../components/Standings/Table";
 import DummyBlog from "../components/dummy-blog";
 import { Outlet } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 export default function LandingPage () {
 
-  const moveToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    window.onscroll = () => {
+      setVisible(window.scrollY > window.innerHeight/2);
+    };
+  }, []);
 
     return(
       <>
@@ -30,9 +32,15 @@ export default function LandingPage () {
         </motion.div>
           <FreeTips />
           <div className="flex justify-end items-end m-1">
-            <div className="fixed border border-[#D6AE3E] hover:scale-95 transition-all bg-[#1A365D] rounded-full h-8 w-8 flex justify-center items-center text-[#D6AE3E] z-50" onClick={moveToTop}>
+           {visible && (
+            <motion.div
+              initial={{ opacity: 0, y: -5 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 5 }}
+              transition={{ duration: 0.25 }} className=" fixed border border-[#D6AE3E] hover:scale-95 transition-all bg-[#1A365D] rounded-full h-8 w-8 flex justify-center items-center text-[#D6AE3E] z-50" onClick={() => window.scrollTo({ top: 0, behavior: "smooth", })}>
               <FiArrowUp className="font-extrabold text-xl" />
-            </div>
+            </motion.div>
+           )}
           </div>
           <div className="px-1 lg:px-4 pb-4 lg:py-4 pt-2  min-h-screen w-full max-w-full lg:overflow-x-hidden">
               <div className="grid grid-cols-1  lg:grid-cols-[350px_3fr] gap-2 max-w-full w-full justify-center">
