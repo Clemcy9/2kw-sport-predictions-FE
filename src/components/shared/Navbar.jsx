@@ -114,11 +114,15 @@ export default function Navbar() {
                                     </button>
                                 )}
                                 {link.title === "Links" && showTag && (
-                                   <div>
-                                        <a href={tag} className="absolute lg:mt-5 bg-[#D6AE3E] text-[#1A365D] px-3 py-1 rounded shadow-lg">
+                                    <motion.div
+                                        initial={{ opacity: 0, y: -5 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        exit={{ opacity: 0, y: 5 }}
+                                        transition={{ duration: 0.25 }} className="">
+                                        <a href={tag} className=" absolute top-5 w-36 lg:mt-5 text-center bg-[#D6AE3E] text-lg text-[#1A365D] px-3 py-1 rounded shadow-lg">
                                             {tag}
                                         </a>
-                                   </div>
+                                   </motion.div>
                                 )}
                             </div>
                         ))}
