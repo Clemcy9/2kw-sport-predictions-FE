@@ -84,7 +84,7 @@ export default function Sidebar() {
     return (
         <aside className="hidden min-h-screen bg-[#1A365D29] text-[#1A365D] lg:sticky top-0 lg:w-94  p-4 lg:flex flex-col shadow-lg pt-10 lg:pt-6">
            
-            <nav className="flex flex-col gap-8">
+            <nav className="flex flex-col gap-6">
                
                 {menuItems.map((item, i) => (
                     <div key={i}>

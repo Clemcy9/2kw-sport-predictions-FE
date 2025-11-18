@@ -8,6 +8,8 @@ import FreeTips from "./shared/FreetipsCard";
 
 export default function HomeWin () {
 
+    
+
     return(
         <div>
             <Navbar />

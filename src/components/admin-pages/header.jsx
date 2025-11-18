@@ -113,7 +113,7 @@ export default function AdminHeader() {
                             </span>
                         </h1>
 
-                        <div className="lg:hidden relative ">
+                        <div className="lg:hidden absolute ">
 
                            
                             <button

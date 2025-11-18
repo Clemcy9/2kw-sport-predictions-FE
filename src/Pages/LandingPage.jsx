@@ -54,7 +54,7 @@ export default function LandingPage () {
               {/* </div> */}
               </div>
 
-              <main className="overflow-y-auto lg:max-h-screen top-0 flex-1 flex flex-col gap-4">
+              <main className="overflow-y-scroll lg:max-h-screen top-0 flex-1 flex flex-col gap-4">
                 <div className="flex items-start justify-center w-full py-2">
                   <ContentNavBar />
                 </div>

@@ -116,8 +116,8 @@ export default function Navbar() {
                                         initial={{ opacity: 0, y: -5 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         exit={{ opacity: 0, y: 5 }}
-                                        transition={{ duration: 0.25 }} className="flex justify-center">
-                                        <a href={tag} className=" absolute w-36 lg:mt-5 text-center bg-[#D6AE3E] text-lg text-[#1A365D] px-3 py-1 rounded shadow-lg">
+                                        transition={{ duration: 0.25 }} className="w-full flex justify-center">
+                                        <a href={tag} className=" absolute w-36 lg:mt-5 lg:w-fit text-center bg-[#D6AE3E] text-lg text-[#1A365D] px-3 py-1 rounded shadow-lg">
                                             {tag}
                                         </a>
                                    </motion.div>

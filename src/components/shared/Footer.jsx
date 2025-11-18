@@ -72,8 +72,8 @@ export default function Footer() {
                                         initial={{ opacity: 0, y: -5 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         exit={{ opacity: 0, y: 5 }}
-                                        transition={{ duration: 0.25 }} className="flex justify-center">
-                                        <a href={tag} className=" absolute w-60 lg:w-fit lg:min-w-36 lg:mt-5 text-center bg-[#D6AE3E] text-lg text-[#1A365D] px-1 hover:underline py-1 rounded shadow-lg">
+                                        transition={{ duration: 0.25 }} className="w-full flex justify-center">
+                                        <a href={tag} className=" absolute w-60 lg:w-fit lg:min-w-36 lg:mt-2 text-center bg-[#D6AE3E] text-lg text-[#1A365D] px-3 hover:underline py-1 rounded shadow-lg">
                                             {tag}
                                         </a>
                                    </motion.div>
@@ -103,11 +103,14 @@ export default function Footer() {
                 </div>
             </div>
             <div className="text-[#fff]/70  border-t-1 border-[#fff]/80 w-full items-center">
-                <div className="flex items-center justify-center flex-col space-y-6 md:flex-row md:justify-between ">
+                <div className="flex items-center justify-center flex-col space-y-6 lg:flex-row lg:justify-between ">
                     <p className="text-sm mt-[50px]">
                         &copy; {new Date().getFullYear()} 2KwPreddict. All rights reserved.
                     </p>
-                    <ul className="flex space-x-6 md:mt-[40px]">
+                    <a href={tag} className="lg:mt-[40px] w-60 lg:w-fit lg:min-w-36  text-center text-[#D6AE3E] text-lg  hover:underline rounded ">
+                        {tag}
+                    </a>
+                    <ul className="flex space-x-6 lg:mt-[40px]">
                         <li >Privacy Policy</li>
                         <li>Terms Of Service</li>
                     </ul>
