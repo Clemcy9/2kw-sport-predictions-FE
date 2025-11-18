@@ -10,8 +10,6 @@ export default function Navbar() {
     const navigation = useNavigate();
     const tag = localStorage.getItem("headerTag") || "No Links";
 
-    console.log(tag);
-
     const navLinks = [
         { title: "Home", path: "/" },
         {
@@ -57,7 +55,7 @@ export default function Navbar() {
                     {/* Desktop Navbar */}
                     <div className="hidden md:flex space-x-8 font-sans">
                         {navLinks.map((link, index) => (
-                            <div key={index} className="relative" onMouseEnter={() => link.title === "Links" && setShowTag(true)} onMouseLeave={() => link.title === "Link" && setShowTag(false)}>
+                            <div key={index} className="relative" onMouseEnter={() => link.title === "Links" && setShowTag(true)} onMouseLeave={() => link.title === "Links" && setShowTag(false)}>
 
                                 
                                 {link.tipsLink ? (
@@ -118,8 +116,8 @@ export default function Navbar() {
                                         initial={{ opacity: 0, y: -5 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         exit={{ opacity: 0, y: 5 }}
-                                        transition={{ duration: 0.25 }} className="">
-                                        <a href={tag} className=" absolute top-5 w-36 lg:mt-5 text-center bg-[#D6AE3E] text-lg text-[#1A365D] px-3 py-1 rounded shadow-lg">
+                                        transition={{ duration: 0.25 }} className="flex justify-center">
+                                        <a href={tag} className=" absolute w-36 lg:mt-5 text-center bg-[#D6AE3E] text-lg text-[#1A365D] px-3 py-1 rounded shadow-lg">
                                             {tag}
                                         </a>
                                    </motion.div>
