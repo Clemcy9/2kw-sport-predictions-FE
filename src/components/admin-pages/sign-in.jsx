@@ -23,7 +23,7 @@ export default function SignIn () {
     }, []);
 
 
-    const userData = {email,password,token}; localStorage.setItem("user", JSON.stringify(userData));
+    const userData = {email,password}; localStorage.setItem("user", JSON.stringify(userData));
     const handleSubmit = async (e) => {
         e.preventDefault();
 
