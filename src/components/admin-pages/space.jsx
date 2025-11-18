@@ -5,12 +5,10 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
     const [open, setOpen] = useState(false);
-    const [dropdown, setDropdown] = useState(false);
-    const [showTag, setShowTag] = useState(false);
+    const [dropdown, setDropdown] = useState(false); // for Predictions
+    const [showTag, setShowTag] = useState(false);   // for Links
     const navigation = useNavigate();
-    const tag = localStorage.getItem("headerTag") || "No Links";
-
-    console.log(tag);
+    const tag = localStorage.getItem("headerTag") || "No link saved";
 
     const navLinks = [
         { title: "Home", path: "/" },
@@ -30,9 +28,8 @@ export default function Navbar() {
             ],
         },
         { title: "Blog", path: "/blog" },
-        { title: "Links", path: "" },
+        { title: "Links", path: "/links" },
         { title: "Admin", path: "/sign-up" },
-
     ];
 
     return (
@@ -57,25 +54,22 @@ export default function Navbar() {
                     {/* Desktop Navbar */}
                     <div className="hidden md:flex space-x-8 font-sans">
                         {navLinks.map((link, index) => (
-                            <div key={index} className="relative" onMouseEnter={() => link.title === "Links" && setShowTag(true)} onMouseLeave={() => link.title === "Link" && setShowTag(false)}>
-
-                                
+                            <div
+                                key={index}
+                                className="relative"
+                                onMouseEnter={() => link.title === "Links" && setShowTag(true)}
+                                onMouseLeave={() => link.title === "Links" && setShowTag(false)}
+                            >
                                 {link.tipsLink ? (
                                     <>
-                                        {/* Button with arrow */}
                                         <button
                                             onClick={() => setDropdown(dropdown === index ? null : index)}
                                             className="text-white flex items-center gap-1 hover:text-[#D6AE3E]"
                                         >
                                             {link.title}
-                                            {dropdown === index ? (
-                                                <ChevronUp size={18} />
-                                            ) : (
-                                                <ChevronDown size={18} />
-                                            )}
+                                            {dropdown === index ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
                                         </button>
 
-                                        {/* Dropdown */}
                                         <AnimatePresence>
                                             {dropdown === index && (
                                                 <motion.div
@@ -101,24 +95,24 @@ export default function Navbar() {
                                 ) : (
                                     <button
                                         onClick={() => {
-                                            if (link.title === "Links"){
-                                                setShowTag(!showTag);
+                                            if (link.title === "Links") {
+                                                setShowTag(!showTag); // toggle on mobile click
                                             } else {
                                                 navigation(link.path);
                                                 setOpen(false);
                                             }
                                         }}
-                                            className="text-gray-50 transition hover:text-[#D6AE3E] cursor-pointer text-shadow-lg"
+                                        className="text-gray-50 transition hover:text-[#D6AE3E] cursor-pointer text-shadow-lg"
                                     >
                                         {link.title}
                                     </button>
                                 )}
+
+                                {/* Show localStorage item for Links */}
                                 {link.title === "Links" && showTag && (
-                                   <div>
-                                        <a href={tag} className="absolute lg:mt-5 bg-[#D6AE3E] text-[#1A365D] px-3 py-1 rounded shadow-lg">
-                                            {tag}
-                                        </a>
-                                   </div>
+                                    <div className="absolute mt-2 bg-[#D6AE3E] text-[#1A365D] px-3 py-1 rounded shadow-md">
+                                        {tag}
+                                    </div>
                                 )}
                             </div>
                         ))}
@@ -143,7 +137,7 @@ export default function Navbar() {
                 </div>
             </div>
 
-            {/* Mobile Dropdown */}
+            {/* Mobile Menu */}
             <AnimatePresence>
                 {open && (
                     <motion.div
@@ -155,7 +149,7 @@ export default function Navbar() {
                     >
                         <div className="flex flex-col items-start space-y-4 py-4 px-6">
                             {navLinks.map((link, index) => (
-                                <div key={index} className="w-full" onMouseEnter={() => link.title === "Links" && setShowTag(true)} onMouseLeave={() => link.title === "Links" && setShowTag(false)}>
+                                <div key={index} className="w-full relative">
                                     {link.tipsLink ? (
                                         <>
                                             <button
@@ -163,14 +157,9 @@ export default function Navbar() {
                                                 className="text-white flex items-center md:justify-between gap-2 md:gap-0 w-full"
                                             >
                                                 {link.title}
-                                                {dropdown === index ? (
-                                                    <ChevronUp size={18} />
-                                                ) : (
-                                                    <ChevronDown size={18} />
-                                                )}
+                                                {dropdown === index ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
                                             </button>
 
-                                            {/* Mobile dropdown items */}
                                             <AnimatePresence>
                                                 {dropdown === index && (
                                                     <motion.div
@@ -178,7 +167,7 @@ export default function Navbar() {
                                                         animate={{ opacity: 1, y: 0 }}
                                                         exit={{ opacity: 0, y: -5 }}
                                                         transition={{ duration: 0.25 }}
-                                                        className="flex flex-col mt-2 py-2 bg-[#D6AE3E] px-2  text-[#1A365D] font-sans shadow-lg w-[300px] rounded-[0.4rem]"
+                                                        className="flex flex-col mt-2 py-2 bg-[#D6AE3E] px-2 text-[#1A365D] font-sans shadow-lg w-[300px] rounded-[0.4rem]"
                                                     >
                                                         {link.tipsLink.map((item, subIndex) => (
                                                             <button
@@ -200,8 +189,8 @@ export default function Navbar() {
                                         <button
                                             onClick={() => {
                                                 if (link.title === "Links") {
-                                                    setShowTag(!showTag);
-                                                }else {
+                                                    setShowTag(!showTag); // toggle on mobile click
+                                                } else {
                                                     navigation(link.path);
                                                     setOpen(false);
                                                 }
@@ -212,16 +201,11 @@ export default function Navbar() {
                                         </button>
                                     )}
 
+                                    {/* Show localStorage item on mobile */}
                                     {link.title === "Links" && showTag && (
-                                        <motion.div
-                                            initial={{ opacity: 0, y: -5 }}
-                                            animate={{ opacity: 1, y: 0 }}
-                                            exit={{ opacity: 0, y: 5 }}
-                                            transition={{ duration: 0.25 }} className="w-[300px]">
-                                            <a target="blank" href={tag} className="w-full text-xl lg:mt-5 bg-[#D6AE3E] text-[#1A365D] px-3 py-1 rounded shadow-lg">
-                                                {tag}
-                                            </a>
-                                        </motion.div>
+                                        <div className="absolute mt-2 bg-[#D6AE3E] text-[#1A365D] px-3 py-1 rounded shadow-md">
+                                            {tag}
+                                        </div>
                                     )}
                                 </div>
                             ))}
