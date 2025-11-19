@@ -83,7 +83,7 @@ export default function BlogPost () {
                 </motion.div>
 
             </section>
-            <div className=" lg:mx-2 sm:mx-2 mx-2 my-14 justify-center items-center lg:grid lg:grid-cols-4 sm:grid sm:grid-cols-2 sm:gap-6 gap-3 w-full sm:items-center sm:w-full sm:justify-center flex flex-col ">
+            <div className="p-4 lg:mx-0 lg:w-full sm:mx-2 mx-2 my-14 justify-center items-center lg:grid lg:grid-cols-4 sm:grid sm:grid-cols-2 sm:gap-6 gap-3 w-full sm:items-center sm:w-full sm:justify-center flex flex-col ">
                 {imageLink.map((url,idnx) => (
                     <AllBlog key={idnx} imagesUrl={url}/>
                 ))}

@@ -95,6 +95,21 @@ export default function DashBoard() {
         },
     ]);
 
+
+    // useEffect(() => {
+    //     try {
+    //         fetch("https://api.example.com/predictions") // Replace with your API
+    //             .then((res) => {
+    //                 if (!res.ok) throw new Error("Failed to fetch predictions");
+    //                 return res.json();
+    //             })
+    //             .then((data) => setPredictions(data))
+    //             .catch((err) => setError(err.message));
+    //     } catch (err) {
+    //         setError(err.message);
+    //     }
+    // }, []);
+
     return (
         <div className="p-4 lg:p-0 lg:min-h-screen sm:min-h-screen flex flex-col w-full">
                 <div className="lg:flex lg:justify-center w-full my-5 space-y-4 lg:space-y-0 lg:my-10 grid grid-cols-1 grid-rows-2 lg:gap-24">
