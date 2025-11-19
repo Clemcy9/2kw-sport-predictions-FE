@@ -11,18 +11,18 @@ import { AllBlog } from "../components/multi-component";
 export default function BlogPost () {
 
     const imageLink = [
-        "public/Blog2-bg.jpg",
-        "public/Blog3-bg.jpg",
-        "public/Blog-bg.jpg",
-        "public/Blog3-bg.jpg",
-        "public/Blog2-bg.jpg",
-        "public/Blog-bg.jpg",
-        "public/Blog2-bg.jpg",
-        "public/Blog3-bg.jpg",
-        "public/Blog-bg.jpg",
-        "public/Blog3-bg.jpg",
-        "public/Blog2-bg.jpg",
-        "public/Blog-bg.jpg",
+        "/Blog2-bg.jpg",
+        "/Blog3-bg.jpg",
+        "/Blog-bg.jpg",
+        "/Blog3-bg.jpg",
+        "/Blog2-bg.jpg",
+        "/Blog-bg.jpg",
+        "/Blog2-bg.jpg",
+        "/Blog3-bg.jpg",
+        "/Blog-bg.jpg",
+        "/Blog3-bg.jpg",
+        "/Blog2-bg.jpg",
+        "/Blog-bg.jpg",
 
     ];
 
