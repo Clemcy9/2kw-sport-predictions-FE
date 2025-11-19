@@ -1,240 +1,191 @@
-import {useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FaPlus, FaMinus } from "react-icons/fa";
 
-export default function PremierLeagueCard ({leagueName}) {
-    const [open, setOpen] = useState(true);
-    const navigation = useNavigate();
+export default function PremierLeagueCard({ league, teams }) {
+  const [open, setOpen] = useState(true);
+  const navigation = useNavigate();
 
-    const click = () => {
-        navigation("/details")
-    }
+  const click = () => {
+    navigation("/details");
+  };
 
-    const predictions ={
-        
-        homeLogo: "/",
-        homeTeam: "Everton",
-        awayLogo: "/",
-        awayTeam: "Crystal Palace",
-        leagueLogo: "/NPFL.jpg",
-        time: new Date().toLocaleTimeString(),
-        date: new Date().toLocaleDateString(),
-        odd: { Odds: "3.5", Tips: "over 15", Prop: "3.65%" }
-    }
-       
-    return (
-        <div className="w-full">
-            
-                <div className="bg-[#1A365D] w-full flex justify-between items-center p-2 rounded-[0.6rem] hover:shadow-lg transition-all">
-                    <h2 className="font-sans font-semibold">
-                        {leagueName}
-                    </h2>
-                  <div onClick={()=> setOpen(!open)}>
-                    {open ? (
-                        <FaPlus /> 
-                    ) : (
-                        <FaMinus />
-                    )}
-                  </div>
-               </div>
-               {open && (
-            <motion.div
-                className="lg:flex min-w-full w-full text-white space-y-0 lg:space-y-0 flex flex-col justify-center gap-2 items-center"
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, ease: "easeOut" }}
-            >
-               <div onClick={click} className=" hover:shadow-lg transition-all mt-1 border border-[#D6AE3E] flex justify-between items-center w-full flex-col lg:flex-row lg:p-0 rounded-[0.6rem] p-2">
-                  <div className="text-[#1A365D] flex justify-between items-center flex-col lg:flex-row w-full space-y-2">
-                            <div className="flex  lg:px-2 lg:mx-3">
-                                <span className="font-sans font-normal text-sm text-[#1A365D]">13:28</span>
-                            </div>
-                       <div className="flex justify-between lg:justify-center lg:flex-col items-start min-w-[130px] space-x-10 px-1 lg:gap-0 lg:space-x-0  space-y-2 lg:p-0 w-full">
-                            <div className="flex justify-center items-center space-y-1">
-                                <img
-                                    src={predictions.homeLogo}
-                                    // alt={predictions.homeTeam}
-                                    className="lg:w-10 lg:h-10 w-6 h-6 rounded-full"
-                                />
-                                <span className="font-sans text-sm font-normal">{predictions.homeTeam}</span>
-                            </div>
+  const predictions = {
+    homeLogo: teams.home.logo,
+    homeTeam: teams.home.name,
+    awayLogo: teams.away.logo,
+    awayTeam: teams.away.name,
+    leagueLogo: league.logo,
+    time: new Date().toLocaleTimeString(),
+    date: new Date().toLocaleDateString(),
+    odd: { Odds: "3.5", Tips: "over 15", Prop: "3.65%" },
+  };
 
-                            
-
-                            <div className="flex justify-center items-center">
-                                <img
-                                    src={predictions.awayLogo}
-                                    // alt={predictions.awayTeam}
-                                    className="lg:w-10 lg:h-10 w-6 h-6 rounded-full"
-                                />
-                                <p className="text-sm font-sans font-normal">{predictions.awayTeam}</p>
-                            </div>
-                       </div>
-                   </div>
-
-                 {/* Odds Section */}
-
-                    <div className="flex justify-between lg:justify-end lg:items-start items-start min-w-[130px]  space-x-10 px-1 lg:gap-4 lg:space-x-0 lg:p-4 w-full">
-                        <div className="flex justify-center items-center flex-col space-y-1 lg:space-y-3">
-                                <p className="px-3 font-bold font-sans text-[#D6AE3E]">Odds</p>
-                                <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-1 text-[15px] py-1 min-w-[50px]  w-16 text-center">{predictions.odd.Odds}</p>
-                        </div>
-                        <div className="flex justify-center items-center flex-col space-y-1 lg:space-y-3">
-                                <p className="px-3 font-bold font-sans text-[#D6AE3E]">Tips</p>
-                                <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-1 text-[15px] py-1 min-w-[50px]  w-16 text-center">{predictions.odd.Tips}</p>
-                        </div>
-                        <div className="flex justify-center items-center flex-col space-y-1 lg:space-y-3">
-                                <p className="px-3 font-bold font-sans text-[#D6AE3E]">Prop%</p>
-                                <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-1 text-[15px] py-1 min-w-[50px]  w-16 text-center">{predictions.odd.Prop}</p>
-                        </div>
-                    </div>
-              </div>
-
-             {/* second row */}
-
-                    <div className="hover:shadow-lg transition-all border border-[#D6AE3E] flex justify-between items-center w-full flex-col lg:flex-row lg:p-0 rounded-[0.6rem] p-2">
-                        <div className="text-[#1A365D] flex justify-between items-center flex-col lg:flex-row w-full space-y-2">
-                            <div className="flex  lg:px-2 lg:mx-3">
-                                <span className="font-sans font-normal text-sm text-[#1A365D]">13:28</span>
-                            </div>
-                            <div className="flex justify-between lg:justify-center lg:flex-col items-start min-w-[130px] space-x-10 px-1 lg:gap-0 lg:space-x-0  space-y-2 lg:p-0 w-full">
-                                <div className="flex justify-center items-center space-y-1">
-                                    <img
-                                        src={predictions.homeLogo}
-                                        // alt={predictions.homeTeam}
-                                        className="lg:w-10 lg:h-10 w-6 h-6 rounded-full"
-                                    />
-                                    <span className="font-sans text-sm font-normal">{predictions.homeTeam}</span>
-                                </div>
-
-
-
-                                <div className="flex justify-center items-center">
-                                    <img
-                                        src={predictions.awayLogo}
-                                        // alt={predictions.awayTeam}
-                                        className="lg:w-10 lg:h-10 w-6 h-6 rounded-full"
-                                    />
-                                    <p className="text-sm font-sans font-normal">{predictions.awayTeam}</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Odds Section */}
-
-                        <div className="flex justify-between lg:justify-end lg:items-start items-start min-w-[130px]  space-x-10 px-1 lg:gap-4 lg:space-x-0 lg:p-4 w-full">
-                            <div className="flex justify-center items-center flex-col space-y-1 lg:space-y-3">
-                                <p className="px-3 font-bold font-sans text-[#D6AE3E]">Odds</p>
-                                <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-1 text-[15px] py-1 min-w-[50px]  w-16 text-center">{predictions.odd.Odds}</p>
-                            </div>
-                            <div className="flex justify-center items-center flex-col space-y-1 lg:space-y-3">
-                                <p className="px-3 font-bold font-sans text-[#D6AE3E]">Tips</p>
-                                <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-1 text-[15px] py-1 min-w-[50px]  w-16 text-center">{predictions.odd.Tips}</p>
-                            </div>
-                            <div className="flex justify-center items-center flex-col space-y-1 lg:space-y-3">
-                                <p className="px-3 font-bold font-sans text-[#D6AE3E]">Prop%</p>
-                                <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-1 text-[15px] py-1 min-w-[50px]  w-16 text-center">{predictions.odd.Prop}</p>
-                            </div>
-                        </div>
-                    </div>
-            </motion.div>
-            )}
-                
+  return (
+    <div className="w-full">
+      <div className="bg-[#1A365D] w-full flex justify-between items-center p-2 rounded-[0.6rem] hover:shadow-lg transition-all">
+        <h2 className="font-sans font-semibold">{leagueName}</h2>
+        <div onClick={() => setOpen(!open)}>
+          {open ? <FaPlus /> : <FaMinus />}
         </div>
-    );
-}
+      </div>
+      {open && (
+        <motion.div
+          className="lg:flex min-w-full w-full text-white space-y-0 lg:space-y-0 flex flex-col justify-center gap-2 items-center"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+        >
+          <div
+            onClick={click}
+            className=" hover:shadow-lg transition-all mt-1 border border-[#D6AE3E] flex justify-between items-center w-full flex-col lg:flex-row lg:p-0 rounded-[0.6rem] p-2"
+          >
+            <div className="text-[#1A365D] flex justify-between items-center flex-col lg:flex-row w-full space-y-2">
+              <div className="flex  lg:px-2 lg:mx-3">
+                <span className="font-sans font-normal text-sm text-[#1A365D]">
+                  13:28
+                </span>
+              </div>
+              <div className="flex justify-between lg:justify-center lg:flex-col items-start min-w-[130px] space-x-10 px-1 lg:gap-0 lg:space-x-0  space-y-2 lg:p-0 w-full">
+                <div className="flex justify-center items-center space-y-1">
+                  <img
+                    src={predictions.homeLogo}
+                    // alt={predictions.homeTeam}
+                    className="lg:w-10 lg:h-10 w-6 h-6 rounded-full"
+                  />
+                  <span className="font-sans text-sm font-normal">
+                    {predictions.homeTeam}
+                  </span>
+                </div>
 
+                <div className="flex justify-center items-center">
+                  <img
+                    src={predictions.awayLogo}
+                    // alt={predictions.awayTeam}
+                    className="lg:w-10 lg:h-10 w-6 h-6 rounded-full"
+                  />
+                  <p className="text-sm font-sans font-normal">
+                    {predictions.awayTeam}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Odds Section */}
+
+            <div className="flex justify-between lg:justify-end lg:items-start items-start min-w-[130px]  space-x-10 px-1 lg:gap-4 lg:space-x-0 lg:p-4 w-full">
+              <div className="flex justify-center items-center flex-col space-y-1 lg:space-y-3">
+                <p className="px-3 font-bold font-sans text-[#D6AE3E]">Odds</p>
+                <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-1 text-[15px] py-1 min-w-[50px]  w-16 text-center">
+                  {predictions.odd.Odds}
+                </p>
+              </div>
+              <div className="flex justify-center items-center flex-col space-y-1 lg:space-y-3">
+                <p className="px-3 font-bold font-sans text-[#D6AE3E]">Tips</p>
+                <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-1 text-[15px] py-1 min-w-[50px]  w-16 text-center">
+                  {predictions.odd.Tips}
+                </p>
+              </div>
+              <div className="flex justify-center items-center flex-col space-y-1 lg:space-y-3">
+                <p className="px-3 font-bold font-sans text-[#D6AE3E]">Prop%</p>
+                <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-1 text-[15px] py-1 min-w-[50px]  w-16 text-center">
+                  {predictions.odd.Prop}
+                </p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      )}
+    </div>
+  );
+}
 
 //  NOTE1!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // DO NOT DELETE COMMENTED CODES.
 
+// const [predictions, setPredictions] = useState(null);
+// const [waiting , setWaiting ] = useState(true);
+// const [error, setError] = useState(null);
 
+// // fetching the payload and data from the backend API
+// const getPredictions = async ()=> {
+//     setWaiting(true);
+//     setError(null);
 
-    // const [predictions, setPredictions] = useState(null);
-    // const [waiting , setWaiting ] = useState(true);
-    // const [error, setError] = useState(null);
+//     try {
+//         const res = await fetch("https://www.api-football.com/");
+//         if (!res.ok) throw new Error("predictions is facing village people problem fetching");
+//         const data = await res.json();
 
-    // // fetching the payload and data from the backend API
-    // const getPredictions = async ()=> {
-    //     setWaiting(true);
-    //     setError(null);
+//         // saving the predictions and date to assist daily updates
+//         setPredictions(data);
+//         localStorage.setItem("lastPrediction", JSON.stringify(data));
+//         localStorage.setItem("lastDate", new Date().toDateString());
 
-    //     try {
-    //         const res = await fetch("https://www.api-football.com/");
-    //         if (!res.ok) throw new Error("predictions is facing village people problem fetching");
-    //         const data = await res.json();
+//     }catch (err) {
+//         console.error("backend didnt see this coming error", err);
+//         setError(err.message);
 
-    //         // saving the predictions and date to assist daily updates 
-    //         setPredictions(data);
-    //         localStorage.setItem("lastPrediction", JSON.stringify(data));
-    //         localStorage.setItem("lastDate", new Date().toDateString()); 
+//     }finally {
+//         setWaiting(false);
+//     }
+// };
 
-    //     }catch (err) {
-    //         console.error("backend didnt see this coming error", err);
-    //         setError(err.message);
+// //get the predictions and the date from the localstorage and load or load new data from the API
+// useEffect( ()=> {
+//     const savedPredictions = localStorage.getItem("lastPrediction");
+//     const savedDate = localStorage.getItem("lastDate");
+//     const newDay = new Date().toDateString();
 
-    //     }finally {
-    //         setWaiting(false);
-    //     }  
-    // };
+//     if (savedPredictions && savedDate === newDay) {
+//         setPredictions(JSON.parse(savedPredictions));
+//         setWaiting(false);
+//     }else{
+//         getPredictions();
+//     }
 
-    // //get the predictions and the date from the localstorage and load or load new data from the API
-    // useEffect( ()=> {
-    //     const savedPredictions = localStorage.getItem("lastPrediction");
-    //     const savedDate = localStorage.getItem("lastDate");
-    //     const newDay = new Date().toDateString();
+//     // set timer to calculate time until next 24 hours (nihgt only)
+//     const timeNow = new Date();
+//     const timeNextNiht = new Date();
+//     timeNextNiht.setHours(24, 0, 0, 0);
+//     const timeTillNight = timeNextNiht - timeNow;
 
-    //     if (savedPredictions && savedDate === newDay) {
-    //         setPredictions(JSON.parse(savedPredictions));
-    //         setWaiting(false);
-    //     }else{
-    //         getPredictions();
-    //     }
+//     // set when the time is up to get new data from the API at 24hours (night only)
+//     const timeInNight = setTimeout(() => {
+//         getPredictions();
 
-    //     // set timer to calculate time until next 24 hours (nihgt only)
-    //     const timeNow = new Date();
-    //     const timeNextNiht = new Date();
-    //     timeNextNiht.setHours(24, 0, 0, 0);
-    //     const timeTillNight = timeNextNiht - timeNow;
+//     // when the first night is refreshed, set it to continue refreshing every 24 hours
+//     setInterval(getPredictions, 24 * 60 * 60 * 1000);
+// }, timeTillNight);
 
-    //     // set when the time is up to get new data from the API at 24hours (night only)
-    //     const timeInNight = setTimeout(() => {
-    //         getPredictions();
-        
+// return() => clearTimeout(timeInNight);
+// }, []);
 
-    //     // when the first night is refreshed, set it to continue refreshing every 24 hours
-    //     setInterval(getPredictions, 24 * 60 * 60 * 1000);
-    // }, timeTillNight);
+// note for developers :
+// the abouve
 
-    // return() => clearTimeout(timeInNight);
-    // }, []);
+// if (waiting) {
+//     return (
+//         <div className="text-[#1a365d] animate-pulse mt-10">Loading Best Prediction...</div>
+//     );
+// }
 
-    // note for developers :
-    // the abouve 
+// if (error) {
+//     return (
+//         <div className="text-red-500 mt-10 lg:h-[561px] h-[217px] rounded-[0.6rem] lg:mb-14 bg-[#1a365d] max-w-[350px] lg:max-w-[544px] w-full p-12 flex items-center flex-col">
+//             <p>😒😒 {error}</p>
+//             <p className="text-sm text-white">Please check your  connection.</p>
+//             <p className="text-3xl font-semibold text-white text-center">Unable To Load Best Prediction Of The Day</p>
+//         </div>
+//     )
+// }
 
-    
-    // if (waiting) {
-    //     return (
-    //         <div className="text-[#1a365d] animate-pulse mt-10">Loading Best Prediction...</div>
-    //     );
-    // }
-
-    // if (error) {
-    //     return (
-    //         <div className="text-red-500 mt-10 lg:h-[561px] h-[217px] rounded-[0.6rem] lg:mb-14 bg-[#1a365d] max-w-[350px] lg:max-w-[544px] w-full p-12 flex items-center flex-col">
-    //             <p>😒😒 {error}</p>
-    //             <p className="text-sm text-white">Please check your  connection.</p>
-    //             <p className="text-3xl font-semibold text-white text-center">Unable To Load Best Prediction Of The Day</p>
-    //         </div>
-    //     )
-    // }
-
-    // if (predictions) {
-    //     return (
-    //         <div className="text-[#1a365d] mt-10">No prediction available.</div>
-    //     );
-    // }
+// if (predictions) {
+//     return (
+//         <div className="text-[#1a365d] mt-10">No prediction available.</div>
+//     );
+// }
 
 //     return (
 //         <div className="flex flex-col items-center justify-center min-h-[217px] bg-[#1A365D] px-4">
@@ -275,7 +226,7 @@ export default function PremierLeagueCard ({leagueName}) {
 //                     </div>
 
 //                     {/* Odds Section */}
-                    
+
 //                        <div className="border-1 border-t-white/20">
 //                          <h3 className="text-white font-semibold mb-2 text-sm">Match Odds</h3>
 //                           <div className="flex justify-around text-sm">
@@ -297,6 +248,3 @@ export default function PremierLeagueCard ({leagueName}) {
 //         </div>
 //     );
 // }
-
-
-
