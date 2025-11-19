@@ -1,24 +1,41 @@
 import Footer from "../components/shared/Footer";
-import { FiArrowRight } from "react-icons/fi";
+// import { FiArrowRight } from "react-icons/fi";
 import { useEffect, useRef } from "react";
 import Navbar from "../components/shared/Navbar";
 import { TypeAnimation } from "react-type-animation"
 import { motion } from "framer-motion"
 import { Link } from "react-router-dom";
 import { FaFutbol, FaTelegramPlane } from "react-icons/fa";
+import { AllBlog } from "../components/multi-component";
 
 export default function BlogPost () {
+
+    const imageLink = [
+        "public/Blog2-bg.jpg",
+        "public/Blog3-bg.jpg",
+        "public/Blog-bg.jpg",
+        "public/Blog3-bg.jpg",
+        "public/Blog2-bg.jpg",
+        "public/Blog-bg.jpg",
+        "public/Blog2-bg.jpg",
+        "public/Blog3-bg.jpg",
+        "public/Blog-bg.jpg",
+        "public/Blog3-bg.jpg",
+        "public/Blog2-bg.jpg",
+        "public/Blog-bg.jpg",
+
+    ];
 
  const focus = useRef(null);
 
   useEffect(() => {
     focus.current?.scrollIntoView({
-    behaviour: "smooth" 
+    behavior: "smooth" 
     });
   }, []);
 
     return(
-        <div ref={focus}>
+        <div>
             <Navbar />
             <section
                 className="font-sans relative h-[344px] mt-[22px] lg:mt-16 bg-cover bg-center flex-wrap flex items-center justify-center text-center text-white"
@@ -67,151 +84,10 @@ export default function BlogPost () {
 
             </section>
             <div className=" lg:mx-2 sm:mx-2 mx-2 my-14 justify-center items-center lg:grid lg:grid-cols-4 sm:grid sm:grid-cols-2 sm:gap-6 gap-3 w-full sm:items-center sm:w-full sm:justify-center flex flex-col ">
-                <article className="flex items-center justify-center flex-row lg:flex-col sm:flex-col lg:rounded-[0.5em] gap-1 rounded-[0.2em] lg:h-auto h-[180px] hover:scale-95 transition-all lg:w-[308px] w-[408px] min-w-[08px] sm:w-auto sm:h-auto  shadow-sm  lg:shadow-sm ">
-                    <div className="lg:w-[308px] lg:h-auto sm:w-auto sm:h-auto w-[360px] h-[180px]">
-                        <img src="/Blog-bg.jpg" alt="blog" className=" rounded-l-[0.5rem] h-full w-full lg:rounded-bl-none lg:rounded-t-[0.4rem] sm:rounded-bl-none sm:rounded-t-[0.5rem] bg-cover" />
-                    </div>
-                    <div className="lg:px-2 px-1 sm:px-2 py-0 flex flex-col gap-3 sm:gap-0">
-                        <h2 className="font-semibold leading-tight py-2 sm:py-3">Lorem illendus aliquam invrm iusto fugit voluptas!</h2>
-                        <p className="text-[#65758B] lg:text-[15px] text-[13px] py-3 sm:py-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nostrum beatae Unde, ab?</p>
-                        <div className="flex justify-between w-full lg:py-2 py-1">
-                            <span className="font-semibold text-[#65758B]"> oct/28</span>
-                            <Link className="z-20 text-[#D6AE3E] flex justify-center items-center" to={"/blog"}>view more  <FiArrowRight />
-                            </Link>
-                        </div>
-                    </div>
-                </article>
-                <article className="flex items-center justify-center flex-row lg:flex-col sm:flex-col lg:rounded-[0.5em] gap-1 rounded-[0.2em] lg:h-auto h-[180px] hover:scale-95 transition-all lg:w-[308px] w-[408px] sm:w-auto sm:h-auto  shadow-sm  lg:shadow-sm ">
-                    <div className="lg:w-[308px] lg:h-auto sm:w-auto sm:h-auto w-[360px] h-[180px]">
-                        <img src="/Blog3-bg.jpg" alt="blog" className=" rounded-l-[0.5rem] h-full w-full lg:rounded-bl-none lg:rounded-t-[0.4rem] sm:rounded-bl-none sm:rounded-t-[0.5rem] bg-cover" />
-                    </div>
-                    <div className="lg:px-2 px-1 sm:px-2 py-0 flex flex-col gap-3 sm:gap-0">
-                        <h2 className="font-semibold leading-tight py-2 sm:py-3">Lorem illendus aliquam invrm iusto fugit voluptas!</h2>
-                        <p className="text-[#65758B] lg:text-[15px] text-[13px] py-3 sm:py-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nostrum beatae Unde, ab?</p>
-                        <div className="flex justify-between w-full lg:py-2 py-1">
-                            <span className="font-semibold text-[#65758B]"> oct/28</span>
-                            <Link className="z-20 text-[#D6AE3E] flex justify-center items-center" to={"/blog"}>view more  <FiArrowRight />
-                            </Link>
-                        </div>
-                    </div>
-                </article>
-
-                <article className="flex items-center justify-center flex-row lg:flex-col sm:flex-col lg:rounded-[0.5em] gap-1 rounded-[0.2em] lg:h-auto h-[180px] hover:scale-95 transition-all lg:w-[308px] w-[408px] min-w-[08px] sm:w-auto sm:h-auto  shadow-sm  lg:shadow-sm ">
-                    <div className="lg:w-[308px] lg:h-auto sm:w-auto sm:h-auto w-[360px] h-[180px]">
-                        <img src="/Blog2-bg.jpg" alt="blog" className=" rounded-l-[0.5rem] h-full w-full lg:rounded-bl-none lg:rounded-t-[0.4rem] sm:rounded-bl-none sm:rounded-t-[0.5rem] bg-cover" />
-                    </div>
-                    <div className="lg:px-2 px-1 sm:px-2 py-0 flex flex-col gap-3 sm:gap-0">
-                        <h2 className="font-semibold leading-tight py-2 sm:py-3">Lorem illendus aliquam invrm iusto fugit voluptas!</h2>
-                        <p className="text-[#65758B] lg:text-[15px] text-[13px] py-3 sm:py-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nostrum beatae Unde, ab?</p>
-                        <div className="flex justify-between w-full lg:py-2 py-1">
-                            <span className="font-semibold text-[#65758B]"> oct/28</span>
-                            <Link className="z-20 text-[#D6AE3E] flex justify-center items-center" to={"/blog"}>view more  <FiArrowRight />
-                            </Link>
-                        </div>
-                    </div>
-                </article>
-                <article className="flex items-center justify-center flex-row lg:flex-col sm:flex-col lg:rounded-[0.5em] gap-1 rounded-[0.2em] lg:h-auto h-[180px] hover:scale-95 transition-all lg:w-[308px] w-[408px] sm:w-auto sm:h-auto  shadow-sm  lg:shadow-sm ">
-                    <div className="lg:w-[308px] lg:h-auto sm:w-auto sm:h-auto w-[360px] h-[180px]">
-                        <img src="/Blog-bg.jpg" alt="blog" className=" rounded-l-[0.5rem] h-full w-full lg:rounded-bl-none lg:rounded-t-[0.4rem] sm:rounded-bl-none sm:rounded-t-[0.5rem] bg-cover" />
-                    </div>
-                    <div className="lg:px-2 px-1 sm:px-2 py-0 flex flex-col gap-3 sm:gap-0">
-                        <h2 className="font-semibold leading-tight py-2 sm:py-3">Lorem illendus aliquam invrm iusto fugit voluptas!</h2>
-                        <p className="text-[#65758B] lg:text-[15px] text-[13px] py-3 sm:py-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nostrum beatae Unde, ab?</p>
-                        <div className="flex justify-between w-full lg:py-2 py-1">
-                            <span className="font-semibold text-[#65758B]"> oct/28</span>
-                            <Link className="z-20 text-[#D6AE3E] flex justify-center items-center" to={"/blog"}>view more  <FiArrowRight />
-                            </Link>
-                        </div>
-                    </div>
-                </article>
-
-                <article className="flex items-center justify-center flex-row lg:flex-col sm:flex-col lg:rounded-[0.5em] gap-1 rounded-[0.2em] lg:h-auto h-[180px] hover:scale-95 transition-all lg:w-[308px] w-[408px] min-w-[08px] sm:w-auto sm:h-auto  shadow-sm  lg:shadow-sm ">
-                    <div className="lg:w-[308px] lg:h-auto sm:w-auto sm:h-auto w-[360px] h-[180px]">
-                        <img src="/Blog3-bg.jpg" alt="blog" className=" rounded-l-[0.5rem] h-full w-full lg:rounded-bl-none lg:rounded-t-[0.4rem] sm:rounded-bl-none sm:rounded-t-[0.5rem] bg-cover" />
-                    </div>
-                    <div className="lg:px-2 px-1 sm:px-2 py-0 flex flex-col gap-3 sm:gap-0">
-                        <h2 className="font-semibold leading-tight py-2 sm:py-3">Lorem illendus aliquam invrm iusto fugit voluptas!</h2>
-                        <p className="text-[#65758B] lg:text-[15px] text-[13px] py-3 sm:py-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nostrum beatae Unde, ab?</p>
-                        <div className="flex justify-between w-full lg:py-2 py-1">
-                            <span className="font-semibold text-[#65758B]"> oct/28</span>
-                            <Link className="z-20 text-[#D6AE3E] flex justify-center items-center" to={"/blog"}>view more  <FiArrowRight />
-                            </Link>
-                        </div>
-                    </div>
-                </article>
-                <article className="flex items-center justify-center flex-row lg:flex-col sm:flex-col lg:rounded-[0.5em] gap-1 rounded-[0.2em] lg:h-auto h-[180px] hover:scale-95 transition-all lg:w-[308px] w-[408px] sm:w-auto sm:h-auto  shadow-sm  lg:shadow-sm ">
-                    <div className="lg:w-[308px] lg:h-auto sm:w-auto sm:h-auto w-[360px] h-[180px]">
-                        <img src="/Blog2-bg.jpg" alt="blog" className=" rounded-l-[0.5rem] h-full w-full lg:rounded-bl-none lg:rounded-t-[0.4rem] sm:rounded-bl-none sm:rounded-t-[0.5rem] bg-cover" />
-                    </div>
-                    <div className="lg:px-2 px-1 sm:px-2 py-0 flex flex-col gap-3 sm:gap-0">
-                        <h2 className="font-semibold leading-tight py-2 sm:py-3">Lorem illendus aliquam invrm iusto fugit voluptas!</h2>
-                        <p className="text-[#65758B] lg:text-[15px] text-[13px] py-3 sm:py-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nostrum beatae Unde, ab?</p>
-                        <div className="flex justify-between w-full lg:py-2 py-1">
-                            <span className="font-semibold text-[#65758B]"> oct/28</span>
-                            <Link className="z-20 text-[#D6AE3E] flex justify-center items-center" to={"/blog"}>view more  <FiArrowRight />
-                            </Link>
-                        </div>
-                    </div>
-                </article>
-
-                <article className="flex items-center justify-center flex-row lg:flex-col sm:flex-col lg:rounded-[0.5em] gap-1 rounded-[0.2em] lg:h-auto h-[180px] hover:scale-95 transition-all lg:w-[308px] w-[408px] min-w-[08px] sm:w-auto sm:h-auto  shadow-sm  lg:shadow-sm ">
-                    <div className="lg:w-[308px] lg:h-auto sm:w-auto sm:h-auto w-[360px] h-[180px]">
-                        <img src="/Blog-bg.jpg" alt="blog" className=" rounded-l-[0.5rem] h-full w-full lg:rounded-bl-none lg:rounded-t-[0.4rem] sm:rounded-bl-none sm:rounded-t-[0.5rem] bg-cover" />
-                    </div>
-                    <div className="lg:px-2 px-1 sm:px-2 py-0 flex flex-col gap-3 sm:gap-0">
-                        <h2 className="font-semibold leading-tight py-2 sm:py-3">Lorem illendus aliquam invrm iusto fugit voluptas!</h2>
-                        <p className="text-[#65758B] lg:text-[15px] text-[13px] py-3 sm:py-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nostrum beatae Unde, ab?</p>
-                        <div className="flex justify-between w-full lg:py-2 py-1">
-                            <span className="font-semibold text-[#65758B]"> oct/28</span>
-                            <Link className="z-20 text-[#D6AE3E] flex justify-center items-center" to={"/blog"}>view more  <FiArrowRight />
-                            </Link>
-                        </div>
-                    </div>
-                </article>
-                <article className="flex items-center justify-center flex-row lg:flex-col sm:flex-col lg:rounded-[0.5em] gap-1 rounded-[0.2em] lg:h-auto h-[180px] hover:scale-95 transition-all lg:w-[308px] w-[408px] sm:w-auto sm:h-auto  shadow-sm  lg:shadow-sm ">
-                    <div className="lg:w-[308px] lg:h-auto sm:w-auto sm:h-auto w-[360px] h-[180px]">
-                        <img src="/Blog-bg.jpg" alt="blog" className=" rounded-l-[0.5rem] h-full w-full lg:rounded-bl-none lg:rounded-t-[0.4rem] sm:rounded-bl-none sm:rounded-t-[0.5rem] bg-cover" />
-                    </div>
-                    <div className="lg:px-2 px-1 sm:px-2 py-0 flex flex-col gap-3 sm:gap-0">
-                        <h2 className="font-semibold leading-tight py-2 sm:py-3">Lorem illendus aliquam invrm iusto fugit voluptas!</h2>
-                        <p className="text-[#65758B] lg:text-[15px] text-[13px] py-3 sm:py-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nostrum beatae Unde, ab?</p>
-                        <div className="flex justify-between w-full lg:py-2 py-1">
-                            <span className="font-semibold text-[#65758B]"> oct/28</span>
-                            <Link className="z-20 text-[#D6AE3E] flex justify-center items-center" to={"/blog"}>view more  <FiArrowRight />
-                            </Link>
-                        </div>
-                    </div>
-                </article>
-
-                <article className="flex items-center justify-center flex-row lg:flex-col sm:flex-col lg:rounded-[0.5em] gap-1 rounded-[0.2em] lg:h-auto h-[180px] hover:scale-95 transition-all lg:w-[308px] w-[408px] min-w-[08px] sm:w-auto sm:h-auto  shadow-sm  lg:shadow-sm ">
-                    <div className="lg:w-[308px] lg:h-auto sm:w-auto sm:h-auto w-[360px] h-[180px]">
-                        <img src="/Blog2-bg.jpg" alt="blog" className=" rounded-l-[0.5rem] h-full w-full lg:rounded-bl-none lg:rounded-t-[0.4rem] sm:rounded-bl-none sm:rounded-t-[0.5rem] bg-cover" />
-                    </div>
-                    <div className="lg:px-2 px-1 sm:px-2 py-0 flex flex-col gap-3 sm:gap-0">
-                        <h2 className="font-semibold leading-tight py-2 sm:py-3">Lorem illendus aliquam invrm iusto fugit voluptas!</h2>
-                        <p className="text-[#65758B] lg:text-[15px] text-[13px] py-3 sm:py-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nostrum beatae Unde, ab?</p>
-                        <div className="flex justify-between w-full lg:py-2 py-1">
-                            <span className="font-semibold text-[#65758B]"> oct/28</span>
-                            <Link className="z-20 text-[#D6AE3E] flex justify-center items-center" to={"/blog"}>view more  <FiArrowRight />
-                            </Link>
-                        </div>
-                    </div>
-                </article>
-                <article className="flex items-center justify-center flex-row lg:flex-col sm:flex-col lg:rounded-[0.5em] gap-1 rounded-[0.2em] lg:h-auto h-[180px] hover:scale-95 transition-all lg:w-[308px] w-[408px] sm:w-auto sm:h-auto  shadow-sm  lg:shadow-sm ">
-                    <div className="lg:w-[308px] lg:h-auto sm:w-auto sm:h-auto w-[360px] h-[180px]">
-                        <img src="/Blog3-bg.jpg" alt="blog" className=" rounded-l-[0.5rem] h-full w-full lg:rounded-bl-none lg:rounded-t-[0.4rem] sm:rounded-bl-none sm:rounded-t-[0.5rem] bg-cover" />
-                    </div>
-                    <div className="lg:px-2 px-1 sm:px-2 py-0 flex flex-col gap-3 sm:gap-0">
-                        <h2 className="font-semibold leading-tight py-2 sm:py-3">Lorem illendus aliquam invrm iusto fugit voluptas!</h2>
-                        <p className="text-[#65758B] lg:text-[15px] text-[13px] py-3 sm:py-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nostrum beatae Unde, ab?</p>
-                        <div className="flex justify-between w-full lg:py-2 py-1">
-                            <span className="font-semibold text-[#65758B]"> oct/28</span>
-                            <Link className="z-20 text-[#D6AE3E] flex justify-center items-center" to={"/blog"}>view more  <FiArrowRight />
-                            </Link>
-                        </div>
-                    </div>
-                </article>
-               </div>
+                {imageLink.map((url,idnx) => (
+                    <AllBlog key={idnx} imagesUrl={url}/>
+                ))}
+            </div>
             <Footer />
         </div>
     )

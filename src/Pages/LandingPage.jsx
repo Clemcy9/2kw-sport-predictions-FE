@@ -10,10 +10,11 @@ import ContentNavBar from "../components/Prediction-days/Content-Nav";
 // import PremierLeagueCard from "../components/Premier-league";
 import { motion } from "framer-motion";
 import LeagueTables from "../components/Standings/Table";
-import DummyBlog from "../components/dummy-blog";
+// import DummyBlog from "../components/dummy-blog";
 import { Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
-import PredictionCard from "../components/prediction-cards";
+import { PredictionCard, BlogPage} from "../components/multi-component";
+// import  from "../components/blogPage";
 
 export default function LandingPage () {
 
@@ -43,16 +44,14 @@ export default function LandingPage () {
        <motion.div initial={{opacity:0.5}} animate={{opacity:1}} transition={{duration:1, delay:0.1}}>
         <div className="min-h-screen">
             <FreeTips />
-            {/* <div className="px-1 lg:px-4 pb-4 lg:py-4 pt-2 w-full "> */}
             <div className="lg:grid lg:grid-cols-[0.8fr_3fr] px-1 lg:px-4 pb-4 lg:py-4 pt-2 w-full ">
               <div className="lg:w-[350px] flex-shrink-0 space-y-0">
-              {/* <div className="relative"> */}
+             
               <BestPredictionCard />
 
               <div className="sticky top-0 bottom-0">
                 <FootballLeaguesTable />
               </div>
-              {/* </div> */}
               </div>
 
               <main className="lg:overflow-y-scroll lg:max-h-screen top-0 flex-1 flex flex-col gap-4">
@@ -63,12 +62,11 @@ export default function LandingPage () {
                 <div className="flex justify-center items-center flex-col">
                   <PredictionCard />
                   <LeagueTables />
+                  <BlogPage />
                   <Outlet />
-                  <DummyBlog />
                 </div>
               </main>
             </div>
-            {/* </div> */}
         </div>
         </motion.div>
         <Footer />
