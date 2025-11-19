@@ -7,12 +7,13 @@ import FreeTips from "../components/shared/FreetipsCard";
 import BestPredictionCard from "../components/BestPrediction";
 import FootballLeaguesTable from "../components/Leagues/FootballLeagues";
 import ContentNavBar from "../components/Prediction-days/Content-Nav";
-import PremierLeagueCard from "../components/Premier-league";
+// import PremierLeagueCard from "../components/Premier-league";
 import { motion } from "framer-motion";
 import LeagueTables from "../components/Standings/Table";
 import DummyBlog from "../components/dummy-blog";
 import { Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
+import PredictionCard from "../components/prediction-cards";
 
 export default function LandingPage () {
 
@@ -54,13 +55,13 @@ export default function LandingPage () {
               {/* </div> */}
               </div>
 
-              <main className="overflow-y-scroll lg:max-h-screen top-0 flex-1 flex flex-col gap-4">
+              <main className="lg:overflow-y-scroll lg:max-h-screen top-0 flex-1 flex flex-col gap-4">
                 <div className="flex items-start justify-center w-full py-2">
                   <ContentNavBar />
                 </div>
 
                 <div className="flex justify-center items-center flex-col">
-                  <PremierLeagueCard />
+                  <PredictionCard />
                   <LeagueTables />
                   <Outlet />
                   <DummyBlog />
@@ -70,7 +71,7 @@ export default function LandingPage () {
             {/* </div> */}
         </div>
         </motion.div>
-            <Footer />
+        <Footer />
 
        </>
        
