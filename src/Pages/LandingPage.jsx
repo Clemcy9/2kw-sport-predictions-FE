@@ -13,7 +13,7 @@ import LeagueTables from "../components/Standings/Table";
 // import DummyBlog from "../components/dummy-blog";
 import { Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { PredictionCard, BlogPage } from "../components/multi-component";
+import {  BlogPage } from "../components/multi-component";
 import PremierLeagueCard from "../components/Premier-league";
 // import  from "../components/blogPage";
 
