@@ -30,12 +30,12 @@ export default function LandingPage() {
 
   useEffect(() => {
     // fetch bet
-    const url = "http://localhost:5000/api/v1/admin/predictions/odds?bet=1";
+    const url = `https://twokw-backend.onrender.com/api/v1/admin/predictions/odds?bet=${bet}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        setPrediction(data);
+        setPrediction(data.data);
+        console.log(prediction);
       });
     console.log("bet:", bet);
   }, [bet]);
@@ -82,7 +82,7 @@ export default function LandingPage() {
               <div className="flex justify-center items-center flex-col">
                 {/* <PredictionCard /> */}
                 {prediction?.map((x, index) => {
-                  <PremierLeagueCard
+                  return<PremierLeagueCard
                     teams={x.fixture.teams}
                     league={x.fixture.league}
                   />;

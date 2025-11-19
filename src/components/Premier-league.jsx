@@ -25,7 +25,7 @@ export default function PremierLeagueCard({ league, teams }) {
   return (
     <div className="w-full">
       <div className="bg-[#1A365D] w-full flex justify-between items-center p-2 rounded-[0.6rem] hover:shadow-lg transition-all">
-        <h2 className="font-sans font-semibold">{leagueName}</h2>
+        <h2 className="font-sans font-semibold">{league.name}</h2>
         <div onClick={() => setOpen(!open)}>
           {open ? <FaPlus /> : <FaMinus />}
         </div>
