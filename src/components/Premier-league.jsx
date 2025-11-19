@@ -12,6 +12,7 @@ export default function PremierLeagueCard ({leagueName}) {
     }
 
     const predictions ={
+        
         homeLogo: "/",
         homeTeam: "Everton",
         awayLogo: "/",

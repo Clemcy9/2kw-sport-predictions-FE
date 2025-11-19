@@ -38,7 +38,7 @@ export  function BlogPage () {
         "/Blog-bg.jpg",
 
     ]
-    console.log(image)
+    // console.log(image)
 
     return(
         <div className="gap-5 border-none lg:p-4 my-3 mt-7 w-full z-20 relative min-h-screen flex flex-col justify-center items-center bg-[#F3F4F64D]">
