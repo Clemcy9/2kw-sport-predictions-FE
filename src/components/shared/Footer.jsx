@@ -73,7 +73,7 @@ export default function Footer() {
                                         animate={{ opacity: 1, y: 0 }}
                                         exit={{ opacity: 0, y: 5 }}
                                         transition={{ duration: 0.25 }} className="w-full flex justify-center">
-                                        <a href={tag} className=" absolute w-60 lg:w-fit lg:min-w-36 lg:mt-2 text-center bg-[#D6AE3E] text-lg text-[#1A365D] px-3 hover:underline py-1 rounded shadow-lg">
+                                        <a href={tag} className=" absolute w-fit lg:w-fit lg:min-w-36 lg:mt-2 text-center bg-[#D6AE3E] text-lg text-[#1A365D] px-3 hover:underline py-1 rounded shadow-lg">
                                             {tag}
                                         </a>
                                    </motion.div>
@@ -107,7 +107,7 @@ export default function Footer() {
                     <p className="text-sm mt-[50px]">
                         &copy; {new Date().getFullYear()} 2KwPreddict. All rights reserved.
                     </p>
-                    <a href={tag} className="lg:mt-[40px] w-60 lg:w-fit lg:min-w-36  text-center text-[#D6AE3E] text-lg  hover:underline rounded ">
+                    <a href={tag} className="lg:mt-[40px] w-full lg:w-fit lg:min-w-36  text-center text-[#D6AE3E] text-lg  hover:underline rounded ">
                         {tag}
                     </a>
                     <ul className="flex space-x-6 lg:mt-[40px]">

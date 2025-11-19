@@ -55,7 +55,7 @@ export default function Navbar() {
                     {/* Desktop Navbar */}
                     <div className="hidden md:flex space-x-8 font-sans">
                         {navLinks.map((link, index) => (
-                            <div key={index} className="relative" onMouseEnter={() => link.title === "Links" && setShowTag(true)} onMouseLeave={() => link.title === "Links" && setShowTag(false)}>
+                            <div key={index} className="relative" onMouseEnter={() => link.title === "Links" && setShowTag(true)} >
 
                                 
                                 {link.tipsLink ? (
@@ -116,8 +116,8 @@ export default function Navbar() {
                                         initial={{ opacity: 0, y: -5 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         exit={{ opacity: 0, y: 5 }}
-                                        transition={{ duration: 0.25 }} className="w-full flex justify-center">
-                                        <a href={tag} className=" absolute w-36 lg:mt-5 lg:w-fit text-center bg-[#D6AE3E] text-lg text-[#1A365D] px-3 py-1 rounded shadow-lg">
+                                        transition={{ duration: 0.25 }} className=" lg:w-fit flex text-center justify-center">
+                                        <a  href={tag} className="hover:underline active:underline absolute w-fit  lg:mt-5 lg:w-70 text-center bg-[#D6AE3E] text-lg text-[#1A365D] px-1 py-1 rounded shadow-lg">
                                             {tag}
                                         </a>
                                    </motion.div>
@@ -219,7 +219,7 @@ export default function Navbar() {
                                             initial={{ opacity: 0, y: -5 }}
                                             animate={{ opacity: 1, y: 0 }}
                                             exit={{ opacity: 0, y: 5 }}
-                                            transition={{ duration: 0.25 }} className="w-[300px]">
+                                            transition={{ duration: 0.25 }} className="w-full">
                                             <a target="blank" href={tag} className="w-full text-xl lg:mt-5 bg-[#D6AE3E] text-[#1A365D] px-3 py-1 rounded shadow-lg">
                                                 {tag}
                                             </a>

@@ -3,13 +3,16 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FaPlus, FaMinus } from "react-icons/fa";
 
-export default function PremierLeagueCard({ league, teams }) {
+export default function PremierLeagueCard({ league, teams, values }) {
   const [open, setOpen] = useState(true);
+
   const navigation = useNavigate();
 
   const click = () => {
     navigation("/details");
   };
+
+   
 
   const predictions = {
     homeLogo: teams.home.logo,
@@ -19,12 +22,13 @@ export default function PremierLeagueCard({ league, teams }) {
     leagueLogo: league.logo,
     time: new Date().toLocaleTimeString(),
     date: new Date().toLocaleDateString(),
-    odd: { Odds: "3.5", Tips: "over 15", Prop: "3.65%" },
+    odd: { Odds: values[0].odd, Tips: "over 15", Prop: "3.65%" },
   };
 
   return (
-    <div className="w-full">
+      <div className="w-full border-none lg:p-4 my-2 flex justify-center items-center flex-col text-white space-y-4 lg:space-y-2">
       <div className="bg-[#1A365D] w-full flex justify-between items-center p-2 rounded-[0.6rem] hover:shadow-lg transition-all">
+        
         <h2 className="font-sans font-semibold">{league.name}</h2>
         <div onClick={() => setOpen(!open)}>
           {open ? <FaPlus /> : <FaMinus />}
@@ -52,7 +56,7 @@ export default function PremierLeagueCard({ league, teams }) {
                   <img
                     src={predictions.homeLogo}
                     // alt={predictions.homeTeam}
-                    className="lg:w-10 lg:h-10 w-6 h-6 rounded-full"
+                    className="lg:w-10 lg:h-10 w-6 h-6"
                   />
                   <span className="font-sans text-sm font-normal">
                     {predictions.homeTeam}
@@ -60,11 +64,13 @@ export default function PremierLeagueCard({ league, teams }) {
                 </div>
 
                 <div className="flex justify-center items-center">
-                  <img
+                  <div className="lg:w-10 lg:h-10 w-6 h-6 ">
+                    <img
                     src={predictions.awayLogo}
                     // alt={predictions.awayTeam}
-                    className="lg:w-10 lg:h-10 w-6 h-6 rounded-full"
+                    className="h-full w-full object-cover  rounded-full"
                   />
+                  </div>
                   <p className="text-sm font-sans font-normal">
                     {predictions.awayTeam}
                   </p>
