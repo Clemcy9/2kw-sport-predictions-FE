@@ -85,8 +85,8 @@ export default function LandingPage() {
                 {/* <PredictionCard /> */}
                 {prediction?.map((x, index) => {
                   return<PremierLeagueCard
-                  key={index}
-                    time={x.fixture.fixture}
+                    key={index}
+                    fixture={x.fixture.fixture}
                     teams={x.fixture.teams}
                     league={x.fixture.league}
                     values={x.bets[0].values} 

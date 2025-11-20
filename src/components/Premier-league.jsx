@@ -12,15 +12,16 @@ export default function PremierLeagueCard({ league, teams, values,fixture }) {
     navigation("/details");
   };
 
-  const times = fixture.time
+  const times = fixture.date;
+
   const predictions = {
     homeLogo: teams.home.logo,
     homeTeam: teams.home.name,
     awayLogo: teams.away.logo,
     awayTeam: teams.away.name,
     leagueLogo: league.logo,
-    when: new Date(times).toLocaleTimeString([], {hour:"2-digit", minute:"2-digit"}),
-    odd: { Odds: values[0].odd, Tips: "over 15", Prop: "3.65%" },
+    timing:  new Date(times).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+    odd: { Odds: values[0].odd, Tips: "over 15", Prop: "3.65%" },    
   };
 
   return (
@@ -46,7 +47,7 @@ export default function PremierLeagueCard({ league, teams, values,fixture }) {
             <div className="text-[#1A365D] flex justify-between items-center flex-col lg:flex-row w-full space-y-2">
               <div className="flex  lg:px-2 lg:mx-3">
                 <span className="font-sans font-normal text-sm text-[#1A365D]">
-                  {predictions.when}
+                  {predictions.timing}
                 </span>
               </div>
               <div className="flex justify-between lg:justify-center lg:flex-col items-start min-w-[130px] space-x-10 px-1 lg:gap-0 lg:space-x-0  space-y-2 lg:p-0 w-full">
