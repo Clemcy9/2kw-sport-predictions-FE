@@ -7,15 +7,15 @@ import FreeTips from "../components/shared/FreetipsCard";
 import BestPredictionCard from "../components/BestPrediction";
 import FootballLeaguesTable from "../components/Leagues/FootballLeagues";
 import ContentNavBar from "../components/Prediction-days/Content-Nav";
-// import PremierLeagueCard from "../components/Premier-league";
 import { motion } from "framer-motion";
 import LeagueTables from "../components/Standings/Table";
-// import DummyBlog from "../components/dummy-blog";
 import { Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
 import {  BlogPage } from "../components/multi-component";
 import PremierLeagueCard from "../components/Premier-league";
+// import PremierLeagueCard from "../components/Premier-league";
 // import  from "../components/blogPage";
+// import DummyBlog from "../components/dummy-blog";
 
 export default function LandingPage() {
   const [visible, setVisible] = useState(false);
@@ -86,6 +86,7 @@ export default function LandingPage() {
                 {prediction?.map((x, index) => {
                   return<PremierLeagueCard
                   key={index}
+                    time={x.fixture.fixture}
                     teams={x.fixture.teams}
                     league={x.fixture.league}
                     values={x.bets[0].values} 

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FaPlus, FaMinus } from "react-icons/fa";
 
-export default function PremierLeagueCard({ league, teams, values }) {
+export default function PremierLeagueCard({ league, teams, values,fixture }) {
   const [open, setOpen] = useState(true);
 
   const navigation = useNavigate();
@@ -12,16 +12,14 @@ export default function PremierLeagueCard({ league, teams, values }) {
     navigation("/details");
   };
 
-   
-
+  const times = fixture.time
   const predictions = {
     homeLogo: teams.home.logo,
     homeTeam: teams.home.name,
     awayLogo: teams.away.logo,
     awayTeam: teams.away.name,
     leagueLogo: league.logo,
-    time: new Date().toLocaleTimeString(),
-    date: new Date().toLocaleDateString(),
+    when: new Date(times).toLocaleTimeString([], {hour:"2-digit", minute:"2-digit"}),
     odd: { Odds: values[0].odd, Tips: "over 15", Prop: "3.65%" },
   };
 
@@ -48,7 +46,7 @@ export default function PremierLeagueCard({ league, teams, values }) {
             <div className="text-[#1A365D] flex justify-between items-center flex-col lg:flex-row w-full space-y-2">
               <div className="flex  lg:px-2 lg:mx-3">
                 <span className="font-sans font-normal text-sm text-[#1A365D]">
-                  13:28
+                  {predictions.when}
                 </span>
               </div>
               <div className="flex justify-between lg:justify-center lg:flex-col items-start min-w-[130px] space-x-10 px-1 lg:gap-0 lg:space-x-0  space-y-2 lg:p-0 w-full">
