@@ -32,9 +32,11 @@ export default function LandingPage() {
     const url = `https://twokw-backend.onrender.com/api/v1/admin/predictions/odds?bet=${bet}`;
     fetch(url)
       .then((res) => res.json())
-      .then((data) => {
+      .then((data) => { 
+        const groupData = Object.groupBy(data.data, pred => pred.fixture.league.name)
         setPrediction(data.data);
-        console.log(prediction);
+        console.log(groupData);
+
       });
     console.log("bet:", bet);
   }, [bet]);
