@@ -1,5 +1,6 @@
 // import { useEffect, useRef } from "react";
 import { FiArrowUp } from "react-icons/fi";
+import { FaPlus, FaMinus } from "react-icons/fa";
 import Navbar from "../components/shared/Navbar";
 import HeroSection from "../components/shared/HeroSection";
 import Footer from "../components/shared/Footer";
@@ -21,6 +22,8 @@ export default function LandingPage() {
   const [visible, setVisible] = useState(false);
   const [bet, setBet] = useState(1);
   const [prediction, setPrediction] = useState([]);
+  const [open, setOpen] = useState(true);
+  // const [grouped , setGrouped] = useState({});
 
   useEffect(() => {
     window.onscroll = () => {
@@ -33,8 +36,9 @@ export default function LandingPage() {
     fetch(url)
       .then((res) => res.json())
       .then((data) => { 
-        const groupData = Object.groupBy(data.data, pred => pred.fixture.league.name)
-        setPrediction(data.data);
+        const groupData = Object.groupBy(data.data, (pred) => pred.fixture.league.name);
+        // setGrouped(groupData);
+        setPrediction(groupData, data.data);
         console.log(groupData);
 
       });
@@ -89,16 +93,40 @@ export default function LandingPage() {
 
                  
                 
-                {/* <PredictionCard /> */}
-                {prediction?.map((x, index) => {
-                  return<PremierLeagueCard
-                    key={index}
-                    fixture={x.fixture.fixture}
-                    teams={x.fixture.teams}
-                    league={x.fixture.league}
-                    values={x.bets[0].values} 
-                  />;
-                })}
+               {Object.keys(prediction).map((leagueNames) => (
+                <div key={leagueNames} className="w-full">
+                   <div className="bg-[#1A365D] w-full text-white flex justify-between items-center p-2 mt-6 mb-3 rounded-[0.6rem] hover:shadow-lg transition-all">
+
+                     <h2 className="font-sans flex justify-center items-center font-semibold">{leagueNames}</h2>
+                     <div onClick={() => setOpen((prev) =>({
+                      ...prev,[leagueNames]: !prev[leagueNames],
+                     }))}>
+                       {open [leagueNames] ? <FaPlus /> : <FaMinus />}
+                     </div>
+                   </div>
+                   {open [leagueNames] && (
+                     <motion.div
+                       className="lg:flex min-w-full w-full text-white space-y-0 lg:space-y-0 flex flex-col justify-center gap-2 items-center"
+                       initial={{ opacity: 0, y: 40 }}
+                       animate={{ opacity: 1, y: 0 }}
+                       transition={{ duration: 0.7, ease: "easeOut" }}
+                     >
+                       {/* <PredictionCard /> */}
+                       {prediction[leagueNames].map((x, index) => {
+                         return <PremierLeagueCard
+                           key={index}
+                           fixture={x.fixture.fixture}
+                           teams={x.fixture.teams}
+                           leagueNames={leagueNames}
+                           league={x.fixture.league}
+                           values={x.bets[0].values}
+                         />;
+                       })}
+                     </motion.div>
+                   )}
+                   
+                </div>
+               ))}
                 <LeagueTables />
                 <BlogPage />
                 {/* <Outlet /> */}
