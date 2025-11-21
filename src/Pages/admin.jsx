@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import AdminHeader from "../components/admin-pages/header";
-import Sidebar from "../components/admin-pages/sidebar";
+import AdminHeader from "../components/admin-pages/layout/header";
+import Sidebar from "../components/admin-pages/layout/sidebar";
 import { Outlet } from "react-router-dom";
 import { useEffect } from "react";
 

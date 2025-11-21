@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import Lottie from "lottie-react";
-import successAnimation from "../../assets/lottieflow-success-08-059D3F-linear.json"
+import successAnimation from "../../../assets/lottieflow-success-08-059D3F-linear.json"
 import { useEffect, useState } from "react";
 import {AiOutlineCheckCircle} from "react-icons/ai"
 

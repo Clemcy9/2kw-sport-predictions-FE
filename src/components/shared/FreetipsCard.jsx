@@ -65,8 +65,7 @@ export default function FreeTips(props) {
                     color: isActive ? "#1A365D" : "#1A365D",
                     transition: { duration: 0.3 },
                   }}
-                  className={`flex-shrink-0 min-w-[100px] rounded-[0.4rem] py-2 px-2 shadow-sm font-semibold transition-all duration-300 border border-[#D6AE3E]
-                                    hover:bg-[#1A365D] hover:text-white`}
+                  className="flex-shrink-0 min-w-[100px] rounded-[0.4rem] py-2 px-2 shadow-sm font-semibold transition-all duration-300 border border-[#D6AE3E]"
                 >
                   {tips.title}
                 </motion.button>

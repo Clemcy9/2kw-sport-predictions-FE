@@ -1,33 +1,33 @@
 import { Routes, Route, } from "react-router-dom";
 import LandingPage from "./Pages/LandingPage";
 import { useState, useEffect } from "react";
-import EnglandPremierLeague from "./components/Predictioncards/England-Premier-League";
-import SpainLaLiga from "./components/Predictioncards/Spain-La-Liga";
+// import EnglandPremierLeague from "./components/Predictioncards/England-Premier-League";
+// import SpainLaLiga from "./components/Predictioncards/Spain-La-Liga";
 import LoadingAnimation from "./components/animations/Loading";
-import EuropeUEFAChampionsLeague from "./components/Predictioncards/Europe-UEFA-Champions-League";
-import EuropeUEFAEuropaLeague from "./components/Predictioncards/Europe-UEFA-Europa-League";
-import ItalySerieA from "./components/Predictioncards/Italy-Serie-A";
-import GermanyBundesliga from "./components/Predictioncards/Germany-Bundesliga";
-import FranceLeague from "./components/Predictioncards/France-Ligue-1";
-import PortugalLiga from "./components/Predictioncards/Portugal-Liga-Portugal";
-import BelguimProLeague from "./components/Predictioncards/Belgium-Pro-League";
+// import EuropeUEFAChampionsLeague from "./components/Predictioncards/Europe-UEFA-Champions-League";
+// import EuropeUEFAEuropaLeague from "./components/Predictioncards/Europe-UEFA-Europa-League";
+// import ItalySerieA from "./components/Predictioncards/Italy-Serie-A";
+// import GermanyBundesliga from "./components/Predictioncards/Germany-Bundesliga";
+// import FranceLeague from "./components/Predictioncards/France-Ligue-1";
+// import PortugalLiga from "./components/Predictioncards/Portugal-Liga-Portugal";
+// import BelguimProLeague from "./components/Predictioncards/Belgium-Pro-League";
 import BlogPost from "./Pages/Blog";
 import AdminDashboard from "./Pages/admin";
 import HomeWin from "./components/home-win";
-import PredictionDetails from "./components/details";
-import SignIn from "./components/admin-pages/sign-in";
-import SignUp from "./components/admin-pages/sign-Up";
-import DashBoard from "./components/admin-pages/dashboard";
-import ForgotPassword from "./components/admin-pages/forgot-password";
-import ResetOtp from "./components/admin-pages/reset-otp";
-import SuccessAnimation from "./components/admin-pages/reset-success-otp";
-import ResetPassword from "./components/admin-pages/reset-password";
-import LoginOtp from "./components/admin-pages/login-otp";
-import LoginCompleted from "./components/admin-pages/login-complete";
-import Predictions from "./components/admin-pages/predictions";
-import MakePredictions from "./components/admin-pages/fixtures";
+// // import PredictionDetails from "./components/details";
+import SignIn from "./components/admin-pages/auth/sign-in";
+import SignUp from "./components/admin-pages/auth/sign-Up";
+import DashBoard from "./components/admin-pages/features/dashboard";
+// import ForgotPassword from "./components/admin-pages/forgot-password";
+// import ResetOtp from "./components/admin-pages/reset-otp";
+// import SuccessAnimation from "./components/admin-pages/reset-success-otp";
+// import ResetPassword from "./components/admin-pages/reset-password";
+// import LoginOtp from "./components/admin-pages/login-otp";
+import LoginCompleted from "./components/admin-pages/features/login-complete";
+import Predictions from "./components/admin-pages/features/predictions";
+import MakePredictions from "./components/admin-pages/features/fixtures";
 import WelcomeText from "./components/animations/welcome";
-import AdvertTags from "./components/admin-pages/tags";
+import AdvertTags from "./components/admin-pages/features/tags";
 
 export default function App(){
   const [loading, setLoading] = useState(true);
@@ -63,28 +63,29 @@ export default function App(){
             </Route>
             <Route path="/" element={<LandingPage />} />
             <Route path="/sign-in" element={ <SignIn />} />
-            <Route path="/forgot-password" element={ <ForgotPassword />} />
+            {/* <Route path="/forgot-password" element={ <ForgotPassword />} />
             <Route path="/reset-password" element={ <ResetPassword />} />
             <Route path="/reset-success-otp" element={ <SuccessAnimation />} />
             <Route path="/reset-otp" element={ <ResetOtp />} />
-            <Route path="/login-otp" element={ <LoginOtp />} />
+            <Route path="/login-otp" element={ <LoginOtp />} /> */}
             <Route path="/login-complete" element={ <LoginCompleted />} />
             <Route path="/sign-up" element={ <SignUp />} />
             
-            <Route path="/details" element={<PredictionDetails />} />
+            {/* <Route path="/details" element={<PredictionDetails />} /> */}
             <Route path="/blog" element={ <BlogPost />} />
             
             
             <Route path="/home-win" element={ <HomeWin />} />
-            <Route path="/leagues/england-premier-league" element={<EnglandPremierLeague />}/>
-            <Route path="/leagues/spain-la-liga" element={<SpainLaLiga />} />
-            <Route path="/leagues/europe-uefa-champions-league" element ={<EuropeUEFAChampionsLeague />} />
+            {/* <Route path="/leagues/england-premier-league" element={<EnglandPremierLeague />}/>
+            <Route path="/leagues/spain-la-liga" element={<SpainLaLiga />} /> */}
+            {/* <Route path="/leagues/europe-uefa-champions-league" element ={<EuropeUEFAChampionsLeague />} />
             <Route path="/leagues/europe-uefa-europa-league" element={<EuropeUEFAEuropaLeague />} />
             <Route path="/leagues/italy-serie-a" element={ <ItalySerieA/>} />
             <Route path="/leagues/germany-bundesliga" element={<GermanyBundesliga/>} />
             <Route path="/leagues/france-ligue-1" element={<FranceLeague />} />
             <Route path="/leagues/portugal-liga-portugal" element={<PortugalLiga />} />
-            <Route path="/leagues/belgium-pro-league" element={<BelguimProLeague/> } />
+            <Route path="/leagues/belgium-pro-league" element={<BelguimProLeague/> } /> */}
+            {/* <Route path="/details" element={<PredictionDetails/>} /> */}
           </Routes>
     )}
 
