@@ -36,6 +36,7 @@ import FreeOdds from "./components/layout/free-2odds";
 import BTTS_GG from "./components/layout/btts_gg";
 import Goals1_5 from "./components/layout/goals-1.5";
 import Goals2_5 from "./components/layout/goals-2.5";
+import NewPost from "./components/admin-pages/blogs/blog";
 
 export default function App(){
   const [loading, setLoading] = useState(true);
@@ -68,6 +69,7 @@ export default function App(){
               <Route path="predictions" element={<Predictions />} />
               <Route path="fixtures" element={<MakePredictions />} />
               <Route path="tags" element={<AdvertTags />} />
+              <Route path="blogs/blog" element={<NewPost />} />
             </Route>
             <Route path="/" element={<LandingPage />} >
               <Route path="home-win" element={ <HomeWin/> } />

@@ -51,7 +51,7 @@ export default function Sidebar() {
             title: "Articles",
             icon: <FaFileAlt />,
             dropdown: [
-                { name: "New Post", path: "/admin/blog" },
+                { name: "New Post", path: "/admin/blogs/blog" },
                 { name: "All Posts", path: "/admin/all-posts" },
                 { name: "Media Gallery", path: "/admin/Gallery" },
             ],
@@ -82,7 +82,7 @@ export default function Sidebar() {
     ];
 
     return (
-        <aside className="hidden min-h-screen bg-[#1A365D29] text-[#1A365D] lg:sticky top-0 lg:w-94  p-4 lg:flex flex-col shadow-lg pt-10 lg:pt-6">
+        <aside className="hidden min-h-screen bg-[#1A365D29] text-[#1A365D] lg:sticky top-0 lg:w-80  p-4 lg:flex flex-col shadow-lg pt-10 lg:pt-6">
            
             <nav className="flex flex-col gap-6">
                
@@ -115,7 +115,7 @@ export default function Sidebar() {
                                             <NavLink
                                                 key={j}
                                                 to={sub.path}
-                                                className="text-sm text-[#142850] hover:bg-[#D6AE3E] p-2 rounded-[0.4rem] w-full transition-all"
+                                                className={({ isActive }) => `flex items-center gap-3 p-2 rounded-lg transition-all ${isActive ? "bg-[#D6AE3E] text-[#1A3761]" : "hover:bg-[#D6AE3E] hover:text-[#1A3761]"}`}
                                             >
                                                 {sub.name}
                                             </NavLink>
