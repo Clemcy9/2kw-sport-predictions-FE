@@ -31,7 +31,7 @@ export default function AdminHeader() {
             title: "Fixtures",
             icon: <FaFutbol />,
             dropdown: [
-                { name: "Male Predictions", path: "/admin/fixtures" },
+                { name: "Make Predictions", path: "/admin/fixtures" },
                 { name: "Leagues", path: "/fixtures/add" },
             ],
         },
@@ -54,8 +54,9 @@ export default function AdminHeader() {
             title: "Articles",
             icon: <FaFileAlt />,
             dropdown: [
-                { name: "All Articles", path: "/articles" },
-                { name: "Create Article", path: "/articles/create" },
+                { name: "New Post", path: "/admin/blogs/blog" },
+                { name: "All Posts", path: "/admin/all-posts" },
+                { name: "Media Gallery", path: "/admin/Gallery" },
             ],
         },
         {
@@ -159,7 +160,7 @@ export default function AdminHeader() {
                                                                     key={j}
                                                                     to={sub.path}
                                                                     onClick={() => {setOpenDropdown(null); setIsOpen(false);}}
-                                                                    className="text-sm text-[#142850] hover:bg-[#D6AE3E] p-2 rounded-[0.4rem] w-full transition-all"
+                                                                    className={({ isActive }) => `text-[#1A3761] flex items-center gap-3 p-2 rounded-lg transition-all ${isActive ? "bg-[#D6AE3E] text-[#1A3761]" : "hover:bg-[#D6AE3E] hover:text-[#1A3761]"}`}
                                                                 >
                                                                     {sub.name}
                                                                 </NavLink>
