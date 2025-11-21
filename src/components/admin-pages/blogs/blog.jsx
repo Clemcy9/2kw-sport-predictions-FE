@@ -18,7 +18,7 @@ export default function NewPost () {
           const res = await fetch("https://twokw-backend.onrender.com/api/blogs", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ title, content }),
+                body: JSON.stringify({ title, content, media }),
             });
 
             const data = await res.json();
