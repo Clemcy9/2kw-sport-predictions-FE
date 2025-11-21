@@ -8,7 +8,6 @@ export default function NewPost () {
     const [media, setMedia] = useState(null);
 
     const isImage =  (media) => media && media.type?.startsWith("image/");
-    const isVideo =  (media) => media && media.type?.startsWith("video/");
 
     const handleSubmit = async (e) => {
         e.preventDefault();

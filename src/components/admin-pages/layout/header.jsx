@@ -42,7 +42,7 @@ export default function AdminHeader() {
         },
         {
             title: "Metadata",
-            path: "/metadata",
+            path: "/admin/metadata",
             icon: <FaFileAlt />,
         },
         {

@@ -37,6 +37,7 @@ import BTTS_GG from "./components/layout/btts_gg";
 import Goals1_5 from "./components/layout/goals-1.5";
 import Goals2_5 from "./components/layout/goals-2.5";
 import NewPost from "./components/admin-pages/blogs/blog";
+import MetaData from "./components/admin-pages/features/metadata";
 
 export default function App(){
   const [loading, setLoading] = useState(true);
@@ -68,7 +69,8 @@ export default function App(){
               <Route path="dashboard" element={<DashBoard />} />
               <Route path="predictions" element={<Predictions />} />
               <Route path="fixtures" element={<MakePredictions />} />
-              <Route path="tags" element={<AdvertTags />} />
+              <Route path="tags" element={<AdvertTags />} />      
+              <Route path="metadata" element={<MetaData/>} />      
               <Route path="blogs/blog" element={<NewPost />} />
             </Route>
             <Route path="/" element={<LandingPage />} >
