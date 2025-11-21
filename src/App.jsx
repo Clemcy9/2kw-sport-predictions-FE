@@ -13,7 +13,7 @@ import LoadingAnimation from "./components/animations/Loading";
 // import BelguimProLeague from "./components/Predictioncards/Belgium-Pro-League";
 import BlogPost from "./Pages/Blog";
 import AdminDashboard from "./Pages/admin";
-import HomeWin from "./components/home-win";
+import HomeWin from "./components/layout/home-win";
 // // import PredictionDetails from "./components/details";
 import SignIn from "./components/admin-pages/auth/sign-in";
 import SignUp from "./components/admin-pages/auth/sign-Up";
@@ -28,6 +28,14 @@ import Predictions from "./components/admin-pages/features/predictions";
 import MakePredictions from "./components/admin-pages/features/fixtures";
 import WelcomeText from "./components/animations/welcome";
 import AdvertTags from "./components/admin-pages/features/tags";
+import AwayWin from "./components/layout/away-win";
+import SuperSingles from "./components/layout/super-singles";
+import DoubleChance from "./components/layout/double-chance";
+import AllPredictions from "./components/layout/all-predictions";
+import FreeOdds from "./components/layout/free-2odds";
+import BTTS_GG from "./components/layout/btts_gg";
+import Goals1_5 from "./components/layout/goals-1.5";
+import Goals2_5 from "./components/layout/goals-2.5";
 
 export default function App(){
   const [loading, setLoading] = useState(true);
@@ -61,7 +69,19 @@ export default function App(){
               <Route path="fixtures" element={<MakePredictions />} />
               <Route path="tags" element={<AdvertTags />} />
             </Route>
-            <Route path="/" element={<LandingPage />} />
+            <Route path="/" element={<LandingPage />} >
+              <Route path="home-win" element={ <HomeWin/> } />
+              <Route path="goals-1.5" element={ <Goals1_5/> } />
+              <Route path="goals-2.5" element={ <Goals2_5/> } />
+              <Route path="btts_gg" element={ <BTTS_GG/> } />
+              <Route path="free-2odds" element={ <FreeOdds/> } />
+              <Route path="away-win" element={ <AwayWin/> } />
+              <Route path="super-singles" element={ <SuperSingles/> } />
+              <Route path="double-chance" element={ <DoubleChance/> } />
+              <Route path="all-predictions" element={ <AllPredictions/> } />
+
+
+            </Route>
             <Route path="/sign-in" element={ <SignIn />} />
             {/* <Route path="/forgot-password" element={ <ForgotPassword />} />
             <Route path="/reset-password" element={ <ResetPassword />} />
@@ -75,7 +95,7 @@ export default function App(){
             <Route path="/blog" element={ <BlogPost />} />
             
             
-            <Route path="/home-win" element={ <HomeWin />} />
+            {/* <Route path="/home-win" element={ <HomeWin />} /> */}
             {/* <Route path="/leagues/england-premier-league" element={<EnglandPremierLeague />}/>
             <Route path="/leagues/spain-la-liga" element={<SpainLaLiga />} /> */}
             {/* <Route path="/leagues/europe-uefa-champions-league" element ={<EuropeUEFAChampionsLeague />} />

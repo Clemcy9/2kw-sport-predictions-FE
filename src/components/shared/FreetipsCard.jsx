@@ -27,10 +27,10 @@ export default function FreeTips(props) {
     { title: "Away Win", path: "/away-win", id: 1 },
     { title: "Super Singles", path: "/super-singles", id: 200 },
     { title: "Double Chance", path: "/double-chance", id: 12 },
-    { title: "1.5 Goals", path: "/1-5-goals", id: 5 },
-    { title: "2.5 Goals", path: "/2-5-goals", id: 5 },
-    { title: "Free 2 Odds", path: "/free-2-odds", id: 300 },
-    { title: "BTTS/GG", path: "/btts-gg", id: 8 },
+    { title: "1.5 Goals", path: "/goals-1.5", id: 5 },
+    { title: "2.5 Goals", path: "/goals-2.5", id: 5 },
+    { title: "Free 2 Odds", path: "/free-2odds", id: 300 },
+    { title: "BTTS/GG", path: "/btts_gg", id: 8 },
   ];
 
   useEffect(() => {
@@ -44,7 +44,7 @@ export default function FreeTips(props) {
         initial={{ x: play ? -200 : 0, opacity: 0 }}
         animate={{ x: play ? 0 : "100%", opacity: 1 }}
         exit={{ x: "100%", opacity: 0 }}
-        transition={{ duration: 1.2, ease: "easeInOut" }}
+        transition={{ duration: 0.2, ease: "easeInOut" }}
         className="text-[#1A365D] md:flex w-full md:items-center md:justify-center overflow-hidden"
       >
         <div className="flex justify-center items-center p-2 w-full">
@@ -56,14 +56,14 @@ export default function FreeTips(props) {
                 <motion.button
                   key={index}
                   onClick={() => {
-                    // navigate(tips.path);
+                    navigate(tips.path);
                     props.setBet(tips.id);
                   }}
                   whileTap={{ scale: 0.95 }}
                   animate={{
                     backgroundColor: isActive ? "#D6AE3E" : "#fff",
                     color: isActive ? "#1A365D" : "#1A365D",
-                    transition: { duration: 0.3 },
+                    transition: { duration: 0.01 },
                   }}
                   className="flex-shrink-0 min-w-[100px] rounded-[0.4rem] py-2 px-2 shadow-sm font-semibold transition-all duration-300 border border-[#D6AE3E]"
                 >

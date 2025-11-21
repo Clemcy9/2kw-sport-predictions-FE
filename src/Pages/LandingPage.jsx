@@ -64,6 +64,11 @@ export default function LandingPage() {
       >
         <div className="min-h-screen">
           <FreeTips bet={bet} setBet={setBet} />
+
+          <div className="mt-5 px-4">
+            <Outlet />
+          </div>
+
           <div className="lg:grid lg:grid-cols-[0.8fr_3fr] px-1 lg:px-4 pb-4 lg:py-4 pt-2 w-full ">
             <div className="lg:w-[350px] flex-shrink-0 space-y-0">
               <BestPredictionCard />
@@ -94,7 +99,7 @@ export default function LandingPage() {
                 })}
                 <LeagueTables />
                 <BlogPage />
-                <Outlet />
+                {/* <Outlet /> */}
               </div>
             </main>
           </div>
