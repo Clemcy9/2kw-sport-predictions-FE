@@ -107,7 +107,7 @@ export default function Footer() {
                     <p className="text-sm mt-[50px]">
                         &copy; {new Date().getFullYear()} 2KwPreddict. All rights reserved.
                     </p>
-                    <a href={tag} className="lg:mt-[40px] w-full lg:w-fit lg:min-w-36  text-center text-[#D6AE3E] text-lg  hover:underline rounded ">
+                    <a href={`https://${tag}`} className="lg:mt-[40px] w-full lg:w-fit lg:min-w-36  text-center text-[#D6AE3E] text-lg  hover:underline rounded ">
                         {tag}
                     </a>
                     <ul className="flex space-x-6 lg:mt-[40px]">
