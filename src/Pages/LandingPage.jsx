@@ -14,16 +14,13 @@ import { Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
 import {  BlogPage } from "../components/multi-component";
 import PremierLeagueCard from "../components/Premier-league";
-// import PremierLeagueCard from "../components/Premier-league";
-// import  from "../components/blogPage";
-// import DummyBlog from "../components/dummy-blog";
 
 export default function LandingPage() {
   const [visible, setVisible] = useState(false);
   const [bet, setBet] = useState(1);
   const [prediction, setPrediction] = useState([]);
   const [open, setOpen] = useState(true);
-  // const [grouped , setGrouped] = useState({});
+
 
   useEffect(() => {
     window.onscroll = () => {
@@ -37,7 +34,6 @@ export default function LandingPage() {
       .then((res) => res.json())
       .then((data) => { 
         const groupData = Object.groupBy(data.data, (pred) => pred.fixture.league.name);
-        // setGrouped(groupData);
         setPrediction(groupData, data.data);
         console.log(groupData);
 
@@ -92,18 +88,21 @@ export default function LandingPage() {
               <div className="flex justify-center items-center flex-col">
 
                  
-                
+                {/* display the cards under their respective card*/}
                {Object.keys(prediction).map((leagueNames) => (
                 <div key={leagueNames} className="w-full">
                    <div className="bg-[#1A365D] w-full text-white flex justify-between items-center p-2 mt-6 mb-3 rounded-[0.6rem] hover:shadow-lg transition-all">
 
                      <h2 className="font-sans flex justify-center items-center font-semibold">{leagueNames}</h2>
+
+                     {/* btn that reveals the card (+ -) */}
                      <div onClick={() => setOpen((prev) =>({
                       ...prev,[leagueNames]: !prev[leagueNames],
                      }))}>
                        {open [leagueNames] ? <FaPlus /> : <FaMinus />}
                      </div>
                    </div>
+                   {/* container that holds the card  */}
                    {open [leagueNames] && (
                      <motion.div
                        className="lg:flex min-w-full w-full text-white space-y-0 lg:space-y-0 flex flex-col justify-center gap-2 items-center"
@@ -129,7 +128,6 @@ export default function LandingPage() {
                ))}
                 <LeagueTables />
                 <BlogPage />
-                {/* <Outlet /> */}
               </div>
             </main>
           </div>

@@ -1,10 +1,7 @@
-// import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-// import { FaPlus, FaMinus } from "react-icons/fa";
 
 export default function PremierLeagueCard({leagueNames, league, teams, values,fixture }) {
-  // const [open, setOpen] = useState(true);
 
   const navigation = useNavigate();
 

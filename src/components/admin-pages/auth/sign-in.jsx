@@ -47,7 +47,7 @@ export default function SignIn () {
             localStorage.setItem("authToken", data.token);
 
             setMessage("sign-In successful");
-            navigate("/admin", { replace: true });
+            navigate("/login-complete", { replace: true });
             setEmail("");
             setpassword("");
         }catch (ero) {
