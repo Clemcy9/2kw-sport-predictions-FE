@@ -18,7 +18,7 @@ export default function LandingPage() {
   const [visible, setVisible] = useState(false);
   const [bet, setBet] = useState(1);
   const [prediction, setPrediction] = useState([]);
-  const [open, setOpen] = useState({});
+  const [open, setOpen] = useState([]);
 
 
   useEffect(() => {
