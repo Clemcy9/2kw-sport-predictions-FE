@@ -94,7 +94,7 @@ export default function Sidebar() {
                                     onClick={() =>
                                         setOpenDropdown(openDropdown === item.title ? null : item.title)
                                     }
-                                    className={`flex justify-between items-center w-full px-3 py-2 rounded-lg hover:bg-[#1A3761] hover:text-white transition  ${openDropdown === item.title ? "bg-[#1A3761] text-white"  : ""
+                                    className={`flex justify-between items-center w-full px-3 py-2 rounded-lg rounded-b-none hover:bg-[#1A3761] hover:text-white transition  ${openDropdown === item.title ? "bg-[#1A3761] text-white"  : ""
                                         }`}
                                 >
                                     <div className="flex items-center gap-3">

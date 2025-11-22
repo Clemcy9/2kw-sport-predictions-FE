@@ -52,38 +52,42 @@ export default function MakePredictions () {
                 awayTeam: "Burnley",
                 time: "12:30",
             },
+            {
+                id: 6,
+                league: "Premier League",
+                date: "05 Oct 2025",
+                homeTeam: "Everton",
+                awayTeam: "Burnley",
+                time: "12:30",
+            },
+            {
+                id: 7,
+                league: "Premier League",
+                date: "05 Oct 2025",
+                homeTeam: "Everton",
+                awayTeam: "Burnley",
+                time: "12:30",
+            },
         ]);
 
         const[dropdown, setDropdown] = useState();
-
-    const leagues = [
-        { name: "Nigeria NPFL", country: "Nigeria", logo: "/NPFL.jpg" },
-        { name: "England Premier League", country: "England", logo: "https://upload.wikimedia.org/wikipedia/en/f/f2/Premier_League_Logo.svg" },
-        { name: "Spain La Liga", country: "Spain", logo: "/spain-la-liga.png" },
-        { name: "Europe UEFA Champions ...", country: "Europe", logo: "/champions-league.png" },
-        { name: "Europe UEFA Europa League", country: "Europe", logo: "/europa.png" },
-        { name: "Italy Serie A", country: "Italy", logo: "/italy-serie-A.png" },
-        { name: "Germany Bundesliga", country: "Germany", logo: "https://upload.wikimedia.org/wikipedia/en/d/df/Bundesliga_logo_%282017%29.svg" },
-        { name: "France Ligue 1", country: "France", logo: "/france-league.png" },
-        { name: "Portugal Liga Portugal", country: "Portugal", logo: "/portugal.png" },
-        { name: "Netherlands Eredivisie", country: "Netherlands", logo: "/netherlands.png" },
-        { name: "Belgium Pro League", country: "Belgium", logo: "/belguim-pro.png" },
-        { name: "South Africa Premier", country: "South Africa", logo: "/south-africa.png" }
-    ];
-
     return(
             <div className="p-4 lg:px-10 lg:min-h-screen flex flex-col w-full">
                 <div className="flex justify-start font-semibold font-sans text-2xl w-full  lg:my-6">
-                   <h2 className="lg:font-semibold font-bold font-[Inria Sans] mb-4 text-left">Fetch Football Fixtures</h2>
+                   <h2 className="lg:font-semibold font-bold font-[Inria Sans] mb-4 text-center w-full lg:text-left">Fetch Football Fixtures</h2>
                 </div>
 
-                    <div className="w-full flex justify-between lg:my-4 gap-4">
+                    <div className="w-full flex flex-col lg:flex-row lg:justify-between lg:my-4  gap-7 lg:gap-5">
                        
-                        <div className="relative w-60  flex justify-between items-center">
+                        <div className="relative lg:w-60 w-full flex justify-between items-center">
                             <input type="text" placeholder="Search By Name" className="w-full appearance-none border border-[#737373] rounded-[0.9em] py-1 pl-4 pr-10 text-[#737373] focus:ring focus:ring-[#1A365D] focus:border-[#1A365D] outline-none bg-white" />
                             <Search size={18} className="absolute right-3 top-1/2 -translate-y-1/2 text-[#737373] pointer-events-none" />
                         </div>
-                        <div className="relative w-60  flex justify-between items-center">
+                        <h3 className="lg:hidden font-sans font-normal text-sm">
+                            Filter By:
+                        </h3>
+                        <div className="w-full lg:w-auto flex lg:gap-4 gap-7">
+                            <div className="relative lg:w-60  flex justify-between items-center">
                             <input type="text" placeholder="Select League" className="w-full appearance-none border border-[#737373] rounded-[0.3em] py-1 pl-4 pr-10 text-[#737373] focus:ring focus:ring-[#1A365D] focus:border-[#1A365D] outline-none bg-white" />
                             <button onClick={() => setDropdown()}>
                             {dropdown ? (
@@ -93,21 +97,22 @@ export default function MakePredictions () {
                             )}
                             </button>
                             
-                        </div>
-                        <div className="relative w-60 flex justify-between items-center">
+                           </div>
+                           <div className="relative lg:w-60 flex justify-between items-center">
                             <input type="text" placeholder="11/04/2025" className="w-full appearance-none border border-[#737373] rounded-[0.3em] py-1 pl-4 pr-10 text-[#737373] focus:ring focus:ring-[#1A365D] focus:border-[#1A365D] outline-none bg-white" />
                             <Calendar size={18} className="absolute right-3 top-1/2 -translate-y-1/2 text-[#737373] pointer-events-none" />
+                           </div>
                         </div>
-                        <div className="relative w-60">
+                        <div className="relative w-60 hidden lg:block">
                             <button className="bg-[#1A365D] text-white px-6 py-1 w-full rounded-[0.3em]">
                                 Filter
                             </button>
                         </div>
                     </div>
 
-                  <table className="hidden md:block w-full border-collapse">
-                        <thead>
-                            <tr className="font-bold text-left text-[18px]">
+                  <table className="w-full border-collapse">
+                        <thead  className="">
+                            <tr className="font-bold text-left text-[18px] hidden lg:flex justify-center gap-32 w-full">
                                 <th className="py-3">No.</th>
                                 <th className="py-3">League</th>
                                 <th className="py-3">Fixtures</th>
@@ -117,22 +122,28 @@ export default function MakePredictions () {
                             </tr>
                         </thead>
 
-                        <tbody className="">
+                        <tbody className="text-right">
                             {predictions.map((item, index) => (
-                                <tr key={item.id} className=" leading-tight">
-                                    <td className="py-5">{index + 1}</td>
-                                    <td className="py-5">{item.league}</td>
-                                    <td className="py-5"> {item.awayTeam} vs {item.homeTeam}</td>
-                                    <td className="py-5">{item.date}</td>
-                                    <td className="py-5">{item.time}</td>
-                                    <td className="py-5">
-                                        <button
-                                            className="text-[#04BA4A] transition"
-                                            onClick={() => handleDelete(item.id)}
-                                        >
-                                            <FaPlusSquare size={18} />
-                                        </button>
-                                    </td>
+                                <tr key={item.id} className="leading-tight">
+                                    <div className="w-full flex flex-row lg:gap-5 lg:justify-between lg:border-none border p-3 lg:p-0 rounded-xl my-4 lg:my-0 border-[#1A365D99]">
+                                        <div className="flex flex-col  items-start gap-6 lg:flex-row w-full justify-center lg:gap-24">
+                                            <td className="lg:py-5 hidden lg:block">{index + 1}</td>
+                                            <td className="lg:py-5">{item.league}</td>
+                                            <td className="lg:py-5"> {item.awayTeam} vs {item.homeTeam}</td>
+                                        </div>
+                                        <div className="flex gap-2 font-light font-sans lg:text-lg lg:font-normal text-xs text-[#737373] items-end lg:flex-row flex-col lg:w-full lg:justify-center lg:gap-24">
+                                            <td className="lg:py-5 ">{item.date}</td>
+                                            <td className="lg:py-5 pr-9 lg:pr-0">{item.time}</td>
+                                            <td className="lg:py-5 lg:ml-10 lg:pr-0 pr-12">
+                                                <button
+                                                    className="text-[#04BA4A] transition"
+                                                    onClick={() => handleDelete(item.id)}
+                                                >
+                                                    <FaPlusSquare size={18} />
+                                                </button>
+                                            </td>
+                                        </div>
+                                   </div>
                                 </tr>
                             ))}
                         </tbody>

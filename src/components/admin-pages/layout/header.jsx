@@ -119,17 +119,17 @@ export default function AdminHeader() {
                            
                             <button
                                 onClick={() => setIsOpen(!isOpen)}
-                                className=" text-2xl text-[#fff]"
+                                className=" text-2xl text-[#fff] mr-4"
                             >
                                 {isOpen ? <X /> : <Menu />}
                             </button>
 
                             {/* Sidebar */}
                             <aside
-                                className={`min-h-screen bg-[#1A365D] text-[#fff] sm:w-80 w-full overflow-y-hidden p-4 flex flex-col shadow-lg  fixed top-15 left-0 z-40 transition-transform duration-300
+                                className={` min-h-screen bg-[#1A365D] text-[#fff] h-screen sm:w-80 w-full overflow-y-visible p-4 flex flex-col shadow-lg  fixed top-15 left-0 z-40 transition-transform duration-300
                                 ${isOpen ? "translate-x-0" : "-translate-x-full"} `}
                             >
-                                <nav className="flex flex-col space-y-5 gap-3 ">
+                                <nav className="flex flex-col space-y-5 gap-3 min-h-screen">
                                     {menuItems.map((item, i) => (
                                         <div key={i}>
                                             {item.dropdown ? (
@@ -138,7 +138,7 @@ export default function AdminHeader() {
                                                         onClick={() =>
                                                             setOpenDropdown(openDropdown === item.title ? null : item.title)
                                                         }
-                                                        className={`flex justify-between items-center w-full px-3 py-2 rounded-lg hover:bg-[#fff] hover:text-[#1A3761] transition ${openDropdown === item.title ? "bg-white text-[#1A3761]" : ""
+                                                        className={`flex justify-between items-center w-full px-3 py-2 rounded-lg rounded-b-none hover:bg-[#fff] hover:text-[#1A3761] transition ${openDropdown === item.title ? "bg-white text-[#1A3761]" : ""
                                                             }`}
                                                     >
                                                         <div className="flex items-center gap-3">
