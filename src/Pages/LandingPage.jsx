@@ -1,4 +1,3 @@
-// import { useEffect, useRef } from "react";
 import { FiArrowUp } from "react-icons/fi";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import Navbar from "../components/shared/Navbar";
@@ -19,7 +18,7 @@ export default function LandingPage() {
   const [visible, setVisible] = useState(false);
   const [bet, setBet] = useState(1);
   const [prediction, setPrediction] = useState([]);
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState({});
 
 
   useEffect(() => {
@@ -34,6 +33,10 @@ export default function LandingPage() {
       .then((res) => res.json())
       .then((data) => { 
         const groupData = Object.groupBy(data.data, (pred) => pred.fixture.league.name);
+
+        // makes all cards open by default when the card loads
+        setOpen(Object.fromEntries(Object.keys(groupData).map(name => [name, true])));
+
         setPrediction(groupData, data.data);
         console.log(groupData);
 
@@ -95,7 +98,7 @@ export default function LandingPage() {
 
                      <h2 className="font-sans flex justify-center items-center font-semibold">{leagueNames}</h2>
 
-                     {/* btn that reveals the card (+ -) */}
+                     {/*toggle btn that reveals the card (+ -) */}
                      <div onClick={() => setOpen((prev) =>({
                       ...prev,[leagueNames]: !prev[leagueNames],
                      }))}>
