@@ -88,12 +88,12 @@ export default function LandingPage() {
                 <ContentNavBar />
               </div>
 
-              <div className="flex justify-center items-center flex-col">
+              <div className="flex justify-center items-center flex-col  lg:px-3">
 
                  
                 {/* display the cards under their respective card*/}
                {Object.keys(prediction).map((leagueNames) => (
-                <div key={leagueNames} className="w-full">
+                <div key={leagueNames} className="w-full ">
                    <div className="bg-[#1A365D] w-full text-white flex justify-between items-center p-2 mt-6 mb-3 rounded-[0.6rem] hover:shadow-lg transition-all">
 
                      <h2 className="font-sans flex justify-center items-center font-semibold">{leagueNames}</h2>

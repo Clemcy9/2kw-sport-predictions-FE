@@ -33,7 +33,7 @@ export default function PremierLeagueCard({leagueNames, league, teams, values,fi
         >
           <div
             onClick={click}
-            className=" hover:shadow-lg transition-all  border border-[#D6AE3E] flex justify-between items-center w-full flex-col lg:flex-row lg:p-0 rounded-[0.6rem] p-2"
+          className=" hover:shadow-lg hover:bg-[#FFF7E0] group transition-all  border border-[#D6AE3E] flex justify-between items-center w-full flex-col lg:flex-row lg:p-0 rounded-[0.6rem] p-2"
           >
             <div className="text-[#1A365D] flex justify-between items-center flex-col lg:flex-row w-full space-y-2">
               <div className="flex  lg:px-2 lg:mx-3">
@@ -71,21 +71,21 @@ export default function PremierLeagueCard({leagueNames, league, teams, values,fi
             {/* Odds Section */}
 
             <div className="flex justify-between lg:justify-end lg:items-start items-start min-w-[130px]  space-x-10 px-1 lg:gap-4 lg:space-x-0 lg:p-4 w-full">
-              <div className="flex justify-center items-center flex-col space-y-1 lg:space-y-3">
+              <div className="flex justify-center items-center flex-col space-y-1 lg:space-y-3 ">
                 <p className="px-3 font-bold font-sans text-[#D6AE3E]">Odds</p>
-                <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-1 text-[15px] py-1 min-w-[50px]  w-16 text-center">
+              <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] group-hover:bg-[#D6AE3E] hover:bg-white hover:text-[#D6AE3E] group-hover:text-white px-1 text-[15px] py-1 min-w-[50px] transition-colors duration-300 w-16 text-center ">
                   {predictions.odd.Odds}
                 </p>
               </div>
               <div className="flex justify-center items-center flex-col space-y-1 lg:space-y-3">
                 <p className="px-3 font-bold font-sans text-[#D6AE3E]">Tips</p>
-                <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-1 text-[15px] py-1 min-w-[50px]  w-16 text-center">
+              <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border group-hover:bg-[#D6AE3E] group-hover:text-white hover:bg-white hover:text-[#D6AE3E] border-[#D6AE3E] px-1 text-[15px] py-1 min-w-[50px] transition-colors duration-300 w-16 text-center">
                   {predictions.odd.Tips}
                 </p>
               </div>
               <div className="flex justify-center items-center flex-col space-y-1 lg:space-y-3">
                 <p className="px-3 font-bold font-sans text-[#D6AE3E]">Prop%</p>
-                <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] px-1 text-[15px] py-1 min-w-[50px]  w-16 text-center">
+              <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border group-hover:bg-[#D6AE3E] group-hover:text-white hover:bg-white hover:text-[#D6AE3E] border-[#D6AE3E] px-1 text-[15px] py-1 min-w-[50px] transition-colors duration-300 w-16 text-center">
                   {predictions.odd.Prop}
                 </p>
               </div>
