@@ -18,7 +18,7 @@ export default function AdminDashboard() {
             
                 <div className="min-h-screen">
                     <AdminHeader />
-                    <div className="lg:grid lg:grid-cols-[0.8fr_3fr] ">
+                    <div className=" lg:grid lg:grid-cols-[0.8fr_3fr] ">
                         
                             <Sidebar className="sticky top-0 bottom-0"/>
                        

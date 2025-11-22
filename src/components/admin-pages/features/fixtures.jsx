@@ -110,9 +110,9 @@ export default function MakePredictions () {
                         </div>
                     </div>
 
-                  <table className="w-full border-collapse">
+                  <table className=" w-full border-collapse">
                         <thead  className="">
-                            <tr className="font-bold text-left text-[18px] hidden lg:flex justify-center gap-32 w-full">
+                            <tr className="font-bold text-left text-lg hidden lg:flex justify-center gap-32 w-full">
                                 <th className="py-3">No.</th>
                                 <th className="py-3">League</th>
                                 <th className="py-3">Fixtures</th>

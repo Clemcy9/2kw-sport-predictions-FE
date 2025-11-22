@@ -125,8 +125,8 @@ export default function AdminHeader() {
                             </button>
 
                             {/* Sidebar */}
-                            <aside
-                                className={` min-h-screen bg-[#1A365D] text-[#fff] h-screen sm:w-80 w-full overflow-y-visible p-4 flex flex-col shadow-lg  fixed top-15 left-0 z-40 transition-transform duration-300
+                            <div
+                                className={` min-h-screen bg-[#1A365D] text-[#fff] h-screen sm:w-80 w-full overflow-y-visible p-4 flex flex-col shadow-lg  fixed  left-0 z-40 transition-transform duration-300
                                 ${isOpen ? "translate-x-0" : "-translate-x-full"} `}
                             >
                                 <nav className="flex flex-col space-y-5 gap-3 min-h-screen">
@@ -208,7 +208,7 @@ export default function AdminHeader() {
                                     </h1>
 
                                 </nav>
-                            </aside>
+                            </div>
                         </div>
                     </div>
 
