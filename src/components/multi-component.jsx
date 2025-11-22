@@ -18,8 +18,8 @@ export  function BlogPage () {
     // console.log(image)
 
     return(
-        <div className="gap-5 border-none lg:p-4 mx my-3 mt-7 w-full z-20 relative min-h-screen flex flex-col justify-center items-center bg-[#f3f4f680]">
-            <h1 className="font-[Inria Sans] text-center text-3xl font-semibold text-[#1F2128] lg:pb-6 mb-8">2kwPredict Blog</h1>
+        <div className="gap-5 border-none lg:p-4 mx my-3 mt-7 w-full z-20 relative min-h-screen flex flex-col justify-center items-center bg-[#e0e2e685]">
+            <h1 className="font-[Inria Sans] text-center text-3xl font-semibold text-[#1F2128] lg:pb-6 mb-8 text-shadow-x z-40">2kwPredict Blog</h1>
             <div className="lg:grid lg:grid-cols-3 lg:gap- sm:grid sm:grid-cols-2 sm:gap-6 gap-4 w-full sm:items-center sm:w-full sm:justify-center flex flex-col ">
                 {image.map((img, idx) => (
                 <DummyBlog key={idx} images={img} />

@@ -168,7 +168,7 @@ export default function LeagueTables() {
         <div className="gap-5 w-full my-2 flex-col lg:flex-row flex justify-center items-center text-white">
 
             {/*  LEAGUE TABLE */}
-            <div className="shadow-lg border-[#E5E7EB]/80 border p-3 font-sans bg-white rounded-[0.4rem] max-w-full w-full lg:p-0 mb-6">
+            <div className="shadow-lg  border p-3 font-sans bg-white rounded-[0.4rem] max-w-full w-full lg:p-2 mb-6">
                 <div className="flex flex-col pb-3 mb-3 gap-1 shadow-b-lg lg:m-6">
                     <h2 className="font-semibold flex justify-between text-2xl font-[Poppins] text-[#1F2128]">
                         League Table <FaTrophy className="text-[#D6AE3E]" />
@@ -198,31 +198,31 @@ export default function LeagueTables() {
                         {leagueData.league.length > 0 ? (
                             <div className="overflow-y-auto max-h-72 lg:max-h-96 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
                                 <table className="w-full text-lg text-left">
-                                    <thead className="text-[#F3F4F6] sticky top-0 bg-[#1A365D] shadow-sm">
-                                        <tr>
-                                            <th className="py-2 px-2">Ps.</th>
-                                            <th className="py-2 px-2">Team</th>
-                                            <th className="py-2 px-2">PTS</th>
-                                            <th className="py-2 px-2">W</th>
-                                            <th className="py-2 px-2">D</th>
-                                            <th className="py-2 px-2">L</th>
-                                            <th className="py-2 px-2">GF/GA</th>
-                                            <th className="py-2 px-2">GD</th>
+                                    <thead className="text-[#F3F4F6] sticky top-0 z-40 bg-[#1A365D] shadow-sm">
+                                        <tr className="text-sm">
+                                            <th className="py-2 px-1">Ps.</th>
+                                            <th className="py-2 px-1">Team</th>
+                                            <th className="py-2 px-1">PTS</th>
+                                            <th className="py-2 px-1">W</th>
+                                            <th className="py-2 px-1">D</th>
+                                            <th className="py-2 px-1">L</th>
+                                            <th className="py-2 px-1">GF/GA</th>
+                                            <th className="py-2 px-1">GD</th>
                                         </tr>
                                     </thead>
-                                    <tbody className="p-2">
+                                    <tbody className="p-2 text-sm">
                                         {leagueData.league.map((item, i) => (
-                                            <tr key={i} className="odd:bg-white even:bg-[#F3F4F680] border-[#1A365D]/20 border-b hover:bg-gray-50 transition">
-                                                <td className="py-1 px-2 text-[#1A365D]">{item.rank}</td>
-                                                <td className="flex items-center gap-2 py-1 px-2 text-[#1A365D]/90">
+                                            <tr key={i} className="odd:bg-white even:bg-[#F3F4F680] border-[#1A365D]/20 border-b hover:scale-95 overflow-hidden transition-transform duration-500 hover:bg-gray-50 ">
+                                                <td className="py-1 px-1 text-[#1A365D]">{item.rank}</td>
+                                                <td className="flex items-center gap-2 py-1 px-1 text-[#1A365D]/90">
                                                     <img src={item.logo} className="w-5 h-5 rounded-full" alt="" /> {item.team}
                                                 </td>
-                                                <td className="py-1 px-2 font-semibold text-[#1A365D]">{item.pts}</td>
-                                                <td className="py-1 px-2 text-[#1A365D]/90">{item.w}</td>
-                                                <td className="py-1 px-2 text-[#1A365D]/90">{item.d}</td>
-                                                <td className="py-1 px-2 text-[#1A365D]/90">{item.l}</td>
-                                                <td className="py-1 px-2 text-[#1A365D]/90">{item.gfga}</td>
-                                                <td className="py-1 px-2 text-green-600 font-medium">{item.gd}</td>
+                                                <td className="py-1 px-1 font-semibold text-[#1A365D]">{item.pts}</td>
+                                                <td className="py-1 px-1 text-[#1A365D]/90">{item.w}</td>
+                                                <td className="py-1 px-1 text-[#1A365D]/90">{item.d}</td>
+                                                <td className="py-1 px-1 text-[#1A365D]/90">{item.l}</td>
+                                                <td className="py-1 px-1 text-[#1A365D]/90">{item.gfga}</td>
+                                                <td className="py-1 px-1 text-green-600 font-medium">{item.gd}</td>
                                             </tr>
                                         ))}
                                     </tbody>
@@ -236,7 +236,7 @@ export default function LeagueTables() {
             </div>
 
             {/*  TOP SCORERS*/}
-            <div className="shadow-lg border-[#E5E7EB]/80 border p-3 font-sans bg-white rounded-[0.4rem] max-w-full w-full lg:p-0 lg:mb-6">
+            <div className="shadow-lg  p-3 font-sans bg-white rounded-[0.4rem] max-w-full w-full lg:p-2 lg:mb-6">
                 <div className="flex flex-col pb-3 mb-3 gap-1 shadow-b-lg lg:m-6">
                     <h2 className="font-semibold flex justify-between text-2xl font-[Poppins] text-[#1F2128]">
                         Top Scorers Table <FaCircleDot className="text-[#D6AE3E]" />
@@ -266,25 +266,25 @@ export default function LeagueTables() {
                         {leagueData.scorers.length > 0 ? (
                             <div className="overflow-y-auto max-h-72 lg:max-h-96 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
                                 <table className="w-full text-lg text-left">
-                                    <thead className="text-[#F3F4F6] sticky top-0 bg-[#1A365D] shadow-sm">
+                                    <thead className="text-[#F3F4F6] text-sm sticky z-40 top-0 bg-[#1A365D] shadow-sm">
                                         <tr>
-                                            <th className="py-2 px-2">Player</th>
-                                            <th className="py-2 px-2">Matches</th>
-                                            <th className="py-2 px-2">Goals</th>
+                                            <th className="py-2 px-1">Player</th>
+                                            <th className="py-2 px-1">Matches</th>
+                                            <th className="py-2 px-1">Goals</th>
                                         </tr>
                                     </thead>
-                                    <tbody className="p-2">
+                                    <tbody className="p-2 text-sm ">
                                         {leagueData.scorers.map((item, i) => (
-                                            <tr key={i} className="odd:bg-white even:bg-[#F3F4F680] border-[#1A365D]/20 border-b hover:bg-gray-50 transition">
-                                                <td className="flex items-center gap-2 py-1 px-2">
+                                            <tr key={i} className="odd:bg-white even:bg-[#F3F4F680] border-[#1A365D]/20 border-b hover:bg-gray-50 hover:scale-95 overflow-hidden transition-transform duration-500">
+                                                <td className="flex items-center gap-2 py-1 px-1">
                                                     <img src={item.logo} className="w-5 h-5 rounded-full" alt="" />
                                                     <div>
                                                         <div className="font-medium text-[#1A365D]">{item.player}</div>
                                                         <div className="text-xs text-[#1A365D]/80">{item.team}</div>
                                                     </div>
                                                 </td>
-                                                <td className="py-1 px-2 text-[#1A365D]/80">{item.matches}</td>
-                                                <td className="py-1 px-2 font-semibold text-[#D6AE3E]">{item.goals}</td>
+                                                <td className="py-1 px-1 text-[#1A365D]/80">{item.matches}</td>
+                                                <td className="py-1 px-1 font-semibold text-[#D6AE3E]">{item.goals}</td>
                                             </tr>
                                         ))}
                                     </tbody>

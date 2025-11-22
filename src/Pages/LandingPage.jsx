@@ -78,12 +78,12 @@ export default function LandingPage() {
             <div className="lg:w-[350px] flex-shrink-0 space-y-0">
               <BestPredictionCard />
 
-              <div className="sticky top-0 bottom-0">
+              <div className="sticky top-24 bottom-0">
                 <FootballLeaguesTable />
               </div>
             </div>
 
-            <main className="lg:overflow-y-scroll lg:max-h-screen top-0 flex-1 flex flex-col gap-4">
+            <main className="lg:overflow-y-scroll lg:max-h-screen top-0 bottom-0 flex-1 flex flex-col gap-4">
               <div className="flex items-start justify-center w-full py-2">
                 <ContentNavBar />
               </div>

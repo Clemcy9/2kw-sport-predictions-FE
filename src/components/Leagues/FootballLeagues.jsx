@@ -64,19 +64,19 @@ export default function FootballLeagues() {
 
 
     return (
-        <div className="hidden lg:sticky top-0 lg:block w-full lg:border lg:border-[#D6AE3E]/70 rounded-[0.6rem] lg:shadow-lg mt-5 ">
+        <div className="hidden lg:sticky top-0 lg:block w-full lg:border lg:border-[#D6AE3E]/70 rounded-[0.6rem] lg:shadow-sm hover:-translate-y-1 hover:shadow-lg transition-all duration-500 mt-5 ">
             {/* Header */}
             <h2 className="text-3xl font-semibold text-white font-sans bg-[#D6AE3E] text-center py-4 lg:rounded-t-[0.6rem]">
                 Football Leagues
             </h2>
 
             {/* Leagues list */}
-            <div className="flex items-center  flex-col w-full">
+            <div className="flex items-center overflow-hidden flex-col w-full">
                 {leagues.map((league, index) => (
                     <motion.div
                         key={index}
                         onClick={() => handleLeagueClick(league.slug)}
-                        className="flex items-center justify-between bg-white text-[#1A365D] lg:p-3 py-2 cursor-pointer border border-[#d6ae3e]/70 min-w-[280px] lg:min-w-full hover:shadow-lg hover:bg-[#d6ae3e]/80 transition-all"
+                        className="flex items-center justify-between overflow-hidden bg-white text-[#1A365D] lg:p-3 py-2 cursor-pointer border border-[#d6ae3e]/70 min-w-[280px] lg:min-w-full hover:shadow-lg hover:bg-[#d6ae3e]/80 hover:scale-105  transition-transform duration-500"
                     >
                         {/* League logo and text */}
                         <div className="flex items-center justify-center">
