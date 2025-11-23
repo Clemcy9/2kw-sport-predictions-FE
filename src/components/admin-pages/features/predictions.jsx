@@ -139,7 +139,7 @@ export default function Predictions() {
                             <tbody >
                         {predictions.map((item, index) => (
                             <tr key={item.id} className=" leading-tight">
-                                <div className="lg:grid lg:grid-cols-11 w-full flex flex-row lg:gap-0 lg:justify-between gap-5  lg:border-none border p-2 lg:p-0 rounded-xl my-4 lg:my-0 border-[#1A365D99]">
+                                <div className="lg:grid lg:grid-cols-11 w-full flex flex-row lg:gap-0 lg:justify-between gap-5  lg:border-none border p-2 lg:p-0 rounded-xl my-4 active:border-[#1A365D] lg:active:hidden active:scale-105 active:shadow-xl lg:my-0 border-[#1A365D99]">
                                     <div className="lg:col-span-4 flex-col hidden lg:flex items-start gap-6 lg:flex-row w-full lg:justify-between justify-center ">
                                         <td className="py-5 hidden lg:block ">{index + 1}</td>
                                         <td className="py-5 hidden lg:block ">{item.league}</td>

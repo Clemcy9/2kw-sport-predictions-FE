@@ -149,7 +149,7 @@ export default function DashBoard() {
                 <div className="flex justify-start mt-4 font-semibold font-sans text-2xl w-full lg:px-10">
                     <h2 className=" lg:font-semibold font-bold font-[Inria Sans] text-left">Recent Predictions</h2>
                 </div>
-            <div className="flex px-12 justify-center flex-col items-center w-full">
+            <div className="flex lg:px-12 justify-center flex-col items-center w-full">
 
                 <table className=" w-full border-collapse ">
                     <thead>
@@ -160,7 +160,6 @@ export default function DashBoard() {
                             <th className="py-3">Home</th>
                             <th className="py-3">Away</th>
                             <th className="py-3">Tips</th>
-                            {/* <th className="py-3">Prop%</th> */}
                             <th className="py-3">Action</th>
                         </tr>
                     </thead>
@@ -168,7 +167,7 @@ export default function DashBoard() {
                     <tbody >
                         {predictions.map((item, index) => (
                             <tr key={item.id} className=" leading-tight">
-                                <div className="lg:grid lg:grid-cols-9 w-full flex flex-row lg:gap-0 lg:justify-between gap-5  lg:border-none border p-2 lg:p-0 rounded-xl my-4 lg:my-0 border-[#1A365D99]">
+                                <div className="lg:grid lg:grid-cols-9 w-full flex flex-row lg:gap-0 lg:justify-between gap-5  lg:border-none border p-2 lg:p-0 rounded-xl my-4 lg:my-0 lg:active:hidden active:border-[#1A365D] active:scale-105 active:shadow-xl border-[#1A365D99]">
                                     <div className="lg:col-span-4  flex-col hidden lg:flex items-start gap-6 lg:flex-row w-full lg:justify-between justify-center ">
                                         <td className="py-5 hidden lg:block ">{index + 1}</td>
                                         <td className="py-5 hidden lg:block ">{item.league}</td>
@@ -189,7 +188,6 @@ export default function DashBoard() {
                                     <div className="col-span-2  flex gap-1 font-light font-sans justify-end  lg:text-lg lg:font-normal text-xs text-[#737373] lg:flex-row flex-col lg:w-full  lg:gap-26">
                                         <td className="py-1 text-right w-20 lg:w-auto lg:hidden">{item.date}</td>
                                         <td className="py-1 text-right lg:text-center w-full lg:w-fit ">{item.tip}</td>
-                                        {/* <td className="py-1">{item.percentage}</td> */}
                                         <td className=" py-1 hidden lg:block">
                                             <button
                                                 className="text-[#FB3B3B] hover:text-red-800 transition"

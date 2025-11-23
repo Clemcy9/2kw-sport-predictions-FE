@@ -6,10 +6,10 @@ import { Search } from "lucide-react";
 
 export default function MakePredictions () {
 
-    const handleDelete = (id) => {
-            setPredictions(predictions.filter((item) => item.id !== id));
+    // const handleDelete = (id) => {
+    //         setPredictions(predictions.filter((item) => item.id !== id));
             
-        };
+    //     };
 
         const [predictions, setPredictions] = useState([
             {
@@ -125,7 +125,7 @@ export default function MakePredictions () {
                         <tbody className="text-right">
                             {predictions.map((item, index) => (
                                 <tr key={item.id} className="leading-tight">
-                                    <div className="w-full flex flex-row lg:gap-5 lg:justify-between lg:border-none border p-3 lg:p-0 rounded-xl my-4 lg:my-0 border-[#1A365D99]">
+                                    <div className="w-full flex flex-row lg:gap-5 lg:justify-between lg:border-none border p-3 lg:p-0 rounded-xl my-4 lg:my-0 lg:active:hidden active:border-[#1A365D] active:scale-105 active:shadow-xl border-[#1A365D99]">
                                         <div className="flex flex-col  items-start gap-6 lg:flex-row w-full justify-center lg:gap-24">
                                             <td className="lg:py-5 hidden lg:block">{index + 1}</td>
                                             <td className="lg:py-5">{item.league}</td>
@@ -137,7 +137,7 @@ export default function MakePredictions () {
                                             <td className="lg:py-5 lg:ml-10 lg:pr-0 pr-12">
                                                 <button
                                                     className="text-[#04BA4A] transition"
-                                                    onClick={() => handleDelete(item.id)}
+                                                    
                                                 >
                                                     <FaPlusSquare size={18} />
                                                 </button>

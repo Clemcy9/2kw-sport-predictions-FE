@@ -212,7 +212,7 @@ export default function LeagueTables() {
                                     </thead>
                                     <tbody className="p-2 text-sm">
                                         {leagueData.league.map((item, i) => (
-                                            <tr key={i} className="odd:bg-white even:bg-[#F3F4F680] border-[#1A365D]/20 border-b hover:scale-95 overflow-hidden transition-transform duration-500 hover:bg-gray-50 ">
+                                            <tr key={i} className="odd:bg-white even:bg-[#F3F4F680] border-[#1A365D]/20 border-b hover:scale-95 active:scale-95 overflow-hidden transition-transform duration-500 hover:bg-gray-50 ">
                                                 <td className="py-1 px-1 text-[#1A365D]">{item.rank}</td>
                                                 <td className="flex items-center gap-2 py-1 px-1 text-[#1A365D]/90">
                                                     <img src={item.logo} className="w-5 h-5 rounded-full" alt="" /> {item.team}
@@ -275,7 +275,7 @@ export default function LeagueTables() {
                                     </thead>
                                     <tbody className="p-2 text-sm ">
                                         {leagueData.scorers.map((item, i) => (
-                                            <tr key={i} className="odd:bg-white even:bg-[#F3F4F680] border-[#1A365D]/20 border-b hover:bg-gray-50 hover:scale-95 overflow-hidden transition-transform duration-500">
+                                            <tr key={i} className="odd:bg-white even:bg-[#F3F4F680] border-[#1A365D]/20 border-b hover:bg-gray-50 hover:scale-95 active:scale-95 overflow-hidden transition-transform duration-500">
                                                 <td className="flex items-center gap-2 py-1 px-1">
                                                     <img src={item.logo} className="w-5 h-5 rounded-full" alt="" />
                                                     <div>
