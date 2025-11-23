@@ -2,9 +2,13 @@ import {useState } from "react";
 // import AdminHeader from "./header";
 import {FaTrash } from "react-icons/fa6";
 import { Calendar, ChevronDown } from "lucide-react";
+import { motion, useMotionValue} from "framer-motion";
 // import Sidebar from "./sidebar";
 
 export default function Predictions() {
+
+      const x = useMotionValue(0);
+       const dragLength = -150;
 
    
     const handleDelete = (id) => {
@@ -136,10 +140,19 @@ export default function Predictions() {
                                 </tr>
                             </thead>
 
-                            <tbody >
+                    <tbody >
                         {predictions.map((item, index) => (
-                            <tr key={item.id} className=" leading-tight">
-                                <div className="lg:grid lg:grid-cols-11 w-full flex flex-row lg:gap-0 lg:justify-between gap-5  lg:border-none border p-2 lg:p-0 rounded-xl my-4 active:border-[#1A365D] lg:active:hidden active:scale-105 active:shadow-xl lg:my-0 border-[#1A365D99]">
+                            <tr key={item.id} className="relative leading-tight">
+                                <div className="lg:hidden absolute right-0 top-15 h-full flex z-0">
+                                    <button
+                                        className="w-20 text-red-600 hover:text-red-800 flex flex-col items-center transition"
+                                        onClick={() => handleDelete(item.id)}
+                                    >
+                                        <FaTrash size={18} />
+                                        <span className="text-lg text-red-600">Delete</span>
+                                    </button>
+                                </div>
+                                <motion.div drag="x" dragConstraints={{ left: dragLength, right: 0 }} className="z-40  relative bg-white cursor-grab active:cursor-grabbing  lg:grid lg:grid-cols-11 w-full flex flex-row lg:gap-0 lg:justify-between gap-5  lg:border-none border p-2 lg:p-0 rounded-xl my-4 active:border-[#1A365D] lg:active:hidden active:scale-105 active:shadow-xl lg:my-0 border-[#1A365D99]">
                                     <div className="lg:col-span-4 flex-col hidden lg:flex items-start gap-6 lg:flex-row w-full lg:justify-between justify-center ">
                                         <td className="py-5 hidden lg:block ">{index + 1}</td>
                                         <td className="py-5 hidden lg:block ">{item.league}</td>
@@ -170,7 +183,7 @@ export default function Predictions() {
                                             </button>
                                         </td>
                                     </div>
-                                </div>
+                                </motion.div>
                             </tr>
                         ))}
                     </tbody>
