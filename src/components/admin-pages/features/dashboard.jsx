@@ -171,7 +171,7 @@ export default function DashBoard() {
                             <tr key={item.id} className="relative leading-tight">
                                 <div className="lg:hidden absolute right-0 top-15 h-full flex z-0">
                                     <button
-                                        className="w-20  bg-black text-red-600 hover:text-red-800 flex flex-col items-center transition"
+                                        className="w-20   text-red-600 hover:text-red-800 flex flex-col items-center transition"
                                         onClick={() => handleDelete(item.id)}
                                     >
                                         <FaTrash size={18} />
