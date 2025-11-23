@@ -149,37 +149,48 @@ export default function DashBoard() {
                 <div className="flex justify-start mt-4 font-semibold font-sans text-2xl w-full lg:px-10">
                     <h2 className=" lg:font-semibold font-bold font-[Inria Sans] text-left">Recent Predictions</h2>
                 </div>
-                   <div className="flex justify-center flex-col items-center w-full  my-1 sm:px-8 lg:px-10">
-                        <table className="hidden md:block w-full border-collapse ">
-                            <thead className="">
-                                <tr className="font-bold text-left text-[18px]">
-                                    <th className="py-3">No.</th>
-                                    <th className="py-3">League</th>
-                                    <th className="py-3">Date/Time</th>
-                                    <th className="py-3">Home</th>
-                                    <th className="py-3">Away</th>
-                                    <th className="py-3">Tips</th>
-                                    <th className="py-3">Action</th>
-                                </tr>
-                            </thead>
+            <div className="flex px-12 justify-center flex-col items-center w-full">
 
-                            <tbody className="">
-                                {predictions.map((item, index) => (
-                                    <tr key={item.id} className=" leading-tight">
-                                        <td className="py-5">{index + 1}</td>
-                                        <td className="py-5">{item.league}</td>
-                                        <td className="py-5">{item.date}</td>
-                                        <td className="py-5">
-                                            <span className=" font-semibold">🛡️</span>
+                <table className=" w-full border-collapse ">
+                    <thead>
+                        <tr className="font-bold text-left text-lg hidden lg:flex justify-center lg:justify-between  w-full">
+                            <th className="py-3">No.</th>
+                            <th className="py-3">League</th>
+                            <th className="py-3">Date/Time</th>
+                            <th className="py-3">Home</th>
+                            <th className="py-3">Away</th>
+                            <th className="py-3">Tips</th>
+                            {/* <th className="py-3">Prop%</th> */}
+                            <th className="py-3">Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody >
+                        {predictions.map((item, index) => (
+                            <tr key={item.id} className=" leading-tight">
+                                <div className="lg:grid lg:grid-cols-9 w-full flex flex-row lg:gap-0 lg:justify-between gap-5  lg:border-none border p-2 lg:p-0 rounded-xl my-4 lg:my-0 border-[#1A365D99]">
+                                    <div className="lg:col-span-4  flex-col hidden lg:flex items-start gap-6 lg:flex-row w-full lg:justify-between justify-center ">
+                                        <td className="py-5 hidden lg:block ">{index + 1}</td>
+                                        <td className="py-5 hidden lg:block ">{item.league}</td>
+                                        <td className="py-5 hidden lg:flex ">{item.date}</td>
+                                    </div>
+                                    <div className="col-span-3 w-full flex font-light font-sans lg:text-lg lg:font-normal text-xs text-[#737373] lg:flex-row flex-col lg:w-full lg:justify-center lg:gap-14">
+                                        <td className="py-1 lg:hidden text-lg font-[Sora] font-semibold text-[#1B1B1BCC]">{item.league}</td>
+                                        <td className="py-1  font-sans lg:text-right font-normal text-lg text-black">
+                                            <span className="font-semibold">🛡️</span>
                                             {item.awayTeam}
                                         </td>
-                                        <td className="py-5">
-                                            <span className=" font-semibold">⚽</span>
+                                        <td className="py-1  font-sans font-normal lg:text-right text-lg text-black">
+                                            <span className="font-semibold">⚽</span>
                                             {item.homeTeam}
                                         </td>
+                                    </div>
 
-                                        <td className="py-5">{item.tip}</td>
-                                        <td className="py-5">
+                                    <div className="col-span-2  flex gap-1 font-light font-sans justify-end  lg:text-lg lg:font-normal text-xs text-[#737373] lg:flex-row flex-col lg:w-full  lg:gap-26">
+                                        <td className="py-1 text-right w-20 lg:w-auto lg:hidden">{item.date}</td>
+                                        <td className="py-1 text-right lg:text-center w-full lg:w-fit ">{item.tip}</td>
+                                        {/* <td className="py-1">{item.percentage}</td> */}
+                                        <td className=" py-1 hidden lg:block">
                                             <button
                                                 className="text-[#FB3B3B] hover:text-red-800 transition"
                                                 onClick={() => handleDelete(item.id)}
@@ -187,11 +198,13 @@ export default function DashBoard() {
                                                 <FaTrash size={14} />
                                             </button>
                                         </td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                   </div>
+                                    </div>
+                                </div>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
             </div>
+        </div>
     );
 }
