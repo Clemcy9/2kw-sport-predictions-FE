@@ -11,7 +11,8 @@ import { motion } from "framer-motion";
 import LeagueTables from "../components/Standings/Table";
 import { Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
-import {  BlogPage } from "../components/multi-component";
+// import {  BlogPage } from "../components/multi-component";
+import DummyBlog from "../components/dummy-blog"
 import PremierLeagueCard from "../components/Premier-league";
 
 export default function LandingPage() {
@@ -130,7 +131,7 @@ export default function LandingPage() {
                 </div>
                ))}
                 <LeagueTables />
-                <BlogPage />
+                <DummyBlog />
               </div>
             </main>
           </div>

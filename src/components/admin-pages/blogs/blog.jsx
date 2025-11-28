@@ -5,7 +5,7 @@ import { useState } from "react";
 export default function NewPost () {
     const [title, setTitle] = useState("");
     const [body, setbody] = useState("");
-    const [image, setImage] = useState(null);
+    const [image, setImage] = useState("");
 
     // const isImage =  (image) => image && image.type?.startsWith("image/");
 
@@ -27,8 +27,7 @@ export default function NewPost () {
             });
 
             const data = await res.json();
-            console.log("backend response", data);
-          console.log("authToken",token);
+            console.log( data);
         
 
         }catch (ero) {
