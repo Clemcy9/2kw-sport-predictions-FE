@@ -95,9 +95,9 @@ export default function BlogPost () {
                             <h1 className="font-[Inria Sans] text-center text-3xl font-semibold text-[#1F2128] lg:pb-6 mb-8 text-shadow-x z-40">2kwPredict Blog</h1>
                             <div className="lg:grid lg:grid-cols-3 lg:gap- sm:grid sm:grid-cols-2 sm:gap-6 gap-4 w-full sm:items-center sm:w-full sm:justify-center flex flex-col ">
                                 {blogs.map(blog => (
-                                    <article key={blog._id} className="group overflow-hidden bg-white flex justify-between flex-row lg:flex-col lg:gap-2  sm:flex-col lg:rounded-[0.5em] gap-1 rounded-[0.5em] lg:max-h-80 max-h-30 hover:-translate-y-1 transition-all lg:w-auto w-full sm:h-auto  shadow-sm  lg:shadow-sm ">
-                                        <div className="lg:w-full lg:h-auto overflow-hidden relative sm:h-auto w-full max-w-40 h-full">
-                                            <img src={blog.image} alt={blog.title} className="group-hover:scale-110 group-active:scale-110 transition-transform duration-500 rounded-l-[0.5rem] h-full min-h-30 sm:h-52 w-full object-cover lg:rounded-bl-none lg:rounded-t-[0.4rem] sm:rounded-bl-none sm:rounded-t-[0.5rem]" />
+                                    <article key={blog._id} className="group overflow-hidden bg-white flex justify-between flex-row lg:flex-col lg:gap-2  sm:flex-col lg:rounded-[0.5em] gap-1 rounded-[0.5em] lg:max-h-80 max-h-40 hover:-translate-y-1 transition-all lg:w-auto w-full sm:h-auto  shadow-sm  lg:shadow-sm ">
+                                        <div className="lg:h-auto overflow-hidden relative sm:h-auto sm:max-w-full md:max-w-full lg:max-w-full max-w-40 h-full">
+                                            <img src={blog.image} alt={blog.title} className="group-hover:scale-110 group-active:scale-110 transition-transform duration-500 rounded-l-[0.5rem] h-full min-h-40 sm:h-52 w-full object-cover lg:rounded-bl-none lg:rounded-t-[0.4rem] sm:rounded-bl-none sm:rounded-t-[0.5rem]" />
                                             <div className="absolute inset-0 bg-gradient-to-t from-[#111]/40 to-transparent"></div>
                                         </div>
                                         <div className="lg:px-2 px-1 sm:px-2 py-2 flex flex-col space-y-1 sm:gap-0 w-full">
