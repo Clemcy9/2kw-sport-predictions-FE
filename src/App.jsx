@@ -23,6 +23,7 @@ import Goals1_5 from "./components/layout/goals-1.5";
 import Goals2_5 from "./components/layout/goals-2.5";
 import NewPost from "./components/admin-pages/blogs/blog";
 import MetaData from "./components/admin-pages/features/metadata";
+import BlogPost_Id from "./components/blog_id";
 
 export default function App(){
   const [loading, setLoading] = useState(true);
@@ -74,7 +75,7 @@ export default function App(){
             <Route path="/sign-in" element={ <SignIn />} />
             <Route path="/login-complete" element={ <LoginCompleted />} />
             <Route path="/sign-up" element={ <SignUp />} />
-            <Route path="/blog/:id" element={ <BlogPost />} />
+            <Route path="/blog_id/:id" element={ <BlogPost_Id />} />
             <Route path="/blog" element={ <BlogPost />} />
           </Routes>
     )}

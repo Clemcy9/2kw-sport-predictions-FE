@@ -6,12 +6,29 @@ export default function NewPost () {
     const [title, setTitle] = useState("");
     const [body, setbody] = useState("");
     const [image, setImage] = useState("");
+    const [messages, setMessages] = useState("");
 
     // const isImage =  (image) => image && image.type?.startsWith("image/");
 
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        if(title.length < 40){
+            console.log("tile is workin:",title.length)
+            return setMessages("Title is too short, must reach 40 letters");
+        }else{
+            console.log("tile is workin2:", title.length)
+            setMessages("title is ok")
+        }
+        if(body.length < 120) {
+            console.log("body is workin:", body.length)
+            return setMessages("Content of your blog is too short , must reach 120 letters")
+        }else{
+            console.log("body is workin2:", body.length)
+            setMessages("blog content is okay")
+        }
+        console.log("response from length:",messages)
 
         const token = localStorage.getItem("authToken");
 
@@ -41,9 +58,11 @@ export default function NewPost () {
             <form onSubmit={handleSubmit} className="lg:grid lg:grid-cols-[2fr_0.8fr] w-full lg:gap-8 ">
                  <h2 className="lg:hidden w-full text-center font-bold text-black/80 font-[Inria Sans] py-6 text-xl">New Article</h2>
                 <div className="w-full lg:space-y-10 space-y-5">
-                     <input type="text" value={title} placeholder="Article Title" onChange={(e) => setTitle(e.target.value)} className="p-3 focus:ring-[#1A365D] outline-none focus:ring-1 border-2 rounded-[0.1em] border-[#00000066] placeholder:text-[#00000066] w-full font-[Inria Sans]" />
-
-                     <textarea value={body} onChange={(e) => setbody(e.target.value)} className="max-h-screen lg:h-[70vh] h-[40vh] w-full p-3 focus:ring-[#1A365D] outline-none focus:ring-1 border-1 rounded-xl border-[#00000066] placeholder:text-[#00000066] font-[Inria Sans]"></textarea>
+                     <input required type="text" value={title} placeholder="Article Title" onChange={(e) => setTitle(e.target.value)} className="p-3 focus:ring-[#1A365D] outline-none focus:ring-1 border-2 rounded-[0.1em] border-[#00000066] placeholder:text-[#00000066] w-full font-[Inria Sans]" />
+                     {messages &&(
+                         <p className="text-[#1A365D]">{messages}</p>
+                     )}
+                     <textarea required value={body} onChange={(e) => setbody(e.target.value)} className="max-h-screen lg:h-[70vh] h-[40vh] w-full p-3 focus:ring-[#1A365D] outline-none focus:ring-1 border-1 rounded-xl border-[#00000066] placeholder:text-[#00000066] font-[Inria Sans]"></textarea>
                 </div>
                 <div className="flex flex-col items-center space-y-10">
                     <button type="submit" className="bg-[#1A365D] text-white w-64 text-xl rounded-xl py-2">
@@ -55,7 +74,7 @@ export default function NewPost () {
                              {/* {image && isImage(image) && (
                                 <img src={URL.createObjectURL(image)} alt="image" className="w-64 h-50 object-cover rounded-2xl" />
                              )} */}
-                             <input value={image} onChange={(e) => setImage(e.target.value)} className="rounded-xl border text-[#1A365D] font-semibold font-[Open Sans] border-[#1A365D] px-3 py-2 h-50 w-64" placeholder="Enter image Url" />
+                             <input required value={image} onChange={(e) => setImage(e.target.value)} className="rounded-xl border text-[#1A365D] font-semibold font-[Open Sans] border-[#1A365D] px-3 py-2 h-50 w-64" placeholder="Enter image Url" />
                         </article>
                         {/* <input onChange={(e) => setImage(e.target.files && e.target.files[0] ? e.target.files[0] : null)} id="image-upload" type="file" accept="image/*" className="hidden" />
                          <label htmlFor="image-upload" className="rounded-xl border text-[#1A365D] font-semibold font-[Open Sans] border-[#1A365D] px-3 py-2">Change Image</label> */}
