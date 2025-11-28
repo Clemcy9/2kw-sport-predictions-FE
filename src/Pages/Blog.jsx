@@ -104,7 +104,7 @@ export default function BlogPost () {
                                             <h2 className="font-semibold leading-tight  ">{blog.title}</h2>
                                             <p className="text-[#65758B] lg:text-[15px] text-[13px]  ">{blog.body}</p>
                                             <div className="flex justify-between w-full lg:py-2 ">
-                                                <span className="font-semibold text-[#65758B]">{new Date(blog.createdAt).toLocaleDateString()}</span>
+                                                <span className="font-semibold text-[#65758B]">{new Date(blog.createdAt).toLocaleDateString().slice()}</span>
                                                 <Link className=" text-[#D6AE3E] flex justify-center items-center" to={`/blog/${blog._id}`}>view more  <FiArrowRight />
                                                 </Link>
                                             </div>
