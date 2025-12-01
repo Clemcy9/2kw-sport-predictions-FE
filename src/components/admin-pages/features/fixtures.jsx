@@ -101,13 +101,13 @@ export default function MakePredictions () {
                                     <div className="w-full flex flex-row lg:gap-2 lg:grid lg:grid-cols-12 lg:justify-between lg:border-none border p-3 lg:p-0 rounded-xl my-4 lg:my-0 lg:active:hidden active:border-[#1A365D] active:scale-105 active:shadow-xl border-[#1A365D99]">
                                         <div className="flex flex-col lg:col-span-8 lg:grid lg:grid-cols-9 justify-between  items-start gap-6 lg:flex-row w-full lg:gap-1 ">
                                             <td className="lg:py-5 hidden lg:col-span-1 lg:block lg:mr-12">{index + 1}</td>
-                                            <td className="lg:py-5 lg: flex lg:justify-start lg:col-span-4 lg:items-start lg:w-full lg:max-w-80 "><img className="w-8 h-8" src={item.league.logo} alt={item.league.name} />{(item?.league?.name || "").slice(0, 35).trim()}...</td>
-                                            <td className="lg:py-5 lg:flex lg:items-start lg:justify-start lg:col-span-4 lg:w-full lg:max-w-72  lg:flex-row"><span className="lg:flex"><img className="w-4 h-4" src={item.teams.away.logo} alt={item.teams.away.name} /> {(item?.teams?.away.name || "").slice(0, 16).trim()}</span> <span className="px-2 font-semibold">vs</span> <span className="lg:flex"><img className="w-4 h-4" src={item.teams.home.logo} alt={item.teams.home.name} /> {(item.teams.home.name || "").slice(0, 16).trim()}</span></td>
+                                            <td className="lg:py-5  lg: flex lg:justify-start lg:col-span-4 lg:items-start w-full lg:max-w-80 "><img className="w-8 h-8" src={item.league.logo} alt={item.league.name} />{(item?.league?.name || "").slice(0, 32).trim()}</td>
+                                            <td className="lg:py-5 lg:flex lg:items-start lg:justify-start lg:col-span-4 lg:w-full lg:max-w-72 bg-amber-900  lg:flex-row"><span className="flex"><img className="w-4 h-4" src={item.teams.away.logo} alt={item.teams.away.name} /> {(item?.teams?.away.name || "").slice(0, 16).trim()}</span> <span className="px-2 font-semibold">vs</span> <span className="flex"><img className="w-4 h-4" src={item.teams.home.logo} alt={item.teams.home.name} /> {(item.teams.home.name || "").slice(0, 16).trim()}</span></td>
                                         </div>
-                                        <div className="flex gap-2 font-light lg:col-span-4 font-sans lg:text-lg lg:font-normal text-xs text-[#737373] items-end lg:flex-row flex-col lg:w-auto lg:justify-center lg:gap-18">
+                                        <div className="flex gap-8 font-light lg:col-span-4 font-sans lg:text-lg lg:font-normal text-xs text-[#737373] items-end lg:flex-row flex-col lg:w-auto lg:justify-center lg:gap-18">
                                             <td className="lg:py-5  ">{new Date (item.fixture.date).toLocaleDateString()}</td>
-                                            <td className="lg:py-5 pr-9 w-20 lg:pr-0">{new Date(item.fixture.date).toLocaleTimeString([], {hour: "2-digit", minute: "2-digit"})}</td>
-                                            <td className="lg:py-5 lg:ml-4 lg:pr-0 pr-12">
+                                            <td className="lg:py-5 pr-2 w-20 lg:pr-0 ">{new Date(item.fixture.date).toLocaleTimeString([], {hour: "2-digit", minute: "2-digit"})}</td>
+                                            <td className="lg:py-5 lg:ml-4 lg:pr-0 pr-10">
                                                 <button
                                                     className="text-[#04BA4A] transition"
                                                     
