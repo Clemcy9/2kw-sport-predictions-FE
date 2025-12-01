@@ -8,14 +8,14 @@ import { useEffect } from "react";
 export default function MakePredictions () {
     
     const[dropdown, setDropdown] = useState();
-    const [date, setDate] = useState("2025-11-26");
+    const [date, setDate] = useState("2025-12-02");
     const [prediction, setPrediction] = useState([]);
     const [byName, setByName] = useState("");
     const [byLeague, setByLeague] = useState("");
     const [byDate, setByDate] = useState(date);
         
           useEffect(() => {
-              fetch(`https://twokw-backend.onrender.com/api/v1/football/fixtures?date=${date}`)
+              fetch(`https://twokw-backend.onrender.com/api/v1/football/fixtures?=${date}`)
 
               .then((res) => res.json())
               .then((data) => { 
@@ -97,8 +97,8 @@ export default function MakePredictions () {
                                     <div className="w-full flex flex-row lg:gap-5 lg:justify-between lg:border-none border p-3 lg:p-0 rounded-xl my-4 lg:my-0 lg:active:hidden active:border-[#1A365D] active:scale-105 active:shadow-xl border-[#1A365D99]">
                                         <div className="flex flex-col  items-start gap-6 lg:flex-row w-full justify-center lg:gap-24">
                                             <td className="lg:py-5 hidden lg:block">{index + 1}</td>
-                                            <td className="lg:py-5"><img className="w-24 h-24" src={item.league.logo} alt={item.league.name}/> {item.league.name}</td>
-                                            <td className="lg:py-5"><span><img className="w-24 h-24" src={item.teams.away.logo} alt={item.teams.away.name} /> {item.teams.away.name}</span> vs <span><img className="w-24 h-24" src={item.teams.home.logo} alt={item.teams.home.name}/> {item.teams.home.name}</span></td>
+                                            <td className="lg:py-5"><img className="w-8 h-8" src={item.league.logo} alt={item.league.name}/> {item.league.name}</td>
+                                            <td className="lg:py-5"><span><img className="w-8 h-8" src={item.teams.away.logo} alt={item.teams.away.name} /> {item.teams.away.name}</span> vs <span><img className="w-8 h-8" src={item.teams.home.logo} alt={item.teams.home.name}/> {item.teams.home.name}</span></td>
                                         </div>
                                         <div className="flex gap-2 font-light font-sans lg:text-lg lg:font-normal text-xs text-[#737373] items-end lg:flex-row flex-col lg:w-full lg:justify-center lg:gap-24">
                                             <td className="lg:py-5 ">{new Date (item.fixture.date).toLocaleDateString()}</td>
