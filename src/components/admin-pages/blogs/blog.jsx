@@ -6,7 +6,7 @@ export default function NewPost () {
     const [title, setTitle] = useState("");
     const [body, setbody] = useState("");
     const [image, setImage] = useState("");
-    const [messages, setMessages] = useState("");
+    // const [messages, setMessages] = useState("");
 
     // const isImage =  (image) => image && image.type?.startsWith("image/");
 
@@ -14,23 +14,23 @@ export default function NewPost () {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if(title.length < 40){
-            console.log("tile is workin:",title.length)
-            return setMessages("Title is too short, must reach 40 letters");
-        }else{
-            console.log("tile is workin2:", title.length)
-            setMessages("title is ok")
-        }
-        if(body.length < 120) {
-            console.log("body is workin:", body.length)
-            return setMessages("Content of your blog is too short , must reach 120 letters")
-        }else{
-            console.log("body is workin2:", body.length)
-            setMessages("blog content is okay")
-        }
-        console.log("response from length:",messages)
+        // if(title.length < 40){
+        //     console.log("tile is workin:",title.length)
+        //     return setMessages("Title is too short, must reach 40 letters");
+        // }else{
+        //     console.log("tile is workin2:", title.length)
+        //     setMessages("title is ok")
+        // }
+        // if(body.length < 120) {
+        //     console.log("body is workin:", body.length)
+        //     return setMessages("Content of your blog is too short , must reach 120 letters")
+        // }else{
+        //     console.log("body is workin2:", body.length)
+        //     setMessages("blog content is okay")
+        // }
+        // console.log("response from length:",messages)
 
-        const token = localStorage.getItem("authToken");
+        // const token = localStorage.getItem("authToken");
 
 
 
@@ -59,9 +59,9 @@ export default function NewPost () {
                  <h2 className="lg:hidden w-full text-center font-bold text-black/80 font-[Inria Sans] py-6 text-xl">New Article</h2>
                 <div className="w-full lg:space-y-10 space-y-5">
                      <input required type="text" value={title} placeholder="Article Title" onChange={(e) => setTitle(e.target.value)} className="p-3 focus:ring-[#1A365D] outline-none focus:ring-1 border-2 rounded-[0.1em] border-[#00000066] placeholder:text-[#00000066] w-full font-[Inria Sans]" />
-                     {messages &&(
+                     {/* {messages &&(
                          <p className="text-[#1A365D]">{messages}</p>
-                     )}
+                     )} */}
                      <textarea required value={body} onChange={(e) => setbody(e.target.value)} className="max-h-screen lg:h-[70vh] h-[40vh] w-full p-3 focus:ring-[#1A365D] outline-none focus:ring-1 border-1 rounded-xl border-[#00000066] placeholder:text-[#00000066] font-[Inria Sans]"></textarea>
                 </div>
                 <div className="flex flex-col items-center space-y-10">
