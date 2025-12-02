@@ -24,6 +24,7 @@ import Goals2_5 from "./components/layout/goals-2.5";
 import NewPost from "./components/admin-pages/blogs/blog";
 import MetaData from "./components/admin-pages/features/metadata";
 import BlogPost_Id from "./components/blog_id";
+import All_Legues from "./components/admin-pages/features/leagues";
 
 export default function App(){
   const [loading, setLoading] = useState(true);
@@ -56,6 +57,7 @@ export default function App(){
               <Route path="dashboard" element={<DashBoard />} />
               <Route path="predictions" element={<Predictions />} />
               <Route path="fixtures" element={<MakePredictions />} />
+              <Route path="leagues" element={<All_Legues />} />
               <Route path="tags" element={<AdvertTags />} />      
               <Route path="metadata" element={<MetaData/>} />      
               <Route path="blogs/blog" element={<NewPost />} />

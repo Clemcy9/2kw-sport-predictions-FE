@@ -29,7 +29,7 @@ export default function Sidebar() {
             icon: <FaFutbol />,
             dropdown: [
                 { name: "Make Predictions", path: "/admin/fixtures" },
-                { name: "Leagues", path: "/admin/fixtures-add" },
+                { name: "Leagues", path: "/admin/leagues" },
             ],
         },
         {
