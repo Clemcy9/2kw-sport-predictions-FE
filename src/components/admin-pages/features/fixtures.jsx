@@ -15,7 +15,7 @@ export default function MakePredictions () {
     const [byDate, setByDate] = useState(date);
         
           useEffect(() => {
-              fetch(`https://twokw-backend.onrender.com/api/v1/football/fixtures?=${date}`)
+              fetch(`https://twokw-backend.onrender.com/api/v1/football/fixtures?date=${date}`)
 
               .then((res) => res.json())
               .then((data) => { 
@@ -30,15 +30,18 @@ export default function MakePredictions () {
 
           const all_predictions = prediction.filter((item) => {
 
-              const use_name = item.teams.away.name.toLowerCase().includes(byName.toLowerCase()) || item.teams.home.name.toLowerCase().includes(byName.toLowerCase());
+              const name = byName.toLowerCase();
+              const league = byLeague.toLowerCase();
 
-              const use_league = item.league.name.toLowerCase().includes(byLeague.toLowerCase());
+              const use_name = item.teams.away.name.toLowerCase().includes(name) || item.teams.home.name.toLowerCase().includes(name);
+
+              const use_league = item.league.name.toLowerCase().includes(league);
 
               const use_date = byDate ? item.fixture.date.startsWith(byDate) : true;
 
               return use_name && use_league && use_date;
 
-          })
+          });
 
     return(
             <div className="p-4 lg:px-5 lg:min-h-screen flex flex-col w-full">
@@ -49,7 +52,7 @@ export default function MakePredictions () {
                     <div className="w-full flex flex-col lg:flex-row lg:justify-between lg:my-4  gap-7 lg:gap-5">
                        
                         <div className="relative lg:w-60 w-full flex justify-between items-center">
-                            <input value={byLeague} onKeyDown={(e) => e.key === "Enter key" && all_predictions} onChange={(e) => setByLeague(e.target.value)} type="text" placeholder="Search By Name" className="w-full appearance-none border border-[#737373] rounded-[0.9em] py-1 pl-4 pr-10 text-[#737373] focus:ring focus:ring-[#1A365D] focus:border-[#1A365D] outline-none bg-white" />
+                    <input value={byName} onKeyDown={(e) => e.key === "Enter" && console.log("Enter pressed for name")} onChange={(e) => setByName(e.target.value)} type="text" placeholder="Search By Name" className="w-full appearance-none border border-[#737373] rounded-[0.9em] py-1 pl-4 pr-10 text-[#737373] focus:ring focus:ring-[#1A365D] focus:border-[#1A365D] outline-none bg-white" />
                             <Search size={18} className="absolute right-3 top-1/2 -translate-y-1/2 text-[#737373] pointer-events-none" />
                         </div>
                         <h3 className="lg:hidden font-sans font-normal text-sm">
@@ -57,7 +60,7 @@ export default function MakePredictions () {
                         </h3>
                         <div className="w-full lg:w-auto flex lg:gap-4 gap-7">
                             <div className="relative lg:w-60  flex justify-between items-center">
-                        <input value={byName} onKeyDown={(e) => e.key === "Enter key" && all_predictions} onChange={(e) => setByName(e.target.value)} type="text" placeholder="Select League" className="w-full appearance-none border border-[#737373] rounded-[0.3em] py-1 pl-4 pr-10 text-[#737373] focus:ring focus:ring-[#1A365D] focus:border-[#1A365D] outline-none bg-white" />
+                        <input value={byLeague} onKeyDown={(e) => e.key === "Enter" && console.log("Enter pressed for league")} onChange={(e) => setByLeague(e.target.value)} type="text" placeholder="Select League" className="w-full appearance-none border border-[#737373] rounded-[0.3em] py-1 pl-4 pr-10 text-[#737373] focus:ring focus:ring-[#1A365D] focus:border-[#1A365D] outline-none bg-white" />
                             <button onClick={() => setDropdown()}>
                             {dropdown ? (
                              <ChevronUp size={18}  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#737373] pointer-events-none" />
@@ -68,7 +71,7 @@ export default function MakePredictions () {
                             
                            </div>
                            <div className="relative lg:w-60 flex justify-between items-center">
-                        <input value={byDate} onKeyDown={(e) => e.key === "Enter key" && all_predictions} onChange={(e) => setByDate(e.target.value)} type="text" placeholder="11/04/2025" className="w-full appearance-none border border-[#737373] rounded-[0.3em] py-1 pl-4 pr-10 text-[#737373] focus:ring focus:ring-[#1A365D] focus:border-[#1A365D] outline-none bg-white" />
+                        <input value={byDate} onKeyDown={(e) => e.key === "Enter key" && console.log("Enter pressed for date")} onChange={(e) => setByDate(e.target.value)} type="text" placeholder="11/04/2025" className="w-full appearance-none border border-[#737373] rounded-[0.3em] py-1 pl-4 pr-10 text-[#737373] focus:ring focus:ring-[#1A365D] focus:border-[#1A365D] outline-none bg-white" />
                             <Calendar size={18} className="absolute right-3 top-1/2 -translate-y-1/2 text-[#737373] pointer-events-none" />
                            </div>
                         </div>
@@ -96,7 +99,7 @@ export default function MakePredictions () {
                         </thead>
 
                         <tbody className="text-right">
-                            {prediction.map((item, index) => (
+                            {all_predictions.map((item, index) => (
                                 <tr key={item.fixture.id} className="leading-tight">
                                     <div className="w-full flex flex-row lg:gap-2 lg:grid lg:grid-cols-12 lg:justify-between lg:border-none border p-3 lg:p-0 rounded-xl my-4 lg:my-0 lg:active:hidden active:border-[#1A365D] active:scale-105 active:shadow-xl border-[#1A365D99]">
                                         <div className="flex flex-col lg:col-span-8 lg:grid lg:grid-cols-9 justify-between  items-start gap-6 lg:flex-row w-full lg:gap-1 ">
