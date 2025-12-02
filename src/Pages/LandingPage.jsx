@@ -12,35 +12,40 @@ import LeagueTables from "../components/Standings/Table";
 import { Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
 // import {  BlogPage } from "../components/multi-component";
-import DummyBlog from "../components/dummy-blog"
+import DummyBlog from "../components/dummy-blog";
 import PremierLeagueCard from "../components/Premier-league";
 
 export default function LandingPage() {
   const [visible, setVisible] = useState(false);
-  const [bet, setBet] = useState(1);
+  const [bet, setBet] = useState(0);
   const [prediction, setPrediction] = useState([]);
   const [open, setOpen] = useState([]);
-
 
   useEffect(() => {
     window.onscroll = () => {
       setVisible(window.scrollY > window.innerHeight / 2);
+      setBet(1);
     };
   }, []);
 
   useEffect(() => {
-    const url = `https://twokw-backend.onrender.com/api/v1/admin/predictions/odds?bet=${bet}`;
+    // const url = `https://twokw-backend.onrender.com/api/v1/admin/predictions/odds?bet=${bet}`;
+    const url = `http://localhost:5000/api/v1/admin/predictions/odds?bet=${bet}`;
     fetch(url)
       .then((res) => res.json())
-      .then((data) => { 
-        const groupData = Object.groupBy(data.data, (pred) => pred.fixture.league.name);
+      .then((data) => {
+        const groupData = Object.groupBy(
+          data.data,
+          (pred) => pred.fixture.league.name
+        );
 
         // makes all cards open by default when the card loads
-        setOpen(Object.fromEntries(Object.keys(groupData).map(name => [name, true])));
+        setOpen(
+          Object.fromEntries(Object.keys(groupData).map((name) => [name, true]))
+        );
 
         setPrediction(groupData, data.data);
         console.log(groupData);
-
       });
     console.log("bet:", bet);
   }, [bet]);
@@ -90,46 +95,51 @@ export default function LandingPage() {
               </div>
 
               <div className="flex justify-center items-center flex-col  lg:px-3">
-
-                 
                 {/* display the cards under their respective card*/}
-               {Object.keys(prediction).map((leagueNames) => (
-                <div key={leagueNames} className="w-full ">
-                   <div className="bg-[#1A365D] w-full text-white flex justify-between items-center p-2 mt-6 mb-3 rounded-[0.6rem] hover:shadow-lg transition-all">
+                {Object.keys(prediction).map((leagueNames) => (
+                  <div key={leagueNames} className="w-full ">
+                    <div className="bg-[#1A365D] w-full text-white flex justify-between items-center p-2 mt-6 mb-3 rounded-[0.6rem] hover:shadow-lg transition-all">
+                      <h2 className="font-sans flex justify-center items-center font-semibold">
+                        {leagueNames}
+                      </h2>
 
-                     <h2 className="font-sans flex justify-center items-center font-semibold">{leagueNames}</h2>
-
-                     {/*toggle btn that reveals the card (+ -) */}
-                     <div onClick={() => setOpen((prev) =>({
-                      ...prev,[leagueNames]: !prev[leagueNames],
-                     }))}>
-                       {open [leagueNames] ? <FaPlus /> : <FaMinus />}
-                     </div>
-                   </div>
-                   {/* container that holds the card  */}
-                   {open [leagueNames] && (
-                     <motion.div
-                       className="lg:flex min-w-full w-full text-white space-y-0 lg:space-y-0 flex flex-col justify-center gap-2 items-center"
-                       initial={{ opacity: 0, y: 40 }}
-                       animate={{ opacity: 1, y: 0 }}
-                       transition={{ duration: 0.7, ease: "easeOut" }}
-                     >
-                       {/* <PredictionCard /> */}
-                       {prediction[leagueNames].map((x, index) => {
-                         return <PremierLeagueCard
-                           key={index}
-                           fixture={x.fixture.fixture}
-                           teams={x.fixture.teams}
-                           leagueNames={leagueNames}
-                           league={x.fixture.league}
-                           values={x.bets[0].values}
-                         />;
-                       })}
-                     </motion.div>
-                   )}
-                   
-                </div>
-               ))}
+                      {/*toggle btn that reveals the card (+ -) */}
+                      <div
+                        onClick={() =>
+                          setOpen((prev) => ({
+                            ...prev,
+                            [leagueNames]: !prev[leagueNames],
+                          }))
+                        }
+                      >
+                        {open[leagueNames] ? <FaPlus /> : <FaMinus />}
+                      </div>
+                    </div>
+                    {/* container that holds the card  */}
+                    {open[leagueNames] && (
+                      <motion.div
+                        className="lg:flex min-w-full w-full text-white space-y-0 lg:space-y-0 flex flex-col justify-center gap-2 items-center"
+                        initial={{ opacity: 0, y: 40 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.7, ease: "easeOut" }}
+                      >
+                        {/* <PredictionCard /> */}
+                        {prediction[leagueNames].map((x, index) => {
+                          return (
+                            <PremierLeagueCard
+                              key={index}
+                              fixture={x.fixture.fixture}
+                              teams={x.fixture.teams}
+                              leagueNames={leagueNames}
+                              league={x.fixture.league}
+                              values={x.bets[0].values}
+                            />
+                          );
+                        })}
+                      </motion.div>
+                    )}
+                  </div>
+                ))}
                 <LeagueTables />
                 <DummyBlog />
               </div>
@@ -143,7 +153,6 @@ export default function LandingPage() {
 }
 
 // Do not delete commented code
-
 
 // // import { useEffect, useRef } from "react";
 // import { FiArrowUp } from "react-icons/fi";
@@ -170,7 +179,6 @@ export default function LandingPage() {
 //   const [bet, setBet] = useState(1);
 //   const [prediction, setPrediction] = useState([]);
 
-
 //   const leagues = prediction.map((tournament) => ({
 
 //     slug: tournament.fixture.league.name,
@@ -186,7 +194,6 @@ export default function LandingPage() {
 //   const handleLeagueClick = (leagueName) => {
 
 //     localStorage.setItem("selectedLeague", leagueName);
-
 
 //     const path = `/leagues/${leagueName.toLowerCase().replace(/\s+/g, "-")}`;
 //     navigate(path);
@@ -240,7 +247,6 @@ export default function LandingPage() {
 
 //               <div className="sticky top-0 bottom-0">
 
-
 //                 <div className="hidden lg:sticky top-0 lg:block w-full lg:border lg:border-[#D6AE3E]/70 rounded-[0.6rem] lg:shadow-lg mt-5 ">
 //                   {/* Header */}
 //                   <h2 className="text-3xl font-semibold text-white font-sans bg-[#D6AE3E] text-center py-4 lg:rounded-t-[0.6rem]">
@@ -279,11 +285,7 @@ export default function LandingPage() {
 //                   ))}
 //                 </div>
 
-
-
-
-
-//                 {/* // key={idx} 
+//                 {/* // key={idx}
 //                     // league={y.fixture.league}/>; */}
 //               </div>
 //             </div>
@@ -294,8 +296,6 @@ export default function LandingPage() {
 //               </div>
 
 //               <div className="flex justify-center items-center flex-col">
-
-
 
 //                 {/* <PredictionCard /> */}
 //                 {prediction?.map((x, index) => {
@@ -318,6 +318,3 @@ export default function LandingPage() {
 //     </>
 //   );
 // }
-
-
-
