@@ -23,14 +23,19 @@ export default function FreeTips(props) {
   const tipsLink = [
     { title: "Free Tips", path: "/", id: 100 },
     { title: "All Predictions", path: "/all-predictions", id: 500 },
-    { title: "Home Win", path: "/home-win", id: 1 },
-    { title: "Away Win", path: "/away-win", id: 1 },
-    { title: "Super Singles", path: "/super-singles", id: 200 },
+    { title: "Home Win", path: "/home-win", id: 1, name: "Home" },
+    { title: "Away Win", path: "/away-win", id: 1, name: "Away" },
+    {
+      title: "Super Singles",
+      path: "/super-singles",
+      id: 200,
+      name: "super single",
+    },
     { title: "Double Chance", path: "/double-chance", id: 12 },
-    { title: "1.5 Goals", path: "/goals-1.5", id: 5 },
-    { title: "2.5 Goals", path: "/goals-2.5", id: 5 },
-    { title: "Free 2 Odds", path: "/free-2odds", id: 300 },
-    { title: "BTTS/GG", path: "/btts_gg", id: 8 },
+    { title: "1.5 Goals", path: "/goals-1.5", id: 5, name: "Over 1.5" },
+    { title: "2.5 Goals", path: "/goals-2.5", id: 5, name: "Over 2.5" },
+    { title: "Free 2 Odds", path: "/free-2odds", id: 300, name: "free 2 odds" },
+    { title: "BTTS/GG", path: "/btts_gg", id: 8, name: "Both Teams Score" },
   ];
 
   useEffect(() => {
@@ -57,7 +62,7 @@ export default function FreeTips(props) {
                   key={index}
                   onClick={() => {
                     navigate(tips.path);
-                    props.setBet(tips.id);
+                    props.setBet({ id: tips.id, name: tips.name });
                   }}
                   whileTap={{ scale: 0.95 }}
                   animate={{
