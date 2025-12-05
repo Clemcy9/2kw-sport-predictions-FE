@@ -35,10 +35,6 @@ export default function PremierLeagueCard({
     awayLogo: teams.away.logo,
     awayTeam: teams.away.name,
     leagueLogo: league.logo,
-<<<<<<< HEAD
-    timing:  new Date(times).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
-    odd: { Odds: values[1].odd, Tips: "over 15", Prop: "3.65%" },    
-=======
     timing: new Date(times).toLocaleTimeString([], {
       hour: "2-digit",
       minute: "2-digit",
@@ -57,8 +53,9 @@ export default function PremierLeagueCard({
           ? `${bet_filter(values, bet["name"])[0]?.percentage}%`
           : `${values[0].percentage}%`,
     },
->>>>>>> 1bf7f50252f76d6a66ad1a30075e28615a959aab
+   
   };
+  console.log(predictions.odd)
 
   
   return (

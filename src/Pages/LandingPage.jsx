@@ -16,7 +16,7 @@ import { useEffect, useState } from "react";
 
 export default function LandingPage() {
 
-  const [activeLeague, setActiveLeague] = useState("EPL"); 
+  // const [activeLeague, setActiveLeague] = useState("EPL"); 
   const [visible, setVisible] = useState(false);
   const [bet, setBet] = useState({});
   const [prediction, setPrediction] = useState({});
@@ -38,7 +38,7 @@ export default function LandingPage() {
      FETCH PREDICTION DATA BASED ON BET TYPE
   --------------------------------------------- */
   useEffect(() => {
-    const url = `http://localhost:5000/api/v1/admin/predictions/odds?bet=${bet["id"]}`;
+    const url = `https://twokw-backend.onrender.com/api/v1/admin/predictions/odds?bet=${bet["id"]}`;
 
     fetch(url)
       .then((res) => res.json())
@@ -98,13 +98,8 @@ export default function LandingPage() {
             <div className="lg:w-[350px] flex-shrink-0 space-y-0">
               <BestPredictionCard />
 
-<<<<<<< HEAD
-              <div className="sticky top-24 bottom-0">
-                <FootballLeaguesTable setActiveLeague={setActiveLeague} />
-=======
               <div className="sticky top-24">
                 <FootballLeaguesTable />
->>>>>>> 1bf7f50252f76d6a66ad1a30075e28615a959aab
               </div>
             </div>
 
@@ -163,43 +158,8 @@ export default function LandingPage() {
                   </div>
                 ))}
 
-<<<<<<< HEAD
-                     {/*toggle btn that reveals the card (+ -) */}
-                     <div onClick={() => setOpen((prev) =>({
-                      ...prev,[leagueNames]: !prev[leagueNames],
-                     }))}>
-                       {open [leagueNames] ? <FaPlus /> : <FaMinus />}
-                     </div>
-                   </div>
-                   {/* container that holds the card  */}
-                   {open [leagueNames] && (
-                     <motion.div
-                       className="lg:flex min-w-full w-full text-white space-y-0 lg:space-y-0 flex flex-col justify-center gap-2 items-center"
-                       initial={{ opacity: 0, y: 40 }}
-                       animate={{ opacity: 1, y: 0 }}
-                       transition={{ duration: 0.7, ease: "easeOut" }}
-                     >
-                       {/* <PredictionCard /> */}
-                       {prediction[leagueNames].map((x, index) => {
-                         return <PremierLeagueCard
-                           key={index}
-                           fixture={x.fixture.fixture}
-                           teams={x.fixture.teams}
-                           leagueNames={leagueNames}
-                           league={x.fixture.league}
-                           values={x.bets[0].values}
-                         />;
-                       })}
-                     </motion.div>
-                   )}
-                   
-                </div>
-               ))}
-                <LeagueTables activeLeague={activeLeague} />
-=======
                 {/* Tables + Blog */}
                 <LeagueTables />
->>>>>>> 1bf7f50252f76d6a66ad1a30075e28615a959aab
                 <DummyBlog />
               </div>
             </main>
