@@ -7,7 +7,8 @@ import { useEffect } from "react";
 
 export default function MakePredictions () {
     
-    const [date, setDate] = useState("2025-12-02");
+    const today = new Date().toISOString().split("T")[0];
+    const [date, setDate] = useState(today);
     const [byName, setByName] = useState("");
     const [modal, setModal] = useState(false);
     const [close, setClose] = useState(false);
@@ -15,6 +16,9 @@ export default function MakePredictions () {
     const [byDate, setByDate] = useState(date);
     const [byLeague, setByLeague] = useState("");
     const [prediction, setPrediction] = useState([]);
+
+    // const dates = new Date();
+    // dates.setDate(dates.getDate() + 1);
         
           useEffect(() => {
               fetch(`https://twokw-backend.onrender.com/api/v1/football/fixtures?date=${date}`)
@@ -103,8 +107,8 @@ export default function MakePredictions () {
                         <tbody className="text-right">
                             {all_predictions.map((item, index) => (
                                 <tr key={item.fixture.id} className="leading-tight">
-                                    <div className="w-full flex flex-row lg:gap-2 lg:grid lg:grid-cols-12 lg:justify-between lg:border-none border p-3 lg:p-0 rounded-xl my-4 lg:my-0 lg:active:hidden active:border-[#1A365D] active:scale-105 active:shadow-xl border-[#1A365D99]">
-                                        <div className="flex flex-col lg:col-span-8 lg:grid lg:grid-cols-9 justify-between  items-start gap-6 lg:flex-row w-full lg:gap-1 ">
+                                    <div className="w-full flex flex-row lg:gap-2 lg:grid lg:grid-cols-14 lg:justify-between lg:border-none border p-3 lg:p-0 rounded-xl my-4 lg:my-0 lg:active:hidden active:border-[#1A365D] active:scale-105 active:shadow-xl border-[#1A365D99]">
+                                        <div className="flex flex-col lg:col-span-10 lg:grid lg:grid-cols-9 justify-between  items-start gap-6 lg:flex-row w-full lg:gap-1 ">
                                             <td className="lg:py-5 hidden lg:col-span-1 lg:block lg:mr-12">{index + 1}</td>
                                             <td className="lg:py-5  lg: flex lg:justify-start lg:col-span-4 lg:items-start w-full lg:max-w-80 "><img className="w-8 h-8" src={item.league.logo} alt={item.league.name} />{(item?.league?.name || "").slice(0, 32).trim()}</td>
                                             <td className="lg:py-5 lg:flex lg:items-start lg:justify-start lg:col-span-4 lg:w-full lg:max-w-72 lg:flex-row"><span className="flex"><img className="w-4 h-4" src={item.teams.away.logo} alt={item.teams.away.name} /> {(item?.teams?.away.name || "").slice(0, 16).trim()}</span> <span className="px-2 font-semibold">vs</span> <span className="flex"><img className="w-4 h-4" src={item.teams.home.logo} alt={item.teams.home.name} /> {(item.teams.home.name || "").slice(0, 16).trim()}</span></td>
