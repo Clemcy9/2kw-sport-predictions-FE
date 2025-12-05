@@ -1,7 +1,8 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaCircleDot, FaTrophy } from "react-icons/fa6";
+import { FaCircleDot, FaSpinner, FaTrophy } from "react-icons/fa6";
+import { FaTruckLoading } from "react-icons/fa";
 
 export default function LeagueTables() {
     const [activeLeague, setActiveLeague] = useState("EPL");
@@ -80,7 +81,7 @@ export default function LeagueTables() {
                 setLoading(false);
             } catch (err) {
                 console.error(err);
-                setError("Failed to fetch data");
+                setError("Unable to load table's, connect to a network");
                 setLoading(false);
             }
         };
@@ -88,8 +89,8 @@ export default function LeagueTables() {
         fetchData();
     }, []);
 
-    if (loading) return <div className="text-center text-white py-20">Loading data...</div>;
-    if (error) return <div className="text-center text-red-500 py-20">{error}</div>;
+    if (loading) return <div className="text-center text-[#1A365D] py-20 flex justify-center items-center"><span><FaSpinner className="animate-spin" /> </span> Loading data...</div>;
+    if (error) return <div className="text-center flex justify-center items-center text-red-500 py-20 border-[#1A365D] border shadow-xl w-full rounded-xl"><FaTruckLoading /> {error}</div>;
 
     const leagueData = leaguesData[activeLeague] || { league: [], scorers: [] };
 

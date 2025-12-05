@@ -1,0 +1,711 @@
+*   [33mcommit d7113400078446d4866249e6550a7c2ecb7838ab[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+[31m|[m[32m\[m  Merge: 3bdd5bf aa8ef53
+[31m|[m [32m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[31m|[m [32m|[m Date:   Fri Dec 5 09:28:13 2025 +0100
+[31m|[m [32m|[m 
+[31m|[m [32m|[m     Merge branch 'wisdom-branch' of https://github.com/Clemcy9/2kw-sport-predictions-FE
+[31m|[m [32m|[m 
+[31m|[m * [33mcommit aa8ef530cb8779367988aa98f1266c21e324417b[m[33m ([m[1;31morigin/wisdom-branch[m[33m, [m[1;32mwisdom-branch[m[33m)[m
+[31m|[m [32m|[m Author: Wisdom Dickson <dicksonwisdom005@gmail.com>
+[31m|[m [32m|[m Date:   Thu Dec 4 20:17:48 2025 +0100
+[31m|[m [32m|[m 
+[31m|[m [32m|[m     finished updating the status feature
+[31m|[m [32m|[m 
+[31m|[m * [33mcommit 5612667ccc941a2317b340f0b7503a2b9b8bad3e[m
+[31m|[m [32m|[m Author: Wisdom Dickson <dicksonwisdom005@gmail.com>
+[31m|[m [32m|[m Date:   Thu Dec 4 17:02:16 2025 +0100
+[31m|[m [32m|[m 
+[31m|[m [32m|[m     added the blog image upload feature
+[31m|[m [32m|[m 
+* [32m|[m [33mcommit 3bdd5bf7c14137fe4517ab64e54cf7562c91e5c9[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+[32m|[m [32m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[32m|[m [32m|[m Date:   Fri Dec 5 09:23:37 2025 +0100
+[32m|[m [32m|[m 
+[32m|[m [32m|[m     fixed a bug in top-scorers data
+[32m|[m [32m|[m 
+* [32m|[m [33mcommit b4e5095dfcb9af77997698833455fb11ba87a66e[m
+[32m|[m[32m/[m  Author: victoryduru24 <victoryduru04@gmail.com>
+[32m|[m   Date:   Fri Dec 5 08:13:58 2025 +0100
+[32m|[m   
+[32m|[m       integrated standings and top-scorers table
+[32m|[m 
+* [33mcommit 312cdf84d74c37185f2af53bfdf4a018a91aad9a[m
+[32m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[32m|[m Date:   Tue Dec 2 07:17:13 2025 +0100
+[32m|[m 
+[32m|[m     added search logic
+[32m|[m 
+* [33mcommit a887692c5a3513cce38714bf9c265392e21bdf78[m
+[32m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[32m|[m Date:   Tue Dec 2 06:49:52 2025 +0100
+[32m|[m 
+[32m|[m     created leagues file
+[32m|[m 
+* [33mcommit e9457d1eb118a3be1215f6397317359e2b12bb72[m
+[32m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[32m|[m Date:   Mon Dec 1 19:38:29 2025 +0100
+[32m|[m 
+[32m|[m     Updated fixtures UI for mobile
+[32m|[m 
+* [33mcommit 60cd806b21d9053d7915606126430a5376ffe3a0[m
+[32m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[32m|[m Date:   Mon Dec 1 19:23:15 2025 +0100
+[32m|[m 
+[32m|[m     Updated admin fixtures UI after Integration
+[32m|[m 
+* [33mcommit dd93073ff0620ab427de7d739720e5c3a9cf898d[m
+[32m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[32m|[m Date:   Mon Dec 1 17:39:42 2025 +0100
+[32m|[m 
+[32m|[m     integrated fixtures for admin make-predictions
+[32m|[m 
+* [33mcommit 6f7a40e85a2bdd2651a1e50ff96153af82a47e0a[m
+[32m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[32m|[m Date:   Mon Dec 1 17:29:26 2025 +0100
+[32m|[m 
+[32m|[m     made some Updates on blog
+[32m|[m 
+* [33mcommit 7374f043c6710bf10e115c57e772f77c56b8755f[m
+[32m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[32m|[m Date:   Fri Nov 28 22:10:51 2025 +0100
+[32m|[m 
+[32m|[m     update the length of blog articles to enhance a better UI
+[32m|[m   
+*   [33mcommit 9686b468f9a63096d2e365498b29c02a2e4b51c0[m[33m ([m[1;31morigin/landing-page[m[33m, [m[1;32mlanding-page[m[33m)[m
+[33m|[m[34m\[m  Merge: 82b7a85 acf0793
+[33m|[m [34m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[33m|[m [34m|[m Date:   Fri Nov 28 20:31:09 2025 +0100
+[33m|[m [34m|[m 
+[33m|[m [34m|[m     Merge branch 'wisdom-branch' of https://github.com/Clemcy9/2kw-sport-predictions-FE
+[33m|[m [34m|[m 
+[33m|[m * [33mcommit acf079354664112cd69c35f0ab3f8eda3d279e33[m
+[33m|[m [34m|[m Author: Wisdom Dickson <dicksonwisdom005@gmail.com>
+[33m|[m [34m|[m Date:   Fri Nov 28 08:00:11 2025 -0700
+[33m|[m [34m|[m 
+[33m|[m [34m|[m     fixed blog
+[33m|[m [34m|[m 
+[33m|[m * [33mcommit 192c78e474911af5936290087baac8c630843dd4[m
+[33m|[m [34m|[m Author: Wisdom Dickson <dicksonwisdom005@gmail.com>
+[33m|[m [34m|[m Date:   Fri Nov 28 07:08:28 2025 -0700
+[33m|[m [34m|[m 
+[33m|[m [34m|[m     updated blog ui
+[33m|[m [34m|[m 
+* [34m|[m [33mcommit 82b7a855188b2774550cf255c8e6541712440023[m
+[34m|[m[34m/[m  Author: victoryduru24 <victoryduru04@gmail.com>
+[34m|[m   Date:   Fri Nov 28 20:26:47 2025 +0100
+[34m|[m   
+[34m|[m       integrated getting fistures
+[34m|[m 
+* [33mcommit b4e8c4cc943ac87d86fb38d522601e0cd800d9eb[m
+[34m|[m Author: Wisdom Dickson <dicksonwisdom005@gmail.com>
+[34m|[m Date:   Fri Nov 28 06:42:08 2025 -0700
+[34m|[m 
+[34m|[m     testing
+[34m|[m 
+* [33mcommit f0ad851335b6a0900667b806913d9e61ea0bc0cb[m
+[34m|[m Author: Wisdom Dickson <dicksonwisdom005@gmail.com>
+[34m|[m Date:   Fri Nov 28 06:29:50 2025 -0700
+[34m|[m 
+[34m|[m     testing
+[34m|[m 
+* [33mcommit b41995396dd58df8e079e54e2921ef934ed088d5[m
+[34m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[34m|[m Date:   Fri Nov 28 14:04:12 2025 +0100
+[34m|[m 
+[34m|[m     integrated get all blog
+[34m|[m 
+* [33mcommit 25fe925825477f768bb32ce46044a7ac3355d7f6[m
+[34m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[34m|[m Date:   Wed Nov 26 14:16:51 2025 +0100
+[34m|[m 
+[34m|[m     implemented the blog functionalites so user can create a blog
+[34m|[m 
+* [33mcommit 827f5355f68c1b65d9b6c19f23534d86283de821[m
+[34m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[34m|[m Date:   Sun Nov 23 16:46:00 2025 +0100
+[34m|[m 
+[34m|[m     bug
+[34m|[m 
+* [33mcommit a555119363e2f2171f98c9b61c92b46b226ea72e[m
+[34m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[34m|[m Date:   Sun Nov 23 16:42:30 2025 +0100
+[34m|[m 
+[34m|[m     bug
+[34m|[m 
+* [33mcommit aabfc7de1aee92a373150228f364d5ef5f1e31d5[m
+[34m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[34m|[m Date:   Sun Nov 23 16:33:09 2025 +0100
+[34m|[m 
+[34m|[m     Added swide to perform action buttons
+[34m|[m 
+* [33mcommit 4c89a19817a2539717db6a7664fb7493686353c7[m
+[34m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[34m|[m Date:   Sun Nov 23 15:14:26 2025 +0100
+[34m|[m 
+[34m|[m     Updated Mobile UI
+[34m|[m 
+* [33mcommit 86917f4df424042e1174b141bd720e91685a7a3a[m
+[34m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[34m|[m Date:   Sun Nov 23 07:49:55 2025 +0100
+[34m|[m 
+[34m|[m     Updated mobile predictions card for admin use
+[34m|[m 
+* [33mcommit 175af1e5ae27c919e2a91b3db6ce61ae164057ce[m
+[34m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[34m|[m Date:   Sat Nov 22 23:33:54 2025 +0100
+[34m|[m 
+[34m|[m     Upfont-sans font-normal text-lg text-blackdated the predictions UI
+[34m|[m 
+* [33mcommit dca0a6dc729e559d616ee58ea1b74d591e67934d[m
+[34m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[34m|[m Date:   Sat Nov 22 21:31:40 2025 +0100
+[34m|[m 
+[34m|[m     Updated mobile UI for the fixtures page
+[34m|[m 
+* [33mcommit 19c31c6bea4f9a1d497e3dc5222bb0ca8da883c6[m
+[34m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[34m|[m Date:   Sat Nov 22 19:44:25 2025 +0100
+[34m|[m 
+[34m|[m     Updated UI
+[34m|[m 
+* [33mcommit bbe2210f5d00d9bbb08634cd736c3a12531bb594[m
+[34m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[34m|[m Date:   Sat Nov 22 12:48:32 2025 +0100
+[34m|[m 
+[34m|[m     made updates on the UI
+[34m|[m 
+* [33mcommit 75ec590d22ab46a9c402eb4320d4543475e8b394[m
+[34m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[34m|[m Date:   Sat Nov 22 11:03:31 2025 +0100
+[34m|[m 
+[34m|[m     fixed a bug
+[34m|[m 
+* [33mcommit 41b740f3006e37afb324bbd44f0054a7925c33ff[m
+[34m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[34m|[m Date:   Sat Nov 22 10:34:44 2025 +0100
+[34m|[m 
+[34m|[m     fixed the default card state
+[34m|[m 
+* [33mcommit 6c535b0d6da69141f10a8e4b1c5afaac185b3946[m
+[34m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[34m|[m Date:   Sat Nov 22 10:18:59 2025 +0100
+[34m|[m 
+[34m|[m     cleaned the code
+[34m|[m 
+* [33mcommit 79b442dd588ee504979a94e9988eb48e34877007[m
+[34m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[34m|[m Date:   Fri Nov 21 22:27:55 2025 +0100
+[34m|[m 
+[34m|[m     started the Metadata pages
+[34m|[m 
+* [33mcommit 9ae6abd6df59f3c37bb009a8794da1ec72383733[m
+[34m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[34m|[m Date:   Fri Nov 21 21:54:53 2025 +0100
+[34m|[m 
+[34m|[m     fixed third party adds liks
+[34m|[m 
+* [33mcommit 9d3d1e51f21ff46945e686365d2e69ec99c97799[m
+[34m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[34m|[m Date:   Fri Nov 21 21:32:41 2025 +0100
+[34m|[m 
+[34m|[m     fixed a mobile UI error
+[34m|[m 
+* [33mcommit ecdf827f81c6e81b853e36da3e0b4a350e8309c2[m
+[34m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[34m|[m Date:   Fri Nov 21 20:58:50 2025 +0100
+[34m|[m 
+[34m|[m     Displayed grouped data on the UI and fixed multiple bugs
+[34m|[m 
+* [33mcommit bf7f13859cc0f20da8fff8531d95c3f01131876d[m
+[34m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[34m|[m Date:   Fri Nov 21 18:42:45 2025 +0100
+[34m|[m 
+[34m|[m     groudped the league names payload
+[34m|[m 
+* [33mcommit 7ad7b68b6690d48b97e8fe673befb07082b41f95[m
+[34m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[34m|[m Date:   Fri Nov 21 13:10:17 2025 +0100
+[34m|[m 
+[34m|[m     fixed a bug
+[34m|[m 
+* [33mcommit 3dfa26bd4c7713d0784d4ca7364bdf21fb89a584[m
+[34m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[34m|[m Date:   Fri Nov 21 11:28:13 2025 +0100
+[34m|[m 
+[34m|[m     started blog
+[34m|[m 
+* [33mcommit dcb4a6c6a40a5b6b837b921c01b9e8b763b1639b[m
+[34m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[34m|[m Date:   Fri Nov 21 09:22:09 2025 +0100
+[34m|[m 
+[34m|[m     updated freetips routing system and outlets
+[34m|[m 
+* [33mcommit f4194e67e5204165e3105d8ecb59068f020344cc[m
+[34m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[34m|[m Date:   Fri Nov 21 08:25:50 2025 +0100
+[34m|[m 
+[34m|[m     Updated file/folder Structure and archietecture
+[34m|[m 
+* [33mcommit 0413c398564ded9a7fa89c6015adcf17af4b02f1[m
+[34m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[34m|[m Date:   Thu Nov 20 07:11:17 2025 +0100
+[34m|[m 
+[34m|[m     integrated time and fixed bugs
+[34m|[m 
+* [33mcommit 9fd35fde20f86e52e1735aa9281a4ed0f38b7853[m
+[34m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[34m|[m Date:   Thu Nov 20 06:32:42 2025 +0100
+[34m|[m 
+[34m|[m     integrated time
+[34m|[m 
+* [33mcommit b921d3d3502bfd6bb3f37e7706dab45ccfe7c841[m
+[34m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[34m|[m Date:   Thu Nov 20 00:09:20 2025 +0100
+[34m|[m 
+[34m|[m     organised code base
+[34m|[m 
+* [33mcommit 8c49d3bbf2b0427fe3b3930134cd9d208e82c1ce[m
+[34m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[34m|[m Date:   Wed Nov 19 23:59:02 2025 +0100
+[34m|[m 
+[34m|[m     Updated UI and Integrated Api for odds
+[34m|[m 
+* [33mcommit 23e9d4dbfee65f34188546eda24fb182ede37099[m
+[34m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[34m|[m Date:   Wed Nov 19 15:14:53 2025 +0100
+[34m|[m 
+[34m|[m     fixed a bug
+[34m|[m   
+*   [33mcommit a4f7185144bb4f7f2d79d6cbfdefe7f583cec740[m
+[35m|[m[36m\[m  Merge: c8456ac 6d2b5b1
+[35m|[m [36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[35m|[m [36m|[m Date:   Wed Nov 19 14:49:04 2025 +0100
+[35m|[m [36m|[m 
+[35m|[m [36m|[m     reseolvded merge conflicts
+[35m|[m [36m|[m 
+[35m|[m * [33mcommit 6d2b5b1f863e8f52321032d9ce88feb8f4aff514[m
+[35m|[m [36m|[m Author: clement <clemcy9@gmail.com>
+[35m|[m [36m|[m Date:   Wed Nov 19 14:40:55 2025 +0100
+[35m|[m [36m|[m 
+[35m|[m [36m|[m     update: integrated landingpage homewin with Be
+[35m|[m [36m|[m 
+* [36m|[m [33mcommit c8456ac7f36fd94048f6aec3bcc3380775a5342d[m
+[36m|[m[36m/[m  Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m   Date:   Wed Nov 19 14:44:01 2025 +0100
+[36m|[m   
+[36m|[m       latest update
+[36m|[m 
+* [33mcommit ad9109a592a3e7b37608785dc25fa851e638ef37[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Wed Nov 19 12:27:21 2025 +0100
+[36m|[m 
+[36m|[m     Ui bug fixed
+[36m|[m 
+* [33mcommit 7ca7ca1b7bfc3c5ba643c8ff7fcd0008f2436524[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Wed Nov 19 10:27:21 2025 +0100
+[36m|[m 
+[36m|[m     Fixed Multiple UI bugs and errors
+[36m|[m 
+* [33mcommit 98041d4b1184e427c1c658fffc7634a544d39399[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Wed Nov 19 10:26:35 2025 +0100
+[36m|[m 
+[36m|[m     Fixed Multiple UI bugs and errors
+[36m|[m 
+* [33mcommit 743713a5a68fa704f33b2743226b32f5cb3b4144[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Wed Nov 19 07:43:31 2025 +0100
+[36m|[m 
+[36m|[m     Updated code structure
+[36m|[m 
+* [33mcommit fe32053b782ee6b85bbff40db4704d052acb1535[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Tue Nov 18 23:16:20 2025 +0100
+[36m|[m 
+[36m|[m     Fixed major bugs and UI
+[36m|[m 
+* [33mcommit c51aff01e5f716a8b24dc6175e7bc3f75e358061[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Tue Nov 18 13:43:31 2025 +0100
+[36m|[m 
+[36m|[m     Fixed another sign-in bug
+[36m|[m 
+* [33mcommit c84a869efa0b35901b1e32c10d987c259d43b091[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Tue Nov 18 09:43:42 2025 +0100
+[36m|[m 
+[36m|[m     fixed a bug
+[36m|[m 
+* [33mcommit 188ad0c5614fea5dcda5d36f5005e19b8da04da0[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Tue Nov 18 09:35:39 2025 +0100
+[36m|[m 
+[36m|[m     Updated Landing page UI
+[36m|[m 
+* [33mcommit 832b1f447243b61a78e856e8d331ac507a78c2b6[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Tue Nov 18 06:58:21 2025 +0100
+[36m|[m 
+[36m|[m     Updated user navigation arrow on the landing page
+[36m|[m 
+* [33mcommit 0103bf4d123cbcba95b5d046dc227ac67e819d0a[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Tue Nov 18 06:35:17 2025 +0100
+[36m|[m 
+[36m|[m     added footer tag
+[36m|[m 
+* [33mcommit cf85a0e66c53759b9e340478ba674a5606b872b0[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Tue Nov 18 05:21:46 2025 +0100
+[36m|[m 
+[36m|[m     Updated desktop Navbar
+[36m|[m 
+* [33mcommit 8ccf08dafa40c7a023bee1f382f1ff54f0a6c8e9[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Tue Nov 18 05:15:47 2025 +0100
+[36m|[m 
+[36m|[m     Updated 3rd party links header
+[36m|[m 
+* [33mcommit ae39560f0b89d121c6a13eba7d10a5230bfeb1c8[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Mon Nov 17 22:33:04 2025 +0100
+[36m|[m 
+[36m|[m     Added tags page
+[36m|[m 
+* [33mcommit 6d85d9552d37f45f210324a64114ad5417239c51[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Mon Nov 17 20:23:25 2025 +0100
+[36m|[m 
+[36m|[m     Implemented Login Authentication
+[36m|[m 
+* [33mcommit cf5994a4c7d4b3ca2a57a180a0c5cf6d47ca92fc[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Mon Nov 17 06:48:22 2025 +0100
+[36m|[m 
+[36m|[m     Implemented Sign up authentication and Name format
+[36m|[m 
+* [33mcommit 4a3130b6f3f4653fe2ffa4c239696eaff8663787[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Sat Nov 15 08:29:22 2025 +0100
+[36m|[m 
+[36m|[m     Updated UI
+[36m|[m 
+* [33mcommit 0dca67928c46ee268df6ceb6c895a6d194858e69[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Sat Nov 15 08:06:43 2025 +0100
+[36m|[m 
+[36m|[m     Updated Layout
+[36m|[m 
+* [33mcommit 73fbfbca4cc7d701574c6232564a891085197792[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Sat Nov 15 07:08:06 2025 +0100
+[36m|[m 
+[36m|[m     Updated Layout
+[36m|[m 
+* [33mcommit 41c688bbba241b57b241c3127d0a18a6f896cf44[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Fri Nov 14 14:19:50 2025 +0100
+[36m|[m 
+[36m|[m     Updated Layouts
+[36m|[m 
+* [33mcommit 82aa36628b868aa532e0ddb3c58447eb0041e13c[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Fri Nov 14 08:50:10 2025 +0100
+[36m|[m 
+[36m|[m     Updated Layout
+[36m|[m 
+* [33mcommit 859ffd7757a817476d4fe44d38e07c6c0e7eb0b7[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Fri Nov 14 07:57:02 2025 +0100
+[36m|[m 
+[36m|[m     fixed Layouts
+[36m|[m 
+* [33mcommit ac5f65e493c331ab57b94c0b8237c7e0b22b9bc8[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Tue Nov 11 08:19:41 2025 +0100
+[36m|[m 
+[36m|[m     another bug
+[36m|[m 
+* [33mcommit 56f9adc9eba35abc77fe70222af4ea8b91ee0895[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Tue Nov 11 07:43:27 2025 +0100
+[36m|[m 
+[36m|[m     login system Update
+[36m|[m 
+* [33mcommit 5ff29910c47ed8827698cf8d40e04098a282b6c5[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Tue Nov 11 07:24:50 2025 +0100
+[36m|[m 
+[36m|[m     Updated Registration flow
+[36m|[m 
+* [33mcommit 1fdcfc2e8cf3cb0ba65e96256b290f347d517610[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Mon Nov 10 23:45:30 2025 +0100
+[36m|[m 
+[36m|[m     fixed a bug
+[36m|[m 
+* [33mcommit 23c2c9d63652962f42bfbcadd8d6c97b3be42e72[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Mon Nov 10 00:15:26 2025 +0100
+[36m|[m 
+[36m|[m     fixed a bug
+[36m|[m 
+* [33mcommit 4cb3093b8422b14788d0bba4c54781443b818fcd[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Sun Nov 9 23:56:19 2025 +0100
+[36m|[m 
+[36m|[m     fixed a UI bug
+[36m|[m 
+* [33mcommit bbed489b7bd7b2b94c943d66bcc15ca3e442c673[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Sun Nov 9 23:41:59 2025 +0100
+[36m|[m 
+[36m|[m     fixed a bug
+[36m|[m 
+* [33mcommit 6201b08e2a7e4d5b9f442bd938b0d3cb7dc08b51[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Sun Nov 9 23:38:03 2025 +0100
+[36m|[m 
+[36m|[m     Updated mobile admin UI
+[36m|[m 
+* [33mcommit 5027ba6c3f2141f3297b48f9f6ec59d1b6c6206a[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Sun Nov 9 23:07:21 2025 +0100
+[36m|[m 
+[36m|[m     added mobile sidebar
+[36m|[m 
+* [33mcommit fad2fe67abba666d034c87ea0113eb84f1549bfb[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Sun Nov 9 20:52:55 2025 +0100
+[36m|[m 
+[36m|[m     Updated dashboard UI
+[36m|[m 
+* [33mcommit 602effd6c544cedc2cf2da3c6a61eb900ce7ca02[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Sat Nov 8 09:34:23 2025 +0100
+[36m|[m 
+[36m|[m     Updated Registration UI
+[36m|[m 
+* [33mcommit de9b52e8c21f9b00ff98eaf5ed32efe44baf06f5[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Sat Nov 8 08:52:51 2025 +0100
+[36m|[m 
+[36m|[m     Updated success Animation
+[36m|[m 
+* [33mcommit 8bcb0d8950fa5e1d2b28fefece61bbb0da4ef741[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Sat Nov 8 08:17:27 2025 +0100
+[36m|[m 
+[36m|[m     Updated Mobile UI
+[36m|[m 
+* [33mcommit 443060c63dd8586d62e5950065fae1b91e5b3804[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Sat Nov 8 08:10:37 2025 +0100
+[36m|[m 
+[36m|[m     Updated mobile UI
+[36m|[m 
+* [33mcommit 9abe4d43882f91da5ede7b8ad612b89a787428d2[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Sat Nov 8 08:00:57 2025 +0100
+[36m|[m 
+[36m|[m     added required attribute
+[36m|[m 
+* [33mcommit 145a6f7f5e584d9981abc796b45d00f9b4110f60[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Sat Nov 8 07:57:02 2025 +0100
+[36m|[m 
+[36m|[m     Updated mobile UI
+[36m|[m 
+* [33mcommit a4b249edda40946e6ca8f72f248346ab96bbab12[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Fri Nov 7 12:49:25 2025 +0100
+[36m|[m 
+[36m|[m     Updated Mobile UI
+[36m|[m 
+* [33mcommit 1eb01ee83de8a4c832def7e8f4727ad9cd1a1746[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Wed Nov 5 14:35:51 2025 +0100
+[36m|[m 
+[36m|[m     Updated mobile UI and fixed Bug
+[36m|[m 
+* [33mcommit 568291108173a499edada654880b44ada4999059[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Tue Nov 4 09:50:51 2025 +0100
+[36m|[m 
+[36m|[m     Added Admain Pages and Updated UI
+[36m|[m 
+* [33mcommit c15af08e586667b9137ed1bc6602640d470b2f0d[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Sun Nov 2 07:02:25 2025 +0100
+[36m|[m 
+[36m|[m     fixed a bug
+[36m|[m 
+* [33mcommit 5848753fdb2ba8d7dcc935c38a0adb4404348782[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Sun Nov 2 06:58:03 2025 +0100
+[36m|[m 
+[36m|[m     fixed a bug
+[36m|[m 
+* [33mcommit 0382d6bd7cac88880dfdd2b293432e28cc42bc6b[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Fri Oct 31 14:36:49 2025 +0100
+[36m|[m 
+[36m|[m     fixed a bug and Updated UI
+[36m|[m 
+* [33mcommit 20ac7137b8d7902032c82d92b9299bfa5f3799a7[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Fri Oct 31 08:22:27 2025 +0100
+[36m|[m 
+[36m|[m     updated responsive UI on mobile
+[36m|[m 
+* [33mcommit 9736a994b4819644e6a4571a89c56bc8477c5bfb[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Fri Oct 31 07:59:18 2025 +0100
+[36m|[m 
+[36m|[m     fixed a bug
+[36m|[m 
+* [33mcommit 89f20a7d027c84f1461d259a7f734e6f64f9e84b[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Fri Oct 31 00:32:27 2025 +0100
+[36m|[m 
+[36m|[m     fixed login bug
+[36m|[m 
+* [33mcommit fac9fd90816e2b6126af535e55eeae75da8b1f01[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Fri Oct 31 00:05:57 2025 +0100
+[36m|[m 
+[36m|[m     Updated UI and tablet responsiveness
+[36m|[m 
+* [33mcommit 098cbc9382c0561528b3d54c20c0a191e87265f7[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Thu Oct 30 13:54:58 2025 +0100
+[36m|[m 
+[36m|[m     fixed mobile responsiveness for blog
+[36m|[m 
+* [33mcommit 0e2485f4e87c953d9430e7ca85ad565cc9b47964[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Thu Oct 30 13:50:53 2025 +0100
+[36m|[m 
+[36m|[m     fixed a bug
+[36m|[m 
+* [33mcommit 6c31ec5ecaff782bc50738dd2687842658d6f468[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Thu Oct 30 13:36:10 2025 +0100
+[36m|[m 
+[36m|[m     updated responsiveness
+[36m|[m 
+* [33mcommit fa38c7b4475bb2bed43c7c75e908e5abbd599150[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Thu Oct 30 11:36:16 2025 +0100
+[36m|[m 
+[36m|[m     updated UI and responsiveness
+[36m|[m 
+* [33mcommit b7f599be48019be94486e85154e41f1db303aa02[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Thu Oct 30 09:42:24 2025 +0100
+[36m|[m 
+[36m|[m     updated UI and bug fixes
+[36m|[m 
+* [33mcommit ee975c16e12f61a87e451c6d3d3c792c1becfd46[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Wed Oct 29 10:33:18 2025 +0100
+[36m|[m 
+[36m|[m     fixed a bug
+[36m|[m 
+* [33mcommit 23e52f06edf1fdf78cb7f7e77e0ecb2c57760c1e[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Wed Oct 29 10:24:49 2025 +0100
+[36m|[m 
+[36m|[m     fixed a bug
+[36m|[m 
+* [33mcommit fdc4782ddbe8d87f27d3135ffb650a996e5c9885[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Wed Oct 29 10:17:43 2025 +0100
+[36m|[m 
+[36m|[m     added new password page and back navigation componrent for enhanced UX
+[36m|[m 
+* [33mcommit 8827d91e15b9f3f6612ab6a00e1dc178fa04fff3[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Wed Oct 29 09:51:45 2025 +0100
+[36m|[m 
+[36m|[m     added otp verification and success pages, added lottie animations for the success page
+[36m|[m 
+* [33mcommit 67492e374760f096d912aef25c4d3e5fe83cda41[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Tue Oct 28 20:55:14 2025 +0100
+[36m|[m 
+[36m|[m     added OTP verification page
+[36m|[m 
+* [33mcommit 77f63544ca01cf6ddca61d3241670ad8f0801d70[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Tue Oct 28 20:40:18 2025 +0100
+[36m|[m 
+[36m|[m     added forgot password page
+[36m|[m 
+* [33mcommit 38af1d1d8d38b8e6201955c5f621a1c98bb83186[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Tue Oct 28 20:17:17 2025 +0100
+[36m|[m 
+[36m|[m     added a heading to the dashboard table
+[36m|[m 
+* [33mcommit f706e43a185d9879f1fbb505d04f0aabd805013e[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Tue Oct 28 20:11:15 2025 +0100
+[36m|[m 
+[36m|[m     added dashboard contents
+[36m|[m 
+* [33mcommit 85714e12980f5716db9bef285c8116e122253970[m
+[36m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[36m|[m Date:   Tue Oct 28 19:11:37 2025 +0100
+[36m|[m 
+[36m|[m     updated responsiveness
+[36m|[m   
+*   [33mcommit 37deebbfabd77b8616b55c940f9276ea4c42978a[m
+[1;31m|[m[1;32m\[m  Merge: 638a28f 2907ba1
+[1;31m|[m [1;32m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[1;31m|[m [1;32m|[m Date:   Tue Oct 28 17:23:02 2025 +0100
+[1;31m|[m [1;32m|[m 
+[1;31m|[m [1;32m|[m     Merge branch 'landing-page'
+[1;31m|[m [1;32m|[m 
+[1;31m|[m * [33mcommit 2907ba1af482ce790e3de9f0c7fd49b8c75f3354[m
+[1;31m|[m [1;32m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[1;31m|[m [1;32m|[m Date:   Tue Oct 28 16:56:36 2025 +0100
+[1;31m|[m [1;32m|[m 
+[1;31m|[m [1;32m|[m     latest update
+[1;31m|[m [1;32m|[m 
+[1;31m|[m * [33mcommit 8ad57ee76f8cf63d03834b4f02481e8b28e4416a[m
+[1;31m|[m [1;32m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[1;31m|[m [1;32m|[m Date:   Sun Oct 26 21:15:26 2025 +0100
+[1;31m|[m [1;32m|[m 
+[1;31m|[m [1;32m|[m     feat:(welcome text)added welcome animation in admin page
+[1;31m|[m [1;32m|[m 
+[1;31m|[m * [33mcommit b734c56eb1213591bc151b3229483fcaaff4c1e2[m
+[1;31m|[m [1;32m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[1;31m|[m [1;32m|[m Date:   Sun Oct 26 21:12:04 2025 +0100
+[1;31m|[m [1;32m|[m 
+[1;31m|[m [1;32m|[m     feat:(Admin Layouts And Dashboard)added admin layouts and dasboard and blog
+[1;31m|[m [1;32m|[m 
+[1;31m|[m * [33mcommit 1e3fdcde70e5fb04f8760f25ae158328bb69f10c[m
+[1;31m|[m [1;32m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[1;31m|[m [1;32m|[m Date:   Fri Oct 24 06:53:03 2025 +0100
+[1;31m|[m [1;32m|[m 
+[1;31m|[m [1;32m|[m     added standings table
+[1;31m|[m [1;32m|[m 
+[1;31m|[m * [33mcommit 20445c52f4e3f079a4b441df40ec18cafdfe67ab[m
+[1;31m|[m [1;32m|[m Author: victoryduru24 <victoryduru04@gmail.com>
+[1;31m|[m [1;32m|[m Date:   Fri Oct 24 06:46:08 2025 +0100
+[1;31m|[m [1;32m|[m 
+[1;31m|[m [1;32m|[m     feat(Admin pages)added sign_In/Up
+[1;31m|[m [1;32m|[m 
+* [1;32m|[m [33mcommit 638a28f904889f61ebecae49931b0dbf581e1093[m
+[1;32m|[m[1;32m/[m  Author: victoryduru24 <victoryduru04@gmail.com>
+[1;32m|[m   Date:   Tue Oct 28 17:15:22 2025 +0100
+[1;32m|[m   
+[1;32m|[m       update: worked on the folder structure of the project
+[1;32m|[m 
+* [33mcommit 98e05d25bc7e3c8b46c11c9f11cf33e499e5394c[m
+  Author: victoryduru24 <victoryduru04@gmail.com>
+  Date:   Mon Oct 20 08:59:42 2025 +0100
+  
+      feat:(Landing-Page):shared components and league card

@@ -22,6 +22,7 @@ export default function PremierLeagueCard({leagueNames, league, teams, values,fi
     odd: { Odds: values[1].odd, Tips: "over 15", Prop: "3.65%" },    
   };
 
+  
   return (
       <div className="w-full border-none lg:p-0 my-1 flex justify-center items-center flex-col text-white space-y-4 lg:space-y-0">
       
