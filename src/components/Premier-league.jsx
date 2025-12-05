@@ -19,7 +19,7 @@ export default function PremierLeagueCard({leagueNames, league, teams, values,fi
     awayTeam: teams.away.name,
     leagueLogo: league.logo,
     timing:  new Date(times).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
-    odd: { Odds: values[0].odd, Tips: "over 15", Prop: "3.65%" },    
+    odd: { Odds: values[1].odd, Tips: "over 15", Prop: "3.65%" },    
   };
 
   return (

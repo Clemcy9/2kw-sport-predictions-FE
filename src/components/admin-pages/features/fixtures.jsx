@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaPlusSquare } from "react-icons/fa";
+import { FaMinus, FaPlus, FaPlusSquare } from "react-icons/fa";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { Calendar } from "lucide-react";
 import { Search } from "lucide-react";
@@ -7,12 +7,14 @@ import { useEffect } from "react";
 
 export default function MakePredictions () {
     
-    const[dropdown, setDropdown] = useState();
     const [date, setDate] = useState("2025-12-02");
-    const [prediction, setPrediction] = useState([]);
     const [byName, setByName] = useState("");
-    const [byLeague, setByLeague] = useState("");
+    const [modal, setModal] = useState(false);
+    const [close, setClose] = useState(false);
+    const [dropdown, setDropdown] = useState();
     const [byDate, setByDate] = useState(date);
+    const [byLeague, setByLeague] = useState("");
+    const [prediction, setPrediction] = useState([]);
         
           useEffect(() => {
               fetch(`https://twokw-backend.onrender.com/api/v1/football/fixtures?date=${date}`)
@@ -111,9 +113,8 @@ export default function MakePredictions () {
                                             <td className="lg:py-5  ">{new Date (item.fixture.date).toLocaleDateString()}</td>
                                             <td className="lg:py-5 pr-2 w-20 lg:pr-0 ">{new Date(item.fixture.date).toLocaleTimeString([], {hour: "2-digit", minute: "2-digit"})}</td>
                                             <td className="lg:py-5 lg:ml-4 lg:pr-0 pr-10">
-                                                <button
+                                                <button onClick={() => setModal(true)}
                                                     className="text-[#04BA4A] transition"
-                                                    
                                                 >
                                                     <FaPlusSquare size={18} />
                                                 </button>
@@ -124,6 +125,28 @@ export default function MakePredictions () {
                             ))}
                         </tbody>
                     </table>
+
+
+
+                    {modal && (
+                        <div onClick={() => setModal(false)} className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">
+                            <div onClick={(e) => e.stopPropagation()} className="bg-white rounded-xl">
+                                <h2>Make Predictions For</h2>
+
+                                <section>
+                                    <div>
+                                        <p><img src="" alt="" /> St Liege</p>
+                                        <span>VS</span>
+                                        <p><img src="" alt="" /> Antwerp</p>
+                                    </div>
+                                    <div>
+                                        <h3>Predictions</h3>
+                                        <div onClick={() => setClose(true)}><FaPlus /> : <FaMinus /></div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    )}
                 </div>
     )
 }
