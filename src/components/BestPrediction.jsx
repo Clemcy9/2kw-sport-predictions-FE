@@ -74,7 +74,7 @@ export default function BestPredictionCard () {
                             <p className="px-1">Draw</p>
                             <p className="font-bold text-white rounded-[0.6rem] bg-[#D6AE3E] px-3 py-2">{predictions.odds.draw}</p>
                         </div>
-                        <div className="flex justify-center items-center lg:px-2">
+                        <div className="flex justify-center items-center pb-0.5 lg:px-2">
                             <p className="px-1">Away</p>
                             <p className="font-bold text-white rounded-[0.6rem] bg-[#D6AE3E] px-3 py-2 ">{predictions.odds.away}</p>
                         </div>
