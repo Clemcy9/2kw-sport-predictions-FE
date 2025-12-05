@@ -16,6 +16,8 @@ import DummyBlog from "../components/dummy-blog"
 import PremierLeagueCard from "../components/Premier-league";
 
 export default function LandingPage() {
+
+  const [activeLeague, setActiveLeague] = useState("EPL"); 
   const [visible, setVisible] = useState(false);
   const [bet, setBet] = useState(1);
   const [prediction, setPrediction] = useState([]);
@@ -80,7 +82,7 @@ export default function LandingPage() {
               <BestPredictionCard />
 
               <div className="sticky top-24 bottom-0">
-                <FootballLeaguesTable />
+                <FootballLeaguesTable setActiveLeague={setActiveLeague} />
               </div>
             </div>
 
@@ -130,7 +132,7 @@ export default function LandingPage() {
                    
                 </div>
                ))}
-                <LeagueTables />
+                <LeagueTables activeLeague={activeLeague} />
                 <DummyBlog />
               </div>
             </main>
