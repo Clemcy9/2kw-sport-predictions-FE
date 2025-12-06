@@ -195,7 +195,7 @@ export default function MakePredictions () {
 
                                     <table>
                                         <thead>
-                                           <tr className="flex justify-center">
+                                           <tr className="flex justify-between">
                                                <th>Market</th>
                                                <th>Odds</th>
                                                <th>Prob%</th>
