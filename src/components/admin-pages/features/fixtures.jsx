@@ -12,7 +12,7 @@ export default function MakePredictions () {
     const [date, setDate] = useState(today);
     const [byName, setByName] = useState("");
     const [modal, setModal] = useState(false);
-    const [close, setClose] = useState(false);
+    const [close, setClose] = useState(true);
     const [dropdown, setDropdown] = useState();
     const [byDate, setByDate] = useState(date);
     const [byLeague, setByLeague] = useState("");
@@ -97,15 +97,12 @@ export default function MakePredictions () {
                   <table className=" w-full border-collapse">
                         <thead  className="">
                             <tr className="font-bold text-left text-lg hidden lg:grid grid-cols-12 justify-between gap-14  w-full">
-                        {/* No / League / Fixtures */}
-                        <th className="col-span-3 py-3">No.</th>
-                        <th className="col-span-3 py-3">League</th>
-                        <th className="col-span-3 py-3">Fixtures</th>
-
-                        {/* Date / Time / Action */}
-                        <th className="col-span-1 py-3">Date</th>
-                        <th className="col-span-1 py-3">Time</th>
-                        <th className="col-span-1 py-3">Action</th>
+                               <th className="col-span-3 py-3">No.</th>
+                               <th className="col-span-3 py-3">League</th>
+                               <th className="col-span-3 py-3">Fixtures</th>
+                               <th className="col-span-1 py-3">Date</th>
+                               <th className="col-span-1 py-3">Time</th>
+                               <th className="col-span-1 py-3">Action</th>
                             </tr>
                         </thead>
 
@@ -113,22 +110,22 @@ export default function MakePredictions () {
                             {all_predictions.map((item, index) => (
                                 <tr key={item.fixture.id} className="leading-tight">
                                     <td colSpan={100} className="w-full flex flex-row lg:gap-2 lg:grid lg:grid-cols-14 lg:justify-between lg:border-none border p-3 lg:p-0 rounded-xl my-4 lg:my-0 lg:active:hidden active:border-[#1A365D] active:scale-105 active:shadow-xl border-[#1A365D99]">
-                                            <div className="flex flex-col lg:col-span-10 lg:grid lg:grid-cols-9 justify-between  items-start gap-6 lg:flex-row w-full lg:gap-1 ">
+                                            <section className="flex flex-col lg:col-span-10 lg:grid lg:grid-cols-9 justify-between  items-start gap-6 lg:flex-row w-full lg:gap-1 ">
                                                 <div className="lg:py-5 hidden lg:col-span-1 lg:block lg:mr-12">{index + 1}</div>
                                                 <div className="lg:py-5  lg: flex lg:justify-start lg:col-span-4 lg:items-start w-full lg:max-w-80 "><img className="w-8 h-8" src={item.league.logo} alt={item.league.name} />{(item?.league?.name || "").slice(0, 32).trim()}</div>
                                                 <div className="lg:py-5 lg:flex lg:items-start lg:justify-start lg:col-span-4 lg:w-full lg:max-w-72 lg:flex-row"><span className="flex"><img className="w-4 h-4" src={item.teams.away.logo} alt={item.teams.away.name} /> {(item?.teams?.away.name || "").slice(0, 16).trim()}</span> <span className="px-2 font-semibold">vs</span> <span className="flex"><img className="w-4 h-4" src={item.teams.home.logo} alt={item.teams.home.name} /> {(item.teams.home.name || "").slice(0, 16).trim()}</span></div>
-                                            </div>
-                                            <div className="flex gap-8 font-light lg:col-span-4 font-sans lg:text-lg lg:font-normal text-xs text-[#737373] items-end lg:flex-row flex-col lg:w-auto lg:justify-center lg:gap-18">
+                                            </section>
+                                            <section className="flex gap-8 font-light lg:col-span-4 font-sans lg:text-lg lg:font-normal text-xs text-[#737373] items-end lg:flex-row flex-col lg:w-auto lg:justify-center lg:gap-18">
                                                 <div className="lg:py-5  ">{new Date(item.fixture.date).toLocaleDateString()}</div>
                                                 <div className="lg:py-5 pr-2 w-20 lg:pr-0 ">{new Date(item.fixture.date).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</div>
                                                 <div className="lg:py-5 lg:ml-4 lg:pr-0 pr-10">
-                                                </div>
                                                     <button onClick={() => { setAction(item); setModal(true); }}
                                                         className="text-[#04BA4A] transition"
-                                                    >
+                                                        >
                                                         <FaPlusSquare size={18} />
                                                     </button>
-                                            </div>
+                                                </div>
+                                            </section>
 
                                     </td>
                                 </tr>
@@ -137,7 +134,7 @@ export default function MakePredictions () {
                     </table>
 
                     {modal && action && (
-                        <div onClick={() => setModal(false)} className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">
+                        <main onClick={() => setModal(false)} className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">
                             <div onClick={(e) => e.stopPropagation()} className="bg-white rounded-xl px-2 py-4">
                                 <p  className="lg:py-5 lg:flex lg:items-start lg:justify-start font-semibold flex-col lg:col-span-4 lg:w-full lg:max-w-72 lg:flex-row p-3">
                                     <h2>Make Predictions For </h2>
@@ -151,20 +148,16 @@ export default function MakePredictions () {
                                         <p className="flex justify-center items-center"> <span className="flex flex-col"><img className="w-10 h-10" src={action.teams.home.logo} alt={action.teams.home.name} /> {(action.teams.home.name || "").slice(0, 16).trim()}</span></p>
                                     </div>
                                     <div>
-                                        <form action="" className="">
-                                        <div className="bg-[#D6AE3E] text-black justify-between p-2">
-                                            <h3>Predictions</h3>
-                                            <button onClick={() => setClose(true)}>
-                                                {close ? (
-                                                    <FaPlus /> 
-                                                ) : ( 
-                                                    <FaMinus />
-                                                )}
-                                            </button>
-                                        </div>
-                                            {close && (
-                                        <div className="p-3 flex flex-wrap bg-white gap-6 flex-shrink-0 ">
-                                                 <div className="flex flex-col justify-start items-center">
+                                        <form action="" className=" rounded-xl">
+                                            <div className="bg-[#D6AE3E] text-black justify-between p-2">
+                                                <h3>Predictions</h3>
+                                                <button onClick={() => setClose(false)}>
+                                                    {close ? <FaPlus /> : <FaMinus />}
+                                                </button>
+                                           </div>
+                                           {close && (
+                                          <div className="p-3 grid grid-cols-2  flex-wrap bg-white gap-6 flex-shrink-0 ">
+                                                <div className="flex flex-col justify-start items-center">
                                                     <label htmlFor="">Free Tips</label>
                                                     <input type="text" placeholder="Select" className="border border-[#737373] rounded-sm"/>
                                                 </div>
@@ -180,23 +173,21 @@ export default function MakePredictions () {
                                                     <label htmlFor="">Sure Predict</label>
                                                     <input type="text" placeholder="Select" className="border border-[#737373] rounded-sm"/>
                                                 </div>
-                                               </div>
-                                         )}   
-
-                                            </form>
-                                    </div>
-                                                <section className="flex justify-center items-center gap-4">
-                                                    <button className="rounded-xl bg-[#1A365D] px-3 py-2 text-white">
-                                                       Save Prediction
-                                                   </button>
-                                                   <button className="rounded-xl bg-white text-[#1A365D] px-3 py-2">
-                                                      Cancel
-                                                   </button>
-                                                </section>
+                                            </div> )}   
+                                      </form>
+                                  </div>
+                                  <section className="py-4 flex justify-center items-center gap-4">
+                                      <button className="rounded-xl bg-[#1A365D] px-3 py-2 text-white">
+                                        Save Prediction
+                                     </button>
+                                     <button className="rounded-xl bg-white text-[#1A365D] px-3 py-2">
+                                        Cancel
+                                     </button>
+                                  </section>
                                 </section>
                             </div>
-                        </div>
+                        </main>
                     )}
-                </div>
+              </div>
     )
 }
