@@ -151,19 +151,20 @@ export default function MakePredictions () {
                                         <p className="flex justify-center items-center"> <span className="flex flex-col"><img className="w-10 h-10" src={action.teams.home.logo} alt={action.teams.home.name} /> {(action.teams.home.name || "").slice(0, 16).trim()}</span></p>
                                     </div>
                                     <div>
+                                        <form action="" className="">
                                         <div className="bg-[#D6AE3E] text-black justify-between p-2">
                                             <h3>Predictions</h3>
                                             <button onClick={() => setClose(true)}>
                                                 {close ? (
                                                     <FaPlus /> 
-                                                   ) : ( 
-                                                   <FaMinus />
+                                                ) : ( 
+                                                    <FaMinus />
                                                 )}
                                             </button>
                                         </div>
-                                        {close && (
-                                            <form action="" className="p-3 flex flex-wrap bg-white">
-                                                <div className="flex flex-col justify-start items-center">
+                                            {close && (
+                                        <div className="p-3 flex flex-wrap bg-white gap-6 flex-shrink-0 ">
+                                                 <div className="flex flex-col justify-start items-center">
                                                     <label htmlFor="">Free Tips</label>
                                                     <input type="text" placeholder="Select" className="border border-[#737373] rounded-sm"/>
                                                 </div>
@@ -179,7 +180,11 @@ export default function MakePredictions () {
                                                     <label htmlFor="">Sure Predict</label>
                                                     <input type="text" placeholder="Select" className="border border-[#737373] rounded-sm"/>
                                                 </div>
+                                               </div>
+                                         )}   
 
+                                            </form>
+                                    </div>
                                                 <section className="flex justify-center items-center gap-4">
                                                     <button className="rounded-xl bg-[#1A365D] px-3 py-2 text-white">
                                                        Save Prediction
@@ -188,9 +193,6 @@ export default function MakePredictions () {
                                                       Cancel
                                                    </button>
                                                 </section>
-                                            </form>
-                                        )}
-                                    </div>
                                 </section>
                             </div>
                         </div>
