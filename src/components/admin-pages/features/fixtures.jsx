@@ -135,7 +135,7 @@ export default function MakePredictions () {
 
                     {modal && action && (
                         <main onClick={() => setModal(false)} className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">
-                            <div onClick={(e) => e.stopPropagation()} className=" min-h-screen lg:min-h-auto mt-4 bg-white lg:rounded-xl px-2 py-4 flex-col flex lg:flex-row">
+                            <div onClick={(e) => e.stopPropagation()} className=" min-h-screen lg:min-h-auto pt-4 bg-white lg:rounded-xl px-2 py-4 flex-col flex lg:flex-row">
                                 <p  className="lg:py-5 lg:flex lg:items-start lg:justify-start font-semibold flex-col lg:col-span-4 lg:w-full justify-center items-center lg:max-w-72 lg:flex-row p-3">
                                     <h2>Make Predictions For </h2>
                                     <h2 className="flex ">{(action?.teams?.away.name || "").slice(0, 20).trim()} <span className="px-2 font-semibold">vs</span> {(action.teams.home.name || "").slice(0, 20).trim()}</h2>
@@ -195,7 +195,7 @@ export default function MakePredictions () {
 
                                     <table>
                                         <thead>
-                                           <tr>
+                                           <tr className="flex justify-center">
                                                <th>Market</th>
                                                <th>Odds</th>
                                                <th>Prob%</th>
