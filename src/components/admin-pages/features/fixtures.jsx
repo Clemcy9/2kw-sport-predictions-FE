@@ -117,8 +117,8 @@ export default function MakePredictions () {
                                             </section>
                                             <section className="flex gap-8 font-light lg:col-span-4 font-sans lg:text-lg lg:font-normal text-xs text-[#737373] items-end lg:flex-row flex-col lg:w-auto lg:justify-center lg:gap-18">
                                                 <div className="lg:py-5  ">{new Date(item.fixture.date).toLocaleDateString()}</div>
-                                                <div className="lg:py-5 pr-2 w-20 lg:pr-0 ">{new Date(item.fixture.date).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</div>
-                                                <div className="lg:py-5 lg:ml-4 lg:pr-0 pr-10">
+                                                <div className="lg:py-5 pr-1 w-20 lg:pr-0 ">{new Date(item.fixture.date).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</div>
+                                                <div className="lg:py-5 lg:ml-4 lg:pr-0 pr-9">
                                                     <button onClick={() => { setAction(item); setModal(true); }}
                                                         className="text-[#04BA4A] transition"
                                                         >
@@ -135,10 +135,10 @@ export default function MakePredictions () {
 
                     {modal && action && (
                         <main onClick={() => setModal(false)} className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">
-                            <div onClick={(e) => e.stopPropagation()} className="bg-white rounded-xl px-2 py-4 flex-col flex lg:flex-row">
+                            <div onClick={(e) => e.stopPropagation()} className="min-h-screen lg:min-h-auto bg-white rounded-xl px-2 py-4 flex-col flex lg:flex-row">
                                 <p  className="lg:py-5 lg:flex lg:items-start lg:justify-start font-semibold flex-col lg:col-span-4 lg:w-full justify-center items-center lg:max-w-72 lg:flex-row p-3">
                                     <h2>Make Predictions For </h2>
-                                    <h2><span className="flex flex-row justify-center items-center">{(action?.teams?.away.name || "").slice(0, 20).trim()}</span> <span className="px-2 font-semibold">vs</span> <span className="flex"> {(action.teams.home.name || "").slice(0, 20).trim()}</span></h2>
+                                    <h2 className="flex ">{(action?.teams?.away.name || "").slice(0, 20).trim()} <span className="px-2 font-semibold">vs</span> {(action.teams.home.name || "").slice(0, 20).trim()}</h2>
                                 </p>
 
                                 <section className="bg-[#EEF0F3] rounded-xl px-2 py-4">
@@ -160,22 +160,22 @@ export default function MakePredictions () {
                                                 </button>
                                            </div>
                                            {close && (
-                                          <div className="p-3 grid grid-cols-2  flex-wrap rounded-b-xl bg-white gap-6 flex-shrink-0 ">
-                                                <div className="flex flex-col justify-start items-start">
+                                          <div className="p-3 grid grid-cols-2  flex-wrap rounded-b-xl bg-white gap-6 flex-shrink-0 min-w-full">
+                                                <div className="flex flex-col justify-start items-start max-w-64 w-auto">
                                                     <label htmlFor="">Free Tips</label>
-                                                    <input type="text" placeholder="Select" className="border border-[#737373] p-2 rounded-sm"/>
+                                                    <input type="text" placeholder="Select" className="w-full border border-[#737373] p-2 rounded-sm"/>
                                                 </div>
-                                                <div className="flex flex-col justify-start items-start">
+                                                <div className="flex flex-col justify-start items-start max-w-64 w-auto">
                                                     <label htmlFor="">Super Single Tip</label>
-                                                    <input type="text" placeholder="Select" className="border border-[#737373] p-2 rounded-sm" />
+                                                    <input type="text" placeholder="Select" className="w-full border border-[#737373] p-2 rounded-sm" />
                                                 </div>
-                                                <div  className="flex flex-col justify-start items-start">
+                                                <div  className="flex flex-col justify-start items-start max-w-64 w-auto">
                                                     <label htmlFor=""> Free 2 Odds</label>
-                                                    <input type="text" placeholder="Select" className="border border-[#737373] p-2 rounded-sm"/>
+                                                    <input type="text" placeholder="Select" className="w-full border border-[#737373] p-2 rounded-sm"/>
                                                 </div>
-                                                <div className="flex flex-col justify-start items-start">
+                                                <div className="flex flex-col justify-start items-start max-w-64 w-auto">
                                                     <label htmlFor="">Sure Predict</label>
-                                                    <input type="text" placeholder="Select" className="border border-[#737373] p-2 rounded-sm"/>
+                                                    <input type="text" placeholder="Select" className="w-full border border-[#737373] p-2 rounded-sm"/>
                                                 </div>
                                             </div> )}   
                                       </form>
