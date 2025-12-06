@@ -141,37 +141,41 @@ export default function MakePredictions () {
                                     <h2><span className="flex">{(action?.teams?.away.name || "").slice(0, 20).trim()}</span> <span className="px-2 font-semibold">vs</span> <span className="flex"> {(action.teams.home.name || "").slice(0, 20).trim()}</span></h2>
                                 </p>
 
-                                <section className="bg-[#EEF0F3] px-2 py-4">
+                        <section className="bg-[#EEF0F3] rounded-xl px-2 py-4">
                                     <div className="flex justify-between items-center py-3">
                                         <p className="flex justify-center items-center"><span className="flex flex-col"><img className="w-10 h-10" src={action.teams.away.logo} alt={action.teams.away.name} /> {(action?.teams?.away.name || "").slice(0, 16).trim()}</span></p>
                                         <span>VS</span>
                                         <p className="flex justify-center items-center"> <span className="flex flex-col"><img className="w-10 h-10" src={action.teams.home.logo} alt={action.teams.home.name} /> {(action.teams.home.name || "").slice(0, 16).trim()}</span></p>
                                     </div>
                                     <div>
-                                        <form action="" className=" rounded-xl">
-                                            <div className="bg-[#D6AE3E] text-black justify-between p-2">
+                                        <form action="" className=" ">
+                                            <div className="bg-[#D6AE3E] rounded-t-xl text-black flex items-center justify-between p-2">
                                                 <h3>Predictions</h3>
-                                                <button onClick={() => setClose(false)}>
-                                                    {close ? <FaPlus /> : <FaMinus />}
+                                                <button  onClick={() => setClose(false)}>
+                                                    {close ? (
+                                                        <FaPlus />
+                                                        ) : ( 
+                                                        <FaMinus />
+                                                    )}
                                                 </button>
                                            </div>
                                            {close && (
-                                          <div className="p-3 grid grid-cols-2  flex-wrap bg-white gap-6 flex-shrink-0 ">
+                                          <div className="p-3 grid grid-cols-2  flex-wrap rounded-b-xl bg-white gap-6 flex-shrink-0 ">
                                                 <div className="flex flex-col justify-start items-center">
                                                     <label htmlFor="">Free Tips</label>
-                                                    <input type="text" placeholder="Select" className="border border-[#737373] rounded-sm"/>
+                                                    <input type="text" placeholder="Select" className="border border-[#737373] p-2 rounded-sm"/>
                                                 </div>
                                                 <div className="flex flex-col justify-start items-center">
                                                     <label htmlFor="">Super Single Tip</label>
-                                                    <input type="text" placeholder="Select" className="border border-[#737373] rounded-sm" />
+                                                    <input type="text" placeholder="Select" className="border border-[#737373] p-2 rounded-sm" />
                                                 </div>
                                                 <div  className="flex flex-col justify-start items-center">
                                                     <label htmlFor=""> Free 2 Odds</label>
-                                                    <input type="text" placeholder="Select" className="border border-[#737373] rounded-sm"/>
+                                                    <input type="text" placeholder="Select" className="border border-[#737373] p-2 rounded-sm"/>
                                                 </div>
-                                                <div className="flex flex-col justify-start items-center">
+                                                <div className="flex flex-col justify-start items-start">
                                                     <label htmlFor="">Sure Predict</label>
-                                                    <input type="text" placeholder="Select" className="border border-[#737373] rounded-sm"/>
+                                                    <input type="text" placeholder="Select" className="border border-[#737373] p-2 rounded-sm"/>
                                                 </div>
                                             </div> )}   
                                       </form>
