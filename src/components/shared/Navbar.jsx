@@ -14,25 +14,29 @@ export default function Navbar() {
         { title: "Home", path: "/" },
         {
             title: "Predictions",
-            tipsLink: [
-                { title: "Free Tips", path: "/" },
-                { title: "All Predictions", path: "/" },
-                { title: "Home Win", path: "/" },
-                { title: "Away Win", path: "/" },
-                { title: "Super Singles", path: "/" },
-                { title: "Double Chance", path: "/" },
-                { title: "1.5 Goals", path: "/" },
-                { title: "2.5 Goals", path: "/" },
-                { title: "Free 2 Odds", path: "/" },
-                { title: "BTTS/GG", path: "/" },
+            tipsLinks: [
+                { title: "Free Tips", path: "/free-tips", id: 10 },
+                { title: "All Predictions", path: "/all-predictions", id: 500 },
+                { title: "Home Win", path: "/home-win", id: 1, name: "Home" },
+                { title: "Away Win", path: "/away-win", id: 1, name: "Away" },
+                {
+                    title: "Super Singles",
+                    path: "/super-singles",
+                    id: 200,
+                    name: "super single",
+                },
+                { title: "Double Chance", path: "/double-chance", id: 12 },
+                { title: "1.5 Goals", path: "/goals-1.5", id: 5, name: "Over 1.5" },
+                { title: "2.5 Goals", path: "/goals-2.5", id: 5, name: "Over 2.5" },
+                { title: "Free 2 Odds", path: "/free-2odds", id: 300, name: "free 2 odds" },
+                { title: "BTTS/GG", path: "/btts_gg", id: 8, name: "Both Teams Score" },
             ],
         },
         { title: "Blog", path: "/blog" },
-        { title: "Links", path: "" },
+        { title: "Links" },
         { title: "Admin", path: "/sign-up" },
 
     ];
-
     return (
         <header className="bg-[#1A365D] absolute top-0 w-full z-50 shadow-sm backdrop-blur-md mb-6">
             <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
@@ -58,7 +62,7 @@ export default function Navbar() {
                             <div key={index} className="relative" onMouseEnter={() => link.title === "Links" && setShowTag(true)} >
 
                                 
-                                {link.tipsLink ? (
+                                {link.tipsLinks ? (
                                     <>
                                         {/* Button with arrow */}
                                         <button
@@ -83,7 +87,7 @@ export default function Navbar() {
                                                     transition={{ duration: 0.25 }}
                                                     className="absolute flex flex-col items-start bg-[#D6AE3E] text-[#1A365D] shadow-lg mt-2 w-44 rounded-md py-2 z-50"
                                                 >
-                                                    {link.tipsLink.map((item, subIndex) => (
+                                                    {link.tipsLinks.map((item, subIndex) => (
                                                         <button
                                                             key={subIndex}
                                                             onClick={() => navigation(item.path)}
@@ -158,7 +162,7 @@ export default function Navbar() {
                         <div className="flex flex-col items-start space-y-4 py-4 px-6">
                             {navLinks.map((link, index) => (
                                 <div key={index} className="w-full" onMouseEnter={() => link.title === "Links" && setShowTag(true)} onMouseLeave={() => link.title === "Links" && setShowTag(false)}>
-                                    {link.tipsLink ? (
+                                    {link.tipsLinks ? (
                                         <>
                                             <button
                                                 onClick={() => setDropdown(dropdown === index ? null : index)}
@@ -182,7 +186,7 @@ export default function Navbar() {
                                                         transition={{ duration: 0.25 }}
                                                         className="flex flex-col mt-2 py-2 bg-[#D6AE3E] px-2  text-[#1A365D] font-sans shadow-lg w-[300px] rounded-[0.4rem]"
                                                     >
-                                                        {link.tipsLink.map((item, subIndex) => (
+                                                        {link.tipsLinks.map((item, subIndex) => (
                                                             <button
                                                                 key={subIndex}
                                                                 onClick={() => {

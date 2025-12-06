@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 export default function FreeTips(props) {
   const location = useLocation();
   const navigate = useNavigate();
-  const [activePath, setActivePath] = useState("/");
+  const [activePath, setActivePath] = useState("/free-tips");
 
   const [play, setPlay] = useState(true);
 
@@ -21,7 +21,7 @@ export default function FreeTips(props) {
   }, []);
 
   const tipsLink = [
-    { title: "Free Tips", path: "/", id: 100 },
+    { title: "Free Tips", path: "/free-tips", id: 100 },
     { title: "All Predictions", path: "/all-predictions", id: 500 },
     { title: "Home Win", path: "/home-win", id: 1, name: "Home" },
     { title: "Away Win", path: "/away-win", id: 1, name: "Away" },

@@ -178,37 +178,37 @@ export default function DashBoard() {
                                         <span className="text-lg text-red-600">Delete</span>
                                     </button>
                                 </div>
-                                <motion.div drag="x" dragConstraints={{left: dragLength, right:0}} className="z-40  relative bg-white cursor-grab active:cursor-grabbing lg:grid lg:grid-cols-9 w-full flex flex-row lg:gap-0 lg:justify-between gap-5  lg:border-none border p-2 lg:p-0 rounded-xl my-4 lg:my-0 lg:active:hidden active:border-[#1A365D] active:scale-105 active:shadow-xl border-[#1A365D99]">
+                                <motion.td drag="x" dragConstraints={{left: dragLength, right:0}} className="z-40  relative bg-white cursor-grab active:cursor-grabbing lg:grid lg:grid-cols-9 w-full flex flex-row lg:gap-0 lg:justify-between gap-5  lg:border-none border p-2 lg:p-0 rounded-xl my-4 lg:my-0 lg:active:hidden active:border-[#1A365D] active:scale-105 active:shadow-xl border-[#1A365D99]">
                                     <div className="lg:col-span-4  flex-col hidden lg:flex items-start gap-6 lg:flex-row w-full lg:justify-between justify-center ">
-                                        <td className="py-5 hidden lg:block ">{index + 1}</td>
-                                        <td className="py-5 hidden lg:block ">{item.league}</td>
-                                        <td className="py-5 hidden lg:flex ">{item.date}</td>
+                                        <div className="py-5 hidden lg:block ">{index + 1}</div>
+                                        <div className="py-5 hidden lg:block ">{item.league}</div>
+                                        <div className="py-5 hidden lg:flex ">{item.date}</div>
                                     </div>
                                     <div className="col-span-3 w-full flex font-light font-sans lg:text-lg lg:font-normal text-xs text-[#737373] lg:flex-row flex-col lg:w-full lg:justify-center lg:gap-14">
-                                        <td className="py-1 lg:hidden text-lg font-[Sora] font-semibold text-[#1B1B1BCC]">{item.league}</td>
-                                        <td className="py-1  font-sans lg:text-right font-normal text-lg text-black">
+                                        <div className="py-1 lg:hidden text-lg font-[Sora] font-semibold text-[#1B1B1BCC]">{item.league}</div>
+                                        <div className="py-1  font-sans lg:text-right font-normal text-lg text-black">
                                             <span className="font-semibold">🛡️</span>
                                             {item.awayTeam}
-                                        </td>
-                                        <td className="py-1  font-sans font-normal lg:text-right text-lg text-black">
+                                        </div>
+                                        <div className="py-1  font-sans font-normal lg:text-right text-lg text-black">
                                             <span className="font-semibold">⚽</span>
                                             {item.homeTeam}
-                                        </td>
+                                        </div>
                                     </div>
 
                                     <div className="col-span-2  flex gap-1 font-light font-sans justify-end  lg:text-lg lg:font-normal text-xs text-[#737373] lg:flex-row flex-col lg:w-full  lg:gap-26">
-                                        <td className="py-1 text-right w-20 lg:w-auto lg:hidden">{item.date}</td>
-                                        <td className="py-1 text-right lg:text-center w-full lg:w-fit ">{item.tip}</td>
-                                        <td className=" py-1 hidden lg:block">
+                                        <div className="py-1 text-right w-20 lg:w-auto lg:hidden">{item.date}</div>
+                                        <div className="py-1 text-right lg:text-center w-full lg:w-fit ">{item.tip}</div>
+                                        <div className=" py-1 hidden lg:block">
                                             <button
                                                 className="text-[#FB3B3B] hover:text-red-800 transition"
                                                 onClick={() => handleDelete(item.id)}
                                             >
                                                 <FaTrash size={14} />
                                             </button>
-                                        </td>
+                                        </div>
                                     </div>
-                                </motion.div>
+                                </motion.td>
                             </tr>
                         ))}
                     </tbody>

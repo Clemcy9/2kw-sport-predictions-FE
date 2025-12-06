@@ -4,6 +4,7 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 import { Calendar } from "lucide-react";
 import { Search } from "lucide-react";
 import { useEffect } from "react";
+import { FaSpinner } from "react-icons/fa6";
 
 export default function MakePredictions () {
     
@@ -16,6 +17,8 @@ export default function MakePredictions () {
     const [byDate, setByDate] = useState(date);
     const [byLeague, setByLeague] = useState("");
     const [prediction, setPrediction] = useState([]);
+    const [action, setAction] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     // const dates = new Date();
     // dates.setDate(dates.getDate() + 1);
@@ -31,6 +34,7 @@ export default function MakePredictions () {
                 console.log("API DATA",prediction);
         
                 console.log("fetched predictions:", data);
+                  setLoading(false);
               });
           }, [date]);
 
@@ -48,6 +52,8 @@ export default function MakePredictions () {
               return use_name && use_league && use_date;
 
           });
+
+            if (loading) return <div className="text-center h-52 overflow-y-hidden text-[#1A365D] py-2 flex justify-center items-center"><span><FaSpinner className="animate-spin" /> </span> Loading Fixtures...</div>;
 
     return(
             <div className="p-4 lg:px-5 lg:min-h-screen flex flex-col w-full">
@@ -91,40 +97,40 @@ export default function MakePredictions () {
                   <table className=" w-full border-collapse">
                         <thead  className="">
                             <tr className="font-bold text-left text-lg hidden lg:grid grid-cols-12 justify-between gap-14  w-full">
-                               <div className="col-span-8 justify-center grid grid-cols-9">
-                                  <th className="py-3 col-span-3">No.</th>
-                                  <th className="py-3 col-span-3">League</th>
-                                  <th className="py-3 col-span-3">Fixtures</th>
-                               </div>
-                                <div className="col-span-4 flex justify-between w-full">
-                                    <th className="py-3">Date</th>
-                                    <th className="py-3">Time</th>
-                                    <th className="py-3">Action</th>
-                                </div>
+                        {/* No / League / Fixtures */}
+                        <th className="col-span-3 py-3">No.</th>
+                        <th className="col-span-3 py-3">League</th>
+                        <th className="col-span-3 py-3">Fixtures</th>
+
+                        {/* Date / Time / Action */}
+                        <th className="col-span-1 py-3">Date</th>
+                        <th className="col-span-1 py-3">Time</th>
+                        <th className="col-span-1 py-3">Action</th>
                             </tr>
                         </thead>
 
                         <tbody className="text-right">
                             {all_predictions.map((item, index) => (
                                 <tr key={item.fixture.id} className="leading-tight">
-                                    <div className="w-full flex flex-row lg:gap-2 lg:grid lg:grid-cols-14 lg:justify-between lg:border-none border p-3 lg:p-0 rounded-xl my-4 lg:my-0 lg:active:hidden active:border-[#1A365D] active:scale-105 active:shadow-xl border-[#1A365D99]">
-                                        <div className="flex flex-col lg:col-span-10 lg:grid lg:grid-cols-9 justify-between  items-start gap-6 lg:flex-row w-full lg:gap-1 ">
-                                            <td className="lg:py-5 hidden lg:col-span-1 lg:block lg:mr-12">{index + 1}</td>
-                                            <td className="lg:py-5  lg: flex lg:justify-start lg:col-span-4 lg:items-start w-full lg:max-w-80 "><img className="w-8 h-8" src={item.league.logo} alt={item.league.name} />{(item?.league?.name || "").slice(0, 32).trim()}</td>
-                                            <td className="lg:py-5 lg:flex lg:items-start lg:justify-start lg:col-span-4 lg:w-full lg:max-w-72 lg:flex-row"><span className="flex"><img className="w-4 h-4" src={item.teams.away.logo} alt={item.teams.away.name} /> {(item?.teams?.away.name || "").slice(0, 16).trim()}</span> <span className="px-2 font-semibold">vs</span> <span className="flex"><img className="w-4 h-4" src={item.teams.home.logo} alt={item.teams.home.name} /> {(item.teams.home.name || "").slice(0, 16).trim()}</span></td>
-                                        </div>
-                                        <div className="flex gap-8 font-light lg:col-span-4 font-sans lg:text-lg lg:font-normal text-xs text-[#737373] items-end lg:flex-row flex-col lg:w-auto lg:justify-center lg:gap-18">
-                                            <td className="lg:py-5  ">{new Date (item.fixture.date).toLocaleDateString()}</td>
-                                            <td className="lg:py-5 pr-2 w-20 lg:pr-0 ">{new Date(item.fixture.date).toLocaleTimeString([], {hour: "2-digit", minute: "2-digit"})}</td>
-                                            <td className="lg:py-5 lg:ml-4 lg:pr-0 pr-10">
-                                                <button onClick={() => setModal(true)}
-                                                    className="text-[#04BA4A] transition"
-                                                >
-                                                    <FaPlusSquare size={18} />
-                                                </button>
-                                            </td>
-                                        </div>
-                                   </div>
+                                    <td colSpan={100} className="w-full flex flex-row lg:gap-2 lg:grid lg:grid-cols-14 lg:justify-between lg:border-none border p-3 lg:p-0 rounded-xl my-4 lg:my-0 lg:active:hidden active:border-[#1A365D] active:scale-105 active:shadow-xl border-[#1A365D99]">
+                                            <div className="flex flex-col lg:col-span-10 lg:grid lg:grid-cols-9 justify-between  items-start gap-6 lg:flex-row w-full lg:gap-1 ">
+                                                <div className="lg:py-5 hidden lg:col-span-1 lg:block lg:mr-12">{index + 1}</div>
+                                                <div className="lg:py-5  lg: flex lg:justify-start lg:col-span-4 lg:items-start w-full lg:max-w-80 "><img className="w-8 h-8" src={item.league.logo} alt={item.league.name} />{(item?.league?.name || "").slice(0, 32).trim()}</div>
+                                                <div className="lg:py-5 lg:flex lg:items-start lg:justify-start lg:col-span-4 lg:w-full lg:max-w-72 lg:flex-row"><span className="flex"><img className="w-4 h-4" src={item.teams.away.logo} alt={item.teams.away.name} /> {(item?.teams?.away.name || "").slice(0, 16).trim()}</span> <span className="px-2 font-semibold">vs</span> <span className="flex"><img className="w-4 h-4" src={item.teams.home.logo} alt={item.teams.home.name} /> {(item.teams.home.name || "").slice(0, 16).trim()}</span></div>
+                                            </div>
+                                            <div className="flex gap-8 font-light lg:col-span-4 font-sans lg:text-lg lg:font-normal text-xs text-[#737373] items-end lg:flex-row flex-col lg:w-auto lg:justify-center lg:gap-18">
+                                                <div className="lg:py-5  ">{new Date(item.fixture.date).toLocaleDateString()}</div>
+                                                <div className="lg:py-5 pr-2 w-20 lg:pr-0 ">{new Date(item.fixture.date).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</div>
+                                                <div className="lg:py-5 lg:ml-4 lg:pr-0 pr-10">
+                                                </div>
+                                                    <button onClick={() => { setAction(item); setModal(true); }}
+                                                        className="text-[#04BA4A] transition"
+                                                    >
+                                                        <FaPlusSquare size={18} />
+                                                    </button>
+                                            </div>
+
+                                    </td>
                                 </tr>
                             ))}
                         </tbody>
@@ -132,20 +138,51 @@ export default function MakePredictions () {
 
 
 
-                    {modal && (
+                    {modal && action && (
                         <div onClick={() => setModal(false)} className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">
                             <div onClick={(e) => e.stopPropagation()} className="bg-white rounded-xl">
-                                <h2>Make Predictions For</h2>
+                                 <h2 className="lg:py-5 lg:flex lg:items-start lg:justify-start lg:col-span-4 lg:w-full lg:max-w-72 lg:flex-row">Make Predictions For <span className="flex"><img className="w-4 h-4" src={action.teams.away.logo} alt={action.teams.away.name} /> {(action?.teams?.away.name || "").slice(0, 16).trim()}</span> <span className="px-2 font-semibold">vs</span> <span className="flex"><img className="w-4 h-4" src={action.teams.home.logo} alt={action.teams.home.name} /> {(action.teams.home.name || "").slice(0, 16).trim()}</span></h2>
 
-                                <section>
-                                    <div>
-                                        <p><img src="" alt="" /> St Liege</p>
+                                <section className="bg-[#EEF0F3]">
+                                    <div className="flex justify-between items-center">
+                                        <p><span className="flex flex-col"><img className="w-10 h-10" src={action.teams.away.logo} alt={action.teams.away.name} /> {(action?.teams?.away.name || "").slice(0, 16).trim()}</span></p>
                                         <span>VS</span>
-                                        <p><img src="" alt="" /> Antwerp</p>
+                                        <p> <span className="flex flex-col"><img className="w-10 h-10" src={action.teams.home.logo} alt={action.teams.home.name} /> {(action.teams.home.name || "").slice(0, 16).trim()}</span></p>
                                     </div>
                                     <div>
-                                        <h3>Predictions</h3>
-                                        <div onClick={() => setClose(true)}><FaPlus /> : <FaMinus /></div>
+                                        <div className="bg-[#D6AE3E] text-black">
+                                            <h3>Predictions</h3>
+                                            <span onClick={() => setClose(true)}><FaPlus /> : <FaMinus /></span>
+                                        </div>
+                                        {close && (
+                                            <form action="">
+                                                <div>
+                                                    <label htmlFor="">Free Tips</label>
+                                                    <input type="text" placeholder="Select" />
+                                                </div>
+                                                <div>
+                                                    <label htmlFor="">Super Single Tip</label>
+                                                    <input type="text" placeholder="Select" />
+                                                </div>
+                                                <div>
+                                                    <label htmlFor=""> Free 2 Odds</label>
+                                                    <input type="text" placeholder="Select" />
+                                                </div>
+                                                <div>
+                                                    <label htmlFor="">Sure Predict</label>
+                                                    <input type="text" placeholder="Select" />
+                                                </div>
+
+                                                <section className="flex justify-center items-center gap-4">
+                                                    <button className="bg-[#1A365D] px-3 py-2 text-white">
+                                                       Save Prediction
+                                                   </button>
+                                                   <button className="bg-white text-[#1A365D] px-3 py-2">
+                                                      Cancel
+                                                   </button>
+                                                </section>
+                                            </form>
+                                        )}
                                     </div>
                                 </section>
                             </div>
