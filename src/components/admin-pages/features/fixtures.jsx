@@ -136,48 +136,52 @@ export default function MakePredictions () {
                         </tbody>
                     </table>
 
-
-
                     {modal && action && (
                         <div onClick={() => setModal(false)} className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">
                             <div onClick={(e) => e.stopPropagation()} className="bg-white rounded-xl">
-                                 <h2 className="lg:py-5 lg:flex lg:items-start lg:justify-start lg:col-span-4 lg:w-full lg:max-w-72 lg:flex-row">Make Predictions For <span className="flex"><img className="w-4 h-4" src={action.teams.away.logo} alt={action.teams.away.name} /> {(action?.teams?.away.name || "").slice(0, 16).trim()}</span> <span className="px-2 font-semibold">vs</span> <span className="flex"><img className="w-4 h-4" src={action.teams.home.logo} alt={action.teams.home.name} /> {(action.teams.home.name || "").slice(0, 16).trim()}</span></h2>
+                                 <h2 className="lg:py-5 lg:flex lg:items-start lg:justify-start font-semibold lg:col-span-4 lg:w-full lg:max-w-72 lg:flex-row">Make Predictions For <span className="flex">{(action?.teams?.away.name || "").slice(0, 16).trim()}</span> <span className="px-2 font-semibold">vs</span> <span className="flex"> {(action.teams.home.name || "").slice(0, 16).trim()}</span></h2>
 
-                                <section className="bg-[#EEF0F3]">
+                                <section className="bg-[#EEF0F3] px-2 py-4">
                                     <div className="flex justify-between items-center">
-                                        <p><span className="flex flex-col"><img className="w-10 h-10" src={action.teams.away.logo} alt={action.teams.away.name} /> {(action?.teams?.away.name || "").slice(0, 16).trim()}</span></p>
+                                        <p className="flex justify-center items-center"><span className="flex flex-col"><img className="w-10 h-10" src={action.teams.away.logo} alt={action.teams.away.name} /> {(action?.teams?.away.name || "").slice(0, 16).trim()}</span></p>
                                         <span>VS</span>
-                                        <p> <span className="flex flex-col"><img className="w-10 h-10" src={action.teams.home.logo} alt={action.teams.home.name} /> {(action.teams.home.name || "").slice(0, 16).trim()}</span></p>
+                                        <p className="flex justify-center items-center"> <span className="flex flex-col"><img className="w-10 h-10" src={action.teams.home.logo} alt={action.teams.home.name} /> {(action.teams.home.name || "").slice(0, 16).trim()}</span></p>
                                     </div>
                                     <div>
-                                        <div className="bg-[#D6AE3E] text-black">
+                                        <div className="bg-[#D6AE3E] text-black justify-between p-2">
                                             <h3>Predictions</h3>
-                                            <span onClick={() => setClose(true)}><FaPlus /> : <FaMinus /></span>
+                                            <span onClick={() => setClose(true)}>
+                                                {close ? (
+                                                    <FaPlus /> 
+                                                   ) : ( 
+                                                   <FaMinus />
+                                                )}
+                                            </span>
                                         </div>
                                         {close && (
-                                            <form action="">
-                                                <div>
+                                            <form action="" className="p-2 flex flex-wrap">
+                                                <div className="flex flex-col justify-center items-center">
                                                     <label htmlFor="">Free Tips</label>
                                                     <input type="text" placeholder="Select" />
                                                 </div>
-                                                <div>
+                                                <div className="flex flex-col justify-center items-center">
                                                     <label htmlFor="">Super Single Tip</label>
-                                                    <input type="text" placeholder="Select" />
+                                                    <input type="text" placeholder="Select" className="border border-[#737373]" />
                                                 </div>
-                                                <div>
+                                                <div  className="flex flex-col justify-center items-center">
                                                     <label htmlFor=""> Free 2 Odds</label>
                                                     <input type="text" placeholder="Select" />
                                                 </div>
-                                                <div>
+                                                <div className="flex flex-col justify-center items-center">
                                                     <label htmlFor="">Sure Predict</label>
                                                     <input type="text" placeholder="Select" />
                                                 </div>
 
                                                 <section className="flex justify-center items-center gap-4">
-                                                    <button className="bg-[#1A365D] px-3 py-2 text-white">
+                                                    <button className="rounded-xl bg-[#1A365D] px-3 py-2 text-white">
                                                        Save Prediction
                                                    </button>
-                                                   <button className="bg-white text-[#1A365D] px-3 py-2">
+                                                   <button className="rounded-xl bg-white text-[#1A365D] px-3 py-2">
                                                       Cancel
                                                    </button>
                                                 </section>
