@@ -135,13 +135,13 @@ export default function MakePredictions () {
 
                     {modal && action && (
                         <main onClick={() => setModal(false)} className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">
-                            <div onClick={(e) => e.stopPropagation()} className="bg-white rounded-xl px-2 py-4">
-                                <p  className="lg:py-5 lg:flex lg:items-start lg:justify-start font-semibold flex-col lg:col-span-4 lg:w-full lg:max-w-72 lg:flex-row p-3">
+                            <div onClick={(e) => e.stopPropagation()} className="bg-white rounded-xl px-2 py-4 flex-col flex lg:flex-row">
+                                <p  className="lg:py-5 lg:flex lg:items-start lg:justify-start font-semibold flex-col lg:col-span-4 lg:w-full justify-center items-center lg:max-w-72 lg:flex-row p-3">
                                     <h2>Make Predictions For </h2>
-                                    <h2><span className="flex">{(action?.teams?.away.name || "").slice(0, 20).trim()}</span> <span className="px-2 font-semibold">vs</span> <span className="flex"> {(action.teams.home.name || "").slice(0, 20).trim()}</span></h2>
+                                    <h2><span className="flex flex-row justify-center items-center">{(action?.teams?.away.name || "").slice(0, 20).trim()}</span> <span className="px-2 font-semibold">vs</span> <span className="flex"> {(action.teams.home.name || "").slice(0, 20).trim()}</span></h2>
                                 </p>
 
-                        <section className="bg-[#EEF0F3] rounded-xl px-2 py-4">
+                                <section className="bg-[#EEF0F3] rounded-xl px-2 py-4">
                                     <div className="flex justify-between items-center py-3">
                                         <p className="flex justify-center items-center"><span className="flex flex-col"><img className="w-10 h-10" src={action.teams.away.logo} alt={action.teams.away.name} /> {(action?.teams?.away.name || "").slice(0, 16).trim()}</span></p>
                                         <span>VS</span>
@@ -161,15 +161,15 @@ export default function MakePredictions () {
                                            </div>
                                            {close && (
                                           <div className="p-3 grid grid-cols-2  flex-wrap rounded-b-xl bg-white gap-6 flex-shrink-0 ">
-                                                <div className="flex flex-col justify-start items-center">
+                                                <div className="flex flex-col justify-start items-start">
                                                     <label htmlFor="">Free Tips</label>
                                                     <input type="text" placeholder="Select" className="border border-[#737373] p-2 rounded-sm"/>
                                                 </div>
-                                                <div className="flex flex-col justify-start items-center">
+                                                <div className="flex flex-col justify-start items-start">
                                                     <label htmlFor="">Super Single Tip</label>
                                                     <input type="text" placeholder="Select" className="border border-[#737373] p-2 rounded-sm" />
                                                 </div>
-                                                <div  className="flex flex-col justify-start items-center">
+                                                <div  className="flex flex-col justify-start items-start">
                                                     <label htmlFor=""> Free 2 Odds</label>
                                                     <input type="text" placeholder="Select" className="border border-[#737373] p-2 rounded-sm"/>
                                                 </div>
@@ -189,6 +189,20 @@ export default function MakePredictions () {
                                      </button>
                                   </section>
                                 </section>
+
+                                <div>
+                                    <h3>Odds & Probabilities</h3>
+
+                                    <table>
+                                        <thead>
+                                           <tr>
+                                               <th>Market</th>
+                                               <th>Odds</th>
+                                               <th>Prob%</th>
+                                           </tr>
+                                        </thead>
+                                    </table>
+                                </div>
                             </div>
                         </main>
                     )}
