@@ -1,15 +1,38 @@
-
-// import Footer from "../components/shared/Footer";
-// import Footer from "../shared/Navbar";
 import Footer from "../shared/Footer";
 import Navbar from "../shared/Navbar";
 import { TypeAnimation } from "react-type-animation"
 import { motion } from "framer-motion"
-import { Link } from "react-router-dom";
-import { FaFutbol, FaTelegramPlane } from "react-icons/fa";
+import { data, Link } from "react-router-dom";
+import { FaFutbol, FaSpinner, FaTelegramPlane, FaToolbox } from "react-icons/fa";
+import { useEffect, useState } from "react";
 
 
 export default function LIve_Scores () {
+    const [predictions, setPredictions] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(true);
+
+    useEffect(() => {
+        try {
+            fetch("https://twokw-backend.onrender.com/api/v1/football/livescores")
+                .then((res) => res.json())
+                .then((data) => {
+                    setLoading(false)
+                    setPredictions(data.data.response );
+                    console.log("Api data for live-scores:", data);
+                    console.log("API LIVE_SCORES from predictions::", predictions);
+                })
+        } catch(err) {
+            console.error("error from live scores:",err);
+            setError("Unable To Load Live-Scores, Connect To A Network");
+            setLoading(false);
+        }
+    }, [data]);
+
+    // if (error) return <div className="text-center h-52 overflow-y-hidden text-[#1A365D] py-2 flex justify-center items-center"><span><FaToolbox className="animate-spin" /> </span>{error}</div>;
+    // if (loading) return <div className="text-center h-52 overflow-y-hidden text-[#1A365D] py-2 flex justify-center items-center"><span><FaSpinner className="animate-spin" /> </span> Loading Live-Scores...</div>;
+
+
     return (
         <main >
             <Navbar />
@@ -58,8 +81,32 @@ export default function LIve_Scores () {
                     </div>
                 </motion.div>
              </section> 
-             <div className="min-h-screen">No Data Available now </div>
-             <Footer />  
+            <section className=" lg:p-15 py-15">
+                {predictions.map((items, index) => (
+                    <div key={index}>
+                        <h2 className="w-full flex justify-between items-center text-white bg-[#1A365D]">
+                            <p className="flex justify-center items-center"><img className="w-8 h-8" src={items.league.logo} alt={items.league.name} /> {items.league.name}</p>
+                            <p>{new Date (items.fixture.date).toLocaleDateString()}</p>
+                        </h2>
+                        <table className="w-full">
+                            <tr className="flex justify-between items-center px-3 hover:bg-[#D6AE3E]/60">
+                                <td className="py-6 flex ">
+                                    <p>{new Date(items.fixture.date).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</p>
+                                </td>
+                                <td className="py-6 flex">
+                                    <p className="flex justify-center items-center"><img className="w-8 h-8" src={items.teams.away.logo} alt={items.teams.away.name} /> {items.teams.away.name} </p>
+                                    <span className="px-6 font-semibold flex justify-center items-center">{items.goals.away} : {items.goals.home}</span>
+                                    <p className="flex justify-center items-center"><img className="w-8 h-8" src={items.teams.away.logo} alt={items.teams.away.name} /> {items.teams.home.name}</p>
+                                </td>
+                                <td className="py-6 flex">
+                                    <p>{items.fixture.status.long}</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                ))}
+            </section>
+            <Footer />  
         </main>
     );
 }

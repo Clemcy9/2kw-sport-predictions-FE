@@ -34,7 +34,7 @@ export default function MakePredictions () {
                 console.log("API DATA",prediction);
         
                 console.log("fetched predictions:", data);
-                  setLoading(false);
+                setLoading(false);
               });
           }, [date]);
 
