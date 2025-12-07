@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Eye, EyeOff } from "lucide-react";
 import { motion } from "framer-motion";
 import { FcGoogle } from "react-icons/fc";
-import { FaApple } from "react-icons/fa6";
+import { FaApple, FaSpinner } from "react-icons/fa6";
 
 
 export default function SignIn () {
@@ -12,6 +12,7 @@ export default function SignIn () {
     const [password, setpassword] = useState("");
     const [message, setMessage] = useState ("");
     const [eyePassword, setEyePassword] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     const navigate = useNavigate();
 
@@ -26,9 +27,11 @@ export default function SignIn () {
     const userData = {email,password}; localStorage.setItem("user", JSON.stringify(userData));
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true);
 
         if (!email || !password) {
             setMessage("Please fill all data");
+            setLoading(false);
             return;
         }
 
@@ -43,6 +46,7 @@ export default function SignIn () {
 
             if(!res.ok) 
                 throw new Error(data.msg || "sign-In not successful");
+                setLoading(false);
 
             localStorage.setItem("authToken", data.token);
 
@@ -53,6 +57,8 @@ export default function SignIn () {
         }catch (ero) {
             console.log(ero.message);
             setMessage("Unable to access server")
+        }finally{
+            setLoading(false);
         }
 
     };
@@ -127,8 +133,12 @@ export default function SignIn () {
                     </div>
                         
 
-                    <button type="submit" className="bg-[#1A365D] text-white w-70 rounded-[0.6rem] py-2 mt-6">
-                        Sign In
+                    <button type="submit" className="bg-[#1A365D] flex justify-center items-center text-white w-70 rounded-[0.6rem] py-2 mt-6">
+                        {loading ? (
+                               <FaSpinner className="animate-spin justify-center items-center"/>
+                           ):(
+                               "Sign UP"
+                           )}
                     </button>
                     <p className="text-[#1E1E1E] p-0.5">
                         Dont have an account?

@@ -82,28 +82,32 @@ export default function LIve_Scores () {
                 </motion.div>
              </section> 
             <section className=" lg:p-15 py-15">
-                {predictions.map((items, index) => (
-                    <div key={index}>
-                        <h2 className="w-full flex justify-between items-center text-white bg-[#1A365D]">
-                            <p className="flex justify-center items-center"><img className="w-8 h-8" src={items.league.logo} alt={items.league.name} /> {items.league.name}</p>
-                            <p>{new Date (items.fixture.date).toLocaleDateString()}</p>
-                        </h2>
-                        <table className="w-full">
-                            <tr className="flex justify-between items-center px-3 hover:bg-[#D6AE3E]/60">
-                                <td className="py-6 flex ">
-                                    <p>{new Date(items.fixture.date).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</p>
-                                </td>
-                                <td className="py-6 flex">
-                                    <p className="flex justify-center items-center"><img className="w-8 h-8" src={items.teams.away.logo} alt={items.teams.away.name} /> {items.teams.away.name} </p>
-                                    <span className="px-6 font-semibold flex justify-center items-center">{items.goals.away} : {items.goals.home}</span>
-                                    <p className="flex justify-center items-center"><img className="w-8 h-8" src={items.teams.away.logo} alt={items.teams.away.name} /> {items.teams.home.name}</p>
-                                </td>
-                                <td className="py-6 flex">
-                                    <p>{items.fixture.status.long}</p>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
+                {loading && (
+                    <div className="text-center h-52 overflow-y-hidden text-[#1A365D] py-2 flex justify-center items-center"><span><FaSpinner className="animate-spin" /> </span> Loading Live-Scores...</div>
+                )}
+                   
+                {!loading && predictions?.map((items, index) => (
+                        <div key={index}>
+                            <h2 className="w-full flex justify-between items-center text-white bg-[#1A365D] p-1">
+                                <p className="flex justify-center items-center"><img className="w-6 h-6" src={items.league.logo} alt={items.league.name} /> {items.league.name}</p>
+                                <p>{new Date(items.fixture.date).toLocaleDateString()}</p>
+                            </h2>
+                            <table className="w-full">
+                                <tr className="flex justify-between items-center px-3 hover:bg-[#D6AE3E]/60">
+                                    <td className="py-6 flex ">
+                                        <p>{new Date(items.fixture.date).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</p>
+                                    </td>
+                                    <td className="py-6 flex">
+                                        <p className="flex justify-center items-center"><img className="w-8 h-8" src={items.teams.away.logo} alt={items.teams.away.name} /> {items.teams.away.name} </p>
+                                        <span className="px-6 font-semibold flex justify-center items-center">{items.goals.away} : {items.goals.home}</span>
+                                        <p className="flex justify-center items-center"><img className="w-8 h-8" src={items.teams.home.logo} alt={items.teams.home.name} /> {items.teams.home.name}</p>
+                                    </td>
+                                    <td className="py-6 flex">
+                                        <p>{items.fixture.status.long}</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
                 ))}
             </section>
             <Footer />  

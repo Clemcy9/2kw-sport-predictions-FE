@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { FaApple} from "react-icons/fa6";
 import {FcGoogle} from "react-icons/fc";
 import { useNavigate, Link } from "react-router-dom";
+import { FaSpinner } from "react-icons/fa";
 
 export default function SignUp () {
 
@@ -14,6 +15,7 @@ export default function SignUp () {
     const [eyePassword, setEyePassword] = useState(false);
     const [showPassword, setShowassword] = useState(false);
     const [confirmPassword, setConfirmPassword] = useState("");
+    const [loading, setLoading] = useState (false);
 
     const navigate = useNavigate();
 
@@ -21,19 +23,23 @@ export default function SignUp () {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+         setLoading(true)
 
         if (name.trim().split(" ").length < 2) {
             setMessage("Please enter your full name FirstName and LastName");
+            setLoading(false)
             return;
         }
 
         if(password.length<8){
             setMessage("password to short!")
+            setLoading(false)
             return;
         }
 
         if(password !== confirmPassword) {
             setMessage("passwords do not match!");
+            setLoading(false)
             return;
         }
 
@@ -49,6 +55,7 @@ export default function SignUp () {
 
             if(!res.ok){
                 setMessage(data.message || "sign-Up not successful");
+                setLoading(false);
                 return;
             }
 
@@ -66,6 +73,9 @@ export default function SignUp () {
             setConfirmPassword("");
         }catch (ero) {
             console.log(ero.message);
+        }finally{
+            setLoading(false)
+
         }
     };
 
@@ -159,8 +169,13 @@ export default function SignUp () {
 
                     </div>
 
-                    <button type="submit"  className="bg-[#1A365D] text-white w-70 rounded-[0.6rem] py-2 mt-4">
-                        Sign UP
+                    <button disabled={loading} type="submit"  className="flex justify-center items-center bg-[#1A365D] text-white w-70 rounded-[0.6rem] py-2 mt-4">
+
+                        {loading ? (
+                            <FaSpinner className="animate-spin justify-center items-center"/>
+                        ):(
+                            "Sign UP"
+                        )}
                     </button>
                     <p className="text-[#1E1E1E] p-0.5">
                         Already have an account?
