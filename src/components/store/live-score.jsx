@@ -88,19 +88,22 @@ export default function LIve_Scores () {
                    
                 {!loading && predictions?.map((items, index) => (
                         <div key={index}>
-                            <h2 className="w-full flex justify-between items-center text-white bg-[#1A365D] p-1.5 lg:p-3">
-                                <p className="flex justify-center items-center"><img className="w-6 h-6" src={items.league.logo} alt={items.league.name} /> {items.league.name}</p>
-                                <p>{new Date(items.fixture.date).toLocaleDateString()}</p>
-                            </h2>
                             <table className="w-full">
+                           <thead>
+                               <tr className="w-full flex justify-between items-center text-white bg-[#1A365D] p-1.5 lg:p-3">
+                                    <th className="flex justify-center items-center"><img className="w-6 h-6" src={items.league.logo} alt={items.league.name} /> {items.league.name}</th>
+                                    <th></th>
+                                    <th>{new Date(items.fixture.date).toLocaleDateString()}</th>
+                               </tr>
+                           </thead>
                                 <tr className="flex justify-between px-1.5 items-center text-xs lg:text-xl lg:px-3 hover:bg-[#D6AE3E]/60">
                                     <td className="lg:py-6 py-4 flex col-span-1">
                                         <p>{new Date(items.fixture.date).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</p>
                                     </td>
                                    <td className="lg:py-6 py-4 flex ">
-                                        <p className="flex justify-center items-center"><img className="lg:w-8 lg:h-8 w-5 h-5" src={items.teams.away.logo} alt={items.teams.away.name} /> {items.teams.away.name} </p>
+                                        <p className="flex justify-center items-center"><img className="hidden lg:block lg:w-8 lg:h-8 w-5 h-5" src={items.teams.away.logo} alt={items.teams.away.name} /> {items.teams.away.name} </p>
                                         <span className="lg:px-6 px-3 font-semibold flex justify-center items-center">{items.goals.away} : {items.goals.home}</span>
-                                        <p className="flex justify-center items-center"><img className="lg:w-8 lg:h-8 w-5 h-5" src={items.teams.home.logo} alt={items.teams.home.name} /> {items.teams.home.name}</p>
+                                        <p className="flex justify-center items-center"><img className="hidden lg:block lg:w-8 lg:h-8 w-5 h-5" src={items.teams.home.logo} alt={items.teams.home.name} /> {items.teams.home.name}</p>
                                     </td>
                                     <td className="lg:py-6 py-4 flex  ">
                                         <p>{items.fixture.status.long}</p>
