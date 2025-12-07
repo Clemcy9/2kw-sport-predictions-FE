@@ -26,6 +26,7 @@ import MetaData from "./components/admin-pages/features/metadata";
 import BlogPost_Id from "./components/blog_id";
 import All_Legues from "./components/admin-pages/features/leagues";
 import Free_Tips from "./components/layout/free-tips";
+import LIve_Scores from "./components/store/live-score";
 
 export default function App(){
   const [loading, setLoading] = useState(true);
@@ -64,6 +65,7 @@ export default function App(){
               <Route path="blogs/blog" element={<NewPost />} />
             </Route>
 
+            <Route path="live-score" element={ <LIve_Scores/> } />
             <Route path="/" element={<LandingPage />} >
               <Route path="free-tips" index element={ <Free_Tips/> } />
               <Route path="home-win" element={ <HomeWin/> } />

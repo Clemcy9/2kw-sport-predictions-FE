@@ -4,13 +4,13 @@ import Navbar from "../components/shared/Navbar";
 import HeroSection from "../components/shared/HeroSection";
 import Footer from "../components/shared/Footer";
 import FreeTips from "../components/shared/FreetipsCard";
-import BestPredictionCard from "../components/BestPrediction";
+import BestPredictionCard from "../components/store/BestPrediction";
 import FootballLeaguesTable from "../components/Leagues/FootballLeagues";
 import ContentNavBar from "../components/Prediction-days/Content-Nav";
 import { motion } from "framer-motion";
 import LeagueTables from "../components/Standings/Table";
 import DummyBlog from "../components/dummy-blog";
-import PremierLeagueCard from "../components/Premier-league";
+import PremierLeagueCard from "../components/store/Premier-league";
 import { Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
 
