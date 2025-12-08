@@ -5,6 +5,7 @@ import { motion } from "framer-motion"
 import { data, Link } from "react-router-dom";
 import { FaFutbol, FaSpinner, FaTelegramPlane, FaToolbox } from "react-icons/fa";
 import { useEffect, useState } from "react";
+import liveScores from "../../assets/Hero-images/live-scores.jpg"
 
 
 export default function LIve_Scores () {
@@ -38,7 +39,7 @@ export default function LIve_Scores () {
             <Navbar />
             <section
                 className="font-sans relative h-[344px] mt-[22px] lg:mt-16 bg-cover bg-center flex-wrap flex items-center justify-center text-center text-white"
-                style={{ backgroundImage: "url('/live-scores.jpg')" }}
+                style={{ backgroundImage: `url(${liveScores})` }}
             >
                 <div className="absolute inset-0 bg-[#1A365D]/40"></div> {/* overlay */}
 

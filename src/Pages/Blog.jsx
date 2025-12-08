@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import { FaFutbol, FaTelegramPlane } from "react-icons/fa";
 import { useState } from "react";
 import { FiArrowRight } from "react-icons/fi";
-// import { AllBlog } from "../components/multi-component";
+import blogBg from "../assets/Hero-images/blog-bg.jpg";
 
 export default function BlogPost () {
 
@@ -47,7 +47,7 @@ export default function BlogPost () {
             <Navbar />
             <section
                 className="font-sans relative h-[344px] mt-[22px] lg:mt-16 bg-cover bg-center flex-wrap flex items-center justify-center text-center text-white"
-                style={{ backgroundImage: "url('/Blog-bg.jpg')" }}
+                style={{ backgroundImage: `url(${blogBg})` }}
             >
                 <div className="absolute inset-0 bg-[#1A365D]/40"></div> {/* overlay */}
 

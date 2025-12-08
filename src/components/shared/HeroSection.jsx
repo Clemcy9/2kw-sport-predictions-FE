@@ -2,13 +2,14 @@ import {TypeAnimation} from "react-type-animation"
 import {motion} from "framer-motion"
 import { Link } from "react-router-dom";
 import { FaFutbol, FaTelegramPlane } from "react-icons/fa";
+import heroBg from "../../assets/Hero-images/hero-bg.jpg"
 
 
 export default function HeroSection() {
     return (
         <section
             className="font-sans relative h-[344px] mt-[22px] md:mt-16 bg-cover bg-center flex-wrap flex items-center justify-center text-center text-white"
-            style={{ backgroundImage: "url('/hero-bg.jpg')" }}
+            style={{ backgroundImage: `url(${heroBg})` }}
         >
             <div className="absolute inset-0 bg-[#1A365D]/40"></div> {/* overlay */}
 
