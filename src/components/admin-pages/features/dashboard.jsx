@@ -226,15 +226,15 @@ export default function DashBoard() {
                 </table>
             </div>
             <button onClick={(item) => { setAction(item); setModal(true); }}
-                                                                    className="hidden text-[#04BA4A] transition"
-                                                                    >
-                                                                    <FaPlusSquare size={18} />
-                                                                </button>
+                className=" text-[#04BA4A] transition"
+                >
+                <FaPlusSquare size={18} />
+            </button>
 
 
             {modal && action && (
-                <main onClick={() => setModal(false)} className="hidden fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">
-                    <div onClick={(e) => e.stopPropagation()} className=" min-h-screen lg:min-h-auto pt-4 bg-white lg:rounded-xl px-2 py-4 flex-col flex">
+                <main onClick={() => setModal(false)} className=" fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">
+                    <div onClick={(e) => e.stopPropagation()} className="sm:w-full min-h-screen lg:w-auto lg:min-h-auto pt-4 bg-white lg:rounded-xl px-2 py-4 flex-col flex">
 
                         <div className="flex justify-between  w-full">
                             <p className="lg:py-5 lg:flex lg:items-start lg:justify-start font-semibold flex-col  lg:w-full justify-center items-center lg:max-w-auto lg:flex-row p-3">
@@ -246,10 +246,10 @@ export default function DashBoard() {
                             </button>
                         </div>
 
-                        <div className="flex-col flex lg:flex-row gap-4">
+                        <div className="flex-col sm:flex-row flex lg:flex-row sm:gap-2 gap-4">
                             <form action="" className=" ">
-                            <section className="bg-[#EEF0F3] w-full rounded-xl px-2 py-4">
-                                <div className="w-full">
+                            <section className="bg-[#EEF0F3] min-w-1/2 w-full rounded-xl px-2 py-4">
+                                <div className="w-full flex flex-col">
                                     <div className="flex justify-between w-full items-center py-3">
                                         <p className="flex justify-center items-center"><span className="flex flex-col"><img className="w-10 h-10" />Dundely FC </span></p>
                                         <span>VS</span>
@@ -257,8 +257,7 @@ export default function DashBoard() {
                                     </div>
                                         <div className="bg-[#D6AE3E] w-full min-w-full rounded-t-xl text-black flex items-center justify-between p-2">
                                             <h3>Predictions</h3>
-                                            <div role="button"
-                                                 onClick={handle_close} className="cursor-pointer flex items-center justify-center">
+                                            <div role="button" onClick={handle_close} className="cursor-pointer  flex items-center justify-center">
                                                 {close ?
                                                     <FaPlus /> : <FaMinus />
                                                 }
@@ -273,19 +272,19 @@ export default function DashBoard() {
                                                     transition={{ duration: 0.6 }}
                                                 >
                                                     <div className="p-3 grid grid-cols-2  flex-wrap rounded-b-xl bg-white gap-6 flex-shrink-0 min-w-full w-full">
-                                                        <div className="flex flex-col justify-start items-start max-w-auto w-auto">
+                                                        <div className="flex flex-col justify-start items-start max-w-full w-full">
                                                             <label htmlFor="">Free Tips</label>
                                                             <input type="text" placeholder="Select" className="w-full border border-[#737373] p-2 rounded-sm" />
                                                         </div>
-                                                        <div className="flex flex-col justify-start items-start max-w-auto w-auto">
+                                                        <div className="flex flex-col justify-start items-start max-w-full w-full">
                                                             <label htmlFor="">Super Single Tip</label>
                                                             <input type="text" placeholder="Select" className="w-full border border-[#737373] p-2 rounded-sm" />
                                                         </div>
-                                                        <div className="flex flex-col justify-start items-start max-w-auto w-auto">
+                                                        <div className="flex flex-col justify-start items-start max-w-full w-full">
                                                             <label htmlFor=""> Free 2 Odds</label>
                                                             <input type="text" placeholder="Select" className="w-full border border-[#737373] p-2 rounded-sm" />
                                                         </div>
-                                                        <div className="flex flex-col justify-start items-start max-w-auto w-auto">
+                                                        <div className="flex flex-col justify-start items-start max-w-full w-full">
                                                             <label htmlFor="">Sure Predict</label>
                                                             <input type="text" placeholder="Select" className="w-full border border-[#737373] p-2 rounded-sm" />
                                                         </div>
@@ -307,24 +306,24 @@ export default function DashBoard() {
                                         </section>
                             </form>
 
-                            <div>
+                            <div className=" lg:w-auto min-w-1/2">
                                 <h3 className="text-[#1A365D] pb-3 px-6 font-semibold">Odds & Probabilities</h3>
 
                                 <table className="w-full px-4 ">
                                     <thead>
                                         <tr>
-                                            <th className="text-left px-6">Market</th>
-                                            <th className="text-left px-6">Odds</th>
-                                            <th className="text-left px-6">Prob%</th>
+                                            <th className="text-left sm:px-1 px-6">Market</th>
+                                            <th className="text-left sm:px-1 px-6">Odds</th>
+                                            <th className="text-left sm:px-1 px-6">Prob%</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td className="px-7 py-2">1</td>
+                                            <td className="px-7 sm:px-1 py-2">1</td>
 
-                                            <td className="px-7 py-2">x 6.5</td>
+                                            <td className="px-7 sm:px-1 py-2">x 6.5</td>
 
-                                            <td className="px-7 py-2"> 30% </td>
+                                            <td className="px-7 sm:px-1 py-2"> 30% </td>
                                         </tr>
 
                                     </tbody>

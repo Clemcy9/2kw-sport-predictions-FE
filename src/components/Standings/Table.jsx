@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaCircleDot, FaSpinner, FaTrophy } from "react-icons/fa6";
-import { FaTruckLoading } from "react-icons/fa";
+import { FaTools} from "react-icons/fa";
 
 export default function LeagueTables() {
     const [activeLeague, setActiveLeague] = useState("EPL");
@@ -90,7 +90,7 @@ export default function LeagueTables() {
     }, []);
 
     if (loading) return <div className="text-center text-[#1A365D] py-20 flex justify-center items-center"><span><FaSpinner className="animate-spin" /> </span> Loading data...</div>;
-    if (error) return <div className="text-center flex justify-center items-center text-red-500 py-20 border-[#1A365D] border shadow-xl w-full rounded-xl"><FaTruckLoading /> {error}</div>;
+    if (error) return <div className="text-center flex justify-center items-center text-red-500 py-20  w-full rounded-xl"><FaTools /> {error}</div>;
 
     const leagueData = leaguesData[activeLeague] || { league: [], scorers: [] };
 

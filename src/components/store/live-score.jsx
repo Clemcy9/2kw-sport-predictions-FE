@@ -74,7 +74,7 @@ export default function LIve_Scores () {
                                 Join Telegram <FaTelegramPlane />
                             </a>
                             <Link
-                                to="/live-scores"
+                                to="/live-score"
                                 className="flex lg:items-center justify-center gap-1 lg:w-65 text-[#1A365D] font-sans bg-[#D6AE3E] px-5 py-3 lg:py-3  shadow-lg rounded-[0.4rem] lg:text-[1.5rem] lg:px-0 hover:scale-95 hover:shadow-lg transition-all">
                                 Live Scores <FaFutbol className="animate-bounce" />
                             </Link>

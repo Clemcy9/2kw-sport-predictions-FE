@@ -5,13 +5,14 @@ import Navbar from "../components/shared/Navbar";
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { FaFutbol, FaTelegramPlane } from "react-icons/fa";
+import { FaFutbol, FaSpinner, FaTelegramPlane } from "react-icons/fa";
 import { useState } from "react";
 import { FiArrowRight } from "react-icons/fi";
 import blogBg from "../assets/Hero-images/blog-bg.jpg";
 
 export default function BlogPost() {
   const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const get_all_blogs = async () => {
@@ -25,6 +26,7 @@ export default function BlogPost() {
         const data = await res.json();
         console.log("Api data", data);
         setBlogs(data.data || []);
+        setLoading(false);
       } catch (err) {
         console.error(err);
       }
@@ -45,7 +47,7 @@ export default function BlogPost() {
     <div>
       <Navbar />
       <section
-        className="font-sans relative h-[344px] mt-[22px] lg:mt-16 bg-cover bg-center flex-wrap flex items-center justify-center text-center text-white"
+        className="font-sans relative h-[344px] mt-[22px] lg:mt-16 bg-cover object-cover bg-center flex-wrap flex items-center justify-center text-center text-white"
             style={{ backgroundImage: `url(${blogBg})` }}
       >
         <div className="absolute inset-0 bg-[#1A365D]/40"></div> {/* overlay */}
@@ -78,7 +80,7 @@ export default function BlogPost() {
                 Join Telegram <FaTelegramPlane />
               </a>
               <Link
-                to="/live-scores"
+                to="/live-score"
                 className="flex lg:items-center justify-center gap-1 lg:w-65 text-[#1A365D] font-sans bg-[#D6AE3E] px-5 py-3 lg:py-3  shadow-lg rounded-[0.4rem] lg:text-[1.5rem] lg:px-0 hover:scale-95 hover:shadow-lg transition-all"
               >
                 Live Scores <FaFutbol className="animate-bounce" />
@@ -87,12 +89,15 @@ export default function BlogPost() {
           </div>
         </motion.div>
       </section>
-      <div className="gap-5 border-none lg:p-4 mx my-3 mt-7 w-full z-20 relative min-h-screen flex flex-col justify-center items-center bg-[#e0e2e685]">
+      <div className="gap-5 border-none lg:p-4 mx my-3 mt-7 w-full z-20 relative  flex flex-col justify-center items-center bg-[#e0e2e685]">
         <h1 className="font-[Inria Sans] text-center text-3xl font-semibold text-[#1F2128] lg:pb-6 mb-8 text-shadow-x z-40">
           2kwPredict Blog
         </h1>
+        {loading && (
+           <div className="text-center h-52 overflow-y-hidden text-[#1A365D] py-2 flex justify-center items-center"><span><FaSpinner className="animate-spin" /> </span> Loading Blog Articles...</div>
+        )}
         <div className="lg:grid lg:grid-cols-3 lg:gap- sm:grid sm:grid-cols-2 sm:gap-6 gap-4 w-full sm:items-center sm:w-full sm:justify-center flex flex-col ">
-          {blogs.map((blog) => (
+          {!loading && blogs?.map((blog) => (
             <article
               key={blog._id}
               className="group overflow-hidden bg-white flex justify-between flex-row lg:flex-col lg:gap-2  sm:flex-col lg:rounded-[0.5em] gap-1 rounded-[0.5em] lg:max-h-80 max-h-40 hover:-translate-y-1 transition-all lg:w-auto w-full sm:h-auto  shadow-sm  lg:shadow-sm "
@@ -129,7 +134,7 @@ export default function BlogPost() {
           className="p-4 z-20 text-[#D6AE3E] flex justify-center text-center items-center underline"
           to={"/"}
         >
-          View All Articles{" "}
+          View All Articles
         </Link>
       </div>
       <Footer />

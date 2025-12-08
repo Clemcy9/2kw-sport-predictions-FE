@@ -63,7 +63,7 @@ export default function Sidebar() {
         },
         {
             title: "Affiliate/Partner Links",
-            path: "/admin/affiliate",
+            path: "/admin/affiliate-partner-links",
             icon: <FaLink />,
         },
     ];
