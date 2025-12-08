@@ -1,10 +1,21 @@
 import {useState, useEffect } from "react";
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import { FaArrowTrendUp, FaCheck, FaUser, FaTrash } from "react-icons/fa6";
+import { FaMinus, FaPlus, FaPlusSquare } from "react-icons/fa";
+import { X } from "lucide-react";
 
 export default function DashBoard() {
 
    const numbers = [12485, 82, 3247];
+    const [modal, setModal] = useState(false);
+    const [action, setAction] = useState(null);
+    const [close, setClose] = useState(true);
+
+    const handle_close = (e) => {
+        e.preventDefault();
+        setClose(!close)
+
+    };
 
    const count1 = useMotionValue(0);
    const count2 = useMotionValue(0);
@@ -214,6 +225,115 @@ export default function DashBoard() {
                     </tbody>
                 </table>
             </div>
+            <button onClick={(item) => { setAction(item); setModal(true); }}
+                                                                    className="hidden text-[#04BA4A] transition"
+                                                                    >
+                                                                    <FaPlusSquare size={18} />
+                                                                </button>
+
+
+            {modal && action && (
+                <main onClick={() => setModal(false)} className="hidden fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">
+                    <div onClick={(e) => e.stopPropagation()} className=" min-h-screen lg:min-h-auto pt-4 bg-white lg:rounded-xl px-2 py-4 flex-col flex">
+
+                        <div className="flex justify-between  w-full">
+                            <p className="lg:py-5 lg:flex lg:items-start lg:justify-start font-semibold flex-col  lg:w-full justify-center items-center lg:max-w-auto lg:flex-row p-3">
+                                <h2>Make Predictions For </h2>
+                                <h2 className="flex px-1">Dundely Fc<span className="px-2 font-semibold">vs</span>Chizy Fc</h2>
+                            </p>
+                            <button onClick={() => setModal(false)} className="flex p-3 font-bold">
+                                < X size={20} />
+                            </button>
+                        </div>
+
+                        <div className="flex-col flex lg:flex-row gap-4">
+                            <form action="" className=" ">
+                            <section className="bg-[#EEF0F3] w-full rounded-xl px-2 py-4">
+                                <div className="w-full">
+                                    <div className="flex justify-between w-full items-center py-3">
+                                        <p className="flex justify-center items-center"><span className="flex flex-col"><img className="w-10 h-10" />Dundely FC </span></p>
+                                        <span>VS</span>
+                                        <p className="flex justify-center items-center"> <span className="flex flex-col"><img className="w-10 h-10" />Chizy Fc </span></p>
+                                    </div>
+                                        <div className="bg-[#D6AE3E] w-full min-w-full rounded-t-xl text-black flex items-center justify-between p-2">
+                                            <h3>Predictions</h3>
+                                            <div role="button"
+                                                 onClick={handle_close} className="cursor-pointer flex items-center justify-center">
+                                                {close ?
+                                                    <FaPlus /> : <FaMinus />
+                                                }
+                                            </div>
+                                        </div>
+                                        <div className="w-full">
+                                            {close && (
+                                                <motion.div
+                                                    className="w-full flex flex-col gap-2 items-center"
+                                                    initial={{ opacity: 0, y: 40 }}
+                                                    animate={{ opacity: 1, y: 0 }}
+                                                    transition={{ duration: 0.6 }}
+                                                >
+                                                    <div className="p-3 grid grid-cols-2  flex-wrap rounded-b-xl bg-white gap-6 flex-shrink-0 min-w-full w-full">
+                                                        <div className="flex flex-col justify-start items-start max-w-auto w-auto">
+                                                            <label htmlFor="">Free Tips</label>
+                                                            <input type="text" placeholder="Select" className="w-full border border-[#737373] p-2 rounded-sm" />
+                                                        </div>
+                                                        <div className="flex flex-col justify-start items-start max-w-auto w-auto">
+                                                            <label htmlFor="">Super Single Tip</label>
+                                                            <input type="text" placeholder="Select" className="w-full border border-[#737373] p-2 rounded-sm" />
+                                                        </div>
+                                                        <div className="flex flex-col justify-start items-start max-w-auto w-auto">
+                                                            <label htmlFor=""> Free 2 Odds</label>
+                                                            <input type="text" placeholder="Select" className="w-full border border-[#737373] p-2 rounded-sm" />
+                                                        </div>
+                                                        <div className="flex flex-col justify-start items-start max-w-auto w-auto">
+                                                            <label htmlFor="">Sure Predict</label>
+                                                            <input type="text" placeholder="Select" className="w-full border border-[#737373] p-2 rounded-sm" />
+                                                        </div>
+                                                    </div>
+                                                </motion.div>
+
+                                            )}
+                                        </div>
+                                </div>
+
+                            </section>
+                                        <section className="py-6 flex justify-center items-center gap-4 max-w-96">
+                                            <button className="rounded-xl bg-[#1A365D] px-3 py-2 text-white w-full">
+                                                Save Prediction
+                                            </button>
+                                            <button className="rounded-xl bg-white border border-[#1A365D] text-[#1A365D] px-3 py-2 w-full">
+                                                Cancel
+                                            </button>
+                                        </section>
+                            </form>
+
+                            <div>
+                                <h3 className="text-[#1A365D] pb-3 px-6 font-semibold">Odds & Probabilities</h3>
+
+                                <table className="w-full px-4 ">
+                                    <thead>
+                                        <tr>
+                                            <th className="text-left px-6">Market</th>
+                                            <th className="text-left px-6">Odds</th>
+                                            <th className="text-left px-6">Prob%</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td className="px-7 py-2">1</td>
+
+                                            <td className="px-7 py-2">x 6.5</td>
+
+                                            <td className="px-7 py-2"> 30% </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            )}
         </div>
     );
 }
