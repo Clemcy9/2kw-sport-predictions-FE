@@ -2,13 +2,14 @@ import {TypeAnimation} from "react-type-animation"
 import {motion} from "framer-motion"
 import { Link } from "react-router-dom";
 import { FaFutbol, FaTelegramPlane } from "react-icons/fa";
+import heroBg from "../../assets/Hero-images/hero-bg.jpg"
 
 
 export default function HeroSection() {
     return (
         <section
             className="font-sans relative h-[344px] mt-[22px] md:mt-16 bg-cover bg-center flex-wrap flex items-center justify-center text-center text-white"
-            style={{ backgroundImage: "url('/hero-bg.jpg')" }}
+            style={{ backgroundImage: `url(${heroBg})` }}
         >
             <div className="absolute inset-0 bg-[#1A365D]/40"></div> {/* overlay */}
 
@@ -43,7 +44,7 @@ export default function HeroSection() {
                             Join Telegram <FaTelegramPlane />
                         </a>
                         <Link 
-                            to="/live-scores"
+                            to="/live-score"
                             className="flex md:items-center justify-center gap-1 md:w-65 text-[#1A365D] font-sans bg-[#D6AE3E] px-5 py-3 md:py-3  shadow-lg rounded-[0.4rem] md:text-[1.5rem] md:px-0 hover:scale-95 hover:shadow-lg transition-all">
                             Live Scores <FaFutbol className="animate-bounce"/>
                         </Link>

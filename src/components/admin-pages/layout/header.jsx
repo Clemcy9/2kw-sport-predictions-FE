@@ -61,12 +61,12 @@ export default function AdminHeader() {
         },
         {
             title: "SEO Pages",
-            path: "/seo",
+            path: "/admin/seo",
             icon: <FaTags />,
         },
         {
             title: "Affiliate/Partner Links",
-            path: "/affiliate",
+            path: "/admin/affiliate-partner-links",
             icon: <FaLink />,
         },
     ];
@@ -74,12 +74,12 @@ export default function AdminHeader() {
     const lastMenu = [
         {
             title: "Help & Support",
-            path: "/support",
+            path: "/admin/help",
             icon: <FaQuestionCircle />,
         },
         {
             title: "Log Out",
-            path: "/logout",
+            path: "/admin/logout",
             icon: <FaSignOutAlt />,
         },
     ];

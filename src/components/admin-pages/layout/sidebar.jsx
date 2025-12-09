@@ -63,7 +63,7 @@ export default function Sidebar() {
         },
         {
             title: "Affiliate/Partner Links",
-            path: "/admin/affiliate",
+            path: "/admin/affiliate-partner-links",
             icon: <FaLink />,
         },
     ];
@@ -71,7 +71,7 @@ export default function Sidebar() {
     const lastMenu = [
         {
             title: "Help & Support",
-            path: "/admin/support",
+            path: "/admin/help",
             icon: <FaQuestionCircle />,
         },
         {

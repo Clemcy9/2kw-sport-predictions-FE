@@ -8,7 +8,7 @@ export default function GoBack () {
     return(
         <div>
             <button onClick={() => back(-1)} className="text-gray-700 ">
-                <FaArrowLeft size={26} />``
+                <FaArrowLeft size={26} />
             </button>
         </div>
     )

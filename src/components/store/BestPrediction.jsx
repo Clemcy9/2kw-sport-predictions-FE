@@ -2,6 +2,10 @@ import { motion } from "framer-motion";
 
 export default function BestPredictionCard () {
 
+    const days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+
+    const today = new Date();
+
     const predictions ={
         homeLogo: "/",
         homeTeam: "Everton",
@@ -9,9 +13,11 @@ export default function BestPredictionCard () {
         awayTeam: "Crystal Palace",
         leagueLogo: "/NPFL.jpg",
         league: "Premier League",
-        time: new Date().toLocaleTimeString(),
-        date: new Date().toLocaleDateString(),
-        odds: { home: "2.5", away: "1.9", draw: "3.5" }
+        time: new Date().toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",}),
+        date: `${days[today.getDay()]} ${today.getDate()}/${today.getMonth()}`,
+        odds: { home: "2.5", away: "4.9", draw: "3.5" }
     }
        
     return (
@@ -58,14 +64,14 @@ export default function BestPredictionCard () {
                     </span>{predictions.league}</span>
 
                     <p className="text- mt-1"><span className="text-[1rem">🕒</span>{predictions.time}</p>
-                    <p className="lg:text-[1.1rem] text-[1rem] max-[267]:flex  text-white"><span>🗓️</span>wen-{predictions.date}</p>
+                    <p className="lg:text-[1.1rem] text-[1rem] max-[267]:flex  text-white"><span>🗓️</span>{predictions.date}</p>
                 </div>
 
                 {/* Odds Section */}
             </motion.div>
 
                 <div className="border-1 border-b-0 border-x-0 border-t-white/20 w-full flex items-center justify-center flex-col">
-                    <div className="flex justify-between items-center text-lg space-y-1 text-white/80 lg:gap-1 gap-2 mt-2">
+                    <div className="flex justify-between items-center text-lg space-y-1 lg:space-y-0 text-white/80 lg:gap-1 gap-2 mt-2">
                         <div className="flex justify-center items-center  lg:px-2">
                             <p className="px-1">Home</p>
                             <p className="font-bold text-white rounded-[0.6rem] bg-[#D6AE3E] px-3 py-2">{predictions.odds.home}</p>
@@ -74,7 +80,7 @@ export default function BestPredictionCard () {
                             <p className="px-1">Draw</p>
                             <p className="font-bold text-white rounded-[0.6rem] bg-[#D6AE3E] px-3 py-2">{predictions.odds.draw}</p>
                         </div>
-                        <div className="flex justify-center items-center pb-2.5 lg:px-2">
+                        <div className="flex justify-center items-center lg:px-2">
                             <p className="px-1">Away</p>
                             <p className="font-bold text-white rounded-[0.6rem] bg-[#D6AE3E] px-3 py-2 ">{predictions.odds.away}</p>
                         </div>

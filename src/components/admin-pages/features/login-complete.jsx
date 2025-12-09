@@ -49,7 +49,7 @@ export default function LoginCompleted() {
                             duration: 0.5,
                             ease: "easeOut",
                         }} className="font-[sora] font-semibold text-[#1E1E1E] text-2xl">
-                          OTP Confirmed
+                          Sign In Successful
                     </motion.h2>
 
                         <motion.div
