@@ -88,7 +88,7 @@ export default function NewPost() {
 
   const handlePostAction = async (e) => {
     const status = statusTextRef.current.textContent;
-    const imageUrl = myImageRef.current.src;
+    const image = myImageRef.current.src;
 
     if (!title || !body || !imageUrl) {
       // alert("Please fill in all fields and select an image.");
@@ -98,13 +98,13 @@ export default function NewPost() {
     const formData = new FormData();
     formData.append("title", title);
     formData.append("body", body);
-    formData.append("image_url", imageUrl);
+    formData.append("image", image);
 
     const token = localStorage.getItem("authToken");
 
     switch (status) {
       case "Publish":
-        setStatus("publishing. . .");
+        setStatus("publishing...");
         await postBlog(formData, token);
         break;
 
@@ -147,12 +147,12 @@ export default function NewPost() {
           />
         </div>
         <div className="flex flex-col items-center space-y-10">
-          {/* <button
+          <button
             type="submit"
             className="bg-[#1A365D] text-white w-64 text-xl rounded-xl py-2"
           >
             Save Article
-          </button> */}
+          </button>
 
           <div className="flex lg:flex-col gap-5 mt-16">
             <div className="flex flex-col justify-center items-start py-4 px-4  rounded-xl bg-[#F5FAFF] ">
