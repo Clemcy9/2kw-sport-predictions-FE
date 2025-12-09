@@ -71,7 +71,7 @@ export default function Sidebar() {
     const lastMenu = [
         {
             title: "Help & Support",
-            path: "/admin/support",
+            path: "/admin/help",
             icon: <FaQuestionCircle />,
         },
         {

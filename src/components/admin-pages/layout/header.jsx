@@ -74,7 +74,7 @@ export default function AdminHeader() {
     const lastMenu = [
         {
             title: "Help & Support",
-            path: "/admin/support",
+            path: "/admin/help",
             icon: <FaQuestionCircle />,
         },
         {

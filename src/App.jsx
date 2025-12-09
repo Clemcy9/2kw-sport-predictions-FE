@@ -29,6 +29,7 @@ import Free_Tips from "./components/layout/free-tips";
 import LIve_Scores from "./components/store/live-score";
 import Affiliate_Partner_Links from "./components/admin-pages/features/affiliate-Partner-links";
 import Edit_Affiliate from "./components/admin-pages/features/edit-affiliate";
+import Help_And_Support from "./components/admin-pages/features/help";
 
 export default function App(){
   const [loading, setLoading] = useState(true);
@@ -63,6 +64,7 @@ export default function App(){
               <Route path="fixtures" element={<MakePredictions />} />
               <Route path="leagues" element={<All_Legues />} />
               <Route path="tags" element={<AdvertTags />} />      
+              <Route path="help" element={<Help_And_Support />} />      
               <Route path="affiliate-partner-links" element={<Affiliate_Partner_Links />} />      
               <Route path="edit-affiliate" element={<Edit_Affiliate />} />      
               <Route path="metadata" element={<MetaData/>} />      
