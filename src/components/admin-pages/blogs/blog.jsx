@@ -11,7 +11,7 @@ import { IoMdSend } from "react-icons/io";
 export default function NewPost() {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState(null);
   const [dropDownVisible, setDropDownVisible] = useState(false);
   const [inputTags, setInputTags] = useState("");
   const [inputValue, setInputValue] = useState("");
@@ -50,6 +50,7 @@ export default function NewPost() {
     if (e.target.files.length <= 0) {
       return;
     }
+    setImage(file);
 
     const reader = new FileReader();
     reader.onload = (e) => {
@@ -88,9 +89,9 @@ export default function NewPost() {
 
   const handlePostAction = async (e) => {
     const status = statusTextRef.current.textContent;
-    const imageUrl = myImageRef.current.src;
+    // const imageUrl = myImageRef.current.src;
 
-    if (!title || !body || !imageUrl) {
+    if (!title || !body) {
       // alert("Please fill in all fields and select an image.");
       return;
     }
@@ -98,18 +99,19 @@ export default function NewPost() {
     const formData = new FormData();
     formData.append("title", title);
     formData.append("body", body);
-    formData.append("image_url", imageUrl);
 
     const token = localStorage.getItem("authToken");
 
     switch (status) {
       case "Publish":
         setStatus("publishing. . .");
+        formData.append("image", image);
         await postBlog(formData, token);
         break;
 
       case "Draft":
         setStatus("Saving Draft");
+        formData.append("image", image);
         console.log("Saving the post as a draft...");
         break;
 
