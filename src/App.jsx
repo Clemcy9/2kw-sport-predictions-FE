@@ -1,4 +1,4 @@
-import { Routes, Route, } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import LandingPage from "./Pages/LandingPage";
 import { useState, useEffect } from "react";
 import LoadingAnimation from "./components/animations/Loading";
@@ -26,63 +26,58 @@ import MetaData from "./components/admin-pages/features/metadata";
 import BlogPost_Id from "./components/blog_id";
 import All_Legues from "./components/admin-pages/features/leagues";
 
-export default function App(){
+export default function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-
     //  preveunt the loading animation from showing every time a user refreshes the page
-    
+
     const loadOnlyOnce = sessionStorage.getItem("loadOnlyOnce");
     if (loadOnlyOnce) {
       setLoading(false);
       return;
     }
     sessionStorage.setItem("loadOnlyOnce", "true");
-    
+
     const setTimer = setTimeout(() => setLoading(false), 9000);
     return () => clearTimeout(setTimer);
-    
   }, []);
 
-  return(
+  return (
     <>
-    {loading ?(
-      <LoadingAnimation />
-      
-    ) : (
-          <Routes>
-            <Route path="/admin" element={ <AdminDashboard />} >
-              <Route index element={ <WelcomeText />} />
-              <Route path="dashboard" element={<DashBoard />} />
-              <Route path="predictions" element={<Predictions />} />
-              <Route path="fixtures" element={<MakePredictions />} />
-              <Route path="leagues" element={<All_Legues />} />
-              <Route path="tags" element={<AdvertTags />} />      
-              <Route path="metadata" element={<MetaData/>} />      
-              <Route path="blogs/blog" element={<NewPost />} />
-            </Route>
+      {loading ? (
+        <LoadingAnimation />
+      ) : (
+        <Routes>
+          <Route path="/admin" element={<AdminDashboard />}>
+            <Route index element={<WelcomeText />} />
+            <Route path="dashboard" element={<DashBoard />} />
+            <Route path="predictions" element={<Predictions />} />
+            <Route path="fixtures" element={<MakePredictions />} />
+            <Route path="leagues" element={<All_Legues />} />
+            <Route path="tags" element={<AdvertTags />} />
+            <Route path="metadata" element={<MetaData />} />
+            <Route path="blogs/blog" element={<NewPost />} />
+          </Route>
 
-            <Route path="/" element={<LandingPage />} >
-              <Route path="home-win" element={ <HomeWin/> } />
-              <Route path="goals-1.5" element={ <Goals1_5/> } />
-              <Route path="goals-2.5" element={ <Goals2_5/> } />
-              <Route path="btts_gg" element={ <BTTS_GG/> } />
-              <Route path="free-2odds" element={ <FreeOdds/> } />
-              <Route path="away-win" element={ <AwayWin/> } />
-              <Route path="super-singles" element={ <SuperSingles/> } />
-              <Route path="double-chance" element={ <DoubleChance/> } />
-              <Route path="all-predictions" element={ <AllPredictions/> } />
-            </Route>
-            <Route path="/sign-in" element={ <SignIn />} />
-            <Route path="/login-complete" element={ <LoginCompleted />} />
-            <Route path="/sign-up" element={ <SignUp />} />
-            <Route path="/blog_id/:id" element={ <BlogPost_Id />} />
-            <Route path="/blog" element={ <BlogPost />} />
-          </Routes>
-    )}
-
+          <Route path="/" element={<LandingPage />}>
+            <Route path="home-win" element={<HomeWin />} />
+            <Route path="goals-1.5" element={<Goals1_5 />} />
+            <Route path="goals-2.5" element={<Goals2_5 />} />
+            <Route path="btts_gg" element={<BTTS_GG />} />
+            <Route path="free-2odds" element={<FreeOdds />} />
+            <Route path="away-win" element={<AwayWin />} />
+            <Route path="super-singles" element={<SuperSingles />} />
+            <Route path="double-chance" element={<DoubleChance />} />
+            <Route path="all-predictions" element={<AllPredictions />} />
+          </Route>
+          <Route path="/sign-in" element={<SignIn />} />
+          <Route path="/login-complete" element={<LoginCompleted />} />
+          <Route path="/sign-up" element={<SignUp />} />
+          <Route path="/blog_id/*" element={<BlogPost_Id />} />
+          <Route path="/blog" element={<BlogPost />} />
+        </Routes>
+      )}
     </>
   );
 }
-
