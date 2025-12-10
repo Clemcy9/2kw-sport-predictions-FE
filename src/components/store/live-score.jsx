@@ -115,6 +115,10 @@ export default function LIve_Scores () {
                         </table>
                     </div>
                 ))}
+
+                {!loading && predictions?.map === 0 && (
+                    <div className="text-center h-52 overflow-y-hidden text-[#1A365D] py-2 flex justify-center items-center">No Live-Scores Available...</div>
+                )}
             </section>
             <Footer />  
         </main>

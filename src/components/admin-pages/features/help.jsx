@@ -1,7 +1,7 @@
 export default function Help_And_Support () {
 
     return(
-        <main className="p-4 lg:px-5 flex flex-col justify-center items-center w-full">
+        <main className="hidden p-4 lg:px-5 flex flex-col justify-center items-center w-full">
             <div className="flex justify-between font-semibold font-sans text-2xl w-full py-4  lg:py-6">
                 <h1 className="lg:font-semibold font-bold font-[Inria Sans]  text-center w-full lg:text-left">General Inquiries & Support</h1>
                 
