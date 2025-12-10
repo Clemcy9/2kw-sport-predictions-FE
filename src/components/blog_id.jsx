@@ -1,6 +1,6 @@
 import Footer from "../components/shared/Footer";
 // import { FiArrowRight } from "react-icons/fi";
-// import { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import Navbar from "../components/shared/Navbar";
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
@@ -11,25 +11,27 @@ import { useState } from "react";
 export default function BlogPost_Id() {
   const endpoints = window.location.href;
   const splitted = endpoints.split("/");
-  console.log(splitted[splitted.length - 1]);
+  const blogId = splitted[splitted.length - 1];
+  const [blog, setBlog] = useState({});
 
-  //   useEffect(() => {
-  //     const getBlogId = async () => {
-  //       try {
-  //         const res = await fetch(
-  //           `https://twokw-backend.onrender.com/api/v1/blogs/${postId}`
-  //         );
+  useEffect(() => {
+    const getBlogId = async () => {
+      try {
+        const res = await fetch(
+          `https://twokw-backend.onrender.com/api/v1/blogs/${blogId}`
+        );
 
-  //         if (!res.ok) throw new Error("Failed to get all blogs");
-  //         const data = await res.json();
-  //         console.log("Api data", data);
-  //         setBlog(data.data || []);
-  //       } catch (err) {
-  //         console.error(err);
-  //       }
-  //     };
-  //     getBlogId();
-  //   }, []);
+        if (!res.ok) throw new Error("Failed to get all blogs");
+        const data = await res.json();
+        setBlog(data.data);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    getBlogId();
+  }, []);
+
+  if (!blog) return;
 
   return (
     <div>
@@ -83,9 +85,9 @@ export default function BlogPost_Id() {
         <Route
           path={blogId}
           element={
-            <section>
-              <article className="group overflow-hidden bg-white flex items-center justify-between flex-row lg:flex-col lg:gap-2 sm:flex-col lg:rounded-[0.5em] gap-1 rounded-[0.5em] lg:h-auto h-32 hover:-translate-y-1 transition-all lg:w-auto w-full sm:h-auto  shadow-sm  lg:shadow-sm ">
-                <div className="lg:w-full max-w-40 lg:max-w-full sm:max-w-full lg:h-auto overflow-hidden relative sm:h-auto w-full h-full">
+            <section className="lg:p-10 md:p-8 sm:p-5 p-2">
+              <article className="group overflow-hidden bg-white flex items-center justify-center mx-auto flex-row lg:flex-col lg:gap-2 sm:flex-col lg:rounded-[0.5em] gap-1 rounded-[0.5em] lg:h-auto h-32 hover:-translate-y-1 transition-all lg:w-auto lg:max-w-72 sm:h-auto  shadow-sm  lg:shadow-sm ">
+                <div className="max-w-40 sm:max-w-full lg:h-auto overflow-hidden relative sm:h-auto w-full h-full">
                   <img
                     src={blog.image_url}
                     alt={blog.title}
@@ -104,12 +106,6 @@ export default function BlogPost_Id() {
                     <span className="font-semibold text-[#65758B]">
                       {new Date(blog.createdAt).toLocaleDateString()}
                     </span>
-                    {/* <Link
-                className=" text-[#D6AE3E] flex justify-center items-center"
-                to={`/blog_id/${blog._id}`}
-              >
-                view more <FiArrowRight />
-              </Link> */}
                   </div>
                 </div>
               </article>

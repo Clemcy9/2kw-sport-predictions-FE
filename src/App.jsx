@@ -87,7 +87,7 @@ export default function App() {
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/login-complete" element={<LoginCompleted />} />
           <Route path="/sign-up" element={<SignUp />} />
-          <Route path="/blog_id/:id" element={<BlogPost_Id />} />
+          <Route path="/blog_id/*" element={<BlogPost_Id />} />
           <Route path="/blog" element={<BlogPost />} />
         </Routes>
       )}
