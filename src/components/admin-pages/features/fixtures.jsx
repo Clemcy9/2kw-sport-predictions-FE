@@ -31,14 +31,17 @@ export default function MakePredictions () {
     //     setClose(!close)
 
     // };
-    const predictions = [
-        {
-            market: "home",
-            odds: "x1.5",
-            prob: "60%",
-        },
-    ];
-    
+
+    useEffect(() => {
+        if(modal) {
+            document.body.style.overflow = "hidden";
+        }else {
+            document.body.style.overflow = "auto";
+        }
+        return() => {
+            document.body.style.overflow = "auto";
+        };
+    }, [modal]);
     
     // const dates = new Date();
     // dates.setDate(dates.getDate() + 1);
