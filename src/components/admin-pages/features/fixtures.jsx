@@ -173,7 +173,7 @@ export default function MakePredictions () {
                     </table>
 
                     {modal && action && (
-                        <main onClick={() => setModal(false)} className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">
+                        <main onClick={() => setModal(false)} className="fixed overflow-y-auto inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">
                             <div onClick={(e) => e.stopPropagation()} className=" min-h-screen lg:min-h-auto pt-4 bg-white lg:rounded-xl px-2 py-4 flex-col flex">
 
                                <div className="flex justify-between w-full">
