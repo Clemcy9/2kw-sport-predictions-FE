@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Link, NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -10,7 +10,7 @@ import {
     FaFileAlt,
     FaTags,
     FaLink,
-    FaQuestionCircle,
+    // FaQuestionCircle,
     FaSignOutAlt,
     FaChevronDown,
     FaChevronRight,
@@ -20,6 +20,45 @@ export default function AdminHeader() {
     const navigation = useNavigate();
     const [isOpen, setIsOpen] = useState(false);
     const [openDropdown, setOpenDropdown] = useState(null);
+
+    // useEffect(() => {
+    //     if (isOpen) {
+    //         // Lock scroll
+    //         document.body.style.position = "fixed";
+    //         document.body.style.top = `-${window.scrollY}px`;
+    //         document.body.style.left = "0";
+    //         document.body.style.right = "0";
+    //     } else {
+    //         // Restore scroll
+    //         const scrollY = document.body.style.top;
+    //         document.body.style.position = "";
+    //         document.body.style.top = "";
+    //         document.body.style.left = "";
+    //         document.body.style.right = "";
+    //         window.scrollTo(0, parseInt(scrollY || "0") * -1);
+    //     }
+
+    //     // Cleanup if component unmounts
+    //     return () => {
+    //         document.body.style.position = "";
+    //         document.body.style.top = "";
+    //         document.body.style.left = "";
+    //         document.body.style.right = "";
+    //     };
+    // }, [isOpen]);
+
+    useEffect(() => {
+        if (isOpen) {
+            const y = window.scrollY;
+            document.body.style.cssText = `position:fixed; top:-${y}px; left:0; right:0;`;
+        } else {
+            const y = parseInt(document.body.style.top || "0") * -1;
+            document.body.style.cssText = "";
+            window.scrollTo(0, y);
+        }
+    }, [isOpen]);
+
+
 
     const menuItems = [
         {
@@ -73,11 +112,6 @@ export default function AdminHeader() {
 
     const lastMenu = [
         {
-            title: "Help & Support",
-            path: "/admin/help",
-            icon: <FaQuestionCircle />,
-        },
-        {
             title: "Log Out",
             path: "/admin/logout",
             icon: <FaSignOutAlt />,
@@ -126,7 +160,7 @@ export default function AdminHeader() {
 
                             {/* Sidebar */}
                             <div
-                                className={` min-h-screen bg-[#1A365D] text-[#fff] h-screen sm:w-80 w-full overflow-y-visible p-4 flex flex-col shadow-lg  fixed  left-0 z-40 transition-transform duration-300
+                                className={` min-h-screen bg-[#1A365D] text-[#fff] h-screen sm:w-80 w-full overflow-y-auto p-4 flex flex-col shadow-lg  fixed  left-0 z-40 transition-transform duration-300
                                 ${isOpen ? "translate-x-0" : "-translate-x-full"} `}
                             >
                                 <nav className="flex flex-col space-y-5 gap-3 min-h-screen">
@@ -186,7 +220,7 @@ export default function AdminHeader() {
                                         </div>
                                     ))}
 
-                                    <div className="mt-5">
+                                    <div className="mt-3">
                                         {lastMenu.map((item, index) => (
                                             <Link
                                                 key={index}
