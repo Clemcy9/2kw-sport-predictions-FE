@@ -104,7 +104,7 @@ export default function NewPost() {
 
     switch (status) {
       case "Publish":
-        setStatus("publishing. . .");
+        setStatus("Posting article...");
         formData.append("image", image);
         await postBlog(formData, token);
         break;
@@ -127,10 +127,7 @@ export default function NewPost() {
 
   return (
     <div className="px-8 lg:pt-6 ">
-      <form
-        onSubmit={handleSubmit}
-        className="lg:grid lg:grid-cols-[2fr_0.8fr] w-full lg:gap-8 "
-      >
+      <form className="lg:grid lg:grid-cols-[2fr_0.8fr] w-full lg:gap-8 ">
         <h2 className="lg:hidden w-full text-center font-bold text-black/80 font-[Inria Sans] py-6 text-xl">
           New Article
         </h2>
@@ -149,15 +146,16 @@ export default function NewPost() {
             className="h-[400px]"
           />
         </div>
-        <div className="flex flex-col items-center space-y-10">
-          {/* <button
-            type="submit"
-            className="bg-[#1A365D] text-white w-64 text-xl rounded-xl py-2"
+        <div className="flex flex-col items-center space-y-10 lg:mt-0 mt-16 sm:mt-20">
+          <button
+            onClick={handlePostAction}
+            type="button"
+            className="bg-[#1A365D] hover:bg-[#132b4d] text-white w-64 text-xl rounded-xl py-2 cursor-pointer"
           >
-            Save Article
-          </button> */}
+            {status}
+          </button>
 
-          <div className="flex lg:flex-col gap-5 mt-16">
+          <div className="flex lg:flex-col gap-5">
             <div className="flex flex-col justify-center items-start py-4 px-4  rounded-xl bg-[#F5FAFF] ">
               <h3 className="w-full text-left font-bold text-black/80 font-[Inria Sans]">
                 Feature Image
@@ -196,15 +194,10 @@ export default function NewPost() {
                 <div className="relative w-40 border border-[#1A365D] rounded-xl flex items-center cursor-pointer">
                   <div className="flex items-center w-full rounded-xl overflow-hidden">
                     <span
-                      onClick={handlePostAction}
                       ref={statusTextRef}
-                      className={
-                        status === "publishing. . ."
-                          ? " py-2 px-4 disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed"
-                          : "basis-[70%] block py-2 px-4 text-[#1A365D] hover:bg-[#f1f1f1] transition"
-                      }
+                      className="basis-[70%] block py-2 px-4 text-[#1A365D] hover:bg-[#f1f1f1] transition"
                     >
-                      {status}
+                      Publish
                     </span>
                     <span
                       onClick={() => setDropDownVisible((prev) => !prev)}
