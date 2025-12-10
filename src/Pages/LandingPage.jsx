@@ -37,9 +37,11 @@ export default function LandingPage() {
      FETCH PREDICTION DATA BASED ON BET TYPE
   --------------------------------------------- */
   useEffect(() => {
-    const url = `https://twokw-backend.onrender.com/api/v1/admin/predictions/odds?bet=${bet["id"]}`;
+    // const url = `https://twokw-backend.onrender.com/api/v1/admin/predictions/odds?bet=${bet["id"]}`;
     // const url = `http://localhost:5000/api/v1/admin/predictions/odds?bet=${bet["id"]}`;
-    // const url = `http://localhost:5000/api/v1/admin/predictions/odds?bet=${bet["id"]}&name=${bet["name"]}`;
+    // const url = `http://localhost:5000/api/v1/admin/predictions/odds?bet=${bet["id"]}&market_name=${bet["name"]}`;
+    const url = `https://twokw-backend.onrender.com/api/v1/admin/predictions/odds?bet=${bet["id"]}&market_name=${bet["name"]}`;
+    // console.log("tips name", bet["name"]);
 
     fetch(url)
       .then((res) => res.json())

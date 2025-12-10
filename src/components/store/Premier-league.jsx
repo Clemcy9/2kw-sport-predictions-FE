@@ -41,19 +41,25 @@ export default function PremierLeagueCard({
       minute: "2-digit",
     }),
     odd: {
-      Odds:
-        bet["id"] === 1 || bet["id"] === 5
-          ? bet_filter(values, bet["name"])[0]?.odd
-          : values[0].odd,
-      Tips:
-        bet["id"] === 1 || bet["id"] === 5
-          ? bet_filter(values, bet["name"])[0]?.value
-          : values[0].value,
-      Prop:
-        bet["id"] === 1 || bet["id"] === 5
-          ? `${bet_filter(values, bet["name"])[0]?.percentage}%`
-          : `${values[0].percentage}%`,
+      Odds: values[0].odd,
+      Tips: values[0].value,
+      Prop: values[0].percentage,
     },
+    // used when filtering happened in the frontend, this has been retired
+    // odd: {
+    //   Odds:
+    //     bet["id"] === 1 || bet["id"] === 5
+    //       ? bet_filter(values, bet["name"])[0]?.odd
+    //       : values[0].odd,
+    //   Tips:
+    //     bet["id"] === 1 || bet["id"] === 5
+    //       ? bet_filter(values, bet["name"])[0]?.value
+    //       : values[0].value,
+    //   Prop:
+    //     bet["id"] === 1 || bet["id"] === 5
+    //       ? `${bet_filter(values, bet["name"])[0]?.percentage}%`
+    //       : `${values[0].percentage}%`,
+    // },
   };
   console.log(predictions.odd);
 
