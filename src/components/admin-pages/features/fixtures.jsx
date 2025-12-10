@@ -19,17 +19,25 @@ export default function MakePredictions () {
     const [prediction, setPrediction] = useState([]);
     const [action, setAction] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [odds, setOdds] = useState([]);
+    const [loadingOdds, setLoadingOdds] = useState(false);
     const [freeTip, setFreeTip] = useState("");
     const [freeOdds, setFreeOdds] = useState("");
     const [surePredict, setSurePredict] = useState("");
     const [superSingleTip, setSuperSingleTip] = useState("");
 
-    const handle_close = (e) => {
-        e.preventDefault();
-        setClose(!close)
+    // const handle_close = (e) => {
+    //     e.preventDefault();
+    //     setClose(!close)
 
-    };
-    
+    // };
+    const predictions = [
+        {
+            market: "home",
+            odds: "x1.5",
+            prob: "60%",
+        },
+    ];
     
     
     // const dates = new Date();
@@ -49,6 +57,22 @@ export default function MakePredictions () {
                 setLoading(false);
               });
           }, [date]);
+
+          const all_odds = async (fixture_id) => {
+            try{
+                setLoadingOdds(true);
+                const res = await fetch(`https://twokw-backend.onrender.com/api/v1/admin/predictions/odds?fixture=${fixture_id}`);
+                const json = await res.json();
+                // setOdds(data?.data.response || []);
+                setOdds(json.data?.[0]?.bets || []);
+                console.log("fixture id", json);
+
+            }catch(err) {
+                console.error("cannot fetch form this endpoint",err);
+            }finally{
+                setLoadingOdds(false);
+            }
+          };
 
           const all_predictions = prediction.filter((item) => {
 
@@ -120,7 +144,7 @@ export default function MakePredictions () {
 
                         <tbody className="text-right">
                             {all_predictions.map((item, index) => (
-                                <tr key={item.fixture.id} className="leading-tight">
+                                <tr key={item.fixture.id}  className="leading-tight">
                                     <td colSpan={100} className="w-full flex flex-row lg:gap-2 lg:grid lg:grid-cols-14 lg:justify-between lg:border-none border p-3 lg:p-0 rounded-xl my-4 lg:my-0 lg:active:hidden active:border-[#1A365D] active:scale-105 active:shadow-xl border-[#1A365D99]">
                                             <section className="flex flex-col lg:col-span-10 lg:grid lg:grid-cols-9 justify-between  items-start gap-6 lg:flex-row w-full lg:gap-1 ">
                                                 <div className="lg:py-5 hidden lg:col-span-1 lg:block lg:mr-12">{index + 1}</div>
@@ -130,12 +154,12 @@ export default function MakePredictions () {
                                             <section className="flex gap-8 font-light lg:col-span-4 font-sans lg:text-lg lg:font-normal text-xs text-[#737373] items-end lg:flex-row flex-col lg:w-auto lg:justify-center lg:gap-18">
                                                 <div className="lg:py-5  ">{new Date(item.fixture.date).toLocaleDateString()}</div>
                                                 <div className="lg:py-5 pr-1 w-20 lg:pr-0 ">{new Date(item.fixture.date).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</div>
-                                                <div className="lg:py-5 lg:ml-4 lg:pr-0 pr-9">
-                                                    <button onClick={() => { setAction(item); setModal(true); }}
+                                                <div onClick={() => { setAction(item); setModal(true); all_odds(item.fixture.id); }} className="cursor-pointer lg:py-5 lg:ml-4 lg:pr-0 pr-9">
+                                                    <div 
                                                         className="text-[#04BA4A] transition"
                                                         >
                                                         <FaPlusSquare size={18} />
-                                                    </button>
+                                                    </div>
                                                 </div>
                                             </section>
 
@@ -170,13 +194,13 @@ export default function MakePredictions () {
                                     </div>
                                         <div className="bg-[#D6AE3E] rounded-t-xl text-black flex items-center justify-between p-2">
                                             <h3>Predictions</h3>
-                                            <button onClick={() => setClose(!close)} className="w-6 h-6 flex items-center justify-center">
+                                            <div onClick={() => setClose(!close)} className="w-6 h-6 flex items-center justify-center">
                                                 {close ?
                                                     <FaPlus /> : <FaMinus />
                                                 }
-                                            </button>
+                                            </div>
                                         </div>
-                                        {close && (
+                                        {/* {close && ( */}
                                             <div className="p-3 grid grid-cols-2  flex-wrap rounded-b-xl bg-white gap-6 flex-shrink-0 min-w-full">
                                                 <div className="flex flex-col justify-start items-start max-w-64 w-auto">
                                                     <label htmlFor="">Free Tips</label>
@@ -195,7 +219,7 @@ export default function MakePredictions () {
                                                     <input type="text" placeholder="Select" className="w-full border border-[#737373] p-2 rounded-sm" />
                                                 </div>
                                             </div>
-                                        )}
+                                        {/* )} */}
                                 </div>
 
                             </section>
@@ -212,25 +236,38 @@ export default function MakePredictions () {
                             <div>
                                 <h3 className="text-[#1A365D] pb-3 px-6 font-semibold">Odds & Probabilities</h3>
 
-                                <table className="w-full px-4 ">
-                                    <thead>
-                                        <tr>
-                                            <th className="text-left px-6">Market</th>
-                                            <th className="text-left px-6">Odds</th>
-                                            <th className="text-left px-6">Prob%</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td className="px-7 py-2">1</td>
+                                <div className="max-h-[300px] overflow-y-auto">
+                                    <table className="w-full px-4 ">
+                                        <thead>
+                                            <tr>
+                                                <th className="text-left px-6">Market</th>
+                                                <th className="text-left px-6">Odds</th>
+                                                <th className="text-left px-6">Prob%</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {loadingOdds && (
+                                                <tr>
+                                                    <td colSpan="3" className="px-7 py-4 text-center">
+                                                        Loading odds...
+                                                    </td>
+                                                </tr>
+                                            )}
 
-                                            <td className="px-7 py-2">x 6.5</td>
-
-                                            <td className="px-7 py-2"> 30% </td>
-                                        </tr>
-
-                                    </tbody>
-                                </table>
+                                            {!loadingOdds && odds.length > 0 &&
+                                                odds.flatMap(bet =>
+                                                    bet.values.map((val, i) => (
+                                                        <tr key={`${bet.id}-${i}`}>
+                                                            <td className="px-7 py-2">{val.value}</td>
+                                                            <td className="px-7 py-2">{val.odd}</td>
+                                                            <td className="px-7 py-2">{val.percentage}</td>
+                                                        </tr>
+                                                    ))
+                                                )
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                                </div>
                             </div>
