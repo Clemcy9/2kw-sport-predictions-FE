@@ -18,13 +18,14 @@ export default function PremierLeagueCard({
   function bet_filter(arr, name) {
     const values = arr.filter((value) => value.value == name);
 
-    const percentage_filtered_values = values.filter((value) => {
-      const p = parseInt(value.percentage);
-      return p >= 65 && p <= 85;
-    });
+    // const percentage_filtered_values = values.filter((value) => {
+    //   const p = parseInt(value.percentage);
+    //   return p >= 65 && p <= 85;
+    // });
 
     console.log("filteredby%:", values);
-    return percentage_filtered_values;
+    // return percentage_filtered_values;
+    return values;
   }
   const times = fixture.date;
   console.log(leagueNames);
@@ -53,11 +54,9 @@ export default function PremierLeagueCard({
           ? `${bet_filter(values, bet["name"])[0]?.percentage}%`
           : `${values[0].percentage}%`,
     },
-   
   };
-  console.log(predictions.odd)
+  console.log(predictions.odd);
 
-  
   return (
     <div className="w-full border-none lg:p-0 my-1 flex justify-center items-center flex-col text-white space-y-4 lg:space-y-0">
       <motion.div
