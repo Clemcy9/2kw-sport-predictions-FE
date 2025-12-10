@@ -260,7 +260,7 @@ export default function MakePredictions () {
                                             {!loadingOdds && odds.length > 0 &&
                                                 odds.flatMap(bet =>
                                                     bet.values.map((val, i) => (
-                                                        <tr key={`${bet.id}-${i}`}>
+                                                        <tr key={`${bet.id}-${i}`} className="odd:bg-white even:bg-[#bdc2cb69]">
                                                             <td className="px-7 py-2">{val.value}</td>
                                                             <td className="px-7 py-2">{val.odd}</td>
                                                             <td className="px-7 py-2">{val.percentage}</td>
