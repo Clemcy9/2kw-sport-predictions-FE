@@ -10,48 +10,58 @@ import { FaSpinner } from "react-icons/fa6";
 
 
 
-const OddsDropdown = ({ label, value, setValue, open, toggleOpen, odds, loadingOdds }) => {
+const OddsDropdown = ({label,setValue, open, toggleOpen, odds, loadingOdds }) => {
+
+    // const [openDropdown, setOpenDropdown] = useState(null);
+
+    const [freeTip, setFreeTip] = useState({ value: "", odd: "", percentage: "" });
+
+
     return (
         <div className="flex flex-col relative">
-            {/* <label className="mb-1">{label}</label> */}
             <div className="relative">
-                <input
-                    type="text"
-                    placeholder="Select"
-                    className="w-full border border-[#737373] p-2 rounded-sm  text  text-[#737373] focus:ring focus:ring-[#1A365D] focus:border-[#1A365D] outline-none bg-white"
-                    value={value}
-                    readOnly
-                    // onClick={toggleOpen}
-                />
-                <button
-                    type="button"
-                    onClick={toggleOpen}
-                    className="absolute right-2 top-1/2 -translate-y-1/2"
-                >
-                    {open ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
-                </button>
+                <label>{label}</label>
+               <div className="relative">
+                    <input
+                        type="text"
+                        placeholder="Select"
+                        className="w-full border border-[#737373]  px-1 py-2 rounded-sm  text-[10px]  text-[#737373] focus:ring focus:ring-[#1A365D] focus:border-[#1A365D] outline-none bg-white"
+                        value={freeTip.value
+                            ? `| ${freeTip.value} | Odd: ${freeTip.odd} | Prob: ${freeTip.percentage}`
+                            : ""}
+                        onChange={(e) => setValue(e.target.value)}
+                        onClick={toggleOpen}
+                    />
+                    <button
+                        type="button"
+                        onClick={toggleOpen}
+                        className="absolute right-2 top-1/2 -translate-y-1/2"
+                    >
+                        {open ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+                    </button>
+               </div>
 
                 {open && (
-                    <div className="absolute top-full mt-1 max-h-48 overflow-y-auto border bg-white w-full z-50">
+                    <div className="absolute top-full mt-1 max-h-48 max-w-40 overflow-y-auto border bg-white w-full z-50">
                         <table className="w-full text-left">
                             <thead>
                                 <tr>
-                                    <th className="px-2">Market</th>
-                                    <th className="px-2">Odds</th>
-                                    <th className="px-2">Prob%</th>
+                                    <th className="px-1 text-sm lg:text-xl">Market</th>
+                                    <th className="px-1 text-sm lg:text-xl">Odds</th>
+                                    <th className="px-1 text-sm lg:text-xl" >Prob%</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {loadingOdds && (
                                     <tr>
-                                        <td colSpan="3" className="px-2 py-2 text-center">
+                                        <td colSpan="3" className="px-1 py-1 text-center">
                                             Loading odds...
                                         </td>
                                     </tr>
                                 )}
                                 {!loadingOdds && odds.length === 0 && (
                                     <tr>
-                                        <td colSpan="3" className="px-2 py-2 text-center">
+                                        <td colSpan="3" className="px-1 py-1 text-center">
                                             No odds Available...
                                         </td>
                                     </tr>
@@ -59,10 +69,17 @@ const OddsDropdown = ({ label, value, setValue, open, toggleOpen, odds, loadingO
                                 {!loadingOdds &&
                                     odds.flatMap((bet) =>
                                         bet.values.map((val, i) => (
-                                            <tr key={`${bet.id}-${i}`} className="odd:bg-white even:bg-[#f6f6f6]">
-                                                <td className="px-2 py-1">{val.value}</td>
-                                                <td className="px-2 py-1">{val.odd}</td>
-                                                <td className="px-2 py-1">{val.percentage}</td>
+                                            <tr key={`${bet.id}-${i}`} onClick={() => {
+                                                setFreeTip({
+                                                    value: val.value,
+                                                    odd: val.odd,
+                                                    percentage: val.percentage
+                                                }); 
+                                                toggleOpen();        // close the dropdown
+                                            }} className="odd:bg-white even:bg-[#bbb5b5] cursor-pointer">
+                                                <td className="px-2 text-[10px] lg:text-xl py-1">{val.value}</td>
+                                                <td className="px-2 text-[10px] lg:text-xl py-1">{val.odd}</td>
+                                                <td className="px-2 text-[10px] lg:text-xl py-1">{val.percentage}</td>
                                             </tr>
                                         ))
                                     )}
@@ -92,12 +109,15 @@ export default function MakePredictions () {
     const [modal, setModal] = useState(false);
     const [action, setAction] = useState(null);
     // const [close, setClose] = useState(true);
-    const [dropdown, setDropdown] = useState();
+  
 
-    const [freeTipsOpen, setFreeTipsOpen] = useState(false);
-    const [superSingleOpen, setSuperSingleOpen] = useState(false);
-    const [freeOddsOpen, setFreeOddsOpen] = useState(false);
-    const [surePredictOpen, setSurePredictOpen] = useState(false);
+    // const [dropdown, setDropdown] = useState();
+    const [openDropdown, setOpenDropdown] = useState(null);
+
+    // const [freeTipsOpen, setFreeTipsOpen] = useState(false);
+    // const [superSingleOpen, setSuperSingleOpen] = useState(false);
+    // const [freeOddsOpen, setFreeOddsOpen] = useState(false);
+    // const [surePredictOpen, setSurePredictOpen] = useState(false);
 
 
     const [prediction, setPrediction] = useState([]);
@@ -111,6 +131,7 @@ export default function MakePredictions () {
     const [freeOdds, setFreeOdds] = useState("");
     const [surePredict, setSurePredict] = useState("");
     const [superSingleTip, setSuperSingleTip] = useState("");
+    // { value: "", odd: "", percentage: "" }
 
     useEffect(() => {
         if (modal) {
@@ -179,6 +200,13 @@ export default function MakePredictions () {
             }
           };
 
+          const cancel = () => {
+            setFreeTip("");
+            setFreeOdds("");
+            setSurePredict("");
+            setSuperSingleTip("");
+          }
+
           const all_predictions = prediction.filter((item) => {
 
               const name = byName.toLowerCase();
@@ -215,11 +243,11 @@ export default function MakePredictions () {
                             <div className="relative lg:w-60  flex justify-between items-center">
                         <input value={byLeague} onKeyDown={(e) => e.key === "Enter" && console.log("Enter pressed for league")} onChange={(e) => setByLeague(e.target.value)} type="text" placeholder="Select League" className="w-full appearance-none border border-[#737373] rounded-[0.3em] py-1 pl-4 pr-10 text-[#737373] focus:ring focus:ring-[#1A365D] focus:border-[#1A365D] outline-none bg-white" />
                             <button onClick={() => setDropdown()}>
-                            {dropdown ? (
+                            {/* {dropdown ? ( */}
                              <ChevronUp size={18}  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#737373] pointer-events-none" />
-                            ) : (
+                            {/* ) : (
                              <ChevronDown size={18}  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#737373] pointer-events-none" />
-                            )}
+                            )} */}
                             </button>
                             
                            </div>
@@ -279,10 +307,10 @@ export default function MakePredictions () {
                        <div onClick={(e) => e.stopPropagation()} className="overflow-y-auto max-h-[90vh] w-full lg:w-auto lg:min-h-auto pt-4 bg-white lg:rounded-xl px-2 py-4 flex-col flex">
 
                             <div className="flex justify-between w-full">
-                                 <p  className="lg:py-5 lg:flex lg:items-start lg:justify-start font-semibold flex-col lg:col-span-4 lg:w-full justify-center items-center lg:max-w-auto lg:flex-row p-3">
+                                 <div className="lg:py-5 lg:flex lg:items-start lg:justify-start font-semibold flex-col lg:col-span-4 lg:w-full justify-center items-center lg:max-w-auto lg:flex-row p-3">
                                     <h2>Make Predictions For </h2>
                                     <h2 className="flex px-1">{(action?.teams?.away.name || "").slice(0, 20).trim()} <span className="px-2 font-semibold">vs</span> {(action.teams.home.name || "").slice(0, 20).trim()}</h2>
-                                </p>
+                                </div>
                                 <button onClick={ ()=> setModal(false)} className="flex p-3">
                                     < X size={20}/>
                                 </button>
@@ -304,64 +332,6 @@ export default function MakePredictions () {
                                             }
                                         </div>
                                     </div>
-                                {/* <div>
-                                        {/* {close && (
-                                            <div className="p-3 grid grid-cols-2  flex-wrap rounded-b-xl bg-white gap-6 flex-shrink-0 min-w-full">
-                                                <div className="flex flex-col justify-start relative items-start max-w-64 w-auto">
-                                                    <label>Free Tips</label>
-                                                    <div className="relative">
-                                                    <input type="text" placeholder="Select" onChange={(e) =>set(e.target.value)} value={freeTip} className="w-full border border-[#737373] p-2 rounded-sm  text  text-[#737373] focus:ring focus:ring-[#1A365D] focus:border-[#1A365D] outline-none bg-white" />
-                                                    <button type="button" onClick={() => setDropdown(prev => !prev)}>
-                                                        {dropdown ? (
-                                                            <ChevronUp size={18} className="absolute right-3 top-1/2 -translate-y-1/2 text-[#000] " />
-                                                        ) : (
-                                                            <ChevronDown size={18} className="absolute right-3 top-1/2 -translate-y-1/2 text-[#000] " />
-                                                        )}
-                                                    </button>
-                                                    </div>
-                                                </div>
-                                                <div className="flex relative flex-col justify-start items-start max-w-64 w-auto">
-                                                    <label>Super Single Tip</label>
-                                                    <div className="relative">
-                                                    <input type="text" placeholder="Select" onChange={(e) =>setFreeTip(e.target.value)} value={superSingleTip} className="w-full border border-[#737373] p-2 rounded-sm  text appearance-none  text-[#737373] focus:ring focus:ring-[#1A365D] focus:border-[#1A365D] outline-none bg-white" />
-                                                    <button onClick={() => setDropdown(prev => !prev)}>
-                                                        {dropdown ? (
-                                                            <ChevronUp size={18} className="absolute right-3 top-1/2 -translate-y-1/2 text-[#737373] pointer-events-none" />
-                                                        ) : (
-                                                            <ChevronDown size={18} className="absolute right-3 top-1/2 -translate-y-1/2 text-[#737373] pointer-events-none" />
-                                                        )}
-                                                    </button>
-                                                    </div>
-                                                </div>
-                                                <div className="flex flex-col relative justify-start items-start max-w-64 w-auto">
-                                                    <label> Free 2 Odds</label>
-                                                    <div className="relative">
-                                                    <input type="text" placeholder="Select" onChange={(e) =>setFreeOdds(e.target.value)} value={freeOdds} className="w-full border border-[#737373] p-2 rounded-sm  text appearance-none  text-[#737373] focus:ring focus:ring-[#1A365D] focus:border-[#1A365D] outline-none bg-white" />
-                                                    <button onClick={() => setDropdown(prev => !prev)}>
-                                                        {dropdown ? (
-                                                            <ChevronUp size={18} className="absolute right-3 top-1/2 -translate-y-1/2 text-[#737373] pointer-events-none" />
-                                                        ) : (
-                                                            <ChevronDown size={18} className="absolute right-3 top-1/2 -translate-y-1/2 text-[#737373] pointer-events-none" />
-                                                        )}
-                                                    </button>
-                                                    </div>
-                                                </div>
-                                                <div className="flex relative flex-col justify-start items-start max-w-64 w-auto">
-                                                    <label>Sure Predict</label>
-                                                    <div className="relative">
-                                                    <input type="text" placeholder="Select" onChange={(e) =>setSurePredict(e.target.value)} value={surePredict} className="w-full border border-[#737373] p-2 rounded-sm  text appearance-none  text-[#737373] focus:ring focus:ring-[#1A365D] focus:border-[#1A365D] outline-none bg-white" />
-                                                    <button onClick={() => setDropdown(prev => !prev)} className="flex justify-center items-center">
-                                                        {dropdown ? (
-                                                            <ChevronUp size={18} className="absolute right-3 top-1/2 -translate-y-1/2 text-[#737373] pointer-events-none" />
-                                                        ) : (
-                                                            <ChevronDown size={18} className="absolute right-3 top-1/2 -translate-y-1/2 text-[#737373] pointer-events-none" />
-                                                        )}
-                                                    </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        {/* )}
-                                </div> */}
 
 
                                     <div className="p-3 grid grid-cols-2  flex-wrap rounded-b-xl bg-white gap-6 flex-shrink-0 min-w-full">
@@ -369,8 +339,8 @@ export default function MakePredictions () {
                                             label="Free Tips"
                                             value={freeTip}
                                             setValue={setFreeTip}
-                                            open={freeTipsOpen}
-                                            toggleOpen={() => setFreeTipsOpen((prev) => !prev)}
+                                            open={ openDropdown === "freeTip"}
+                                            toggleOpen={() => setOpenDropdown(openDropdown === "freeTip" ? null :"freeTip")}
                                             odds={odds}
                                             loadingOdds={loadingOdds}
                                         />
@@ -378,8 +348,8 @@ export default function MakePredictions () {
                                             label="Super Single Tip"
                                             value={superSingleTip}
                                             setValue={setSuperSingleTip}
-                                            open={superSingleOpen}
-                                            toggleOpen={() => setSuperSingleOpen((prev) => !prev)}
+                                            open={openDropdown === "superSingleTip"}
+                                            toggleOpen={() => setOpenDropdown(openDropdown === "superSingleTip" ? null :"superSingleTip")}
                                             odds={odds}
                                             loadingOdds={loadingOdds}
                                         />
@@ -387,8 +357,8 @@ export default function MakePredictions () {
                                             label="Free Odds"
                                             value={freeOdds}
                                             setValue={setFreeOdds}
-                                            open={freeOddsOpen}
-                                            toggleOpen={() => setFreeOddsOpen((prev) => !prev)}
+                                            open={openDropdown === "freeOdds"}
+                                            toggleOpen={() => setOpenDropdown(openDropdown === "freeOdds" ? null :"freeOdds")}
                                             odds={odds}
                                             loadingOdds={loadingOdds}
                                         />
@@ -396,8 +366,8 @@ export default function MakePredictions () {
                                             label="Sure Predict"
                                             value={surePredict}
                                             setValue={setSurePredict}
-                                            open={surePredictOpen}
-                                            toggleOpen={() => setSurePredictOpen((prev) => !prev)}
+                                            open={openDropdown === "surePredict"}
+                                            toggleOpen={() => setOpenDropdown(openDropdown === "surePredict" ? null :"surePredict")}
                                             odds={odds}
                                             loadingOdds={loadingOdds}
                                         />
@@ -406,10 +376,10 @@ export default function MakePredictions () {
 
                                   </section>
                                         <section className="py-4 lg:py-6 flex justify-center items-center gap-4 max-w-96">
-                                            <button className="rounded-xl bg-[#1A365D] px-3 py-2 text-white w-full">
+                                            <button type="submit" className="rounded-xl bg-[#1A365D] px-3 py-2 text-white w-full">
                                                 Save Prediction
                                             </button>
-                                            <button className="rounded-xl bg-white border border-[#1A365D] text-[#1A365D] px-3 py-2 w-full">
+                                            <button type="button" onClick={ ()=> setModal(false)} className="rounded-xl bg-white border border-[#1A365D] text-[#1A365D] px-3 py-2 w-full">
                                                 Cancel
                                             </button>
                                     </section>
