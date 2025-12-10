@@ -33,14 +33,14 @@ export default function MakePredictions () {
     // };
 
     useEffect(() => {
-        if(modal) {
-            document.body.style.overflow = "hidden";
-        }else {
-            document.body.style.overflow = "auto";
+        if (modal) {
+            const y = window.scrollY;
+            document.body.style.cssText = `position:fixed; top:-${y}px; left:0; right:0;`;
+        } else {
+            const y = parseInt(document.body.style.top || "0") * -1;
+            document.body.style.cssText = "";
+            window.scrollTo(0, y);
         }
-        return() => {
-            document.body.style.overflow = "auto";
-        };
     }, [modal]);
     
     // const dates = new Date();

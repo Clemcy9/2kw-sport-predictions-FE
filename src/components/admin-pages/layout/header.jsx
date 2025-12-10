@@ -21,32 +21,6 @@ export default function AdminHeader() {
     const [isOpen, setIsOpen] = useState(false);
     const [openDropdown, setOpenDropdown] = useState(null);
 
-    // useEffect(() => {
-    //     if (isOpen) {
-    //         // Lock scroll
-    //         document.body.style.position = "fixed";
-    //         document.body.style.top = `-${window.scrollY}px`;
-    //         document.body.style.left = "0";
-    //         document.body.style.right = "0";
-    //     } else {
-    //         // Restore scroll
-    //         const scrollY = document.body.style.top;
-    //         document.body.style.position = "";
-    //         document.body.style.top = "";
-    //         document.body.style.left = "";
-    //         document.body.style.right = "";
-    //         window.scrollTo(0, parseInt(scrollY || "0") * -1);
-    //     }
-
-    //     // Cleanup if component unmounts
-    //     return () => {
-    //         document.body.style.position = "";
-    //         document.body.style.top = "";
-    //         document.body.style.left = "";
-    //         document.body.style.right = "";
-    //     };
-    // }, [isOpen]);
-
     useEffect(() => {
         if (isOpen) {
             const y = window.scrollY;
