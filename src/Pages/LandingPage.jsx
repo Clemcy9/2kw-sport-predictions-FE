@@ -15,8 +15,7 @@ import { Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 export default function LandingPage() {
-
-  // const [activeLeague, setActiveLeague] = useState("EPL"); 
+  // const [activeLeague, setActiveLeague] = useState("EPL");
   const [visible, setVisible] = useState(false);
   const [bet, setBet] = useState({});
   const [prediction, setPrediction] = useState({});
@@ -39,6 +38,8 @@ export default function LandingPage() {
   --------------------------------------------- */
   useEffect(() => {
     const url = `https://twokw-backend.onrender.com/api/v1/admin/predictions/odds?bet=${bet["id"]}`;
+    // const url = `http://localhost:5000/api/v1/admin/predictions/odds?bet=${bet["id"]}`;
+    // const url = `http://localhost:5000/api/v1/admin/predictions/odds?bet=${bet["id"]}&name=${bet["name"]}`;
 
     fetch(url)
       .then((res) => res.json())
