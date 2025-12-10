@@ -265,6 +265,13 @@ export default function MakePredictions () {
                                                     ))
                                                 )
                                             }
+                                            {!loadingOdds && odds.length === 0 &&(
+                                                <tr>
+                                                    <td colSpan="3" className="px-7 py-4 text-center">
+                                                        No odds Available...
+                                                    </td>
+                                                </tr>
+                                            )}
                                         </tbody>
                                     </table>
                                 </div>
