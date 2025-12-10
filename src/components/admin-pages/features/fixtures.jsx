@@ -144,7 +144,7 @@ export default function MakePredictions () {
 
                         <tbody className="text-right">
                             {all_predictions.map((item, index) => (
-                                <tr key={item.fixture.id}  className="leading-tight">
+                                <tr key={item.fixture.id} className="leading-tight" onClick={() => { setAction(item); setModal(true); all_odds(item.fixture.id); }}>
                                     <td colSpan={100} className="w-full flex flex-row lg:gap-2 lg:grid lg:grid-cols-14 lg:justify-between lg:border-none border p-3 lg:p-0 rounded-xl my-4 lg:my-0 lg:active:hidden active:border-[#1A365D] active:scale-105 active:shadow-xl border-[#1A365D99]">
                                             <section className="flex flex-col lg:col-span-10 lg:grid lg:grid-cols-9 justify-between  items-start gap-6 lg:flex-row w-full lg:gap-1 ">
                                                 <div className="lg:py-5 hidden lg:col-span-1 lg:block lg:mr-12">{index + 1}</div>
