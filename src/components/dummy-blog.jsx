@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { FiArrowRight } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function DummyBlog() {
   const [blogs, setBlogs] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const get_all_blogs = async () => {
@@ -35,9 +36,9 @@ export default function DummyBlog() {
       </h1>
       <div className="lg:grid lg:grid-cols-3 lg:gap- sm:grid sm:grid-cols-2 sm:gap-6 gap-4 w-full sm:items-center sm:w-full sm:justify-center flex flex-col ">
         {blogs.map((blog) => (
-          <article
+          <article onClick={() => navigate(`/blog_id/${blog._id}`)}
             key={blog._id}
-            className="group overflow-hidden bg-white flex items-center justify-between flex-row lg:flex-col lg:gap-2 sm:flex-col lg:rounded-[0.5em] gap-1 rounded-[0.5em] lg:h-auto h-32 hover:-translate-y-1 transition-all lg:w-auto w-full sm:h-auto  shadow-sm  lg:shadow-sm "
+            className="group overflow-hidden bg-white cursor-pointer flex items-center justify-between flex-row lg:flex-col lg:gap-2 sm:flex-col lg:rounded-[0.5em] gap-1 rounded-[0.5em] lg:h-auto h-32 hover:-translate-y-1 transition-all lg:w-auto w-full sm:h-auto  shadow-sm  lg:shadow-sm "
           >
             <div className="lg:w-full max-w-40 lg:max-w-full sm:max-w-full lg:h-auto overflow-hidden relative sm:h-auto w-full h-full">
               <img
