@@ -211,7 +211,8 @@ export default function MakePredictions () {
               return use_name && use_league && use_date;
 
           });
-
+          
+        //   loading UI
             if (loading) return <div className="text-center h-52 overflow-y-hidden text-[#1A365D] py-2 flex justify-center items-center"><span><FaSpinner className="animate-spin" /> </span> Loading Fixtures...</div>;
 
     return(
@@ -233,11 +234,9 @@ export default function MakePredictions () {
                             <div className="relative lg:w-60  flex justify-between items-center">
                         <input value={byLeague} onKeyDown={(e) => e.key === "Enter" && console.log("Enter pressed for league")} onChange={(e) => setByLeague(e.target.value)} type="text" placeholder="Select League" className="w-full appearance-none border border-[#737373] rounded-[0.3em] py-1 pl-4 pr-10 text-[#737373] focus:ring focus:ring-[#1A365D] focus:border-[#1A365D] outline-none bg-white" />
                             <button onClick={() => setDropdown()}>
-                            {/* {dropdown ? ( */}
+                            
                              <ChevronUp size={18}  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#737373] pointer-events-none" />
-                            {/* ) : (
-                             <ChevronDown size={18}  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#737373] pointer-events-none" />
-                            )} */}
+                            
                             </button>
                             
                            </div>
@@ -292,6 +291,7 @@ export default function MakePredictions () {
                         </tbody>
                     </table>
 
+                    {/* the modal */}
                     {modal && action && (
                     <main onClick={() => setModal(false)} className="fixed  inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">
                        <div onClick={(e) => e.stopPropagation()} className="overflow-y-auto max-h-[90vh] w-full lg:w-auto lg:min-h-auto pt-4 bg-white lg:rounded-xl px-2 py-4 flex-col flex">

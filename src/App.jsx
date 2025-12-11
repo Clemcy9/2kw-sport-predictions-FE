@@ -30,6 +30,7 @@ import LIve_Scores from "./components/store/live-score";
 import Affiliate_Partner_Links from "./components/admin-pages/features/affiliate-Partner-links";
 import Edit_Affiliate from "./components/admin-pages/features/edit-affiliate";
 import Help_And_Support from "./components/admin-pages/features/help";
+import PredictionDetails from "./components/details";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -71,7 +72,9 @@ export default function App() {
             <Route path="blogs/blog" element={<NewPost />} />
           </Route>
 
-          <Route path="live-score" element={<LIve_Scores />} />
+
+          <Route path="live-score" element={<LIve_Scores />} /> 
+          <Route path="details" element={<PredictionDetails />} /> 
           <Route path="/" element={<LandingPage />}>
             <Route path="free-tips" index element={<Free_Tips />} />
             <Route path="home-win" element={<HomeWin />} />
