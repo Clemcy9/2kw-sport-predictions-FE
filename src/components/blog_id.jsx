@@ -86,16 +86,16 @@ export default function BlogPost_Id() {
           path={blogId}
           element={
             <section className="lg:p-10 md:p-8 sm:p-5 p-2">
-              <article className="group overflow-hidden bg-white flex items-center justify-center mx-auto flex-row lg:flex-col lg:gap-2 sm:flex-col lg:rounded-[0.5em] gap-1 rounded-[0.5em] lg:h-auto h-32 hover:-translate-y-1 transition-all lg:w-auto lg:max-w-72 sm:h-auto  shadow-sm  lg:shadow-sm ">
-                <div className="max-w-40 sm:max-w-full lg:h-auto overflow-hidden relative sm:h-auto w-full h-full">
+              <article className="group overflow-hidden flex items-center justify-center mx-auto flex-col lg:gap-2 sm:flex-col gap-1 lg:h-auto h-auto hover:-translate-y-1 transition-all lg:max-w-6xl sm:h-auto lg:rounded-xl">
+                <div className=" lg:h-auto overflow-hidden relative sm:h-auto w-full h-full">
                   <img
                     src={blog.image_url}
                     alt={blog.title}
-                    className="group-hover:scale-110 group-active:scale-110 transition-transform duration-500 rounded-l-[0.5rem] h-full sm:h-52 w-full object-cover lg:rounded-bl-none lg:rounded-t-[0.4rem] sm:rounded-bl-none sm:rounded-t-[0.5rem]"
+                    className="group-hover:scale-110 group-active:scale-110 transition-transform duration-500 h-full sm:h-52 w-full object-cover rounded-xl"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#111]/40 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#111]/40 to-transparent rounded-xl"></div>
                 </div>
-                <div className="lg:px-2 px-1 sm:px-2 py-0 flex flex-col space-y-1 sm:gap-0">
+                <div className=" flex flex-col space-y-1 sm:gap-0">
                   <h2 className="font-semibold leading-tight  ">
                     {blog.title}
                   </h2>

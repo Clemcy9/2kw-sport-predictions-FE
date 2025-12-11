@@ -15,7 +15,11 @@ export default function DummyBlog() {
         if (!res.ok) throw new Error("Failed to get all blogs");
         const data = await res.json();
         console.log("Api data", data);
-        setBlogs((data.data || []).slice(-4));
+        //sort by newest blog
+        const sorted = (data.data || []).sort(
+          (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+        );
+        setBlogs(sorted.slice(0, 4));
       } catch (err) {
         console.error(err);
       }

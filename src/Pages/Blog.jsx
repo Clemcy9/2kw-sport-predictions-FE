@@ -25,7 +25,10 @@ export default function BlogPost() {
 
         const data = await res.json();
         console.log("Api data", data);
-        setBlogs(data.data || []);
+        const sorted = (data.data || []).sort(
+          (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+        );
+        setBlogs(sorted || []);
         setLoading(false);
       } catch (err) {
         console.error(err);
@@ -42,13 +45,12 @@ export default function BlogPost() {
     });
   }, []);
 
-    
   return (
     <div>
       <Navbar />
       <section
         className="font-sans relative h-[344px] mt-[22px] lg:mt-16 bg-cover object-cover bg-center flex-wrap flex items-center justify-center text-center text-white"
-            style={{ backgroundImage: `url(${blogBg})` }}
+        style={{ backgroundImage: `url(${blogBg})` }}
       >
         <div className="absolute inset-0 bg-[#1A365D]/40"></div> {/* overlay */}
         <motion.div
@@ -94,41 +96,49 @@ export default function BlogPost() {
           2kwPredict Blog
         </h1>
         {loading && (
-           <div className="text-center h-52 overflow-y-hidden text-[#1A365D] py-2 flex justify-center items-center"><span><FaSpinner className="animate-spin" /> </span> Loading Blog Articles...</div>
+          <div className="text-center h-52 overflow-y-hidden text-[#1A365D] py-2 flex justify-center items-center">
+            <span>
+              <FaSpinner className="animate-spin" />{" "}
+            </span>{" "}
+            Loading Blog Articles...
+          </div>
         )}
         <div className="lg:grid lg:grid-cols-3 lg:gap- sm:grid sm:grid-cols-2 sm:gap-6 gap-4 w-full sm:items-center sm:w-full sm:justify-center flex flex-col ">
-          {!loading && blogs?.map((blog) => (
-            <article
-              key={blog._id}
-              className="group overflow-hidden bg-white flex justify-between flex-row lg:flex-col lg:gap-2  sm:flex-col lg:rounded-[0.5em] gap-1 rounded-[0.5em] lg:max-h-80 max-h-40 hover:-translate-y-1 transition-all lg:w-auto w-full sm:h-auto  shadow-sm  lg:shadow-sm "
-            >
-              <div className="lg:h-auto overflow-hidden relative sm:h-auto sm:max-w-full md:max-w-full lg:max-w-full max-w-40 h-full">
-                <img
-                  src={blog.image_url}
-                  alt={blog.title}
-                  className="group-hover:scale-110 group-active:scale-110 transition-transform duration-500 rounded-l-[0.5rem] h-full min-h-40 sm:h-52 w-full object-cover lg:rounded-bl-none lg:rounded-t-[0.4rem] sm:rounded-bl-none sm:rounded-t-[0.5rem]"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#111]/40 to-transparent"></div>
-              </div>
-              <div className="lg:px-2 px-1 sm:px-2 py-2 flex flex-col space-y-1 sm:gap-0 w-full">
-                <h2 className="font-semibold leading-tight  ">{blog.title}</h2>
-                <p className="text-[#65758B] lg:text-[15px] text-[13px]  ">
-                  {blog.body}
-                </p>
-                <div className="flex justify-between w-full lg:py-2 ">
-                  <span className="font-semibold text-[#65758B]">
-                    {new Date(blog.createdAt).toLocaleDateString().slice()}
-                  </span>
-                  <Link
-                    className=" text-[#D6AE3E] flex justify-center items-center"
-                    to={`/blog/${blog._id}`}
-                  >
-                    view more <FiArrowRight />
-                  </Link>
+          {!loading &&
+            blogs?.map((blog) => (
+              <article
+                key={blog._id}
+                className="group overflow-hidden bg-white flex justify-between flex-row lg:flex-col lg:gap-2  sm:flex-col lg:rounded-[0.5em] gap-1 rounded-[0.5em] lg:max-h-80 max-h-40 hover:-translate-y-1 transition-all lg:w-auto w-full sm:h-auto  shadow-sm  lg:shadow-sm "
+              >
+                <div className="lg:h-auto overflow-hidden relative sm:h-auto sm:max-w-full md:max-w-full lg:max-w-full max-w-40 h-full">
+                  <img
+                    src={blog.image_url}
+                    alt={blog.title}
+                    className="group-hover:scale-110 group-active:scale-110 transition-transform duration-500 rounded-l-[0.5rem] h-full min-h-40 sm:h-52 w-full object-cover lg:rounded-bl-none lg:rounded-t-[0.4rem] sm:rounded-bl-none sm:rounded-t-[0.5rem]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#111]/40 to-transparent"></div>
                 </div>
-              </div>
-            </article>
-          ))}
+                <div className="lg:px-2 px-1 sm:px-2 py-2 flex flex-col space-y-1 sm:gap-0 w-full">
+                  <h2 className="font-semibold leading-tight  ">
+                    {blog.title}
+                  </h2>
+                  <p className="text-[#65758B] lg:text-[15px] text-[13px]  ">
+                    {blog.body}
+                  </p>
+                  <div className="flex justify-between w-full lg:py-2 ">
+                    <span className="font-semibold text-[#65758B]">
+                      {new Date(blog.createdAt).toLocaleDateString().slice()}
+                    </span>
+                    <Link
+                      className=" text-[#D6AE3E] flex justify-center items-center"
+                      to={`/blog/${blog._id}`}
+                    >
+                      view more <FiArrowRight />
+                    </Link>
+                  </div>
+                </div>
+              </article>
+            ))}
         </div>
         <Link
           className="p-4 z-20 text-[#D6AE3E] flex justify-center text-center items-center underline"

@@ -18,7 +18,8 @@ export default function NewPost() {
   const [displayValue, setDisplayValue] = useState("");
   const [status, setStatus] = useState("Publish");
 
-  const handleSubmit = async (e) => {
+  {
+    /* const handleSubmit = async (e) => {
     e.preventDefault();
 
     const token = localStorage.getItem("authToken");
@@ -40,7 +41,8 @@ export default function NewPost() {
     // } catch (ero) {
     //   console.log(ero);
     // }
-  };
+  }; */
+  }
 
   const myImageRef = useRef(null);
 
@@ -131,9 +133,8 @@ export default function NewPost() {
         <h2 className="lg:hidden w-full text-center font-bold text-black/80 font-[Inria Sans] py-6 text-xl">
           New Article
         </h2>
-        <div className="w-full lg:space-y-5 space-y-5">
+        <div className="w-full flex flex-col justify-center items-center lg:space-y-5 space-y-5">
           <input
-            required
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
@@ -145,18 +146,17 @@ export default function NewPost() {
             onTextChange={(e) => setBody(e.textValue)}
             className="h-[400px]"
           />
-        </div>
-        <div className="flex flex-col items-center space-y-10 lg:mt-0 mt-16 sm:mt-20">
           <button
             onClick={handlePostAction}
             type="button"
-            className="bg-[#1A365D] hover:bg-[#132b4d] text-white w-64 text-xl rounded-xl py-2 cursor-pointer"
+            className="lg:block md:hidden hidden bg-[#1A365D] hover:bg-[#132b4d] lg:mt-10 text-white w-64 text-xl rounded-xl py-2 cursor-pointer"
           >
             {status}
           </button>
-
-          <div className="flex lg:flex-col gap-5">
-            <div className="flex flex-col justify-center items-start py-4 px-4  rounded-xl bg-[#F5FAFF] ">
+        </div>
+        <div className="flex flex-col items-center space-y-10 lg:mt-0 mt-24 md:mt-10 sm:mt-10">
+          <div className="flex sm:flex-row flex-col lg:flex-col gap-5 sm:mt-10">
+            <div className="flex flex-col lg:flex-col justify-center items-start py-4 px-4  rounded-xl bg-[#F5FAFF] ">
               <h3 className="w-full text-left font-bold text-black/80 font-[Inria Sans]">
                 Feature Image
               </h3>
@@ -170,7 +170,6 @@ export default function NewPost() {
 
               <div className="relative w-[150px] h-[40px] py-2 px-6 border border-[#1A365D] rounded-xl cursor-pointer text-[#1A365D] font-semibold font-[Open Sans]">
                 <input
-                  required
                   type="file"
                   onChange={handleFileChange}
                   hidden
@@ -277,6 +276,13 @@ export default function NewPost() {
               </div>
             </div>
           </div>
+          <button
+            onClick={handlePostAction}
+            type="button"
+            className="lg:hidden pb-2 block bg-[#1A365D] hover:bg-[#132b4d] text-white w-64 text-xl rounded-xl py-2 cursor-pointer"
+          >
+            {status}
+          </button>
         </div>
       </form>
     </div>
