@@ -124,6 +124,8 @@ export default function MakePredictions () {
     const [surePredict, setSurePredict] = useState("");
     const [superSingleTip, setSuperSingleTip] = useState("");
 
+    const token = localStorage.getItem("authToken");
+
     // makes the main page not-scrollable when modal is open 
     useEffect(() => {
         if (modal) {
@@ -142,9 +144,11 @@ export default function MakePredictions () {
         e.preventDefault();
 
         try{
-            const res = await fetch("/" , {
+            const res = await fetch("https://twokw-backend.onrender.com/api/v1/admin/predictions" , {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
                 body:JSON.stringify({freeTip,freeOdds,surePredict,superSingleTip}),
             });
 
