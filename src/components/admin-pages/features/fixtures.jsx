@@ -5,14 +5,13 @@ import { Calendar } from "lucide-react";
 import { Search } from "lucide-react";
 import { useEffect } from "react";
 import { FaSpinner } from "react-icons/fa6";
-// import { data } from "react-router-dom";
 
 
 
 
+// sub-component that holds the odds amd propabilities dropdown
 const OddsDropdown = ({label,setValue, open, toggleOpen, odds, loadingOdds }) => {
 
-    // const [openDropdown, setOpenDropdown] = useState(null);
 
     const [freeTip, setFreeTip] = useState({ value: "", odd: "", percentage: "" });
 
@@ -27,6 +26,7 @@ const OddsDropdown = ({label,setValue, open, toggleOpen, odds, loadingOdds }) =>
                         placeholder="Select"
                         className="w-full border border-[#737373]  px-1 py-2 rounded-sm  text-[10px]  text-[#737373] focus:ring focus:ring-[#1A365D] focus:border-[#1A365D] outline-none bg-white"
                         value={freeTip.value
+                            // displaying the values of the clicked row as the new value of the input 
                             ? `| ${freeTip.value} | Odd: ${freeTip.odd} | Prob: ${freeTip.percentage}`
                             : ""}
                         onChange={(e) => setValue(e.target.value)}
@@ -70,12 +70,13 @@ const OddsDropdown = ({label,setValue, open, toggleOpen, odds, loadingOdds }) =>
                                     odds.flatMap((bet) =>
                                         bet.values.map((val, i) => (
                                             <tr key={`${bet.id}-${i}`} onClick={() => {
+                                                // getting the values of the clicked row
                                                 setFreeTip({
                                                     value: val.value,
                                                     odd: val.odd,
                                                     percentage: val.percentage
                                                 }); 
-                                                toggleOpen();        // close the dropdown
+                                                toggleOpen();
                                             }} className="odd:bg-white even:bg-[#bdc2cb69] cursor-pointer">
                                                 <td className="px-2 text-[10px] lg:text-sm py-1">{val.value}</td>
                                                 <td className="px-2 text-[10px] lg:text-sm py-1">{val.odd}</td>
@@ -108,17 +109,8 @@ export default function MakePredictions () {
 
     const [modal, setModal] = useState(false);
     const [action, setAction] = useState(null);
-    // const [close, setClose] = useState(true);
-  
 
-    // const [dropdown, setDropdown] = useState();
     const [openDropdown, setOpenDropdown] = useState(null);
-
-    // const [freeTipsOpen, setFreeTipsOpen] = useState(false);
-    // const [superSingleOpen, setSuperSingleOpen] = useState(false);
-    // const [freeOddsOpen, setFreeOddsOpen] = useState(false);
-    // const [surePredictOpen, setSurePredictOpen] = useState(false);
-
 
     const [prediction, setPrediction] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -131,8 +123,8 @@ export default function MakePredictions () {
     const [freeOdds, setFreeOdds] = useState("");
     const [surePredict, setSurePredict] = useState("");
     const [superSingleTip, setSuperSingleTip] = useState("");
-    // { value: "", odd: "", percentage: "" }
 
+    // makes the main page not-scrollable when modal is open 
     useEffect(() => {
         if (modal) {
             const y = window.scrollY;
@@ -145,6 +137,7 @@ export default function MakePredictions () {
     }, [modal]);
 
 
+    // call to enpoint that sends the predictions made (POST)
     const send_data = async (e) => {
         e.preventDefault();
 
@@ -156,7 +149,6 @@ export default function MakePredictions () {
             });
 
             const data = await res.json();
-            // const data = await res.json();
             console.log("Backend Response", data);
 
             setFreeTip("");
@@ -169,6 +161,7 @@ export default function MakePredictions () {
         }
     };
         
+    // call to endpoint to get all the matches and fixtures
           useEffect(() => {
               fetch(`https://twokw-backend.onrender.com/api/v1/football/fixtures?date=${date}`)
 
@@ -183,6 +176,8 @@ export default function MakePredictions () {
                 setLoading(false);
               });
           }, [date]);
+
+        //   call to enpoint to get all odds and markets
 
           const all_odds = async (fixture_id) => {
             try{
@@ -200,13 +195,8 @@ export default function MakePredictions () {
             }
           };
 
-          const cancel = () => {
-            setFreeTip("");
-            setFreeOdds("");
-            setSurePredict("");
-            setSuperSingleTip("");
-          }
 
+        //   implementing search logic
           const all_predictions = prediction.filter((item) => {
 
               const name = byName.toLowerCase();
