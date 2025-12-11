@@ -43,7 +43,7 @@ export default function FreeTips(props) {
   }, [location.pathname]);
 
   return (
-    <div className="w-full max-w-full px-0 md:relative absolute shadow-sm md:shadow-none md:z-0 max-[300px]:mt-5 top-80 md:top-0 bg-[#1A365D] md:bg-white rounded-[0] md:rounded-none">
+    <div className="w-full  max-w-full px-0 md:relative absolute shadow-sm md:shadow-none md:z-0 max-[300px]:mt-5 top-80 md:top-0 bg-[#1A365D] md:bg-white rounded-[0] md:rounded-none">
       <motion.nav
         key={play}
         initial={{ x: play ? -200 : 0, opacity: 0 }}
@@ -53,7 +53,7 @@ export default function FreeTips(props) {
         className="text-[#1A365D] md:flex w-full md:items-center md:justify-center overflow-hidden"
       >
         <div className="flex justify-center items-center p-2 w-full">
-          <div className="flex flex-wrap gap-2 md:gap-6 font-sans justify-center w-full relative">
+          <div className="flex flex-wrap gap-1.5 md:gap-4 font-sans justify-center w-full relative">
             {tipsLink.map((tips, index) => {
               const isActive = activePath === tips.path;
 
@@ -70,7 +70,7 @@ export default function FreeTips(props) {
                     color: isActive ? "#1A365D" : "#1A365D",
                     transition: { duration: 0.01 },
                   }}
-                  className="flex-shrink-0 min-w-[100px] rounded-[0.4rem] py-2 px-2 shadow-sm font-semibold transition-all duration-300 border border-[#D6AE3E]"
+                  className="flex-shrink-0 min-w-[60px] rounded-[0.4rem] py-2 px-1 shadow-sm font-semibold transition-all duration-300 border border-[#D6AE3E]"
                 >
                   {tips.title}
                 </motion.button>

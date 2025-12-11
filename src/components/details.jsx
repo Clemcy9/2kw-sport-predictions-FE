@@ -17,7 +17,7 @@ export default function PredictionDetails() {
                     className="font-sans relative h-[344px] mt-[22px] md:mt-16 bg-cover bg-center flex-wrap flex items-center justify-center text-center text-white"
                     style={{ backgroundImage: `url(${detailsBg})` }}
                 >
-                    <div className="absolute inset-0 bg-[#1A365D]/40"></div> {/* overlay */}
+                    <div className="absolute inset-0 bg-[#000]/60"></div> {/* overlay */}
 
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -29,7 +29,7 @@ export default function PredictionDetails() {
 
                             <TypeAnimation
                                 sequence={[
-                                    `${state.homeTeam} ${"VS"} ${state.awayTeam}`, 2000,
+                                    `${state.homeTeam} VS ${state.awayTeam}`, 2000,
                                 ]}
                                 wrapper="h1"
                                 speed={50}
@@ -60,7 +60,7 @@ export default function PredictionDetails() {
                 </section>
                
                 
-                    <section >
+                    <section className="lg:p-14">
                       
 
                      <motion.div
@@ -71,39 +71,40 @@ export default function PredictionDetails() {
                     >
 
                         <div
-                            className=" shadow-sm space-y-6 bg-[#F9FBFF] transition-all flex justify-between items-center w-full flex-col lg:flex-row lg:p-0 p-2"
+                            className=" shadow-sm space-y-2 max-h-screen bg-[#F9FBFF] transition-all flex justify-between items-center w-full flex-col lg:p-14 p-2"
                         >
                             <div className="flex  lg:px-2 lg:mx-3">
                                 <span className="font-sans font-normal text-sm text-[#1A365D]">
-                                    {state.timing} {state.timing_date}
+                                    {state.timing_date} {state.timing}
                                 </span>
 
                             </div>
-                            <div className="flex justify-between lg:justify-end lg:items-start  items-start min-w-[130px]  space-x-10 px-2 lg:gap-4 lg:space-x-0 lg:p-4 w-full border rounded-lg bg-white shadow-lg py-4 border-[#1A365D]">
-                                
-                                <div className="flex justify-center items-center flex-col space-y-1 lg:space-y-3 ">
-                                    <p className="px-3 font-bold font-sans text-[#1A365D]">Odds</p>
-                                    <p className="font-normal  rounded-sm border border-[#1A365D]  text-[#1A365D] px-1 text-[15px] py-1 min-w-[50px] transition-colors duration-300 w-16 text-center ">
-                                        {state.odd.Odds}
-                                    </p>
-                                </div>
-                                <div className="flex justify-center items-center flex-col space-y-1 lg:space-y-3">
-                                    <p className="px-3 font-bold font-sans text-[#1A365D]">Tips</p>
-                                    <p className="font-normal  rounded-sm border  text-[#1A365D]   border-[#1A365D] px-1 text-[15px] py-1 min-w-[50px] transition-colors duration-300 w-16 text-center">
-                                        {state.odd.Tips}
-                                    </p>
-                                </div>
-                                <div className="flex justify-center items-center flex-col space-y-1 lg:space-y-3">
-                                    <p className="px-3 font-bold font-sans text-[#1A365D]">Prop%</p>
-                                    <p className="font-normal  rounded-sm border  text-[#1A365D]   border-[#1A365D] px-1 text-[15px] py-1 min-w-[50px] transition-colors duration-300 w-16 text-center">
-                                        {state.odd.Prop}
-                                    </p>
-                                </div>
-                            </div>
+                            {/* <div className="w-full px-6">    */}
+                                <section className="flex justify-between items-start min-w-[130px] space-x-10 px-2 lg:gap-4 lg:space-x-0 lg:p-6 w-full border rounded-lg bg-white shadow-lg py-4 border-[#1A365D]">
+                                    <div className="flex justify-center items-center flex-col space-y-1 lg:space-y-3 ">
+                                        <p className="px-3 font-bold font-sans text-[#1A365D]">Odds</p>
+                                        <p className="font-normal  rounded-sm border border-[#1A365D]  text-[#1A365D] px-1 text-[15px] py-1 min-w-[50px] transition-colors duration-300 w-16 text-center ">
+                                            {state.odd.Odds}
+                                        </p>
+                                    </div>
+                                    <div className="flex justify-center items-center flex-col space-y-1 lg:space-y-3">
+                                        <p className="px-3 font-bold font-sans text-[#1A365D]">Tips</p>
+                                        <p className="font-normal  rounded-sm border  text-[#1A365D]   border-[#1A365D] px-1 text-[15px] py-1 min-w-[50px] w-auto transition-colors duration-300 text-center">
+                                            {state.odd.Tips}
+                                        </p>
+                                    </div>
+                                    <div className="flex justify-center items-center flex-col space-y-1 lg:space-y-3">
+                                        <p className="px-3 font-bold font-sans text-[#1A365D]">Prop%</p>
+                                        <p className="font-normal  rounded-sm border  text-[#1A365D]   border-[#1A365D] px-1 text-[15px] py-1 min-w-[50px] transition-colors duration-300 w-16 text-center">
+                                            {state.odd.Prop}
+                                        </p>
+                                    </div>
+                                </section>
+                            {/* </div> */}
 
                             <div className="text-[#1A365D] flex justify-between items-center flex-col lg:flex-row w-full py-8 space-y-2">
                                
-                                <section className="flex justify-center lg:justify-center lg:flex-col items-center min-w-[130px] space-x-10 px-1 lg:gap-0 lg:space-x-0  space-y-2 lg:p-0 w-full">
+                                <section className="flex justify-center items-center min-w-[130px] space-x-10 px-1 lg:gap-44 lg:space-x-0  space-y-2 lg:p-6 w-full">
                                     <div className="flex flex-col  justify-center items-center space-y-1">
                                         <img
                                             src={state.homeLogo}
@@ -119,9 +120,7 @@ export default function PredictionDetails() {
                                         <span className="font-sans font-normal text-sm bg-[#1A365D] text-white p-1.5 rounded-xl">
                                             {state.timing}
                                         </span>
-                                        <span className="font-sans font-normal text-sm text-[#1A365D]">
-                                            {state.timing_date}
-                                        </span>
+                                        
                                         <p className="text-2xl">VS</p>
                                     </div>
 
@@ -142,7 +141,7 @@ export default function PredictionDetails() {
 
                             <section className="flex justify-center w-full items-center flex-col">
                                 <h3 className="text-[#1A365D] py-4">Match Odds</h3>
-                                <div className="flex justify-between lg:justify-end lg:items-start items-start min-w-[130px]  space-x-10 px-1 lg:gap-4 lg:space-x-0 lg:p-4 w-full">
+                                <div className="flex justify-between lg:justify-end lg:items-start items-start min-w-[130px]  space-x-10 px-1 lg:gap-4 lg:space-x-0 lg:p-6 w-full">
                                     <div className="flex justify-center items-center border-[#1a365d1f] bg-white border w-full p-2 shadow-xs rounded-sm flex-col space-y-1 lg:space-y-3 ">
                                         <p className="px-3 font-normal font-sans text-[#1A365D]">Home</p>
                                         <p className="font-normal border-t border-[#1A365D]  text-[#1A365D] px-1 text-[15px] py-1 min-w-auto w-full text-center ">

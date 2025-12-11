@@ -75,6 +75,7 @@ export default function App() {
 
           <Route path="live-score" element={<LIve_Scores />} /> 
           <Route path="details" element={<PredictionDetails />} /> 
+          
           <Route path="/" element={<LandingPage />}>
             <Route path="free-tips" index element={<Free_Tips />} />
             <Route path="home-win" element={<HomeWin />} />
