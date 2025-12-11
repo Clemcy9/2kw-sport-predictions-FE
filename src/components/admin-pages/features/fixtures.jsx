@@ -42,7 +42,7 @@ const OddsDropdown = ({label,setValue, open, toggleOpen, odds, loadingOdds }) =>
                </div>
 
                 {open && (
-                    <div className="absolute top-full mt-1 max-h-48 max-w-40 overflow-y-auto border bg-white w-full z-50">
+                    <div className="absolute top-full mt-1 lg:min-w-52 lg:max-h-[200px] rounded-sm overflow-y-auto border  bg-white w-full z-50">
                         <table className="w-full text-left">
                             <thead>
                                 <tr>
@@ -76,10 +76,10 @@ const OddsDropdown = ({label,setValue, open, toggleOpen, odds, loadingOdds }) =>
                                                     percentage: val.percentage
                                                 }); 
                                                 toggleOpen();        // close the dropdown
-                                            }} className="odd:bg-white even:bg-[#bbb5b5] cursor-pointer">
-                                                <td className="px-2 text-[10px] lg:text-xl py-1">{val.value}</td>
-                                                <td className="px-2 text-[10px] lg:text-xl py-1">{val.odd}</td>
-                                                <td className="px-2 text-[10px] lg:text-xl py-1">{val.percentage}</td>
+                                            }} className="odd:bg-white even:bg-[#bdc2cb69] cursor-pointer">
+                                                <td className="px-2 text-[10px] lg:text-sm py-1">{val.value}</td>
+                                                <td className="px-2 text-[10px] lg:text-sm py-1">{val.odd}</td>
+                                                <td className="px-2 text-[10px] lg:text-sm py-1">{val.percentage}</td>
                                             </tr>
                                         ))
                                     )}
