@@ -86,6 +86,10 @@ export default function LIve_Scores () {
                 {loading && (
                     <div className="text-center h-52 overflow-y-hidden text-[#1A365D] py-2 flex justify-center items-center"><span><FaSpinner className="animate-spin" /> </span> Loading Live-Scores...</div>
                 )}
+
+                {!loading && predictions?.length === 0 && (
+                    <div className="text-center h-52 overflow-y-hidden text-[#1A365D] py-2 flex justify-center items-center">No Live-Scores Available...</div>
+                )}
                    
                 {!loading && predictions?.map((items, index) => (
                   <div key={index}>
@@ -115,6 +119,8 @@ export default function LIve_Scores () {
                         </table>
                     </div>
                 ))}
+
+               
             </section>
             <Footer />  
         </main>

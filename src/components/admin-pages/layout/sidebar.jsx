@@ -69,11 +69,6 @@ export default function Sidebar() {
 
   const lastMenu = [
     {
-      title: "Help & Support",
-      path: "/admin/help",
-      icon: <FaQuestionCircle />,
-    },
-    {
       title: "Log Out",
       path: "/admin/logout",
       icon: <FaSignOutAlt />,

@@ -110,7 +110,7 @@ export default function LoginCompleted() {
 
 
             <button type="button" onClick={handleSendOTP} className="bg-[#1A365D] text-white w-70 rounded-[0.7rem] py-2 my-6">
-                Done
+                Dashboard
             </button>
 
             </div>    

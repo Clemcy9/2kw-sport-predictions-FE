@@ -29,7 +29,7 @@ export default function DummyBlog() {
 
   return (
     //   <div >
-    <div className="gap-5 border-none lg:p-4 mx my-3 mt-7 w-full z-20 relative min-h-screen flex flex-col justify-center items-center bg-[#e0e2e685]">
+    <div className="gap-5 border-none lg:p-4 mx my-3 mt-7 w-full z-20 relative flex flex-col justify-center items-center bg-[#e0e2e685]">
       <h1 className="font-[Inria Sans] text-center text-3xl font-semibold text-[#1F2128] lg:pb-6 mb-8 text-shadow-x z-40">
         2kwPredict Blog
       </h1>

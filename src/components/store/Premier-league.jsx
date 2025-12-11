@@ -12,7 +12,7 @@ export default function PremierLeagueCard({
   const navigation = useNavigate();
 
   const click = () => {
-    navigation("/details");
+    navigation("/details", {state:predictions});
   };
 
   function bet_filter(arr, name) {
@@ -28,6 +28,7 @@ export default function PremierLeagueCard({
     return values;
   }
   const times = fixture.date;
+  const date_time = fixture.date;
   console.log(leagueNames);
 
   const predictions = {
@@ -40,6 +41,7 @@ export default function PremierLeagueCard({
       hour: "2-digit",
       minute: "2-digit",
     }),
+    timing_date: new Date(date_time).toLocaleDateString(),
     odd: {
       Odds: values[0].odd,
       Tips: values[0].value,
