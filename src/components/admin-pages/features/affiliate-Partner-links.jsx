@@ -1,9 +1,14 @@
+import { useState } from "react";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 
 export default function Affiliate_Partner_Links () {
-    const data = [
+
+    const [item, setItems] = useState([
+
+
+   
         {   id: 1,
             type:"Footer",
             location:"Default",
@@ -24,8 +29,13 @@ export default function Affiliate_Partner_Links () {
             label:"Accurate Prediction",
             url:"https://www.2kwpredict.com/",
             status:"visible",
-        },
-    ]
+        }, 
+   ]);
+
+    const handle_delete = (id) => {
+        setItems(del => del.filter(item => item.id !== id));
+    };
+
 
     return(
         <main className="p-4 lg:px-5 lg:min-h-screen flex flex-col w-full">
@@ -53,7 +63,7 @@ export default function Affiliate_Partner_Links () {
                                 </div>
                             </tr>
                         </thead>
-                 {data.map((items,index) => (
+                 {item.map((items,index) => (
                     <tbody key={items.id} className="w-full">
                             <tr className="w-full">
                                <td>
@@ -72,7 +82,7 @@ export default function Affiliate_Partner_Links () {
                                              <p className="text-[#1F2128CC]">{items.location}</p>
                                          </article>
                                      </div>
-                                     <article className="lg:px-1 flex">
+                                     <article className="lg:px-1 ">
                                          <h1 className="font-semibold lg:hidden block p-0 lg:py-3">Label</h1>
                                          <p className="text-[#1F2128CC]">{items.label}</p>
                                      </article>
@@ -89,7 +99,7 @@ export default function Affiliate_Partner_Links () {
                                              <h1 className="hidden font-semibold p-0 lg:py-3"> Action</h1>
                                              <p className=" flex justify-center gap-3 items-center">
                                                  <Link to={"/admin/edit-affiliate"} className="text-amber-400"><FaEdit /></Link>
-                                                 <button className="text-rose-600"><FaTrash /></button>
+                                                 <button onClick={() => handle_delete(items.id)} className="text-rose-600"><FaTrash /></button>
                                              </p>
                                          </article>
                                      </div>

@@ -31,7 +31,7 @@ import Affiliate_Partner_Links from "./components/admin-pages/features/affiliate
 import Edit_Affiliate from "./components/admin-pages/features/edit-affiliate";
 import Help_And_Support from "./components/admin-pages/features/help";
 import PredictionDetails from "./components/details";
-import AllPosts from "./components/admin-pages/all-posts";
+import AllPosts from "./components/admin-pages/blogs/all-posts";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
