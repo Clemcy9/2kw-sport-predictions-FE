@@ -170,6 +170,7 @@ export default function NewPost() {
 
               <div className="relative w-[150px] h-[40px] py-2 px-6 border border-[#1A365D] rounded-xl cursor-pointer text-[#1A365D] font-semibold font-[Open Sans]">
                 <input
+                  required
                   type="file"
                   onChange={handleFileChange}
                   hidden
