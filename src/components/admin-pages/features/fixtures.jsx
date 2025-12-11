@@ -42,7 +42,7 @@ const OddsDropdown = ({label,setValue, open, toggleOpen, odds, loadingOdds }) =>
                </div>
 
                 {open && (
-                    <div className="absolute top-full mt-1 lg:min-w-52 lg:max-h-[200px] rounded-sm overflow-y-auto border  bg-white w-full z-50">
+                    <div className="absolute top-full mt-1 lg:min-w-52 max-h-[200px] rounded-sm overflow-y-auto border  bg-white w-full z-50">
                         <table className="w-full text-left">
                             <thead>
                                 <tr>
