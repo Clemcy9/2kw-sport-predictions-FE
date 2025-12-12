@@ -119,10 +119,22 @@ export default function MakePredictions () {
     const [odds, setOdds] = useState([]);
     const [loadingOdds, setLoadingOdds] = useState(false);
     
-    const [freeTip, setFreeTip] = useState("");
-    const [freeOdds, setFreeOdds] = useState("");
-    const [surePredict, setSurePredict] = useState("");
-    const [superSingleTip, setSuperSingleTip] = useState("");
+    const [freeTip, setFreeTip] = useState({value: "", odd: "", percentage: ""});
+    const [freeOdds, setFreeOdds] = useState({value: "", odd: "", percentage: ""});
+    const [surePredict, setSurePredict] = useState({value: "", odd: "", percentage: ""});
+    const [superSingleTip, setSuperSingleTip] = useState({value: "", odd: "", percentage: ""});
+
+    const payload = {
+        bets: [
+            { id: 100, name: "freeTip", values: [freeTip] },
+            { id: 300, name: "freeOdds", values: [freeOdds] },
+            { id: 600, name: "surePredict", values: [surePredict] },
+            { id: 200, name: "superSingleTip", values: [superSingleTip] }
+        ]
+    };
+
+    console.log("Payload to backend:", payload);
+
 
     const token = localStorage.getItem("authToken");
 
@@ -149,7 +161,7 @@ export default function MakePredictions () {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
-                body:JSON.stringify({freeTip,freeOdds,surePredict,superSingleTip}),
+                body:JSON.stringify(payload),
             });
 
             const data = await res.json();
