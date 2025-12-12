@@ -124,8 +124,9 @@ export default function MakePredictions () {
     const [surePredict, setSurePredict] = useState({value: "", odd: "", percentage: ""});
     const [superSingleTip, setSuperSingleTip] = useState({value: "", odd: "", percentage: ""});
 
-    // payload structure for backend
+    
     const payload = {
+        fixture_id: action.fixture.id,  
         bets: [
             { id: 100, name: "freeTip", values: [freeTip] },
             { id: 300, name: "freeOdds", values: [freeOdds] },
@@ -133,6 +134,7 @@ export default function MakePredictions () {
             { id: 200, name: "superSingleTip", values: [superSingleTip] }
         ]
     };
+
 
     console.log("Payload to backend:", payload);
 
@@ -152,28 +154,29 @@ export default function MakePredictions () {
     }, [modal]);
 
 
-    // call to enpoint that sends the predictions made (POST)
+    // enpoint to send predictions data to backend
+
     const send_data = async (e) => {
         e.preventDefault();
-
-        try{
-            const res = await fetch("https://twokw-backend.onrender.com/api/v1/admin/predictions" , {
+        try {
+            const res = await fetch("https://twokw-backend.onrender.com/api/v1/admin/predictions", {
                 method: "POST",
                 headers: {
-                    Authorization: `Bearer ${token}`,
+                    "Authorization": `Bearer ${token}`,
+                    "Content-Type": "application/json",
                 },
-                body:JSON.stringify(payload),
+                body: JSON.stringify(payload),
             });
-
             const data = await res.json();
             console.log("Backend Response", data);
 
-            setFreeTip("");
-            setFreeOdds("");
-            setSurePredict("");
-            setSuperSingleTip("");
+            // reset prediction inputs
+            setFreeTip({ value: "", odd: "", percentage: "" });
+            setFreeOdds({ value: "", odd: "", percentage: "" });
+            setSurePredict({ value: "", odd: "", percentage: "" });
+            setSuperSingleTip({ value: "", odd: "", percentage: "" });
 
-        }catch (err){
+        } catch (err) {
             console.error("not sent:", err);
         }
     };
