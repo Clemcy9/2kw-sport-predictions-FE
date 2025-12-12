@@ -121,7 +121,7 @@ export default function PremierLeagueCard({
             </div>
             <div className="flex justify-center items-center flex-col space-y-1 lg:space-y-3">
               <p className="px-3 font-bold font-sans text-[#D6AE3E]">Tips</p>
-              <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border group-hover:bg-[#D6AE3E] group-hover:text-white hover:bg-white hover:text-[#D6AE3E] border-[#D6AE3E] px-1 text-[15px] py-1 min-w-[50px] transition-colors duration-300 w-16 text-center">
+              <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border group-hover:bg-[#D6AE3E] group-hover:text-white hover:bg-white hover:text-[#D6AE3E] border-[#D6AE3E] px-1 text-[15px] py-1 min-w-[50px] transition-colors duration-300 w-auto text-center">
                 {predictions.odd.Tips}
               </p>
             </div>

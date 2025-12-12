@@ -124,6 +124,7 @@ export default function MakePredictions () {
     const [surePredict, setSurePredict] = useState({value: "", odd: "", percentage: ""});
     const [superSingleTip, setSuperSingleTip] = useState({value: "", odd: "", percentage: ""});
 
+    // payload structure for backend
     const payload = {
         bets: [
             { id: 100, name: "freeTip", values: [freeTip] },
