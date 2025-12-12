@@ -39,8 +39,11 @@ export default function LandingPage() {
   useEffect(() => {
     // const url = `https://twokw-backend.onrender.com/api/v1/admin/predictions/odds?bet=${bet["id"]}`;
     // const url = `http://localhost:5000/api/v1/admin/predictions/odds?bet=${bet["id"]}`;
-    // const url = `http://localhost:5000/api/v1/admin/predictions/odds?bet=${bet["id"]}&market_name=${bet["name"]}`;
-    const url = `https://twokw-backend.onrender.com/api/v1/admin/predictions/odds?bet=${bet["id"]}&market_name=${bet["name"]}`;
+    // const url = `http://localhost:5000/api/v1/admin/predictions/odds?bet=${bet.id}&market_name=${encodeURIComponent(bet.name)}`;
+    // const url = `https://twokw-backend.onrender.com/api/v1/admin/predictions/odds?bet=${bet["id"]}&market_name=${bet["name"]}`;
+    const url = `https://twokw-backend.onrender.com/api/v1/admin/predictions/odds?bet=${
+      bet.id
+    }&market_name=${encodeURIComponent(bet.name)}`;
     // console.log("tips name", bet["name"]);
 
     fetch(url)
@@ -58,7 +61,7 @@ export default function LandingPage() {
         const defaultOpenState = Object.fromEntries(
           Object.keys(grouped || {}).map((k) => [k, true])
         );
-        console.log("",grouped)
+        console.log("", grouped);
         setOpen(defaultOpenState);
         setPrediction(grouped || {});
       })
