@@ -68,7 +68,7 @@ export default function AdminHeader() {
             icon: <FaFileAlt />,
             dropdown: [
                 { name: "New Post", path: "/admin/blogs/blog" },
-                { name: "All Posts", path: "/admin/all-posts" },
+                { name: "All Posts", path: "/admin/blogs/all-posts" },
                 { name: "Media Gallery", path: "/admin/Gallery" },
             ],
         },

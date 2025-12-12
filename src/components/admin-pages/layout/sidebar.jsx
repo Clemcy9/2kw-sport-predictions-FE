@@ -51,7 +51,7 @@ export default function Sidebar() {
       icon: <FaFileAlt />,
       dropdown: [
         { name: "New Post", path: "/admin/blogs/blog" },
-        { name: "All Posts", path: "/admin/allposts" },
+        { name: "All Posts", path: "/admin/blogs/allposts" },
         { name: "Media Gallery", path: "/admin/Gallery" },
       ],
     },
