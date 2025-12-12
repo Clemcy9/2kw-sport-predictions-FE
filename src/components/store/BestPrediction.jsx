@@ -21,7 +21,7 @@ export default function BestPredictionCard () {
     }
        
     return (
-        <div className="relative border-none xs:mt-10 sm:mt-10 md:mt-0 mt-33 lg:mt-5 lg:h-[240px] h-auto min-h-[180px] rounded-[0.6rem] lg:mb-0 px-2 bg-[#1a365d] lg:max-w-full w-full flex items-center flex-col hover:-translate-y-1 hover:shadow-xl lg:space-y-0 shadow-sm transition-all">
+        <div className="relative border-none xs:mt-10 sm:mt-10 md:mt-0 mt-22 lg:mt-5 lg:h-[240px] h-auto min-h-[180px] rounded-[0.6rem] lg:mb-0 px-2 bg-[#1a365d] lg:max-w-full w-full flex items-center flex-col hover:-translate-y-1 hover:shadow-xl lg:space-y-0 shadow-sm transition-all">
             <h2 className="text-center text-lg lg:text-xl font-semibold text-white lg:py-2 pb-2">
                 Best Prediction of the Day
             </h2>
