@@ -1,4 +1,3 @@
-import { div } from "framer-motion/client";
 import { useState } from "react";
 import { useEffect } from "react";
 import React from "react";
@@ -8,6 +7,7 @@ const AllPosts = () => {
   const [body, setBody] = useState("");
   const [image, setImage] = useState(null);
   const [blogs, setBlogs] = useState([]);
+  const [model, setModel] = useState(null);
 
   useEffect(() => {
     const get_all_blogs = async () => {
@@ -31,47 +31,103 @@ const AllPosts = () => {
     get_all_blogs();
   }, []);
 
+  const handleDeleteSubmit = async (id) => {
+    const token = localStorage.getItem("authToken");
+    try {
+      const res = await fetch(
+        `https://twokw-backend.onrender.com/api/v1/blogs/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      if (!res.ok) {
+        throw new Error("falled to delete the blog post");
+      }
+      alert("Post deleted successfully");
+      setModel(null);
+      setBlogs((prev) => prev.filter((b) => b._id !== id));
+    } catch (error) {
+      console.log(error, "error accured while deleting a post");
+    }
+  };
+
   return (
-    <div className="p-10">
+    <div className="md:p-10 p-4">
       <div className="lg:p-5 mx-auto max-w-4xl rounded-xl bg-[#e0e2e685]">
         <div className="flex flex-col gap-10">
           {/* HEADINGS */}
-          <div className="grid grid-cols-2 text-lg gap-[170px] mb-5">
-            <div className="w-4xl">
+          <div className="lg:flex sm:hidden md:hidden hidden text-lg gap-[120px] mb-5">
+            <div className="">
               <h1 className="font-bold">Images</h1>
             </div>
-            <h1 className="font-bold ">Date</h1>
+            <h1 className="font-bold mr-96">Title/desc</h1>
+            <h1 className="font-bold">Date</h1>
+          </div>
+          <div className="lg:hidden block mt-10">
+            <h1 className="text-center font-bold text-xl">All Post</h1>
           </div>
 
           {blogs.map((blog, index) => (
-            <div className="grid grid-cols-2 gap-10">
-              <div key={index} className="flex gap-20">
+            <div className="flex gap-10 md:mt-10">
+              <div key={index} className="flex lg:flex-row flex-col gap-20">
                 <div>
-                  <div className="col-span-2 flex items-center gap-1 w-2xl">
-                    <div className="w-44 h-52">
+                  <div className=" flex items-center gap-1 md:w-2xl sm:w-xl">
+                    <div className="md:w-44 md:h-52 sm:w-36 sm:h-36 w-20 h-28">
                       <img
                         src={blog.image}
                         alt={blog.title}
-                        className="group-hover:scale-110 mt-10 group-active:scale-110 transition-transform duration-500 w-52 h-52 "
+                        className="group-hover:scale-110 mt-10 group-active:scale-110 transition-transform duration-500 md:w-44 md:h-52 sm:w-36 sm:h-36 w-20 h-28"
                       />
                       {/* <div className="absolute inset-0 bg-gradient-to-t from-[#111]/40 to-transparent"></div> */}
                     </div>
                     <div className="flex flex-col gap-2">
-                      <h1>{blog.title}</h1>
-                      <p>{blog.body}</p>
+                      <h1 className="font-semibold md:text-lg text-[15px]">
+                        {blog.title}
+                      </h1>
+                      <p className="sm:text-[15px] md:text-[16px] text-[14px]">
+                        {blog.body}
+                      </p>
+                      <div className="">
+                        <span className="font-semibold text-[#65758B] sm:text-[15px] md:text-lg text-sm">
+                          {new Date(blog.createdAt).toLocaleDateString()}
+                        </span>
+                      </div>
                       <div className="flex gap-2">
-                        <button className=" border border-green-500 text-green-500 py-1 px-6">
+                        <button className=" border border-green-500 text-green-500 md:text-[15px] text-sm px-4 py-1 md:px-6">
                           Edit
                         </button>
-                        <button className="bg-red-500 text-white py-1 px-6">
+
+                        <button
+                          onClick={() => setModel(blog._id)}
+                          className="bg-red-500 text-white md:text-[15px]  text-sm px-4 py-1 md:px-6"
+                        >
                           Delete
                         </button>
                       </div>
+                      {model === blog._id && (
+                        <div className="w-96 shadow-lg bg-white rounded-lg p-2">
+                          <h3>Are you sure you want to submit? </h3>
+                          <div className="flex gap-6 mt-6">
+                            <button
+                              onClick={() => handleDeleteSubmit(blog._id)}
+                            >
+                              Yes, Delete
+                            </button>
+                            <button onClick={() => setModel(null)}>
+                              cancel
+                            </button>
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
 
-                <div className="">
+                <div className="lg:block md:block sm:hidden hidden">
                   <span className="font-semibold text-[#65758B]">
                     {new Date(blog.createdAt).toLocaleDateString()}
                   </span>
