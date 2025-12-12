@@ -110,14 +110,14 @@ const AllPosts = () => {
                       </div>
                       {model === blog._id && (
                         <div className="w-96 shadow-lg bg-white rounded-lg p-2">
-                          <h3>Are you sure you want to submit? </h3>
+                          <h3>Are you sure you want to Delete </h3>
                           <div className="flex gap-6 mt-6">
-                            <button
+                            <button className="bg-red-500 text-white md:text-[15px]  text-sm px-4 py-1 md:px-6"
                               onClick={() => handleDeleteSubmit(blog._id)}
                             >
-                              Yes, Delete
+                              Yes Delete
                             </button>
-                            <button onClick={() => setModel(null)}>
+                            <button className=" text-[#1A365D] border border-[#1A365D] md:text-[15px]  text-sm px-4 py-1 md:px-6" onClick={() => setModel(null)}>
                               cancel
                             </button>
                           </div>
