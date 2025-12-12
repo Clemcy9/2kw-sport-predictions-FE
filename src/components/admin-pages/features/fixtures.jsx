@@ -126,12 +126,12 @@ export default function MakePredictions () {
 
     
     const payload = {
-        fixture_id: action.fixture.id,  
+        // fixture_id: action?.fixture?.id,  
         bets: [
             { id: 100, name: "freeTip", values: [freeTip] },
             { id: 300, name: "freeOdds", values: [freeOdds] },
             { id: 600, name: "surePredict", values: [surePredict] },
-            { id: 200, name: "superSingleTip", values: [superSingleTip] }
+            { id: 200, name: "superSingleTip", values: [superSingleTip] },
         ]
     };
 
