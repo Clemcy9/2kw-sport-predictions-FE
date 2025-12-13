@@ -3,103 +3,59 @@ import {useState } from "react";
 import {FaTrash } from "react-icons/fa6";
 import { Calendar, ChevronDown } from "lucide-react";
 import { motion, useMotionValue} from "framer-motion";
+import { useEffect } from "react";
+import { FaSpinner } from "react-icons/fa";
 // import Sidebar from "./sidebar";
 
 export default function Predictions() {
 
+      const [prediction, setPrediction] = useState([]);
+      const [loading, setLoading] = useState(true);
+    //   const [error, setError] = useState(null);
+
+    const token = localStorage.getItem("authToken");
+
+    // this variabkes helps the slide to action feature
       const x = useMotionValue(0);
        const dragLength = -150;
 
    
     const handleDelete = (id) => {
-        setPredictions(predictions.filter((item) => item.id !== id));
+        setPrediction(prediction.filter((item) => item.id !== id));
     };
 
-    const [predictions, setPredictions] = useState([
-        {
-            id: 1,
-            league: "Premier League",
-            date: "05 Oct 2025 19:00",
-            homeTeam: "Everton",
-            awayTeam: "Burnley",
-            tip: "Free Tips",
-            percentage: "12 (83.33%)",
-        },
-        {
-            id: 2,
-            league: "Premier League",
-            date: "05 Oct 2025 19:00",
-            homeTeam: "Everton",
-            awayTeam: "Burnley",
-            tip: "2 Odds",
-            percentage: "12 (83.33%)",
-        },
-        {
-            id: 3,
-            league: "Premier League",
-            date: "05 Oct 2025 19:00",
-            homeTeam: "Everton",
-            awayTeam: "Burnley",
-            tip: "2.5 Goals",
-            percentage: "12 (83.33%)",
-        },
-        {
-            id: 4,
-            league: "Premier League",
-            date: "05 Oct 2025 19:00",
-            homeTeam: "Everton",
-            awayTeam: "Burnley",
-            tip: "Double Chance",
-            percentage: "12 (83.33%)",
-        },
-        {
-            id: 5,
-            league: "Premier League",
-            date: "05 Oct 2025 19:00",
-            homeTeam: "Everton",
-            awayTeam: "Burnley",
-            tip: "Free Tips",
-            percentage: "12 (83.33%)",
-        },
-        {
-            id: 6,
-            league: "Premier League",
-            date: "05 Oct 2025 19:00",
-            homeTeam: "Everton",
-            awayTeam: "Burnley",
-            tip: "Free Tips",
-            percentage: "12 (83.33%)",
-        },
-        {
-            id: 7,
-            league: "Premier League",
-            date: "05 Oct 2025 19:00",
-            homeTeam: "Everton",
-            awayTeam: "Burnley",
-            tip: "Free Tips",
-            percentage: "12 (83.33%)",
-        },
-        {
-            id: 8,
-            league: "Premier League",
-            date: "05 Oct 2025 19:00",
-            homeTeam: "Everton",
-            awayTeam: "Burnley",
-            tip: "Free Tips",
-            percentage: "12 (83.33%)",
-        },
-        {
-            id: 9,
-            league: "Premier League",
-            date: "05 Oct 2025 19:00",
-            homeTeam: "Everton",
-            awayTeam: "Burnley",
-            tip: "Free Tips",
-            percentage: "12 (83.33%)",
-        },
-    ]);
+    useEffect(() => {
 
-    return (
+        if(!token) return;
+
+        fetch("https://twokw-backend.onrender.com/api/v1/admin/predictions",
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    "Content-Type": "application/json",
+                },
+            }
+         )
+            .then((res) => res.json())
+            .then((data) => {
+                setPrediction(data?.data || []);
+                console.log("all predictions", data)
+                console.log("predictions", prediction)
+                setLoading(false);
+            });
+    }, [token]);
+
+    // const all_predictions = async (e) => {
+    //     e.preventDefault();
+
+    //     try{
+    //         const res = await fetch( "")
+    //     }
+    // }
+
+    if (loading) return <div className="text-center text-[#1A365D] py-20 flex justify-center items-center"><span><FaSpinner className="animate-spin" /> </span> Loading data...</div>;
+
+          return (
               <div className="p-4 lg:px-10 lg:min-h-screen flex flex-col w-full">
                    <div className="flex justify-start font-semibold font-sans text-2xl w-full lg:my-6">
                        <h2 className="lg:font-semibold font-bold font-[Inria Sans] mb-4 text-left">Predictions Manager</h2>
@@ -141,7 +97,7 @@ export default function Predictions() {
                             </thead>
 
                     <tbody >
-                        {predictions.map((item, index) => (
+                        {prediction.map((item, index) => (
                             <tr key={item.id} className="relative leading-tight">
                                 <div className="lg:hidden absolute right-0 top-15 h-full flex z-0">
                                     <button
@@ -155,24 +111,43 @@ export default function Predictions() {
                                 <motion.div drag="x" dragConstraints={{ left: dragLength, right: 0 }} className="z-40  relative bg-white cursor-grab active:cursor-grabbing  lg:grid lg:grid-cols-11 w-full flex flex-row lg:gap-0 lg:justify-between gap-5  lg:border-none border p-2 lg:p-0 rounded-xl my-4 active:border-[#1A365D] lg:active:hidden active:scale-105 active:shadow-xl lg:my-0 border-[#1A365D99]">
                                     <div className="lg:col-span-4 flex-col hidden lg:flex items-start gap-6 lg:flex-row w-full lg:justify-between justify-center ">
                                         <td className="py-5 hidden lg:block ">{index + 1}</td>
-                                        <td className="py-5 hidden lg:block ">{item.league}</td>
-                                        <td className="py-5 hidden lg:flex ">{item.date}</td>
+                                        <td className="py-5 hidden lg:block ">{item.fixture.league.name}</td>
+                                        <td className="py-5 hidden lg:flex ">{new Date(item.fixture.fixture.date).toLocaleDateString([], {
+                                            day: "2-digit",
+                                            month: "2-digit",
+                                        })} - 
+                                            {new Date(item.fixture.fixture.date).toLocaleTimeString([], {
+                                                hour: "2-digit",
+                                                minute: "2-digit",
+                                            })}</td>
                                     </div>
                                     <div className="col-span-3 w-full flex font-light font-sans lg:text-lg lg:font-normal text-xs text-[#737373] lg:flex-row flex-col lg:w-full lg:justify-center lg:gap-14">
-                                        <td className="py-1 lg:hidden text-lg font-[Sora] font-semibold text-[#1B1B1BCC]">{item.league}</td>
+                                        <td className="py-1 lg:hidden text-lg font-[Sora] font-semibold text-[#1B1B1BCC]">{item.fixture.league.name}</td>
                                         <td className="py-1  font-sans lg:text-right font-normal text-lg text-black">
-                                            <span className="font-semibold">🛡️</span>
-                                            {item.awayTeam}
+                                            <img className="w-4 h-4"
+                                                src={item.fixture.teams.away.logo}
+                                                alt={item.fixture.teams.away.name}></img>
+                                            {item.fixture.teams.away.name}
                                         </td>
                                         <td className="py-1  font-sans font-normal lg:text-right text-lg text-black">
-                                            <span className="font-semibold">⚽</span>
-                                            {item.homeTeam}
+                                            <img className="w-4 h-4"
+                                                src={item.fixture.teams.home.logo}
+                                                alt={item.fixture.teams.home.name} ></img>
+                                            {item.fixture.teams.home.name}
                                         </td>
                                     </div>
 
                                     <div className="col-span-4 flex gap-1 font-light font-sans justify-end  lg:text-lg lg:font-normal text-xs text-[#737373] lg:flex-row flex-col lg:w-full lg:justify-between pl-6">
-                                        <td className="py-1 text-right w-20 lg:w-auto lg:hidden">{item.date}</td>
-                                        <td className="py-1 text-right lg:text-center w-full lg:w-fit ">{item.tip}</td>
+                                        <td className="py-1 text-right w-20 lg:w-auto lg:hidden">{new Date(item.fixture.fixture.date).toLocaleDateString([], {
+                                            day: "2-digit",
+                                            month: "2-digit",
+                                        })}
+                                            {new Date(item.fixture.date).toLocaleTimeString([], {
+                                                hour: "2-digit",
+                                                minute: "2-digit",
+                                            })}
+                                        </td>
+                                        <td className="py-1 text-right lg:text-center w-full lg:w-fit ">{item.bets.values.odds}</td>
                                         <td className="py-1 ">{item.percentage}</td>
                                         <td className=" py-1 hidden lg:block">
                                             <button
@@ -190,5 +165,5 @@ export default function Predictions() {
                         </table>
                     </div>
                 </div>
-    );
+            );
 }
