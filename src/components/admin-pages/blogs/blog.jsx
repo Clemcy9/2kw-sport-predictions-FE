@@ -127,6 +127,25 @@ export default function NewPost() {
     }
   };
 
+  const editorHeader = (
+    <span className="ql-formats">
+      <select className="ql-header">
+        <option value="1"></option>
+        <option value="2"></option>
+        <option selected></option>
+      </select>
+
+      <button className="ql-bold"></button>
+      <button className="ql-italic"></button>
+      <button className="ql-underline"></button>
+
+      <button className="ql-list" value="ordered"></button>
+      <button className="ql-list" value="bullet"></button>
+
+      <button className="ql-link"></button>
+    </span>
+  );
+
   return (
     <div className="px-8 lg:pt-6 ">
       <form className="lg:grid lg:grid-cols-[2fr_0.8fr] w-full lg:gap-8 ">
@@ -143,8 +162,9 @@ export default function NewPost() {
           />
           <Editor
             value={body}
-            onTextChange={(e) => setBody(e.textValue)}
-            className="h-[400px]"
+            onTextChange={(e) => setBody(e.htmlValue)}
+            className="h-[400px] w-full"
+            headerTemplate={editorHeader}
           />
           <button
             onClick={handlePostAction}

@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { Link, Route, Routes } from "react-router-dom";
 import { FaFutbol, FaTelegramPlane } from "react-icons/fa";
 import { useState } from "react";
+import DOMPurify from "dompurify";
 
 export default function BlogPost_Id() {
   const endpoints = window.location.href;
@@ -91,7 +92,7 @@ export default function BlogPost_Id() {
                   <img
                     src={blog.image_url}
                     alt={blog.title}
-                    className="group-hover:scale-110 group-active:scale-110 transition-transform duration-500 h-full sm:h-52 w-full object-cover rounded-xl"
+                    className="group-hover:scale-110 group-active:scale-110 transition-transform duration-500 h-60 sm:h-52 w-full object-cover rounded-xl"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#111]/40 to-transparent rounded-xl"></div>
                 </div>
@@ -99,9 +100,12 @@ export default function BlogPost_Id() {
                   <h2 className="font-semibold leading-tight  ">
                     {blog.title}
                   </h2>
-                  <p className="text-[#65758B] lg:text-[15px] text-[13px] ">
-                    {blog.body}
-                  </p>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: DOMPurify.sanitize(blog.body),
+                    }}
+                    className="text-[#65758B] lg:text-[15px] text-[13px] "
+                  ></p>
                   <div className="flex justify-between w-full lg:py-2 ">
                     <span className="font-semibold text-[#65758B]">
                       {new Date(blog.createdAt).toLocaleDateString()}

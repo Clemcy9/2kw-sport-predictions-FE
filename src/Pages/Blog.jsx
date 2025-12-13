@@ -9,6 +9,7 @@ import { FaFutbol, FaSpinner, FaTelegramPlane } from "react-icons/fa";
 import { useState } from "react";
 import { FiArrowRight } from "react-icons/fi";
 import blogBg from "../assets/Hero-images/blog-bg.jpg";
+import DOMPurify from "dompurify";
 
 export default function BlogPost() {
   const [blogs, setBlogs] = useState([]);
@@ -91,8 +92,8 @@ export default function BlogPost() {
           </div>
         </motion.div>
       </section>
-      <div className="gap-5 border-none lg:p-4 mx my-3 mt-7 w-full z-20 relative  flex flex-col justify-center items-center bg-[#e0e2e685]">
-        <h1 className="font-[Inria Sans] text-center text-3xl font-semibold text-[#1F2128] lg:pb-6 mb-8 text-shadow-x z-40">
+      <div className="gap-5 border-none p-4 mx my-3 mt-7 w-full z-20 relative  flex flex-col justify-center items-center bg-[#e0e2e685]">
+        <h1 className="font-[Inria Sans] text-center text-3xl font-semibold text-[#1F2128] lg:pb-6 mb-2 text-shadow-x z-40">
           2kwPredict Blog
         </h1>
         {loading && (
@@ -103,14 +104,14 @@ export default function BlogPost() {
             Loading Blog Articles...
           </div>
         )}
-        <div className="lg:grid lg:grid-cols-3 lg:gap- sm:grid sm:grid-cols-2 sm:gap-6 gap-4 w-full sm:items-center sm:w-full sm:justify-center flex flex-col ">
+        <div className="lg:grid lg:grid-cols-3 lg:gap- sm:grid sm:grid-cols-2 sm:gap-6 gap-4 w-full sm:items-center sm:w-full sm:justify-center flex flex-col  ">
           {!loading &&
             blogs?.map((blog) => (
               <article
                 key={blog._id}
-                className="group overflow-hidden bg-white flex justify-between flex-row lg:flex-col lg:gap-2  sm:flex-col lg:rounded-[0.5em] gap-1 rounded-[0.5em] lg:max-h-80 max-h-40 hover:-translate-y-1 transition-all lg:w-auto w-full sm:h-auto  shadow-sm  lg:shadow-sm "
+                className="group overflow-hidden bg-white flex justify-between flex-row lg:flex-col lg:gap-2 sm:flex-col gap-1 rounded-[0.5em] hover:-translate-y-1 transition-all shadow-sm h-[200px] lg:h-[380px]"
               >
-                <div className="lg:h-auto overflow-hidden relative sm:h-auto sm:max-w-full md:max-w-full lg:max-w-full max-w-40 h-full">
+                <div className="h-56 overflow-hidden relative sm:max-w-full md:max-w-full lg:max-w-full max-w-40 ">
                   <img
                     src={blog.image_url}
                     alt={blog.title}
@@ -118,13 +119,18 @@ export default function BlogPost() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#111]/40 to-transparent"></div>
                 </div>
-                <div className="lg:px-2 px-1 sm:px-2 py-2 flex flex-col space-y-1 sm:gap-0 w-full">
-                  <h2 className="font-semibold leading-tight  ">
-                    {blog.title}
-                  </h2>
-                  <p className="text-[#65758B] lg:text-[15px] text-[13px]  ">
-                    {blog.body}
-                  </p>
+                <div className="lg:px-2 px-1 sm:px-2 py-2 flex flex-col justify-between space-y-1 sm:gap-0 w-full">
+                  <div className="mt-3">
+                    <h2 className="font-semibold leading-tight  ">
+                      {blog.title}
+                    </h2>
+                    <p
+                      className="text-[#65758B] lg:text-[15px] text-[13px] mt-2 line-clamp-4"
+                      dangerouslySetInnerHTML={{
+                        __html: DOMPurify.sanitize(blog.body),
+                      }}
+                    ></p>
+                  </div>
                   <div className="flex justify-between w-full lg:py-2 ">
                     <span className="font-semibold text-[#65758B]">
                       {new Date(blog.createdAt).toLocaleDateString().slice()}
