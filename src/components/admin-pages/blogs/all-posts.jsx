@@ -1,7 +1,6 @@
 import { b, filter } from "framer-motion/client";
 import { useState } from "react";
 import { useEffect } from "react";
-import React from "react";
 
 const AllPosts = () => {
   const [title, setTitle] = useState("");

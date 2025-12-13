@@ -126,17 +126,17 @@ export default function MakePredictions () {
 
     
     const payload = {
-        fixture_id: action.fixture.id,  
+        fixture_id: action?.fixture?.id,  
         bets: [
             { id: 100, name: "freeTip", values: [freeTip] },
             { id: 300, name: "freeOdds", values: [freeOdds] },
             { id: 600, name: "surePredict", values: [surePredict] },
-            { id: 200, name: "superSingleTip", values: [superSingleTip] }
+            { id: 200, name: "superSingleTip", values: [superSingleTip] },
         ]
     };
 
 
-    console.log("Payload to backend:", payload);
+    // console.log("Payload to backend:", payload);
 
 
     const token = localStorage.getItem("authToken");
@@ -287,7 +287,7 @@ export default function MakePredictions () {
                         <tbody className="text-right">
                             {all_predictions.map((item, index) => (
                                 <tr key={item.fixture.id} className="leading-tight" onClick={() => { setAction(item); setModal(true); all_odds(item.fixture.id); }}>
-                                    <td colSpan={100} className="w-full flex flex-row lg:gap-2 lg:grid lg:grid-cols-14 lg:justify-between lg:border-none border p-3 lg:p-0 rounded-xl my-4 lg:my-0 lg:active:hidden active:border-[#1A365D] active:scale-105 active:shadow-xl border-[#1A365D99]">
+                                    <td colSpan={100} className="w-full flex flex-row lg:gap-2 lg:grid lg:grid-cols-14 lg:justify-between lg:border-none border p-3 lg:p-0 rounded-xl my-4 lg:my-0 lg:active:none active:border-[#1A365D] active:scale-105 active:shadow-xl border-[#1A365D99] lg:active:shadow-none lg:active:scale-none">
                                             <section className="flex flex-col lg:col-span-10 lg:grid lg:grid-cols-9 justify-between  items-start gap-6 lg:flex-row w-full lg:gap-1 ">
                                                 <div className="lg:py-5 hidden lg:col-span-1 lg:block lg:mr-12">{index + 1}</div>
                                                 <div className="lg:py-5  lg: flex lg:justify-start lg:col-span-4 lg:items-start w-full lg:max-w-80 "><img className="w-8 h-8" src={item.league.logo} alt={item.league.name} />{(item?.league?.name || "").slice(0, 32).trim()}</div>
