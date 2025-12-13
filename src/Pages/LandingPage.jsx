@@ -56,6 +56,16 @@ export default function LandingPage() {
           acc[leagueName].push(pred);
           return acc;
         }, {});
+        // const groupedLogo = data?.data?.reduce((acc, pred) => {
+        //   const leagueLogo = pred.fixture.league.logo;
+        //   if (!acc[leagueLogo]) acc[leagueLogo] = [];
+        //   acc[leagueLogo].push(pred);
+        //   return acc;
+        // }, {});
+
+        // const leagueLogo = pred.fixture.league.logo;
+
+        // console.log("grouped data logo",groupedLogo)
 
         // Open all groups by default
         const defaultOpenState = Object.fromEntries(
@@ -117,13 +127,19 @@ export default function LandingPage() {
 
               <div className="flex justify-center items-center flex-col lg:px-3">
                 {/* ------------------------------------------
-                    DISPLAY LEAGUES + THEIR FIXTURE CARDS
+                    DISPLAY LEAGUES + THEIR FIXTURE CARDS + logos
                 ------------------------------------------- */}
                 {Object.keys(prediction).map((leagueName) => (
                   <div key={leagueName} className="w-full">
                     {/* League Header */}
                     <div className="bg-[#1A365D] w-full text-white flex justify-between items-center p-2 mt-6 mb-3 rounded-[0.6rem] shadow">
-                      <h2 className="font-sans font-semibold">{leagueName}</h2>
+                      <h2 className="font-sans font-semibold flex justify-center items-center gap-1.5">
+                          <img
+                            src={prediction[leagueName][0].fixture.league.logo} // each fixture's league logo
+                            alt={leagueName}
+                            className="w-10 h-10 object-contain bg-white"
+                          />
+                       {leagueName}</h2>
 
                       {/* Toggle Section */}
                       <div
@@ -154,6 +170,7 @@ export default function LandingPage() {
                             fixture={x.fixture.fixture}
                             teams={x.fixture.teams}
                             leagueNames={leagueName}
+                            logo={prediction[leagueName][0].fixture.league.logo}
                             league={x.fixture.league}
                             values={x.bets?.[0]?.values}
                             bet={bet}

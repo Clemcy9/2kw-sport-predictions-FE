@@ -8,6 +8,10 @@ import detailsBg from "../assets/Hero-images/details-bg.jpg"
 
 export default function PredictionDetails() {
     const{state} = useLocation();
+    const days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    const today =new Date ( state.timing_date)
+    const recentDay = { dayName: `${days[today.getDay()]} ${today.getDate()} , ${months[today.getMonth()]} , ${today.getFullYear()}  ` };
 
     return (
        <main>
@@ -17,7 +21,7 @@ export default function PredictionDetails() {
                     className="font-sans relative h-[344px] mt-[22px] md:mt-16 bg-cover bg-center flex-wrap flex items-center justify-center text-center text-white"
                     style={{ backgroundImage: `url(${detailsBg})` }}
                 >
-                    <div className="absolute inset-0 bg-[#000]/60"></div> {/* overlay */}
+                    <div className="absolute inset-0 bg-[#1A365D]/40"></div> {/* overlay */}
 
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -72,10 +76,11 @@ export default function PredictionDetails() {
 
                         <div
                             className=" shadow-sm space-y-2 max-h-screen bg-[#F9FBFF] transition-all flex justify-between items-center w-full flex-col lg:p-14 p-2"
-                        >
-                            <div className="flex  lg:px-2 lg:mx-3">
-                                <span className="font-sans font-normal text-sm text-[#1A365D]">
-                                    {state.timing_date} {state.timing}
+                        > 
+                            <div className="flex  lg:px-2 lg:mx-3 w-full justify-between items-center">
+                                <p className="font-sans font-semibold text-lg text-[#1A365D] flex justify-center gap-1.5 items-center"><img src={state.leagueLogo} alt="league name" className="w-12 h-12" /> {state.leagueTitile}</p>
+                                <span className="font-sans font-normal text-sm text-[#D6AE3E]">
+                                    {recentDay.dayName} {state.timing}
                                 </span>
 
                             </div>
@@ -83,19 +88,19 @@ export default function PredictionDetails() {
                                 <section className="flex justify-between items-start min-w-[130px] space-x-10 px-2 lg:gap-4 lg:space-x-0 lg:p-6 w-full border rounded-lg bg-white shadow-lg py-4 border-[#1A365D]">
                                     <div className="flex justify-center items-center flex-col space-y-1 lg:space-y-3 ">
                                         <p className="px-3 font-bold font-sans text-[#1A365D]">Odds</p>
-                                        <p className="font-normal  rounded-sm border border-[#1A365D]  text-[#1A365D] px-1 text-[15px] py-1 min-w-[50px] transition-colors duration-300 w-16 text-center ">
+                                        <p className="font-normal  rounded-sm border border-[#1A365D]  text-[#1A365D] px-1 text-[15px] py-1 min-w-16 transition-colors duration-300 w-auto text-center ">
                                             {state.odd.Odds}
                                         </p>
                                     </div>
                                     <div className="flex justify-center items-center flex-col space-y-1 lg:space-y-3">
                                         <p className="px-3 font-bold font-sans text-[#1A365D]">Tips</p>
-                                        <p className="font-normal  rounded-sm border  text-[#1A365D]   border-[#1A365D] px-1 text-[15px] py-1 min-w-[50px] w-auto transition-colors duration-300 text-center">
+                                        <p className="font-normal  rounded-sm border  text-[#1A365D]   border-[#1A365D] px-1 text-[15px] py-1 min-w-16 w-auto transition-colors duration-300 text-center">
                                             {state.odd.Tips}
                                         </p>
                                     </div>
                                     <div className="flex justify-center items-center flex-col space-y-1 lg:space-y-3">
                                         <p className="px-3 font-bold font-sans text-[#1A365D]">Prop%</p>
-                                        <p className="font-normal  rounded-sm border  text-[#1A365D]   border-[#1A365D] px-1 text-[15px] py-1 min-w-[50px] transition-colors duration-300 w-16 text-center">
+                                        <p className="font-normal  rounded-sm border  text-[#1A365D]   border-[#1A365D] px-1 text-[15px] py-1 min-w-16 transition-colors duration-300 w-auto text-center">
                                             {state.odd.Prop}
                                         </p>
                                     </div>

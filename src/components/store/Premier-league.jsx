@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 export default function PremierLeagueCard({
   leagueNames,
   league,
+  logo,
   teams,
   values,
   fixture,
@@ -23,15 +24,17 @@ export default function PremierLeagueCard({
     //   return p >= 65 && p <= 85;
     // });
 
-    console.log("filteredby%:", values);
+    // console.log("filteredby%:", values);
     // return percentage_filtered_values;
     return values;
   }
   const times = fixture.date;
   const date_time = fixture.date;
-  console.log(leagueNames);
+  // console.log("all the league names",leagueNames);
 
   const predictions = {
+    leagueTitile: leagueNames,
+    leagueLogo: logo,
     homeLogo: teams.home.logo,
     homeTeam: teams.home.name,
     awayLogo: teams.away.logo,
@@ -63,7 +66,7 @@ export default function PremierLeagueCard({
     //       : `${values[0].percentage}%`,
     // },
   };
-  console.log(predictions.odd);
+  // console.log(predictions.odd);
 
   return (
     <div className="w-full border-none lg:p-0 my-1 flex justify-center items-center flex-col text-white space-y-4 lg:space-y-0">
@@ -115,19 +118,19 @@ export default function PremierLeagueCard({
           <div className="flex justify-between lg:justify-end lg:items-start items-start min-w-[130px]  space-x-10 px-1 lg:gap-4 lg:space-x-0 lg:p-4 w-full">
             <div className="flex justify-center items-center flex-col space-y-1 lg:space-y-3 ">
               <p className="px-3 font-bold font-sans text-[#D6AE3E]">Odds</p>
-              <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] group-hover:bg-[#D6AE3E] hover:bg-white hover:text-[#D6AE3E] group-hover:text-white px-1 text-[15px] py-1 min-w-[50px] transition-colors duration-300 w-16 text-center ">
+              <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border border-[#D6AE3E] group-hover:bg-[#D6AE3E] hover:bg-white hover:text-[#D6AE3E] group-hover:text-white px-1 text-[15px] py-1 transition-colors duration-300 min-w-16 w-auto text-center ">
                 {predictions.odd.Odds}
               </p>
             </div>
             <div className="flex justify-center items-center flex-col space-y-1 lg:space-y-3">
               <p className="px-3 font-bold font-sans text-[#D6AE3E]">Tips</p>
-              <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border group-hover:bg-[#D6AE3E] group-hover:text-white hover:bg-white hover:text-[#D6AE3E] border-[#D6AE3E] px-1 text-[15px] py-1 min-w-[50px] transition-colors duration-300 w-auto text-center">
+              <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border group-hover:bg-[#D6AE3E] group-hover:text-white hover:bg-white hover:text-[#D6AE3E] border-[#D6AE3E] px-1 text-[15px] py-1 transition-colors duration-300 w-auto min-w-16 text-center">
                 {predictions.odd.Tips}
               </p>
             </div>
             <div className="flex justify-center items-center flex-col space-y-1 lg:space-y-3">
               <p className="px-3 font-bold font-sans text-[#D6AE3E]">Prop%</p>
-              <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border group-hover:bg-[#D6AE3E] group-hover:text-white hover:bg-white hover:text-[#D6AE3E] border-[#D6AE3E] px-1 text-[15px] py-1 min-w-[50px] transition-colors duration-300 w-16 text-center">
+              <p className="font-normal text-[#D6AE3E] rounded-[0.6rem] border group-hover:bg-[#D6AE3E] group-hover:text-white hover:bg-white hover:text-[#D6AE3E] border-[#D6AE3E] px-1 text-[15px] py-1 transition-colors duration-300 min-w-16 w-auto text-center">
                 {predictions.odd.Prop}
               </p>
             </div>
