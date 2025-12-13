@@ -236,6 +236,8 @@ export default function MakePredictions() {
 
   // console.log("Payload to backend:", payload);
 
+ 
+
   const token = localStorage.getItem("authToken");
 
   // makes the main page not-scrollable when modal is open
@@ -267,6 +269,8 @@ export default function MakePredictions() {
         return(
           setMessages("Select at leat one prediction before saving")
     );
+
+    //   console.log("payload array", Array.isArray(payload[0]));
     try {
       const res = await fetch(
         "https://twokw-backend.onrender.com/api/v1/admin/predictions",
@@ -276,7 +280,7 @@ export default function MakePredictions() {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(payload),
+          body: JSON.stringify({payload}),
         }
       );
       const data = await res.json();
