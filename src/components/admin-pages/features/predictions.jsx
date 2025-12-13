@@ -11,6 +11,12 @@ export default function Predictions() {
 
       const [prediction, setPrediction] = useState([]);
       const [loading, setLoading] = useState(true);
+
+       const today = new Date().toISOString().split("T")[0];
+        const [date, setDate] = useState(today);
+        const [byName, setByName] = useState("");
+        const [byDate, setByDate] = useState(date);
+        const [byLeague, setByLeague] = useState("");
     //   const [error, setError] = useState(null);
 
     const token = localStorage.getItem("authToken");
@@ -20,9 +26,9 @@ export default function Predictions() {
        const dragLength = -150;
 
    
-    const handleDelete = (id) => {
-        setPrediction(prediction.filter((item) => item.id !== id));
-    };
+    // const handleDelete = (id) => {
+    //     setPrediction(prediction.filter((item) => item.id !== id));
+    // };
 
     useEffect(() => {
 
@@ -45,6 +51,22 @@ export default function Predictions() {
             });
     }, [token]);
 
+        // implementing search logic
+      const all_predictions = prediction.filter((item) => {
+        const name = byName.toLowerCase();
+        const league = byLeague.toLowerCase();
+    
+        const use_name =
+          item.fixture.teams.away.name .toLowerCase().includes(name) ||
+          item.fixture.teams.home.name.toLowerCase().includes(name);
+    
+          const use_league = item.fixture.league.name.toLowerCase().includes(league);
+    
+          const use_date = byDate ? item.fixture.fixture.date.startsWith(byDate) : true;
+    
+        return use_name && use_league && use_date;
+      });
+
     // const all_predictions = async (e) => {
     //     e.preventDefault();
 
@@ -63,15 +85,27 @@ export default function Predictions() {
 
                     <div className="flex justify-between gap-3 lg:gap-0 w-full lg:my-4 ">
                         <div className="relative lg:w-50 w-full flex justify-between items-center">
-                            <input type="text" placeholder="11/04/2025" className="w-full appearance-none border border-[#737373] rounded-[0.3em] py-1 pl-4 pr-10 text-[#737373] focus:ring focus:ring-[#1A365D] focus:border-[#1A365D] outline-none bg-white" />
+                          <input value={byDate}
+                              onKeyDown={(e) =>
+                                  e.key === "Enter key" && console.log("Enter pressed for date")
+                              }
+                              onChange={(e) => setByDate(e.target.value)} type="text" placeholder="11/04/2025" className="w-full appearance-none border border-[#737373] rounded-[0.3em] py-1 pl-4 pr-10 text-[#737373] focus:ring focus:ring-[#1A365D] focus:border-[#1A365D] outline-none bg-white" />
                             <Calendar size={18} className="absolute right-3 top-1/2 -translate-y-1/2 text-[#737373] pointer-events-none" />
                         </div>
                         <div className="relative lg:w-50 w-full  flex justify-between items-center">
-                            <input type="text" placeholder="Free Tips" className="w-full appearance-none border border-[#737373] rounded-[0.3em] py-1 pl-4 pr-10 text-[#737373] focus:ring focus:ring-[#1A365D] focus:border-[#1A365D] outline-none bg-white" />
+                          <input type="text" value={byName}
+                              onKeyDown={(e) =>
+                                  e.key === "Enter" && console.log("Enter pressed for name")
+                              }
+                              onChange={(e) => setByName(e.target.value)} placeholder="Select Name" className="w-full appearance-none border border-[#737373] rounded-[0.3em] py-1 pl-4 pr-10 text-[#737373] focus:ring focus:ring-[#1A365D] focus:border-[#1A365D] outline-none bg-white" />
                             <ChevronDown size={18} className="absolute right-3 top-1/2 -translate-y-1/2 text-[#737373] pointer-events-none" />
                         </div>
                         <div className="relative lg:w-50 w-full  flex justify-between items-center">
-                            <input type="text" placeholder="Select League" className="w-full appearance-none border border-[#737373] rounded-[0.3em] py-1 pl-4 pr-10 text-[#737373] focus:ring focus:ring-[#1A365D] focus:border-[#1A365D] outline-none bg-white" />
+                          <input value={byLeague}
+                              onKeyDown={(e) =>
+                                  e.key === "Enter" && console.log("Enter pressed for league")
+                              }
+                              onChange={(e) => setByLeague(e.target.value)} type="text" placeholder="Select League" className="w-full appearance-none border border-[#737373] rounded-[0.3em] py-1 pl-4 pr-10 text-[#737373] focus:ring focus:ring-[#1A365D] focus:border-[#1A365D] outline-none bg-white" />
                             <ChevronDown size={18} className="absolute right-3 top-1/2 -translate-y-1/2 text-[#737373] pointer-events-none" />
                         </div>
                         <div className="hidden lg:block relative w-50">
@@ -97,12 +131,12 @@ export default function Predictions() {
                             </thead>
 
                     <tbody >
-                        {prediction.map((item, index) => (
+                        {all_predictions.map((item, index) => (
                             <tr key={item.id} className="relative leading-tight">
                                 <div className="lg:hidden absolute right-0 top-15 h-full flex z-0">
                                     <button
                                         className="w-20 text-red-600 hover:text-red-800 flex flex-col items-center transition"
-                                        onClick={() => handleDelete(item.id)}
+                                       
                                     >
                                         <FaTrash size={18} />
                                         <span className="text-lg text-red-600">Delete</span>
@@ -152,7 +186,7 @@ export default function Predictions() {
                                         <td className=" py-1 hidden lg:block">
                                             <button
                                                 className="text-[#FB3B3B] hover:text-red-800 transition"
-                                                onClick={() => handleDelete(item.id)}
+                                                
                                             >
                                                 <FaTrash size={14} />
                                             </button>
