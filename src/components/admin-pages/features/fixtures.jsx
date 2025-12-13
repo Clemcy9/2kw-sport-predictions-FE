@@ -178,6 +178,8 @@ export default function MakePredictions () {
 
         } catch (err) {
             console.error("not sent:", err);
+        }finally{
+            console.log(payload)
         }
     };
         
