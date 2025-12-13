@@ -12,6 +12,7 @@ export default function LeagueTables() {
 
     // getting the league IDs
     const leagueMap = {
+        UCL: 2,
         EPL: 39,   
         SPA: 140,  
         ITA: 135,  

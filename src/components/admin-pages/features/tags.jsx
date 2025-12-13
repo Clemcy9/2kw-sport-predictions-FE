@@ -41,7 +41,7 @@ export default function AdvertTags () {
     };
     
     return (
-        <div className="">
+        <div className="hidden">
             <h1 className="lg:hidden block font-bold font-[Inria Sans] lg:hidden text-center py-4">
                 Header & Footer Tags
             </h1>

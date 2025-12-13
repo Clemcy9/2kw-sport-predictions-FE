@@ -58,11 +58,11 @@ export default function AdminHeader() {
             path: "/admin/metadata",
             icon: <FaFileAlt />,
         },
-        {
-            title: "Header & Footer Tags",
-            path: "/admin/tags",
-            icon: <FaTags />,
-        },
+        // {
+        //     title: "Header & Footer Tags",
+        //     path: "/admin/tags",
+        //     icon: <FaTags />,
+        // },
         {
             title: "Articles",
             icon: <FaFileAlt />,
