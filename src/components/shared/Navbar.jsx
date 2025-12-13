@@ -12,6 +12,7 @@ export default function Navbar() {
 
     const navLinks = [
         { title: "Home", path: "/" },
+        { title: "Live-Scores", path: "/live-score" },
         {
             title: "Predictions",
             tipsLinks: [

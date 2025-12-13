@@ -264,7 +264,7 @@ export default function MakePredictions() {
         new_payload("superSingleTip", 200 , superSingleTip),
         new_payload("freeOdds", 300 , freeOdds),
         new_payload("surePredict", 400 , surePredict),
-    ].filter(Boolean) //t.filter(boolean) will automaticlly remove empty values and not send them
+    ].filter(Boolean) //.filter(boolean) will automaticlly remove empty values and not send them
 
     if(payload.length == 0)
         return(
@@ -281,11 +281,11 @@ export default function MakePredictions() {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({payload}),
+          body: JSON.stringify(payload),
         }
       );
       const data = await res.json();
-      console.log("Backend Response", payload);
+      console.log("Backend Response", data);
 
       // reset prediction inputs
       setFreeTip({ value: "", odd: "", percentage: "" });
