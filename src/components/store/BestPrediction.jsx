@@ -27,8 +27,9 @@ export default function BestPredictionCard () {
              )
                 .then((res) => res.json())
                 .then((data) => {
-                    setPrediction(data?.data || []);
-                    // console.log("all prediction", data)
+                   const setData = data?.data?.at(- 1) || null;
+                    setPrediction(setData? [setData] : []);
+                    console.log("all prediction", setData)
                     // console.log("prediction", prediction)
                     setLoading(false);
                 });
@@ -53,7 +54,7 @@ export default function BestPredictionCard () {
                             <img
                                     src={item.fixture.league.logo}
                                 alt={item.fixture.league.name}
-                                className="lg:w-10 lg:h-10 w-6 h-6  bg-white" />
+                                className="lg:w-10 lg:h-10 w-6 h-6 object-center  bg-white" />
                               {item.fixture.league.name}
                         </p>
                        
@@ -68,7 +69,7 @@ export default function BestPredictionCard () {
 
                 <div className="flex justify-between w-full items-center font-sans lg:space-y-3 space-y-1 text-white/80">
                     <div className="flex flex-col items-center space-y-1">
-                                <img className="w-4 h-4"
+                                <img className="w-4 h-4 object-cover"
                                     src={item.fixture.teams.home.logo}
                                     alt={item.fixture.teams.home.name} ></img>
                                 {item.fixture.teams.home.name}
