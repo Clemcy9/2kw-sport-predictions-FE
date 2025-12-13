@@ -29,6 +29,7 @@ const OddsDropdown = ({
             type="text"
             placeholder="Select"
             className="w-full border border-[#737373]  px-1 py-2 rounded-sm  text-[10px]  text-[#737373] focus:ring focus:ring-[#1A365D] focus:border-[#1A365D] outline-none bg-white"
+            readOnly
             value={
               value?.value
                 ? // displaying the values of the clicked row as the new value of the input

@@ -1,6 +1,7 @@
 import { b, filter } from "framer-motion/client";
 import { useState } from "react";
 import { useEffect } from "react";
+import { FaSpinner } from "react-icons/fa";
 
 const AllPosts = () => {
   const [title, setTitle] = useState("");
@@ -12,6 +13,18 @@ const AllPosts = () => {
   const [blogToEdit, setBlogToEdit] = useState({});
   // const [edited, setEdited] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  // makes the main page not-scrollable when modal is open
+  useEffect(() => {
+    if (blogToEdit) {
+      const y = window.scrollY;
+      document.body.style.cssText = `position:fixed; top:-${y}px; left:0; right:0;`;
+    } else {
+      const y = parseInt(document.body.style.top || "0") * -1;
+      document.body.style.cssText = "";
+      window.scrollTo(0, y);
+    }
+  }, [blogToEdit]);
 
   useEffect(() => {
     const get_all_blogs = async () => {
@@ -111,7 +124,7 @@ const AllPosts = () => {
   };
 
   if (loading) {
-    return <p className="text-center p-10 font-medium">Loading blogs…</p>;
+    return <div className="text-center text-[#1A365D] py-20 flex justify-center items-center"><span><FaSpinner className="animate-spin" /> </span> Loading data...</div>;
   }
 
   return (
