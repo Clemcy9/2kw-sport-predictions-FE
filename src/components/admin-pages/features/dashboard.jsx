@@ -1,6 +1,7 @@
 import {useState, useEffect } from "react";
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import { FaArrowTrendUp, FaCheck, FaUser, FaTrash } from "react-icons/fa6";
+import { FaSpinner } from "react-icons/fa";
 // import { FaMinus, FaPlus, FaPlusSquare } from "react-icons/fa";
 // import { X } from "lucide-react";
 
@@ -11,30 +12,13 @@ export default function DashBoard() {
     // const [action, setAction] = useState(null);
     const [close, setClose] = useState(true);
 
-    const handle_close = (e) => {
-        e.preventDefault();
-        setClose(!close)
+    // const handle_close = (e) => {
+    //     e.preventDefault();
+    //     setClose(!close)
 
-    };
+    // };
+
     
-       const x = useMotionValue(0);
-       const dragLength = -150;
-
-   const count1 = useMotionValue(0);
-   const count2 = useMotionValue(0);
-   const count3 = useMotionValue(0);
-
-
-   const statistics1 = useTransform(count1, (value) =>Math.floor(value).toLocaleString() );
-   const statistics2 = useTransform(count2, (value) =>Math.floor(value).toLocaleString() + "%" );
-   const statistics3 = useTransform(count3, (value) =>Math.floor(value).toLocaleString() );
-
-   useEffect(() => {
-       animate(count1, numbers[0], {duration: 2, ease: "easeOut"});
-       animate(count2, numbers[1], {duration: 2, ease: "easeOut"});
-       animate(count3, numbers[2], {duration: 2, ease: "easeOut"});
-    }, []);
-
     const [prediction, setPrediction] = useState([]);
     const [loading, setLoading] = useState(true);
 ;
@@ -62,12 +46,39 @@ export default function DashBoard() {
         )
             .then((res) => res.json())
             .then((data) => {
-                setPrediction(data?.data || []);
-                console.log("all predictions", data)
+                const preds = data?.data || [];
+                setPrediction(preds);
+                console.log("all predictions from preds", preds)
                 console.log("predictions", prediction)
                 setLoading(false);
             });
     }, [token]);
+
+
+    const stats = {
+        total: prediction.length,
+        accuracy: "",
+        active: "",
+    }
+
+    const x = useMotionValue(0);
+    const dragLength = -150;
+
+    const count1 = useMotionValue(0);
+    const count2 = useMotionValue(0);
+    const count3 = useMotionValue(0);
+
+
+    const statistics1 = useTransform(count1, (value) => Math.floor(value).toLocaleString());
+    const statistics2 = useTransform(count2, (value) => Math.floor(value).toLocaleString() + "%");
+    const statistics3 = useTransform(count3, (value) => Math.floor(value).toLocaleString());
+
+    useEffect(() => {
+        animate(count1, stats.total, { duration: 2, ease: "easeOut" });
+        animate(count2, numbers[1], { duration: 2, ease: "easeOut" });
+        animate(count3, numbers[2], { duration: 2, ease: "easeOut" });
+    }, []);
+
 
 
     // useEffect(() => {
