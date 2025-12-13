@@ -5,6 +5,7 @@ import { Calendar } from "lucide-react";
 import { Search } from "lucide-react";
 import { useEffect } from "react";
 import { FaSpinner } from "react-icons/fa6";
+import { filter } from "framer-motion/client";
 
 // sub-component that holds the odds amd propabilities dropdown
 const OddsDropdown = ({
@@ -123,6 +124,7 @@ export default function MakePredictions() {
 
   const [prediction, setPrediction] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [messages, setMessages] = useState("");
 
   const [odds, setOdds] = useState([]);
   const [loadingOdds, setLoadingOdds] = useState(false);
@@ -148,70 +150,89 @@ export default function MakePredictions() {
     percentage: "",
   });
 
+//   this maps the structure of the payload dynamically for all the fields and make all fields appear independent without manually structuring
+  const new_payload = (betType, betTypeId, selection) => {
+    if(!selection?.value) return null;   //avoid uneccessary errors if some fields are empty
+
+    return{
+       
+            fixture_id: action?.fixture?.id,
+            bet_type: betType,
+            bet_type_id: betTypeId,
+            bets: [
+              {
+                name: "Match Winner",
+                values: [selection],
+              },
+            ],
+          
+    }
+  }
+
   // bet_type_id: 300,
   // bet_type_id: 400,
   // bet_type_id: 200,
-  const raw_payload = [
-    {
-      fixture_id: action?.fixture?.id,
-      bet_type: "freeTip",
-      bet_type_id: 100,
-      bets: [
-        {
-          // id: Number,
-          name: "Match Winner",
-          values: [
-            freeTip,
-            //   {
-            //     value: mongoose.Schema.Types.Mixed,
-            //     odd: String,
-            //     percentage: String, //dynamically calculated
-            //   },
-          ],
-        },
-      ],
-    },
-    {
-      fixture_id: action?.fixture?.id,
-      bet_type: "superSingleTip",
-      bet_type_id: 200,
-      bets: [
-        {
-          // id: Number,
-          name: "Match Winner",
-          values: [superSingleTip],
-        },
-      ],
-    },
-    {
-      fixture_id: action?.fixture?.id,
-      bet_type: "freeOdds",
-      bet_type_id: 300,
-      bets: [
-        {
-          // id: Number,
-          name: "Match Winner",
-          values: [freeOdds],
-        },
-      ],
-    },
-    {
-      fixture_id: action?.fixture?.id,
-      bet_type: "surePredict",
-      bet_type_id: 400,
-      bets: [
-        {
-          // id: Number,
-          name: "Match Winner",
-          values: [surePredict],
-        },
-      ],
-    },
-  ];
-  const payload = raw_payload.filter((p) => {
-    p.bets.values.length > 0;
-    return;
-  });
+//   const raw_payload = [
+//     {
+//       fixture_id: action?.fixture?.id,
+//       bet_type: "freeTip",
+//       bet_type_id: 100,
+//       bets: [
+//         {
+//           // id: Number,
+//           name: "Match Winner",
+//           values: [
+//             freeTip,
+//             //   {
+//             //     value: mongoose.Schema.Types.Mixed,
+//             //     odd: String,
+//             //     percentage: String, //dynamically calculated
+//             //   },
+//           ],
+//         },
+//       ],
+//     },
+//     {
+//       fixture_id: action?.fixture?.id,
+//       bet_type: "superSingleTip",
+//       bet_type_id: 200,
+//       bets: [
+//         {
+//           // id: Number,
+//           name: "Match Winner",
+//           values: [superSingleTip],
+//         },
+//       ],
+//     },
+//     {
+//       fixture_id: action?.fixture?.id,
+//       bet_type: "freeOdds",
+//       bet_type_id: 300,
+//       bets: [
+//         {
+//           // id: Number,
+//           name: "Match Winner",
+//           values: [freeOdds],
+//         },
+//       ],
+//     },
+//     {
+//       fixture_id: action?.fixture?.id,
+//       bet_type: "surePredict",
+//       bet_type_id: 400,
+//       bets: [
+//         {
+//           // id: Number,
+//           name: "Match Winner",
+//           values: [surePredict],
+//         },
+//       ],
+//     },
+//   ];
+//   const payload = raw_payload.filter((p) => {
+//     p.bets.values.length > 0;
+//     return;
+//   });
 
   // console.log("Payload to backend:", payload);
 
@@ -233,6 +254,19 @@ export default function MakePredictions() {
 
   const send_data = async (e) => {
     e.preventDefault();
+
+    // this reders the values, ids and selected feilds dynamically  
+    const payload =[
+        new_payload("freeTip", 100 , freeTip),
+        new_payload("superSingleTip", 200 , superSingleTip),
+        new_payload("freeOdds", 300 , freeOdds),
+        new_payload("surePredict", 400 , surePredict),
+    ].filter(Boolean) //t.filter(boolean) will automaticlly remove empty values and not send them
+
+    if(payload.length == 0)
+        return(
+          setMessages("Select at leat one prediction before saving")
+    );
     try {
       const res = await fetch(
         "https://twokw-backend.onrender.com/api/v1/admin/predictions",
@@ -255,10 +289,10 @@ export default function MakePredictions() {
       setSuperSingleTip({ value: "", odd: "", percentage: "" });
 
 
-        console.log("Free Tip:", freeTip);
-        console.log("Free Odds:", freeOdds);
-        console.log("Sure Predict:", surePredict);
-        console.log("Super Single:", superSingleTip);
+        // console.log("Free Tip:", freeTip);
+        // console.log("Free Odds:", freeOdds);
+        // console.log("Sure Predict:", surePredict);
+        // console.log("Super Single:", superSingleTip);
 
         console.log("FINAL PAYLOAD:", payload);
 
@@ -619,6 +653,9 @@ export default function MakePredictions() {
                     Cancel
                   </button>
                 </section>
+                  {messages && (
+                    <p className="rounded-xl bg-white border border-[#1A365D] text-[#1A365D] px-3 py-2 w-full">{messages}</p>
+                  )}
               </form>
 
               <div>
