@@ -28,8 +28,8 @@ export default function BestPredictionCard () {
                 .then((res) => res.json())
                 .then((data) => {
                     setPrediction(data?.data || []);
-                    console.log("all prediction", data)
-                    console.log("prediction", prediction)
+                    // console.log("all prediction", data)
+                    // console.log("prediction", prediction)
                     setLoading(false);
                 });
         }, [token]);
@@ -41,7 +41,7 @@ export default function BestPredictionCard () {
             </h2>
             {prediction.map((item) => (
             <>
-                <motion.div
+                <motion.div key={item}
                 className="max-w-lg w-full bg-[#1A365D] text-white flex flex-col items-center justify-between"
                 transition={{ duration: 0.7, ease: "easeOut" }}
             >

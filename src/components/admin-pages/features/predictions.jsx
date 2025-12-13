@@ -142,13 +142,13 @@ export default function Predictions() {
                                             day: "2-digit",
                                             month: "2-digit",
                                         })}
-                                            {new Date(item.fixture.date).toLocaleTimeString([], {
+                                            {new Date(item.fixture.fixture.date).toLocaleTimeString([], {
                                                 hour: "2-digit",
                                                 minute: "2-digit",
                                             })}
                                         </td>
-                                        <td className="py-1 text-right lg:text-center w-full lg:w-fit ">{item.bets.values.odds}</td>
-                                        <td className="py-1 ">{item.percentage}</td>
+                                        <td className="py-1 text-right lg:text-center w-full lg:w-fit ">{item.bets[0].values[0].odd}</td>
+                                        <td className="py-1 ">{item.bets[0].values[0].percentage}%</td>
                                         <td className=" py-1 hidden lg:block">
                                             <button
                                                 className="text-[#FB3B3B] hover:text-red-800 transition"

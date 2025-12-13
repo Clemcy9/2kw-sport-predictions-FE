@@ -71,7 +71,7 @@ export default function LandingPage() {
         const defaultOpenState = Object.fromEntries(
           Object.keys(grouped || {}).map((k) => [k, true])
         );
-        console.log("", grouped);
+        console.log("", bet);
         setOpen(defaultOpenState);
         setPrediction(grouped || {});
       })
