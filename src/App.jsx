@@ -71,7 +71,7 @@ export default function App() {
             <Route path="edit-affiliate" element={<Edit_Affiliate />} />
             <Route path="metadata" element={<MetaData />} />
             <Route path="blogs/blog" element={<NewPost />} />
-            <Route path="blogs/allposts" element={<AllPosts />} />
+            <Route path="blogs/all-posts" element={<AllPosts />} />
           </Route>
 
           <Route path="live-score" element={<LIve_Scores />} />
