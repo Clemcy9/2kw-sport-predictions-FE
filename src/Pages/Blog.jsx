@@ -137,7 +137,7 @@ export default function BlogPost() {
                     </span>
                     <Link
                       className=" text-[#D6AE3E] flex justify-center items-center"
-                      to={`/blog/${blog._id}`}
+                      to={`/blog_id/${blog._id}`}
                     >
                       view more <FiArrowRight />
                     </Link>

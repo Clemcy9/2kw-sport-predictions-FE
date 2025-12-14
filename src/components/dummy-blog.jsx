@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { FiArrowRight } from "react-icons/fi";
 import { Link, useNavigate } from "react-router-dom";
+import DOMPurify from "dompurify";
 
 export default function DummyBlog() {
   const [blogs, setBlogs] = useState([]);
@@ -53,9 +54,15 @@ export default function DummyBlog() {
               <h2 className="font-semibold leading-tight  ">
                 {blog.title.slice(0, 50)}...{" "}
               </h2>
-              <p className="text-[#65758B] lg:text-[15px] text-[13px] ">
+              {/* <p className="text-[#65758B] lg:text-[15px] text-[13px] ">
                 {blog.body.slice(0, 120)}...{" "}
-              </p>
+              </p> */}
+              <p
+                className="text-[#65758B] lg:text-[15px] text-[13px] mt-2 line-clamp-4"
+                dangerouslySetInnerHTML={{
+                  __html: DOMPurify.sanitize(blog.body),
+                }}
+              ></p>
               <div className="flex justify-between w-full lg:py-2 ">
                 <span className="font-semibold text-[#65758B]">
                   {new Date(blog.createdAt).toLocaleDateString()}

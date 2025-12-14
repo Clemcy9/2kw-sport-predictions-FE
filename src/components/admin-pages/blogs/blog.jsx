@@ -82,7 +82,7 @@ export default function NewPost() {
 
       const data = await res.json();
       console.log(data);
-      setStatus("Published");
+      setStatus("Sent Sucessfully");
     } catch (err) {
       console.log(err);
       setStatus("Error");
