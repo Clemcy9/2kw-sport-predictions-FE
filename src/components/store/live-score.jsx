@@ -27,6 +27,9 @@ export default function LIve_Scores () {
             console.error("error from live scores:",err);
             setError("Unable To Load Live-Scores, Connect To A Network");
             setLoading(false);
+
+
+            console.log("error handle:", error)
         }
     }, [data]);
 
@@ -86,6 +89,9 @@ export default function LIve_Scores () {
                 {loading && (
                     <div className="text-center h-52 overflow-y-hidden text-[#1A365D] py-2 flex justify-center items-center"><span><FaSpinner className="animate-spin" /> </span> Loading Live-Scores...</div>
                 )}
+                {/* {error && (
+                    <div className="text-center h-52 overflow-y-hidden text-[#1A365D] py-2 flex justify-center items-center"> {error}</div>
+                )} */}
 
                 {!loading && predictions?.length === 0 && (
                     <div className="text-center h-52 overflow-y-hidden text-[#1A365D] py-2 flex justify-center items-center">No Live-Scores Available...</div>

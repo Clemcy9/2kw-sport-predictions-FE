@@ -1,5 +1,5 @@
 import { FiArrowUp } from "react-icons/fi";
-import { FaPlus, FaMinus } from "react-icons/fa";
+import { FaPlus, FaMinus, FaSpinner } from "react-icons/fa";
 import Navbar from "../components/shared/Navbar";
 import HeroSection from "../components/shared/HeroSection";
 import Footer from "../components/shared/Footer";
@@ -13,13 +13,14 @@ import DummyBlog from "../components/dummy-blog";
 import PremierLeagueCard from "../components/store/Premier-league";
 import { Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { FaTriangleExclamation } from "react-icons/fa6";
 
 export default function LandingPage() {
-  // const [activeLeague, setActiveLeague] = useState("EPL");
   const [visible, setVisible] = useState(false);
   const [bet, setBet] = useState({});
   const [prediction, setPrediction] = useState({});
   const [open, setOpen] = useState({});
+  const [loading, setLoading] = useState(true);
 
   /* --------------------------------------------
      SHOW SCROLL-TO-TOP BUTTON
@@ -74,6 +75,7 @@ export default function LandingPage() {
         console.log("", bet);
         setOpen(defaultOpenState);
         setPrediction(grouped || {});
+        setLoading(false);
       })
       .catch((err) => console.error("Prediction fetch error:", err));
   }, [bet]);
@@ -126,18 +128,26 @@ export default function LandingPage() {
               </div>
 
               <div className="flex justify-center items-center flex-col lg:px-3">
+
+                           {loading && (
+                           <div className=" hover:shadow-lg text-[#1a365d] py-20 hover:bg-[#FFF7E0] group transition-all  border border-[#D6AE3E] flex justify-center items-center w-full rounded-[0.6rem] p-2"><span><FaSpinner className="animate-spin" /> </span> Loading Prediction...</div>
+                            )}
+                
+                            {!loading && prediction.length === 0 && (
+                                <div className="text-center text-[#1a365d] py-20 flex justify-center items-center"><span><FaSpinner className="animate-spin" /> </span> No Prediction Available <FaTriangleExclamation />...</div>
+                            )}
                 {/* ------------------------------------------
                     DISPLAY LEAGUES + THEIR FIXTURE CARDS + logos
                 ------------------------------------------- */}
                 {Object.keys(prediction).map((leagueName) => (
-                  <div key={leagueName} className="w-full">
+                  <div key={leagueName} className="w-full mt-0">
                     {/* League Header */}
-                    <div className="bg-[#1A365D] w-full text-white flex justify-between items-center p-2 mt-6 mb-3 rounded-[0.6rem] shadow">
+                    <div className="bg-[#1A365D] w-full text-white flex justify-between items-center p-2 mt-1 mb-3 rounded-[0.6rem] shadow">
                       <h2 className="font-sans font-semibold flex justify-center items-center gap-1.5">
                           <img
                             src={prediction[leagueName][0].fixture.league.logo} // each fixture's league logo
                             alt={leagueName}
-                            className="w-10 h-10 object-contain bg-white"
+                            className="lg:w-10 lg:h-10 w-6 h-6 object-contain bg-white"
                           />
                        {leagueName}</h2>
 

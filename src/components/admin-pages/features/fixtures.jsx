@@ -5,7 +5,7 @@ import { Calendar } from "lucide-react";
 import { Search } from "lucide-react";
 import { useEffect } from "react";
 import { FaSpinner } from "react-icons/fa6";
-import { filter } from "framer-motion/client";
+// import { filter } from "framer-motion/client";
 
 // sub-component that holds the odds amd propabilities dropdown
 const OddsDropdown = ({
@@ -271,7 +271,6 @@ export default function MakePredictions() {
           setMessages("Select at leat one prediction before saving")
     );
 
-    //   console.log("payload array", Array.isArray(payload[0]));
     try {
       const res = await fetch(
         "https://twokw-backend.onrender.com/api/v1/admin/predictions",
@@ -293,17 +292,16 @@ export default function MakePredictions() {
       setSurePredict({ value: "", odd: "", percentage: "" });
       setSuperSingleTip({ value: "", odd: "", percentage: "" });
 
-
-        // console.log("Free Tip:", freeTip);
-        // console.log("Free Odds:", freeOdds);
-        // console.log("Sure Predict:", surePredict);
-        // console.log("Super Single:", superSingleTip);
-
         console.log("FINAL PAYLOAD:", payload);
 
     } catch (err) {
       console.error("not sent:", err);
     }
+
+    if(res.ok)
+      return(
+    setMessages("Prediction Created successful")
+    )
   };
 
   // call to endpoint to get all the matches and fixtures
