@@ -21,9 +21,9 @@ export default function FreeTips(props) {
   }, []);
 
   const tipsLink = [
-    { title: "Free Tips", path: "/", name:"freeTip", id: 100 },
+    { title: "Free Tips", path: "/free-tips", name:"freeTip", id: 100 },
     { title: "All Predictions", path: "/all-predictions", id: 500 },
-    { title: "Home Win", path: "/home-win", id: 1, name: "Home" },
+    { title: "Home Win", path: "/", id: 1, name: "Home" },
     { title: "Away Win", path: "/away-win", id: 1, name: "Away" },
     {
       title: "Super Singles",

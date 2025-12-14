@@ -130,14 +130,14 @@ export default function LandingPage() {
                     DISPLAY LEAGUES + THEIR FIXTURE CARDS + logos
                 ------------------------------------------- */}
                 {Object.keys(prediction).map((leagueName) => (
-                  <div key={leagueName} className="w-full">
+                  <div key={leagueName} className="w-full mt-0">
                     {/* League Header */}
-                    <div className="bg-[#1A365D] w-full text-white flex justify-between items-center p-2 mt-6 mb-3 rounded-[0.6rem] shadow">
+                    <div className="bg-[#1A365D] w-full text-white flex justify-between items-center p-2 mt-1 mb-3 rounded-[0.6rem] shadow">
                       <h2 className="font-sans font-semibold flex justify-center items-center gap-1.5">
                           <img
                             src={prediction[leagueName][0].fixture.league.logo} // each fixture's league logo
                             alt={leagueName}
-                            className="w-10 h-10 object-contain bg-white"
+                            className="lg:w-10 lg:h-10 w-6 h-6 object-contain bg-white"
                           />
                        {leagueName}</h2>
 

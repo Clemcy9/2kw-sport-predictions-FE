@@ -27,6 +27,34 @@ export default function DashBoard() {
 
 
 
+    const handle_delete = async (e, id) => {
+        e.preventDefault();
+
+        try {
+            const res = await fetch(`https://twokw-backend.onrender.com/api/v1/admin/predictions/${id}`,
+                {
+                    method: "DELETE",
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                        "Content-Type": "application/json",
+                    },
+                }
+            );
+            const data = await res.json();
+
+            if (!res.ok) {
+                throw new Error(data.message || "Failed to delete prediction");
+            }
+            setPrediction(prev =>
+                prev.filter(item => item._id !== id));
+
+        } catch (err) {
+            console.error("error while deleting a prediction", err)
+        }
+    }
+
+
+
 
     // const handleDelete = (id) => {
     //     setPrediction(prediction.filter((item) => item.id !== id));
@@ -156,7 +184,7 @@ export default function DashBoard() {
                         {prediction.map((item, index) => (
                             <tr key={item.id} className="relative leading-tight">
                                 <div className="lg:hidden absolute right-0 top-15 h-full flex z-0">
-                                    <button
+                                    <button onClick={(e) => handle_delete(e, item._id)}
                                         className="w-20 text-red-600 hover:text-red-800 flex flex-col items-center transition"
 
                                     >
@@ -206,7 +234,7 @@ export default function DashBoard() {
                                         <td className="py-1 text-right lg:text-center w-full lg:w-fit ">{item.bets[0].values[0].odd}</td>
                                         <td className="py-1 text-right lg:text-center w-full lg:w-fit ">{item.bets[0].values[0].percentage}</td>
                                         <td className=" py-1 hidden lg:block">
-                                            <button
+                                            <button onClick={(e) => handle_delete(e, item._id)}
                                                 className="text-[#FB3B3B] hover:text-red-800 transition"
 
                                             >

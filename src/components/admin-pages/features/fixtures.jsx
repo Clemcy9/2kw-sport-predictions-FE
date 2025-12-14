@@ -271,7 +271,6 @@ export default function MakePredictions() {
           setMessages("Select at leat one prediction before saving")
     );
 
-    //   console.log("payload array", Array.isArray(payload[0]));
     try {
       const res = await fetch(
         "https://twokw-backend.onrender.com/api/v1/admin/predictions",
@@ -292,12 +291,6 @@ export default function MakePredictions() {
       setFreeOdds({ value: "", odd: "", percentage: "" });
       setSurePredict({ value: "", odd: "", percentage: "" });
       setSuperSingleTip({ value: "", odd: "", percentage: "" });
-
-
-        // console.log("Free Tip:", freeTip);
-        // console.log("Free Odds:", freeOdds);
-        // console.log("Sure Predict:", surePredict);
-        // console.log("Super Single:", superSingleTip);
 
         console.log("FINAL PAYLOAD:", payload);
 
