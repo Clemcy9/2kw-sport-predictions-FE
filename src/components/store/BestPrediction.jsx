@@ -1,11 +1,13 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { FaSpinner } from "react-icons/fa";
+import { FaTriangleExclamation } from "react-icons/fa6";
 
 export default function BestPredictionCard () {
 
       const [prediction, setPrediction] = useState([]);
-          const [loading, setLoading] = useState(true);
-        //   const [error, setError] = useState(null);
+      const [loading, setLoading] = useState(true);
+    //   const [error, setError] = useState(null);
     
         const token = localStorage.getItem("authToken");
 
@@ -33,6 +35,7 @@ export default function BestPredictionCard () {
                     // console.log("prediction", prediction)
                     setLoading(false);
                 });
+                
         }, [token]);
        
     return (
@@ -40,13 +43,22 @@ export default function BestPredictionCard () {
             <h2 className="text-center text-lg lg:text-xl font-semibold text-white lg:py-2 pb-2">
                 Best Prediction of the Day
             </h2>
+
+            {loading && (
+                <div className="text-center text-[#fff] py-20 flex justify-center items-center"><span><FaSpinner className="animate-spin" /> </span> Loading Best-Prediction...</div>
+            )}
+
+            {!loading && prediction.length === 0 && (
+                <div className="text-center text-[#fff] py-20 flex justify-center items-center"><span><FaSpinner className="animate-spin" /> </span> No Best-Prediction Available <FaTriangleExclamation />...</div>
+            )}
+
             {prediction.map((item) => (
             <>
                 <motion.div key={item}
                 className="max-w-lg w-full bg-[#1A365D] text-white flex flex-col items-center justify-between"
                 transition={{ duration: 0.7, ease: "easeOut" }}
             >
-
+               
                 <div className="text-center flex justify-between items-start w-full lg:space-y-9 space-y-5">
 
                     

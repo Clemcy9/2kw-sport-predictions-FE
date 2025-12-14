@@ -5,7 +5,7 @@ import { Calendar } from "lucide-react";
 import { Search } from "lucide-react";
 import { useEffect } from "react";
 import { FaSpinner } from "react-icons/fa6";
-import { filter } from "framer-motion/client";
+// import { filter } from "framer-motion/client";
 
 // sub-component that holds the odds amd propabilities dropdown
 const OddsDropdown = ({
@@ -297,6 +297,11 @@ export default function MakePredictions() {
     } catch (err) {
       console.error("not sent:", err);
     }
+
+    if(res.ok)
+      return(
+    setMessages("Prediction Created successful")
+    )
   };
 
   // call to endpoint to get all the matches and fixtures
