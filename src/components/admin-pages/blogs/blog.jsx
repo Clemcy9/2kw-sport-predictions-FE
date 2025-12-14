@@ -18,32 +18,6 @@ export default function NewPost() {
   const [displayValue, setDisplayValue] = useState("");
   const [status, setStatus] = useState("Publish");
 
-  {
-    /* const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    const token = localStorage.getItem("authToken");
-
-    // try {
-    //   const res = await fetch(
-    //     "https://twokw-backend.onrender.com/api/v1/blogs/",
-    //     {
-    //       method: "POST",
-    //       headers: {
-    //         Authorization: `Bearer ${token}`,
-    //       },
-    //       body: JSON.stringify({ title, body, image }),
-    //     }
-    //   );
-
-    //   const data = await res.json();
-    //   console.log(data);
-    // } catch (ero) {
-    //   console.log(ero);
-    // }
-  }; */
-  }
-
   const myImageRef = useRef(null);
 
   const handleFileChange = (e) => {

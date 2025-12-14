@@ -111,14 +111,19 @@ export default function BlogPost() {
                 key={blog._id}
                 className="group overflow-hidden bg-white flex justify-between flex-row lg:flex-col lg:gap-2 sm:flex-col gap-1 rounded-[0.5em] hover:-translate-y-1 transition-all shadow-sm h-[200px] lg:h-[380px]"
               >
-                <div className="h-56 overflow-hidden relative sm:max-w-full md:max-w-full lg:max-w-full max-w-40 ">
+                <div className="relative w-full sm:w-full h-48 sm:h-72 md:h-60 overflow-hidden">
                   <img
                     src={blog.image_url}
                     alt={blog.title}
-                    className="group-hover:scale-110 group-active:scale-110 transition-transform duration-500 rounded-l-[0.5rem] h-full min-h-40 sm:h-52 w-full object-cover lg:rounded-bl-none lg:rounded-t-[0.4rem] sm:rounded-bl-none sm:rounded-t-[0.5rem]"
+                    className="w-full h-full object-cover transition-transform duration-500
+               group-hover:scale-110 group-active:scale-110
+               rounded-l-[0.5rem]
+               lg:rounded-bl-none lg:rounded-t-[0.4rem]
+               sm:rounded-bl-none sm:rounded-t-[0.5rem]"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#111]/40 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#111]/40 to-transparent" />
                 </div>
+
                 <div className="lg:px-2 px-1 sm:px-2 py-2 flex flex-col justify-between space-y-1 sm:gap-0 w-full">
                   <div className="mt-3">
                     <h2 className="font-semibold leading-tight  ">
