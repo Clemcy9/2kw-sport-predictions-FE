@@ -287,9 +287,6 @@ export default function AllPosts() {
 
   const token = localStorage.getItem("authToken");
 
-  // ================================
-  //  FETCH ALL BLOGS
-  // ================================
   const fetchBlogs = async () => {
     try {
       setLoading(true);
@@ -313,17 +310,12 @@ export default function AllPosts() {
     fetchBlogs();
   }, []);
 
-  // ================================
-  //  OPEN EDIT MODAL
-  // ================================
   const openEditModal = (blog) => {
     setBlogToEdit({ ...blog, body: htmlToText(blog.body) });
     setEditModalOpen(true);
   };
 
-  // ================================
-  //  HANDLE EDIT FIELD CHANGES
-  // ================================
+  // logic to handle edit change
   const handleEditChange = (e) => {
     setBlogToEdit({ ...blogToEdit, [e.target.name]: e.target.value });
   };
@@ -334,9 +326,7 @@ export default function AllPosts() {
     return div.textContent || div.innerText || "";
   };
 
-  // ================================
-  //  SUBMIT EDITED BLOG
-  // ================================
+  //  logic to submit edited blog
   const handleEditSubmit = async () => {
     const formData = new FormData();
     formData.append("title", blogToEdit.title);
@@ -365,9 +355,7 @@ export default function AllPosts() {
     }
   };
 
-  // ================================
-  //  DELETE BLOG
-  // ================================
+  // delete blog
   const handleDeleteSubmit = async () => {
     try {
       const res = await fetch(
@@ -397,7 +385,6 @@ export default function AllPosts() {
   return (
     <div className="md:p-10 p-4">
       <div className="max-w-4xl mx-auto bg-[#e0e2e685] p-6 rounded-xl">
-        {/* Title */}
         <h1 className="text-2xl text-center font-bold mt-3 mb-6">All Posts</h1>
 
         {/* LIST OF BLOGS */}
@@ -446,9 +433,8 @@ export default function AllPosts() {
           </div>
         ))}
 
-        {/* ===========================
-            EDIT MODAL
-        =========================== */}
+        {/* 
+            edit model*/}
         {editModalOpen && blogToEdit && (
           <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
             <form
@@ -493,9 +479,8 @@ export default function AllPosts() {
           </div>
         )}
 
-        {/* ===========================
-            DELETE CONFIRM MODAL
-        =========================== */}
+        {/*
+            delete comfirm model*/}
         {deleteId && (
           <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
             <div className="bg-white p-6 rounded-xl shadow-xl w-[90%] max-w-md">
