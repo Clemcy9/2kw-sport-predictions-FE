@@ -41,7 +41,7 @@ export default function BlogPost_Id() {
 
       <section
         className="font-sans relative h-[344px] mt-[22px] lg:mt-16 bg-cover bg-center flex-wrap flex items-center justify-center text-center text-white"
-         style={{ backgroundImage: `url(${blogBg})` }}
+        style={{ backgroundImage: `url(${blogBg})` }}
       >
         <div className="absolute inset-0 bg-[#1A365D]/40"></div> {/* overlay */}
         <motion.div
@@ -93,7 +93,7 @@ export default function BlogPost_Id() {
                   <img
                     src={blog.image_url}
                     alt={blog.title}
-                    className="group-hover:scale-110 group-active:scale-110 transition-transform duration-500 h-60 sm:h-52 w-full object-cover rounded-xl"
+                    className="group-hover:scale-110 group-active:scale-110 transition-transform duration-500 h-full sm:h-52 w-full object-cover rounded-xl"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#111]/40 to-transparent rounded-xl"></div>
                 </div>

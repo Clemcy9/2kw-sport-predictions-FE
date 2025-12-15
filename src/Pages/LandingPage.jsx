@@ -128,14 +128,24 @@ export default function LandingPage() {
               </div>
 
               <div className="flex justify-center items-center flex-col lg:px-3">
+                {loading && (
+                  <div className=" hover:shadow-lg text-[#1a365d] py-20 hover:bg-[#FFF7E0] group transition-all  border border-[#D6AE3E] flex justify-center items-center w-full rounded-[0.6rem] p-2">
+                    <span>
+                      <FaSpinner className="animate-spin" />{" "}
+                    </span>{" "}
+                    Loading Prediction...
+                  </div>
+                )}
 
-                           {loading && (
-                           <div className=" hover:shadow-lg text-[#1a365d] py-20 hover:bg-[#FFF7E0] group transition-all  border border-[#D6AE3E] flex justify-center items-center w-full rounded-[0.6rem] p-2"><span><FaSpinner className="animate-spin" /> </span> Loading Prediction...</div>
-                            )}
-                
-                            {!loading && prediction.length === 0 && (
-                                <div className="text-center text-[#1a365d] py-20 flex justify-center items-center"><span><FaSpinner className="animate-spin" /> </span> No Prediction Available <FaTriangleExclamation />...</div>
-                            )}
+                {!loading && prediction.length === 0 && (
+                  <div className="text-center text-[#1a365d] py-20 flex justify-center items-center">
+                    <span>
+                      <FaSpinner className="animate-spin" />{" "}
+                    </span>{" "}
+                    No Prediction Available <FaTriangleExclamation />
+                    ...
+                  </div>
+                )}
                 {/* ------------------------------------------
                     DISPLAY LEAGUES + THEIR FIXTURE CARDS + logos
                 ------------------------------------------- */}
@@ -144,12 +154,13 @@ export default function LandingPage() {
                     {/* League Header */}
                     <div className="bg-[#1A365D] w-full text-white flex justify-between items-center p-2 mt-1 mb-3 rounded-[0.6rem] shadow">
                       <h2 className="font-sans font-semibold flex justify-center items-center gap-1.5">
-                          <img
-                            src={prediction[leagueName][0].fixture.league.logo} // each fixture's league logo
-                            alt={leagueName}
-                            className="lg:w-10 lg:h-10 w-6 h-6 object-contain bg-white"
-                          />
-                       {leagueName}</h2>
+                        <img
+                          src={prediction[leagueName][0].fixture.league.logo} // each fixture's league logo
+                          alt={leagueName}
+                          className="lg:w-10 lg:h-10 w-6 h-6 object-contain bg-white"
+                        />
+                        {leagueName}
+                      </h2>
 
                       {/* Toggle Section */}
                       <div
