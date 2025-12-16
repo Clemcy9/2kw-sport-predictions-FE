@@ -38,10 +38,11 @@ export default function Sidebar() {
     {
       title: "Fixtures",
       icon: <FaFutbol />,
-      dropdown: [
-        { name: "Make Predictions", path: "/admin/fixtures" },
-        { name: "Leagues", path: "/admin/leagues" },
-      ],
+      path: "/admin/fixtures",
+      // // dropdown: [
+      //   { name: "Make Predictions", },
+      //   // { name: "Leagues", path: "/admin/leagues" },
+      // // ],
     },
     {
       title: "Predictions",

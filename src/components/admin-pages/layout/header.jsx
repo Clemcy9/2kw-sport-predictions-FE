@@ -55,10 +55,11 @@ export default function AdminHeader() {
         {
             title: "Fixtures",
             icon: <FaFutbol />,
-            dropdown: [
-                { name: "Make Predictions", path: "/admin/fixtures" },
-                { name: "Leagues", path: "/fixtures/add" },
-            ],
+            path: "/admin/fixtures",
+            // dropdown: [
+                // { name: "Make Predictions",  },
+                // { name: "Leagues", path: "/fixtures/add" },
+            // ],
         },
         {
             title: "Predictions",

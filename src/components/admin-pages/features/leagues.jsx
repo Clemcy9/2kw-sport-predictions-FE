@@ -9,31 +9,31 @@ export default function All_Legues() {
     const [byName, setByName] = useState("");
    
         
-          useEffect(() => {
-              fetch(`https://twokw-backend.onrender.com/api/v1/football/fixtures?`)
+        //   useEffect(() => {
+        //       fetch(`https://twokw-backend.onrender.com/api/v1/football/fixtures?`)
 
-              .then((res) => res.json())
-              .then((data) => { 
+        //       .then((res) => res.json())
+        //       .then((data) => { 
         
-                setPrediction(data.data.response || []);
-                // console.log("Updated prediction:",prediction);
-                console.log("API DATA",prediction);
+        //         setPrediction(data.data.response || []);
+        //         // console.log("Updated prediction:",prediction);
+        //         console.log("API DATA",prediction);
         
-                console.log("fetched predictions:", data);
-              });
-          });
+        //         console.log("fetched predictions:", data);
+        //       });
+        //   });
 
-          const all_predictions = prediction.filter((item) => {
+        //   const all_predictions = prediction.filter((item) => {
 
-              const use_name = item.teams.away.name.toLowerCase().includes(byName.toLowerCase()) || item.teams.home.name.toLowerCase().includes(byName.toLowerCase());
+        //       const use_name = item.teams.away.name.toLowerCase().includes(byName.toLowerCase()) || item.teams.home.name.toLowerCase().includes(byName.toLowerCase());
 
             
-              return use_name ;
+        //       return use_name ;
 
-          })
+        //   })
 
     return(
-            <div className="p-4 lg:px-5 lg:min-h-screen flex flex-col w-full">
+            <div className="hidden p-4 lg:px-5 lg:min-h-screen  flex-col w-full">
                 <div className="flex justify-start font-semibold font-sans text-2xl w-full  lg:my-6">
                    <h2 className="lg:font-semibold font-bold font-[Inria Sans] mb-4 text-center w-full lg:text-left">Football Leagues</h2>
                 </div>
