@@ -10,9 +10,10 @@ export default function SignIn () {
 
     const [email, setEmail] = useState("");
     const [password, setpassword] = useState("");
-    const [message, setMessage] = useState ("");
+    // const [error, setError] = useState ("");
     const [eyePassword, setEyePassword] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [error, setError] = useState ("");
 
     const navigate = useNavigate();
 
@@ -30,7 +31,14 @@ export default function SignIn () {
         setLoading(true);
 
         if (!email || !password) {
-            setMessage("Please fill all data");
+            setError("All information is required");
+            setLoading(false);
+            return;
+        }
+
+        const user_Email = localStorage.getItem("UserEmail");
+        if(email !== user_Email) {
+            setError("This Email is not registered on this device");
             setLoading(false);
             return;
         }
@@ -50,13 +58,21 @@ export default function SignIn () {
 
             localStorage.setItem("authToken", data.token);
 
-            setMessage("sign-In successful");
+            if(res.ok) {
+                localStorage.setItem("isLOggedIn", "true");
+            }else {
+                setError(data.msg || "Login Failed");
+                setLoading(false);
+            }
+
+            setError("sign-In successful");
             navigate("/login-complete", { replace: true });
             setEmail("");
             setpassword("");
-        }catch (ero) {
-            console.log(ero.message);
-            setMessage("Unable to access server")
+        }catch (err) {
+            console.log(ero.msg);
+            setError( "NetWork Error");
+            setLoading(false)
         }finally{
             setLoading(false);
         }
@@ -119,9 +135,9 @@ export default function SignIn () {
                     <div className="flex flex-col items-start w-full sp">
                         <Link to={"/forgot-password"} className="text-[#1A365D] ">Forgot Password</Link>
 
-                            {message && (
+                            {error && (
                                 <p className=" py-1 mt-2 text-sm rounded-[0.4rem] w-fit text-[#1A365D]">
-                                    {message}
+                                    {error}
                                 </p>
                             )}
 
@@ -134,7 +150,7 @@ export default function SignIn () {
 
                     <button type="submit" className="bg-[#1A365D] flex justify-center items-center text-white w-70 rounded-[0.6rem] py-2 mt-6">
                         {loading ? (
-                            <div className=" py-2">Log IN  <FaSpinner className="animate-spin justify-center items-center" /></div>
+                            <div className="flex justify-center items-center gap-1.5 py-1">Sign IN  <FaSpinner className="animate-spin justify-center items-center" /></div>
                            ):(
                                "Sign IN"
                            )}

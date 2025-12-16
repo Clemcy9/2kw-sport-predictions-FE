@@ -3,19 +3,19 @@ import { Eye, EyeOff } from "lucide-react";
 import { motion } from "framer-motion";
 import { FaApple} from "react-icons/fa6";
 import {FcGoogle} from "react-icons/fc";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, data } from "react-router-dom";
 import { FaSpinner } from "react-icons/fa";
 
 export default function SignUp () {
 
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
-    const [message, setMessage] = useState ("");
     const [password, setPassword] = useState("");
     const [eyePassword, setEyePassword] = useState(false);
     const [showPassword, setShowassword] = useState(false);
     const [confirmPassword, setConfirmPassword] = useState("");
     const [loading, setLoading] = useState (false);
+    const [error, setError] = useState("");
 
     const navigate = useNavigate();
 
@@ -26,19 +26,19 @@ export default function SignUp () {
          setLoading(true)
 
         if (name.trim().split(" ").length < 2) {
-            setMessage("Please enter your full name FirstName and LastName");
+            setError("Please enter your full name FirstName and LastName");
             setLoading(false)
             return;
         }
 
         if(password.length<8){
-            setMessage("password to short!")
+            setError("password to short!")
             setLoading(false)
             return;
         }
 
         if(password !== confirmPassword) {
-            setMessage("passwords do not match!");
+            setError("passwords do not match!");
             setLoading(false)
             return;
         }
@@ -54,27 +54,36 @@ export default function SignUp () {
             console.log("Backend Response", data);
 
             if(!res.ok){
-                setMessage(data.message || "sign-Up not successful");
+                setError(data.msg || "sign-Up not successful");
                 setLoading(false);
                 return;
             }
 
-            setMessage(data.message || "Account Created Successfully");
+            if (res.ok){
+                localStorage.setItem("userEmail", email);
+                onSignUP();
+            } else{
+                setError(data.msg || "SignUp Failed");
+            }
+
+            // seterror(data.error || "Account Created Successfully");
 
             localStorage.setItem("name", JSON.stringify(name));
             localStorage.setItem("authToken", data.token);
             localStorage.setItem("userId",data.userId);
 
-            setMessage("sign-Up successful");
+           
+        }catch (err) {
+            console.error(data.msg);
+            setError(data.msg);
+        }finally{
+            setLoading(false)
+            setError("sign-Up successful");
             navigate("/sign-in", { replace: true });
             setName("");
             setEmail("");
             setPassword("");
             setConfirmPassword("");
-        }catch (ero) {
-            console.log(ero.message);
-        }finally{
-            setLoading(false)
 
         }
     };
@@ -161,9 +170,9 @@ export default function SignUp () {
                                 </button>
                         </div>
 
-                        {message && (
+                        {error && (
                             <p className= " py-1 mt-2 text-sm rounded-[0.4rem] w-fit text-[#1A365D]">
-                                {message}
+                                {error}
                             </p>
                         )}
 
@@ -172,7 +181,7 @@ export default function SignUp () {
                     <button disabled={loading} type="submit"  className="flex justify-center items-center bg-[#1A365D] text-white w-70 rounded-[0.6rem] py-2 mt-4">
 
                         {loading ? (
-                            <div className=" py-2"> Creating Account <FaSpinner className="animate-spin justify-center items-center" /></div>
+                            <div className="flex justify-center items-center gap-1.5 py-1"> Sign UP <FaSpinner className="animate-spin justify-center items-center" /></div>
                         ):(
                             "Sign UP"
                         )}
