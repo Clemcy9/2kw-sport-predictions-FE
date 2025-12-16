@@ -113,7 +113,7 @@ export default function LIve_Scores () {
                                 <tr className="w-full flex justify-between items-center text-white bg-[#1A365D] p-1.5 lg:p-3">
                                     <th className="flex justify-center items-center"><img className="w-6 h-6" src={predictions[leagueName][0].league.logo} alt={leagueName} /> {leagueName}</th>
                                     <th></th>
-                                    <th>{new Date(items.fixture.date).toLocaleDateString()}</th>
+                                    <th>{new Date(predictions[leagueName][0].fixture.date).toLocaleDateString()}</th>
                                 </tr>
                             </thead>
                             <tbody >

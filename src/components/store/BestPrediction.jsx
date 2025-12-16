@@ -7,7 +7,7 @@ export default function BestPredictionCard () {
 
       const [prediction, setPrediction] = useState([]);
       const [loading, setLoading] = useState(true);
-    //   const [error, setError] = useState(null);
+      const [error, setError] = useState(null);
     
         const token = localStorage.getItem("authToken");
 
@@ -34,7 +34,12 @@ export default function BestPredictionCard () {
                     console.log("all prediction", setData)
                     // console.log("prediction", prediction)
                     setLoading(false);
-                });
+                })
+                .catch((err) => {
+                    console.error("error from live scores:", err);
+                    setError("Unable To Best Prediction");
+                    setLoading(false);
+                })
                 
         }, [token]);
        
@@ -47,11 +52,15 @@ export default function BestPredictionCard () {
             {loading && (
                 <div className="text-center text-[#fff] flex justify-center items-center"><span><FaSpinner className="animate-spin" /> </span> Loading Best-Prediction...</div>
             )}
+{/* 
+            {error && (
+                <div className="text-center justify-center items-center flex flex-col text-red-500 py-20  w-full rounded-xl"> {error} <FaTriangleExclamation className="text-red-600 animate-pulse" /></div>
+            )} */}
 
             {!loading && prediction.length === 0 && (
                 <div className="text-center text-[#fff]  flex justify-center items-center">No Best-Prediction Available <FaTriangleExclamation className="text-red-600 animate-pulse"/>...</div>
             )}
-
+            
             {prediction.map((item) => (
             <>
                 <motion.div key={item}
