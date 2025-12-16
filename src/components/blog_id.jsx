@@ -26,16 +26,18 @@ export default function BlogPost_Id() {
   const blogId = splitted[splitted.length - 1];
   const [blog, setBlog] = useState({});
 
+  const blogUrl = `${window.location.origin}/blogs/${blogId}`;
+
   const shareWhatsApp = () => {
     window.open(
-      `https://wa.me/?text=${encodeURIComponent(blogId + " " + blog.title)}`
+      `https://wa.me/?text=${encodeURIComponent(blogUrl + " " + blog.title)}`
       // "_blank"
     );
   };
   const shareFacebook = () => {
     window.open(
       `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-        blogId + " " + blog.title
+        blogUrl + " " + blog.title
       )}`
       // "_blank"
     );
@@ -43,8 +45,17 @@ export default function BlogPost_Id() {
   const shareTelegram = () => {
     window.open(
       `https://t.me/share/url?url=${encodeURIComponent(
-        blogId
-      )}&text=${encodeURIComponent(blog.title)}`,
+        blogUrl
+      )}&text=${encodeURIComponent(blog.title)}`
+      //  "_blank"
+    );
+  };
+
+  const shareX = () => {
+    window.open(
+      `https://twitter.com/intent/tweet?text=${encodeURIComponent(
+        blog.title
+      )}&url=${encodeURIComponent(blogUrl)}`,
       "_blank"
     );
   };
@@ -160,6 +171,7 @@ export default function BlogPost_Id() {
                       className="text-blue-600"
                     />
                     <BsTwitterX
+                      onClick={shareX}
                       size={30}
                       className="bg-black text-white p-1 rounded-lg"
                     />
