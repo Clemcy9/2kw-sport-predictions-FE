@@ -71,7 +71,7 @@ export default function SignIn () {
             setEmail("");
             setpassword("");
         }catch (err) {
-            console.log(ero.msg);
+            console.error(ero.msg);
             setError( "NetWork Error");
             setLoading(false)
         }finally{
