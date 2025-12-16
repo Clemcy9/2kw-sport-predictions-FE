@@ -75,7 +75,11 @@ export default function DashBoard() {
             .then((res) => res.json())
             .then((data) => {
                 const preds = data?.data || [];
-                setPrediction(preds);
+
+                const latest_preds = [...preds].sort(
+                    (news , old) => new Date(old.fixture.fixture.date) - new Date(news.fixture.fixture.date)
+                );
+                setPrediction(latest_preds);
                 console.log("all predictions from preds", preds)
                 console.log("predictions", prediction)
                 setLoading(false);
@@ -102,26 +106,11 @@ export default function DashBoard() {
     const statistics3 = useTransform(count3, (value) => Math.floor(value).toLocaleString());
 
     useEffect(() => {
-        animate(count1, stats.total, { duration: 2, ease: "easeOut" });
+        animate(count1, prediction.length, { duration: 2, ease: "easeOut" });
         animate(count2, numbers[1], { duration: 2, ease: "easeOut" });
         animate(count3, numbers[2], { duration: 2, ease: "easeOut" });
-    }, []);
+    }, [prediction.length]);
 
-
-
-    // useEffect(() => {
-    //     try {
-    //         fetch("https://api.example.com/predictions") // Replace with your API
-    //             .then((res) => {
-    //                 if (!res.ok) throw new Error("Failed to fetch predictions");
-    //                 return res.json();
-    //             })
-    //             .then((data) => setPredictions(data))
-    //             .catch((err) => setError(err.message));
-    //     } catch (err) {
-    //         setError(err.message);
-    //     }
-    // }, []);
 
     if (loading) return <div className="text-center text-[#1A365D] py-20 flex justify-center items-center"><span><FaSpinner className="animate-spin" /> </span> Loading data...</div>;
 

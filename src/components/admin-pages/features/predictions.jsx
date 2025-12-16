@@ -71,7 +71,12 @@ export default function Predictions() {
          )
             .then((res) => res.json())
             .then((data) => {
-                setPrediction(data?.data || []);
+                const preds = data?.data || [];
+
+                const latest_preds = [...preds].sort(
+                    (news, old) => new Date(old.fixture.fixture.date) - new Date(news.fixture.fixture.date)
+                );
+                setPrediction(latest_preds)
                 console.log("all predictions", data)
                 console.log("predictions", prediction)
                 setLoading(false);
