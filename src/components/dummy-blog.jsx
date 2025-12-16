@@ -42,21 +42,31 @@ export default function DummyBlog() {
             key={blog._id}
             className="group overflow-hidden bg-white cursor-pointer flex items-center justify-between flex-row lg:flex-col lg:gap-2 sm:flex-col lg:rounded-[0.5em] gap-1 rounded-[0.5em] hover:-translate-y-1 transition-all lg:w-auto w-full  shadow-sm h-[200px] lg:h-[380px]"
           >
-            <div className="lg:w-full max-w-40 lg:max-w-full sm:max-w-full h-52 overflow-hidden relative w-full ">
+            {/* <div className="lg:w-full max-w-40 lg:max-w-full sm:max-w-full h-[150px] overflow-hidden relative w-full ">
               <img
                 src={blog.image_url}
                 alt={blog.title}
                 className="group-hover:scale-110 group-active:scale-110 transition-transform duration-500 rounded-l-[0.5rem] h-full sm:h-52 w-full object-cover lg:rounded-bl-none lg:rounded-t-[0.4rem] sm:rounded-bl-none sm:rounded-t-[0.5rem]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#111]/40 to-transparent"></div>
+            </div> */}
+            <div className="relative  w-[300px] md:w-full sm:w-full h-[200px] md:h-[210px] overflow-hidden">
+              <img
+                src={blog.image_url}
+                alt={blog.title}
+                className="w-full h-full object-cover transition-transform duration-500
+               group-hover:scale-110 group-active:scale-110
+               rounded-l-[0.5rem]
+               lg:rounded-bl-none lg:rounded-t-[0.4rem]
+               sm:rounded-bl-none sm:rounded-t-[0.5rem]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#111]/40 to-transparent" />
             </div>
             <div className="lg:px-2 px-1 sm:px-2 py-0 flex flex-col space-y-1 sm:gap-0">
               <h2 className="font-semibold leading-tight  ">
                 {blog.title.slice(0, 50)}...{" "}
               </h2>
-              {/* <p className="text-[#65758B] lg:text-[15px] text-[13px] ">
-                {blog.body.slice(0, 120)}...{" "}
-              </p> */}
+
               <p
                 className="text-[#65758B] lg:text-[15px] text-[13px] mt-2 line-clamp-4"
                 dangerouslySetInnerHTML={{
@@ -71,7 +81,7 @@ export default function DummyBlog() {
                   className=" text-[#D6AE3E] flex justify-center items-center"
                   to={`/blog_id/${blog._id}`}
                 >
-                  view more <FiArrowRight />
+                  Read more <FiArrowRight />
                 </Link>
               </div>
             </div>

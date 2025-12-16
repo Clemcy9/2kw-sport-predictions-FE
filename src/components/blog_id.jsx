@@ -132,55 +132,55 @@ export default function BlogPost_Id() {
           path={blogId}
           element={
             <section className="lg:p-10 md:p-8 sm:p-5 p-2">
-              <article className="group overflow-hidden flex mx-auto flex-col lg:gap-2 sm:flex-col gap-1 lg:h-[100%] h-auto hover:-translate-y-1 transition-all lg:max-w-6xl sm:h-[100%lg:rounded-xl">
-                <div className=" md:h-[100vh] h-[50vh]  overflow-hidden relative w-full">
+              <article className="group flex mx-auto flex-col lg:gap-2 sm:flex-col gap-1 lg:h-[100%] h-auto  hover:-translate-y-1 transition-all lg:max-w-6xl sm:h-[100%lg:rounded-xl">
+                <div className="overflow-hidden md:h-[100vh] h-[50vh] relative w-full">
                   <img
                     src={blog.image_url}
                     alt={blog.title}
-                    className="group-hover:scale-110 group-active:scale-110 transition-transform duration-500 h-full w-full object-cover rounded-xl"
+                    className="group-hover:scale-110 group-active:scale-110 transition-transform duration-500 h-full w-full object-cover rounded-lg"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#111]/40 to-transparent rounded-xl"></div>
                 </div>
-                <div className=" flex flex-col space-y-1 sm:gap-0">
-                  <h2 className="font-semibold leading-tight  ">
+                <div className=" flex flex-col bg-white shadow-xl p-4 rounded-lg mt-7 space-y-1 sm:gap-0">
+                  <h2 className="font-semibold lg:text-2xl text-xl leading-tight  ">
                     {blog.title}
                   </h2>
                   <p
                     dangerouslySetInnerHTML={{
                       __html: DOMPurify.sanitize(blog.body),
                     }}
-                    className="text-[#65758B] lg:text-[15px] text-[13px] "
+                    className="text-[#65758B] lg:text-[16px] text-[15px] mt-3 lg:leading-7 leading-5 "
                   ></p>
                   <div className="flex justify-between w-full lg:py-2 ">
                     <span className="font-semibold text-[#65758B]">
                       {new Date(blog.createdAt).toLocaleDateString()}
                     </span>
                   </div>
-                </div>
-                <div className="flex items-center gap-4 mt-10">
-                  <h2>Share to:</h2>
-                  <div className="flex gap-2">
-                    <FaFacebookSquare
-                      onClick={shareFacebook}
-                      size={33}
-                      className="text-blue-800"
-                    />
-                    <FaTelegram
-                      onClick={shareTelegram}
-                      size={33}
-                      className="text-blue-600"
-                    />
-                    <BsTwitterX
-                      onClick={shareX}
-                      size={30}
-                      className="bg-black text-white p-1 rounded-lg"
-                    />
-                    <FaWhatsapp
-                      onClick={shareWhatsApp}
-                      className="bg-green-500 text-white p-[0.5px] rounded-lg"
-                      size={33}
-                    />
-                    <FaShare size={30} className="text-blue-700" />
+                  <div className="flex items-center gap-4 mt-10">
+                    <h2>Share to:</h2>
+                    <div className="flex gap-2">
+                      <FaFacebookSquare
+                        onClick={shareFacebook}
+                        size={33}
+                        className="text-blue-800"
+                      />
+                      <FaTelegram
+                        onClick={shareTelegram}
+                        size={33}
+                        className="text-blue-600"
+                      />
+                      <BsTwitterX
+                        onClick={shareX}
+                        size={30}
+                        className="bg-black text-white p-1 rounded-lg"
+                      />
+                      <FaWhatsapp
+                        onClick={shareWhatsApp}
+                        className="bg-green-500 text-white p-[0.5px] rounded-lg"
+                        size={33}
+                      />
+                      <FaShare size={30} className="text-blue-700" />
+                    </div>
                   </div>
                 </div>
               </article>

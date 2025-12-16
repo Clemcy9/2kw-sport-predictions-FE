@@ -92,7 +92,7 @@ export default function BlogPost() {
           </div>
         </motion.div>
       </section>
-      <div className="gap-5 border-none p-4 mx my-3 mt-7 w-full z-20 relative  flex flex-col justify-center items-center bg-[#e0e2e685]">
+      <div className=" border-none p-4 mx my-3 mt-7 w-full z-20 relative  flex flex-col justify-center items-center bg-[#e0e2e685]">
         <h1 className="font-[Inria Sans] text-center text-3xl font-semibold text-[#1F2128] lg:pb-6 mb-2 text-shadow-x z-40">
           2kwPredict Blog
         </h1>
@@ -104,14 +104,14 @@ export default function BlogPost() {
             Loading Blog Articles...
           </div>
         )}
-        <div className="lg:grid lg:grid-cols-3 lg:gap- sm:grid sm:grid-cols-2 sm:gap-6 gap-4 w-full sm:items-center sm:w-full sm:justify-center flex flex-col  ">
+        <div className="lg:grid lg:grid-cols-4 lg:gap- sm:grid  sm:grid-cols-2 sm:gap-6 gap-4 w-full sm:items-center sm:w-full sm:justify-center flex flex-col  lg:px-10">
           {!loading &&
             blogs?.map((blog) => (
               <article
                 key={blog._id}
                 className="group overflow-hidden bg-white flex justify-between flex-row lg:flex-col lg:gap-2 sm:flex-col gap-1 rounded-[0.5em] hover:-translate-y-1 transition-all shadow-sm h-[200px] lg:h-[380px]"
               >
-                <div className="relative w-full sm:w-full h-48 sm:h-72 md:h-60 overflow-hidden">
+                <div className="relative  w-[180px] md:w-full sm:w-full h-[200px] md:h-[210px] overflow-hidden">
                   <img
                     src={blog.image_url}
                     alt={blog.title}
@@ -144,7 +144,7 @@ export default function BlogPost() {
                       className=" text-[#D6AE3E] flex justify-center items-center"
                       to={`/blog_id/${blog._id}`}
                     >
-                      view more <FiArrowRight />
+                      Read more <FiArrowRight />
                     </Link>
                   </div>
                 </div>
