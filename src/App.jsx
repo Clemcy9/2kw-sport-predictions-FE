@@ -62,19 +62,37 @@ export default function App() {
             <Route path="dashboard" element={<ProtectedRoute>
                 <DashBoard />
             </ProtectedRoute>} />
-            <Route path="predictions" element={<Predictions />} />
-            <Route path="fixtures" element={<MakePredictions />} />
-            <Route path="leagues" element={<All_Legues />} />
-            <Route path="tags" element={<AdvertTags />} />
+            <Route path="predictions" element={<ProtectedRoute>
+                <Predictions />
+            </ProtectedRoute>} />
+            <Route path="fixtures" element={<ProtectedRoute>
+                <MakePredictions />
+            </ProtectedRoute>} />
+            <Route path="leagues" element={<ProtectedRoute>
+                <All_Legues />
+            </ProtectedRoute>} />
+            <Route path="tags" element={<ProtectedRoute>
+                <AdvertTags />
+            </ProtectedRoute>} />
             <Route path="help" element={<Help_And_Support />} />
             <Route
               path="affiliate-partner-links"
-              element={<Affiliate_Partner_Links />}
+              element={<ProtectedRoute>
+                <Affiliate_Partner_Links />
+              </ProtectedRoute>}
             />
-            <Route path="edit-affiliate" element={<Edit_Affiliate />} />
-            <Route path="metadata" element={<MetaData />} />
-            <Route path="blogs/blog" element={<NewPost />} />
-            <Route path="blogs/all-posts" element={<AllPosts />} />
+            <Route path="edit-affiliate" element={<ProtectedRoute>
+                <Edit_Affiliate />
+            </ProtectedRoute>} />
+            <Route path="metadata" element={<ProtectedRoute>
+                <MetaData />
+            </ProtectedRoute>} />
+            <Route path="blogs/blog" element={<ProtectedRoute>
+                <NewPost />
+            </ProtectedRoute>} />
+            <Route path="blogs/all-posts" element={<ProtectedRoute>
+                <AllPosts />
+            </ProtectedRoute>} />
           </Route>
 
           <Route path="live-score" element={<LIve_Scores />} />
@@ -93,7 +111,9 @@ export default function App() {
             <Route path="all-predictions" element={<AllPredictions />} />
           </Route>
           <Route path="/sign-in" element={<SignIn />} />
-          <Route path="/login-complete" element={<LoginCompleted />} />
+          <Route path="/login-complete" element={<ProtectedRoute>
+              <LoginCompleted />
+          </ProtectedRoute>} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/blog_id/*" element={<BlogPost_Id />} />
           <Route path="/blog" element={<BlogPost />} />
