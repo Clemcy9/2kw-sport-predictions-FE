@@ -26,6 +26,29 @@ export default function BlogPost_Id() {
   const blogId = splitted[splitted.length - 1];
   const [blog, setBlog] = useState({});
 
+  const shareWhatsApp = () => {
+    window.open(
+      `https://wa.me/?text=${encodeURIComponent(blogId + " " + blog.title)}`
+      // "_blank"
+    );
+  };
+  const shareFacebook = () => {
+    window.open(
+      `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+        blogId + " " + blog.title
+      )}`
+      // "_blank"
+    );
+  };
+  const shareTelegram = () => {
+    window.open(
+      `https://t.me/share/url?url=${encodeURIComponent(
+        blogId
+      )}&text=${encodeURIComponent(blog.title)}`,
+      "_blank"
+    );
+  };
+
   useEffect(() => {
     const getBlogId = async () => {
       try {
@@ -126,13 +149,22 @@ export default function BlogPost_Id() {
                 <div className="flex items-center gap-4 mt-10">
                   <h2>Share to:</h2>
                   <div className="flex gap-2">
-                    <FaFacebookSquare size={33} className="text-blue-800" />
-                    <FaTelegram size={33} className="text-blue-600" />
+                    <FaFacebookSquare
+                      onClick={shareFacebook}
+                      size={33}
+                      className="text-blue-800"
+                    />
+                    <FaTelegram
+                      onClick={shareTelegram}
+                      size={33}
+                      className="text-blue-600"
+                    />
                     <BsTwitterX
                       size={30}
                       className="bg-black text-white p-1 rounded-lg"
                     />
                     <FaWhatsapp
+                      onClick={shareWhatsApp}
                       className="bg-green-500 text-white p-[0.5px] rounded-lg"
                       size={33}
                     />
