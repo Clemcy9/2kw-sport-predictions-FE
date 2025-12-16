@@ -1,4 +1,13 @@
+// import { useState } from "react";
 import GoBack from "../../shared/Back";
+// const [linkType, seLinkTpe] = useState("");
+// const [location, setLocation] = useState("");
+// const [label, setLabel] = useState("");
+// const [url, setUrl] = useState("");
+// const [loading, setLoading] = useState(false);
+// const [error, setError] = useState(null);
+
+
 
 
 

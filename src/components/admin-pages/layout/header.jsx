@@ -21,6 +21,18 @@ export default function AdminHeader() {
     const [isOpen, setIsOpen] = useState(false);
     const [openDropdown, setOpenDropdown] = useState(null);
 
+    const navigate = useNavigate();
+
+    const logout = () => {
+        localStorage.removeItem("authToken");
+        localStorage.removeItem("isLoggedIn");
+    };
+
+    const handle_logout = () => {
+        logout();
+        navigate("/sign-in", { replace: true });
+    };
+
     useEffect(() => {
         if (isOpen) {
             const y = window.scrollY;
@@ -87,7 +99,7 @@ export default function AdminHeader() {
     const lastMenu = [
         {
             title: "Log Out",
-            path: "/admin/logout",
+            // path: "/admin/logout",
             icon: <FaSignOutAlt />,
         },
     ];
@@ -196,15 +208,15 @@ export default function AdminHeader() {
 
                                     <div className="mt-3">
                                         {lastMenu.map((item, index) => (
-                                            <Link
+                                            <button 
                                                 key={index}
-                                                to={item.path}
-                                                onClick={() => { setOpenDropdown(null); setIsOpen(false); }}
+                                                // to={item.path}
+                                                onClick={ handle_logout}
                                                 className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#fff] hover:text-[#1A3761] transition"
                                             >
                                                 {item.icon}
                                                 <span>{item.title}</span>
-                                            </Link>
+                                            </button >
                                         ))}
                                     </div>
 

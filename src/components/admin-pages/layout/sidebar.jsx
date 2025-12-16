@@ -7,15 +7,27 @@ import {
   FaFileAlt,
   FaTags,
   FaLink,
-  FaQuestionCircle,
+  // FaQuestionCircle,
   FaSignOutAlt,
   FaChevronDown,
   FaChevronRight,
-  FaArrowLeft,
+  // FaArrowLeft,
 } from "react-icons/fa";
 
 export default function Sidebar() {
   const [openDropdown, setOpenDropdown] = useState(null);
+
+  const navigate = useNavigate();
+
+ const logout = () => {
+  localStorage.removeItem("authToken");
+  localStorage.removeItem("isLoggedIn");
+ };
+
+ const handle_logout = () => {
+  logout();
+   navigate("/sign-in", { replace: true });
+ };
 
   const menuItems = [
     {
@@ -70,7 +82,7 @@ export default function Sidebar() {
   const lastMenu = [
     {
       title: "Log Out",
-      path: "/admin/logout",
+      // path: "/admin/logout",
       icon: <FaSignOutAlt />,
     },
   ];
@@ -144,14 +156,14 @@ export default function Sidebar() {
 
         <div className="mt-10 lg:space-y-5 lg:mt-5">
           {lastMenu.map((item, index) => (
-            <Link
+            <button onClick={handle_logout}
               key={index}
-              to={item.path}
-              className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#1A3761] hover:text-white transition "
+              // to={item.path}
+              className="flex items-center gap-3 px-3 py-2 w-full rounded-lg hover:bg-[#1A3761] hover:text-white transition "
             >
               {item.icon}
               <span>{item.title}</span>
-            </Link>
+            </button>
           ))}
         </div>
       </nav>

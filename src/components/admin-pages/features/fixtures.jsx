@@ -284,6 +284,17 @@ export default function MakePredictions() {
         }
       );
       const data = await res.json();
+
+      if (res.ok){
+        setMessages("Prediction Created successful");
+        return;
+      }
+        
+        
+
+      // if(res.ok){
+      //   setMessages
+      // }
       console.log("Backend Response", data);
 
       // reset prediction inputs
@@ -298,10 +309,7 @@ export default function MakePredictions() {
       console.error("not sent:", err);
     }
 
-    if(res.ok)
-      return(
-    setMessages("Prediction Created successful")
-    )
+    
   };
 
   // call to endpoint to get all the matches and fixtures
@@ -468,7 +476,7 @@ export default function MakePredictions() {
                   </div>
                   <div className="lg:py-5  lg: flex lg:justify-start lg:col-span-4 lg:items-start w-full lg:max-w-80 ">
                     <img
-                      className="w-8 h-8"
+                      className="w-8 h-8 object-cover"
                       src={item.league.logo}
                       alt={item.league.name}
                     />
@@ -477,7 +485,7 @@ export default function MakePredictions() {
                   <div className="lg:py-5 lg:flex lg:items-start lg:justify-start lg:col-span-4 lg:w-full lg:max-w-72 lg:flex-row">
                     <span className="flex">
                       <img
-                        className="w-4 h-4"
+                        className="w-4 h-4 object-cover"
                         src={item.teams.away.logo}
                         alt={item.teams.away.name}
                       />{" "}
@@ -486,7 +494,7 @@ export default function MakePredictions() {
                     <span className="px-2 font-semibold">vs</span>{" "}
                     <span className="flex">
                       <img
-                        className="w-4 h-4"
+                        className="w-4 h-4 object-center"
                         src={item.teams.home.logo}
                         alt={item.teams.home.name}
                       />{" "}

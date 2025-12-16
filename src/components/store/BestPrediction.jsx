@@ -31,12 +31,12 @@ export default function BestPredictionCard () {
                 .then((data) => {
                    const setData = data?.data?.at(- 1) || null;
                     setPrediction(setData? [setData] : []);
-                    // console.log("all prediction", setData);
-                    // console.log("prediction", prediction)
+                    // console.log("best prediction", setData);
+                    // console.log("prediction", data.message)
                     setLoading(false);
                 })
                 .catch((err) => {
-                    console.error("error from live scores:", err);
+                    console.error("error best predictions:", err);
                     setError("Unable To Best Prediction");
                     setLoading(false);
                 })
