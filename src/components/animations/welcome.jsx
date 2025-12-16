@@ -5,7 +5,7 @@ export default function Text() {
     //.trim().split(" ")
     return(
         <div className="flex justify-center text-shadow-xl min-h-screen">
-            <CinematicBouncyText text={`Welcome ${(welcome)}`} />
+            <CinematicBouncyText text={`Welcome ${(welcome).split("@")[0] }`} />
         </div>
     )
 }

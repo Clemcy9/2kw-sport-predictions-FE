@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 
 export default function CinematicBouncyText({ text }) {
-    const letters = text.split("");
+    const letters = text.split("_");
     const [glow, setGlow] = useState(false);
 
     const container = {
