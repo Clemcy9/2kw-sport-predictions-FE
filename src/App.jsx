@@ -111,9 +111,7 @@ export default function App() {
             <Route path="all-predictions" element={<AllPredictions />} />
           </Route>
           <Route path="/sign-in" element={<SignIn />} />
-          <Route path="/login-complete" element={<ProtectedRoute>
-              <LoginCompleted />
-          </ProtectedRoute>} />
+          <Route path="/login-complete" element={<LoginCompleted />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/blog_id/*" element={<BlogPost_Id />} />
           <Route path="/blog" element={<BlogPost />} />
