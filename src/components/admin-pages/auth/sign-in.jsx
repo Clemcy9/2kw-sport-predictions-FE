@@ -36,12 +36,12 @@ export default function SignIn () {
             return;
         }
 
-        const user_Email = localStorage.getItem("UserEmail");
-        if(email !== user_Email) {
-            setError("This Email is not registered on this device");
-            setLoading(false);
-            return;
-        }
+        // const user_Email = localStorage.getItem("UserEmail");
+        // if(email !== user_Email) {
+        //     setError("This Email is not registered on this device");
+        //     setLoading(false);
+        //     return;
+        // }
 
         try{
             const res = await fetch("https://twokw-backend.onrender.com/api/v1/auth/login", {
@@ -60,6 +60,7 @@ export default function SignIn () {
 
             if(res.ok) {
                 localStorage.setItem("isLOggedIn", "true");
+                localStorage.setItem("userEmail", email);
             }else {
                 setError(data.msg || "Login Failed");
                 setLoading(false);

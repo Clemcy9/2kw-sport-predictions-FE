@@ -60,7 +60,7 @@ export default function SignUp () {
             }
 
             if (res.ok){
-                localStorage.setItem("userEmail", email);
+                // localStorage.setItem("userEmail", email);
                 onSignUP();
             } else{
                 setError(data.msg || "SignUp Failed");
