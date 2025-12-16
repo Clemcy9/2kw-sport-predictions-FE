@@ -172,7 +172,7 @@ export default function SignUp () {
                     <button disabled={loading} type="submit"  className="flex justify-center items-center bg-[#1A365D] text-white w-70 rounded-[0.6rem] py-2 mt-4">
 
                         {loading ? (
-                            <FaSpinner className="animate-spin justify-center items-center"/>
+                            <div className=" py-2"> Creating Account <FaSpinner className="animate-spin justify-center items-center" /></div>
                         ):(
                             "Sign UP"
                         )}

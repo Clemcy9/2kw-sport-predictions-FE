@@ -134,9 +134,9 @@ export default function SignIn () {
 
                     <button type="submit" className="bg-[#1A365D] flex justify-center items-center text-white w-70 rounded-[0.6rem] py-2 mt-6">
                         {loading ? (
-                               <FaSpinner className="animate-spin justify-center items-center"/>
+                            <div className=" py-2">Log IN  <FaSpinner className="animate-spin justify-center items-center" /></div>
                            ):(
-                               "Sign UP"
+                               "Sign IN"
                            )}
                     </button>
                     <p className="text-[#1E1E1E] p-0.5">
