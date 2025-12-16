@@ -21,6 +21,7 @@ export default function LandingPage() {
   const [prediction, setPrediction] = useState({});
   const [open, setOpen] = useState({});
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   /* --------------------------------------------
      SHOW SCROLL-TO-TOP BUTTON
@@ -47,8 +48,17 @@ export default function LandingPage() {
     }&market_name=${encodeURIComponent(bet.name)}`;
     // console.log("tips name", bet["name"]);
 
+    setLoading(true);
+    setError(null);
+
     fetch(url)
-      .then((res) => res.json())
+      .then((res) => {
+        if(!res.ok) {
+          throw new Error ("Failed To Fetch Predictions");
+        }
+        return res.json();
+      })
+
       .then((data) => {
         // Group predictions by league name
         const grouped = data?.data?.reduce((acc, pred) => {
@@ -77,7 +87,14 @@ export default function LandingPage() {
         setPrediction(grouped || {});
         setLoading(false);
       })
-      .catch((err) => console.error("Prediction fetch error:", err));
+      .catch((err) => {
+        console.error("error While fetching predictions:", err);
+
+        // added error handling state 
+        setError("Unable To Load Predictions. Connect To A Network And Try Again.");
+        setLoading(false);
+        setPrediction({});
+      });
   }, [bet]);
 
   return (
@@ -129,16 +146,27 @@ export default function LandingPage() {
 
               <div className="flex justify-center items-center flex-col lg:px-3">
 
-                           {loading && (
-                           <div className=" hover:shadow-lg text-[#1a365d] py-20 hover:bg-[#FFF7E0] group transition-all  border border-[#D6AE3E] flex justify-center items-center w-full rounded-[0.6rem] p-2"><span><FaSpinner className="animate-spin" /> </span> Loading Prediction...</div>
-                            )}
-                
-                            {!loading && prediction.length === 0 && (
-                                <div className="text-center text-[#1a365d] py-20 flex justify-center items-center"><span><FaSpinner className="animate-spin" /> </span> No Prediction Available <FaTriangleExclamation />...</div>
-                            )}
                 {/* ------------------------------------------
                     DISPLAY LEAGUES + THEIR FIXTURE CARDS + logos
-                ------------------------------------------- */}
+                    ------------------------------------------- */}
+
+                    {/* Loading UI */}
+                    {loading ? (
+                      <div className=" hover:shadow-lg text-[#1a365d] py-20 hover:bg-[#FFF7E0] group transition-all  border border-[#D6AE3E] flex justify-center items-center w-full rounded-[0.6rem] p-2"><span><FaSpinner className="animate-spin" /> </span> Loading Prediction...</div>
+                     ) : error ? ( 
+                       <div className="text-center flex justify-center items-center text-red-500 py-20  w-full rounded-xl"> {error} <FaTriangleExclamation className="text-red-600 animate-pulse" /></div>
+                       
+                      //  {/* No predictions UI */}
+
+                      ) : Object.keys(prediction).length === 0 ? (
+                         <div className="text-center text-[#1a365d] py-20 flex justify-center items-center"> No Prediction Available <FaTriangleExclamation className="text-red-600 animate-pulse"/>...</div>
+                        ) : null }
+
+                     {/* Error Handling UI */}
+
+                      {/* {!loading && error && ( */}
+                      
+                  
                 {Object.keys(prediction).map((leagueName) => (
                   <div key={leagueName} className="w-full mt-0">
                     {/* League Header */}

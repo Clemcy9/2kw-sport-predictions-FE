@@ -90,7 +90,7 @@ export default function LeagueTables() {
         fetchData();
     }, []);
 
-    if (loading) return <div className="text-center text-[#1A365D] py-20 flex justify-center items-center"><span><FaSpinner className="animate-spin" /> </span> Loading data...</div>;
+    if (loading) return <div className="text-center text-[#1A365D] py-20 flex justify-center items-center"><span><FaSpinner className="animate-spin" /> </span> Loading Tables...</div>;
     if (error) return <div className="text-center flex justify-center items-center text-red-500 py-20  w-full rounded-xl"><FaTools /> {error}</div>;
 
     const leagueData = leaguesData[activeLeague] || { league: [], scorers: [] };

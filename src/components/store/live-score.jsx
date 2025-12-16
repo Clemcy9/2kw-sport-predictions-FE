@@ -3,39 +3,47 @@ import Navbar from "../shared/Navbar";
 import { TypeAnimation } from "react-type-animation"
 import { motion } from "framer-motion"
 import { data, Link } from "react-router-dom";
-import { FaFutbol, FaSpinner, FaTelegramPlane, FaToolbox } from "react-icons/fa";
+import { FaFutbol, FaSpinner, FaTelegramPlane } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import liveScores from "../../assets/Hero-images/live-scores.jpg"
+import { FaTriangleExclamation } from "react-icons/fa6";
 
 
 export default function LIve_Scores () {
-    const [predictions, setPredictions] = useState([]);
+    const [predictions, setPredictions] = useState({});
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(true);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         try {
             fetch("https://twokw-backend.onrender.com/api/v1/football/livescores")
                 .then((res) => res.json())
                 .then((data) => {
+
+                    const grouped = data?.data?.response?.reduce((acc, item) => {
+                        const leagueName = item.league.name;
+
+                        if (!acc[leagueName]){
+                            acc[leagueName] = [];
+                        }
+                        acc[leagueName].push(item);
+                        return acc;
+                    }, {});
+
                     setLoading(false)
-                    setPredictions(data.data.response );
+                    setPredictions(grouped || {});
                     console.log("Api data for live-scores:", data);
                     console.log("API LIVE_SCORES from predictions::", predictions);
                 })
         } catch(err) {
             console.error("error from live scores:",err);
-            setError("Unable To Load Live-Scores, Connect To A Network");
+            setError("Unable To Load Live-Scores, Connect To A Network And Try Again");
             setLoading(false);
 
 
             console.log("error handle:", error)
         }
     }, [data]);
-
-    // if (error) return <div className="text-center h-52 overflow-y-hidden text-[#1A365D] py-2 flex justify-center items-center"><span><FaToolbox className="animate-spin" /> </span>{error}</div>;
-    // if (loading) return <div className="text-center h-52 overflow-y-hidden text-[#1A365D] py-2 flex justify-center items-center"><span><FaSpinner className="animate-spin" /> </span> Loading Live-Scores...</div>;
-
 
     return (
         <main >
@@ -86,41 +94,43 @@ export default function LIve_Scores () {
                 </motion.div>
              </section> 
             <section className=" lg:p-15 py-15">
-                {loading && (
-                    <div className="text-center h-52 overflow-y-hidden text-[#1A365D] py-2 flex justify-center items-center"><span><FaSpinner className="animate-spin" /> </span> Loading Live-Scores...</div>
-                )}
-                {/* {error && (
-                    <div className="text-center h-52 overflow-y-hidden text-[#1A365D] py-2 flex justify-center items-center"> {error}</div>
-                )} */}
+                {loading ? (
+                      <div className=" hover:shadow-lg text-[#1a365d] py-20 hover:bg-[#FFF7E0] group transition-all  border border-[#D6AE3E] flex justify-center items-center w-full rounded-[0.6rem] p-2"><span><FaSpinner className="animate-spin" /> </span> Loading Live-Scores...</div>
+                     ) : error ? ( 
+                       <div className="text-center flex justify-center items-center text-red-500 py-20  w-full rounded-xl"> {error} <FaTriangleExclamation className="text-red-600 animate-pulse" /></div>
+                       
+                      //  {/* No predictions UI */}
 
-                {!loading && predictions?.length === 0 && (
-                    <div className="text-center h-52 overflow-y-hidden text-[#1A365D] py-2 flex justify-center items-center">No Live-Scores Available...</div>
-                )}
+                      ) : Object.keys(predictions).length === 0 ? (
+                         <div className="text-center text-[#1a365d] py-20 flex justify-center items-center"> No Live-Scores Available <FaTriangleExclamation className="text-red-600 animate-pulse"/>...</div>
+                        ) : null }
                    
-                {!loading && predictions?.map((items, index) => (
-                  <div key={index}>
+                {!loading && Object.keys(predictions).map((leagueName) => (
+                  <div key={leagueName}>
                         <table className="w-full">
                             <thead >
                                 <tr className="w-full flex justify-between items-center text-white bg-[#1A365D] p-1.5 lg:p-3">
-                                    <th className="flex justify-center items-center"><img className="w-6 h-6" src={items.league.logo} alt={items.league.name} /> {items.league.name}</th>
+                                    <th className="flex justify-center items-center"><img className="w-6 h-6" src={predictions[leagueName][0].league.logo} alt={leagueName} /> {leagueName}</th>
                                     <th></th>
                                     <th>{new Date(items.fixture.date).toLocaleDateString()}</th>
                                 </tr>
                             </thead>
                             <tbody >
-                                <tr className="grid grid-cols-8 justify-between px-1.5 items-center text-xs lg:text-xl lg:px-3 hover:bg-[#D6AE3E]/60">
-                                    <td className="lg:py-6 py-4 col-span-1 flex ">
-                                        <p>{new Date(items.fixture.date).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</p>
-                                    </td>
-                                    <td className="lg:py-6 py-4 col-span-6 grid grid-cols-5">
-                                        <p className="flex justify-center items-center col-span-2"><img className="hidden lg:w-8 lg:h-8 w-5 h-5" src={items.teams.away.logo} alt={items.teams.away.name} /> {items.teams.away.name.slice(0, 18)} </p>
-                                        <span className=" lg:px-6 px-3 font-semibold flex justify-center items-center col-span-1">{items.goals.away} : {items.goals.home}</span>
-                                        <p className="flex justify-center items-center col-span-2 text-left"><img className="hidden lg:w-8 lg:h-8 w-5 h-5" src={items.teams.home.logo} alt={items.teams.home.name} /> {items.teams.home.name.slice(0, 18)}</p>
-                                    </td>
-                                    <td className="lg:py-6 py-4 flex col-span-1">
-                                        <p>{items.fixture.status.long}</p>
-                                    </td>
-                               </tr>
+                               {predictions[leagueName].map((items, index) => (
+                                   <tr className="grid grid-cols-8 justify-between px-1.5 items-center text-xs lg:text-xl lg:px-3 hover:bg-[#D6AE3E]/60">
+                                       <td className="lg:py-6 py-4 col-span-1 flex ">
+                                           <p>{new Date(items.fixture.date).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</p>
+                                       </td>
+                                       <td className="lg:py-6 py-4 col-span-6 grid grid-cols-5">
+                                           <p className="flex justify-center items-center col-span-2"><img className="hidden lg:w-8 lg:h-8 w-5 h-5" src={items.teams.away.logo} alt={items.teams.away.name} /> {items.teams.away.name.slice(0, 18)} </p>
+                                           <span className=" lg:px-6 px-3 font-semibold flex justify-center items-center col-span-1">{items.goals.away} : {items.goals.home}</span>
+                                           <p className="flex justify-center items-center col-span-2 text-left"><img className="hidden lg:w-8 lg:h-8 w-5 h-5" src={items.teams.home.logo} alt={items.teams.home.name} /> {items.teams.home.name.slice(0, 18)}</p>
+                                       </td>
+                                       <td className="lg:py-6 py-4 flex col-span-1">
+                                           <p>{items.fixture.status.long}</p>
+                                       </td>
+                                   </tr>
+                               ))}
                             </tbody>
                         </table>
                     </div>

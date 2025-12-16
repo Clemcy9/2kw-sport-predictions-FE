@@ -45,11 +45,11 @@ export default function BestPredictionCard () {
             </h2>
 
             {loading && (
-                <div className="text-center text-[#fff] py-20 flex justify-center items-center"><span><FaSpinner className="animate-spin" /> </span> Loading Best-Prediction...</div>
+                <div className="text-center text-[#fff] flex justify-center items-center"><span><FaSpinner className="animate-spin" /> </span> Loading Best-Prediction...</div>
             )}
 
             {!loading && prediction.length === 0 && (
-                <div className="text-center text-[#fff] py-20 flex justify-center items-center"><span><FaSpinner className="animate-spin" /> </span> No Best-Prediction Available <FaTriangleExclamation />...</div>
+                <div className="text-center text-[#fff] flex justify-center items-center">No Best-Prediction Available <FaTriangleExclamation className="text-red-600 animate-pulse"/>...</div>
             )}
 
             {prediction.map((item) => (
