@@ -237,8 +237,6 @@ export default function MakePredictions() {
 
   // console.log("Payload to backend:", payload);
 
- 
-
   const token = localStorage.getItem("authToken");
 
   // makes the main page not-scrollable when modal is open
@@ -255,8 +253,18 @@ export default function MakePredictions() {
 
   // enpoint to send predictions data to backend
 
+  const reset_predictions = () => {
+    setFreeTip({ value: "", odd: "", percentage: "" });
+    setFreeOdds({ value: "", odd: "", percentage: "" });
+    setSurePredict({ value: "", odd: "", percentage: "" });
+    setSuperSingleTip({ value: "", odd: "", percentage: "" });
+    setOpenDropdown(null);
+  };
+
   const send_data = async (e) => {
     e.preventDefault();
+    setMessages("");
+
 
     // this reders the values, ids and selected feilds dynamically  
     const payload =[
@@ -285,10 +293,16 @@ export default function MakePredictions() {
       );
       const data = await res.json();
 
-      if (res.ok){
-        setMessages("Prediction Created successful");
+      if (!res.ok){
+        setMessages(data?.message || "Failed To Save Prediction ");
         return;
       }
+
+      // if (res.ok){
+        setMessages("Prediction Created successful");
+        reset_predictions();
+        // return;
+      // }
         
         
 
@@ -298,15 +312,16 @@ export default function MakePredictions() {
       console.log("Backend Response", data);
 
       // reset prediction inputs
-      setFreeTip({ value: "", odd: "", percentage: "" });
-      setFreeOdds({ value: "", odd: "", percentage: "" });
-      setSurePredict({ value: "", odd: "", percentage: "" });
-      setSuperSingleTip({ value: "", odd: "", percentage: "" });
+      // setFreeTip({ value: "", odd: "", percentage: "" });
+      // setFreeOdds({ value: "", odd: "", percentage: "" });
+      // setSurePredict({ value: "", odd: "", percentage: "" });
+      // setSuperSingleTip({ value: "", odd: "", percentage: "" });
 
         console.log("FINAL PAYLOAD:", payload);
 
     } catch (err) {
       console.error("not sent:", err);
+      setMessages("Networkk error, pleae try again");
     } 
 
     
@@ -658,7 +673,7 @@ export default function MakePredictions() {
                   </button>
                   <button
                     type="button"
-                    onClick={() => setModal(false)}
+                    onClick={() => {reset_predictions(); setOpenDropdown(false);}}
                     className="rounded-xl bg-white border border-[#1A365D] text-[#1A365D] px-3 py-2 w-full"
                   >
                     Cancel

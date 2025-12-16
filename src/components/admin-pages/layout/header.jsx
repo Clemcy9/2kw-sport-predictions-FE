@@ -104,7 +104,7 @@ export default function AdminHeader() {
         },
     ];
 
-    const name =JSON.parse(localStorage.getItem("name"));
+    const name = localStorage.getItem(("userEmail"));
 
     return (
         <header className="bg-[#1A365D] top-0 w-full z-50 shadow-sm backdrop-blur-lg sticky">
@@ -128,7 +128,7 @@ export default function AdminHeader() {
                     <div className="flex justify-center items-center">
 
                         <h1 className="hidden font-serif text-white lg:text-2xl text-[16px] lg:flex justify-center items-end  flex-col">
-                            {name}
+                            {(name).split("@")[0]}
                             <span className="font-sans text-white/80 lg:text-[16px] text-[10px]">
                                 Admin
                             </span>
@@ -221,7 +221,7 @@ export default function AdminHeader() {
                                     </div>
 
                                     <h1 className="lg:hidden sm:py-8 py-4 font-serif text-white px-3 lg:text-2xl text-[18px] flex items-start  flex-col">
-                                        {name}
+                                        {(name).split("@")[0]}
                                         <span className="font-sans text-white/80 lg:text-[16px] text-[10px]">
                                             Admin
                                         </span>
