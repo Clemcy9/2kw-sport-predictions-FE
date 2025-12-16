@@ -62,37 +62,19 @@ export default function App() {
             <Route path="dashboard" element={<ProtectedRoute>
                 <DashBoard />
             </ProtectedRoute>} />
-            <Route path="predictions" element={<ProtectedRoute>
-                <Predictions />
-            </ProtectedRoute>} />
-            <Route path="fixtures" element={<ProtectedRoute>
-                <MakePredictions />
-            </ProtectedRoute>} />
-            <Route path="leagues" element={<ProtectedRoute>
-                <All_Legues />
-            </ProtectedRoute>} />
-            <Route path="tags" element={<ProtectedRoute>
-                <AdvertTags />
-            </ProtectedRoute>} />
+            <Route path="predictions" element={<Predictions />} />
+            <Route path="fixtures" element={<MakePredictions />} />
+            <Route path="leagues" element={<All_Legues />} />
+            <Route path="tags" element={<AdvertTags />} />
             <Route path="help" element={<Help_And_Support />} />
             <Route
               path="affiliate-partner-links"
-              element={<ProtectedRoute>
-                <Affiliate_Partner_Links />
-              </ProtectedRoute>}
+              element={<Affiliate_Partner_Links />}
             />
-            <Route path="edit-affiliate" element={<ProtectedRoute>
-                <Edit_Affiliate />
-            </ProtectedRoute>} />
-            <Route path="metadata" element={<ProtectedRoute>
-                <MetaData />
-            </ProtectedRoute>} />
-            <Route path="blogs/blog" element={<ProtectedRoute>
-                <NewPost />
-            </ProtectedRoute>} />
-            <Route path="blogs/all-posts" element={<ProtectedRoute>
-                <AllPosts />
-            </ProtectedRoute>} />
+            <Route path="edit-affiliate" element={<Edit_Affiliate />} />
+            <Route path="metadata" element={<MetaData />} />
+            <Route path="blogs/blog" element={<NewPost />} />
+            <Route path="blogs/all-posts" element={<AllPosts />} />
           </Route>
 
           <Route path="live-score" element={<LIve_Scores />} />

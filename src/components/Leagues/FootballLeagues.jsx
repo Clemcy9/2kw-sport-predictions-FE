@@ -50,17 +50,17 @@ export default function FootballLeagues() {
             component: "SerieACard",
         },
     ]
-    const leagueNames = leagues.map((leagues) => leagues.name);
-    localStorage.setItem("leagueNames", JSON.stringify(leagueNames));
+    // const leagueNames = leagues.map((leagues) => leagues.name);
+    // localStorage.setItem("leagueNames", JSON.stringify(leagueNames));
 
-    const handleLeagueClick = (leagueName) => {
+    // const handleLeagueClick = (leagueName) => {
 
-          localStorage.setItem("selectedLeague", leagueName);
+    //       localStorage.setItem("selectedLeague", leagueName);
 
 
-          const path = `/leagues/${leagueName.toLowerCase().replace(/\s+/g, "-")}`;
-          navigate(path);
-      };
+    //       const path = `/leagues/${leagueName.toLowerCase().replace(/\s+/g, "-")}`;
+    //       navigate(path);
+    //   };
 
 
     return (
@@ -75,7 +75,7 @@ export default function FootballLeagues() {
                 {leagues.map((league, index) => (
                     <motion.div
                         key={index}
-                        onClick={() => handleLeagueClick(league.slug)}
+                        // onClick={() => handleLeagueClick(league.slug)}
                         className="flex items-center justify-between overflow-hidden bg-white text-[#1A365D] lg:p-3 py-2 cursor-pointer border border-[#d6ae3e]/70 min-w-[280px] lg:min-w-full hover:shadow-lg hover:bg-[#d6ae3e]/80 hover:scale-105  transition-transform duration-500"
                     >
                         {/* League logo and text */}
