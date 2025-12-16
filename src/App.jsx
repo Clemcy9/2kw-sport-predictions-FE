@@ -32,7 +32,6 @@ import Edit_Affiliate from "./components/admin-pages/features/edit-affiliate";
 import Help_And_Support from "./components/admin-pages/features/help";
 import PredictionDetails from "./components/details";
 import AllPosts from "./components/admin-pages/blogs/all-posts";
-import ProtectedRoute from "./components/admin-pages/auth/protected-routes";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -59,9 +58,7 @@ export default function App() {
         <Routes>
           <Route path="/admin" element={<AdminDashboard />}>
             <Route index element={<WelcomeText />} />
-            <Route path="dashboard" element={<ProtectedRoute>
-                <DashBoard />
-            </ProtectedRoute>} />
+            <Route path="dashboard" element={<DashBoard />} />
             <Route path="predictions" element={<Predictions />} />
             <Route path="fixtures" element={<MakePredictions />} />
             <Route path="leagues" element={<All_Legues />} />
