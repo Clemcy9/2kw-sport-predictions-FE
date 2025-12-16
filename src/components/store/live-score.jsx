@@ -15,7 +15,7 @@ export default function LIve_Scores () {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        try {
+        // try {
             fetch("https://twokw-backend.onrender.com/api/v1/football/livescores")
                 .then((res) => res.json())
                 .then((data) => {
@@ -35,14 +35,15 @@ export default function LIve_Scores () {
                     console.log("Api data for live-scores:", data);
                     console.log("API LIVE_SCORES from predictions::", predictions);
                 })
-        } catch(err) {
-            console.error("error from live scores:",err);
-            setError("Unable To Load Live-Scores, Connect To A Network And Try Again");
-            setLoading(false);
+                .catch ((err) => {
+                    console.error("error from live scores:", err);
+                    setError("Unable To Load Live-Scores, Connect To A Network And Try Again");
+                    setLoading(false);
+                }); 
 
 
             console.log("error handle:", error)
-        }
+        // }
     }, [data]);
 
     return (
@@ -95,9 +96,9 @@ export default function LIve_Scores () {
              </section> 
             <section className=" lg:p-15 py-15">
                 {loading ? (
-                      <div className=" hover:shadow-lg text-[#1a365d] py-20 hover:bg-[#FFF7E0] group transition-all  border border-[#D6AE3E] flex justify-center items-center w-full rounded-[0.6rem] p-2"><span><FaSpinner className="animate-spin" /> </span> Loading Live-Scores...</div>
+                      <div className=" hover:shadow-lg text-[#1a365d] py-20 hover:bg-[#FFF7E0] group transition-all flex justify-center items-center w-full rounded-[0.6rem] p-2"><span><FaSpinner className="animate-spin" /> </span> Loading Live-Scores...</div>
                      ) : error ? ( 
-                       <div className="text-center flex justify-center items-center text-red-500 py-20  w-full rounded-xl"> {error} <FaTriangleExclamation className="text-red-600 animate-pulse" /></div>
+                       <div className="text-center flex flex-col justify-center items-center text-red-500 py-20  w-full rounded-xl"> {error} <FaTriangleExclamation className="text-red-600 animate-pulse" /></div>
                        
                       //  {/* No predictions UI */}
 
@@ -117,7 +118,7 @@ export default function LIve_Scores () {
                             </thead>
                             <tbody >
                                {predictions[leagueName].map((items, index) => (
-                                   <tr className="grid grid-cols-8 justify-between px-1.5 items-center text-xs lg:text-xl lg:px-3 hover:bg-[#D6AE3E]/60">
+                                   <tr key={index} className="grid grid-cols-8 justify-between px-1.5 items-center text-xs lg:text-xl lg:px-3 hover:bg-[#D6AE3E]/60">
                                        <td className="lg:py-6 py-4 col-span-1 flex ">
                                            <p>{new Date(items.fixture.date).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</p>
                                        </td>

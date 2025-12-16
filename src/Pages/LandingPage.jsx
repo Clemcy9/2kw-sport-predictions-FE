@@ -145,14 +145,14 @@ export default function LandingPage() {
               </div>
 
               <div className="flex justify-center items-center flex-col lg:px-3">
-                {loading && (
+                {/* {loading && (
                   <div className=" hover:shadow-lg text-[#1a365d] py-20 hover:bg-[#FFF7E0] group transition-all  border border-[#D6AE3E] flex justify-center items-center w-full rounded-[0.6rem] p-2">
                     <span>
                       <FaSpinner className="animate-spin" />{" "}
                     </span>{" "}
                     Loading Prediction...
                   </div>
-                )}
+                )} */}
 
                 {/* ------------------------------------------
                     DISPLAY LEAGUES + THEIR FIXTURE CARDS + logos
@@ -162,7 +162,7 @@ export default function LandingPage() {
                     {loading ? (
                       <div className=" hover:shadow-lg text-[#1a365d] py-20 hover:bg-[#FFF7E0] group transition-all  border border-[#D6AE3E] flex justify-center items-center w-full rounded-[0.6rem] p-2"><span><FaSpinner className="animate-spin" /> </span> Loading Prediction...</div>
                      ) : error ? ( 
-                       <div className="text-center flex justify-center items-center text-red-500 py-20  w-full rounded-xl"> {error} <FaTriangleExclamation className="text-red-600 animate-pulse" /></div>
+                       <div className="text-center justify-center items-center flex flex-col text-red-500 py-20  w-full rounded-xl"> {error} <FaTriangleExclamation className="text-red-600 animate-pulse" /></div>
                        
                       //  {/* No predictions UI */}
 

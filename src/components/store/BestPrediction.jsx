@@ -49,7 +49,7 @@ export default function BestPredictionCard () {
             )}
 
             {!loading && prediction.length === 0 && (
-                <div className="text-center text-[#fff] flex justify-center items-center">No Best-Prediction Available <FaTriangleExclamation className="text-red-600 animate-pulse"/>...</div>
+                <div className="text-center text-[#fff]  flex justify-center items-center">No Best-Prediction Available <FaTriangleExclamation className="text-red-600 animate-pulse"/>...</div>
             )}
 
             {prediction.map((item) => (
