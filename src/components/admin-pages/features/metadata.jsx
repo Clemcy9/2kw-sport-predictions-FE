@@ -1,52 +1,80 @@
 import { useState } from "react";
+import { Editor } from "primereact/editor";
 // import { data } from "react-router-dom";
 
+export default function MetaData() {
+  const [title, setTitle] = useState("");
+  const [status, setStatus] = useState(false);
+  const [body, setBody] = useState("");
 
-export default function MetaData () {
-    const [title, setTitle] = useState("");
-    const [content, setContent] = useState("");
-    
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-    
+    if (!title || !body) return;
 
-      try{
-          const res = await fetch("https://twokw-backend.onrender.com/api/blogs", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ title, content }),
-            });
+    const token = localStorage.getItem("authToken");
+    const payload = {
+      market_type: title,
+      metadata_content: body,
+    };
 
-            const data = await res.json();
-            console.log("backend response", data);
-
-            
-
-        }catch (ero) {
-            console.log(ero)
+    try {
+      setStatus("loading");
+      const res = await fetch(
+        "https://twokw-backend.onrender.com/api/v1/metadata/",
+        {
+          method: "POST",
+          headers: {
+            "content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify(payload),
         }
-     };
+      );
 
+      const data = await res.json();
+      console.log(data);
+      setStatus("success");
+    } catch (err) {
+      console.log(err);
+      setStatus("Error");
+    }
+  };
 
-     return(
-        <div className="px-8 lg:pt-6 ">
-            <form onSubmit={handleSubmit} className="lg:grid lg:grid-cols-[2fr_0.8fr] w-full lg:gap-8 ">
-                 <h2 className="lg:hidden w-full text-center font-bold text-black/80 font-[Inria Sans] py-6 text-xl">Metadata</h2>
-                <div className="w-full lg:space-y-10 space-y-5">
-                     <input type="text" value={title} placeholder="Provide page header sub-content here" onChange={(e) => setTitle(e.target.value)} className="p-3 focus:ring-[#1A365D] outline-none focus:ring-1 border-2 rounded-[0.1em] border-[#00000066] placeholder:text-[#00000066] w-full font-[Inria Sans]" />
-
-                     <textarea value={content} onChange={(e) => setContent(e.target.value)} className="max-h-screen lg:h-[90vh] h-[40vh] w-full p-3 focus:ring-[#1A365D] outline-none focus:ring-1 border-1 rounded-xl border-[#00000066] placeholder:text-[#00000066] font-[Inria Sans]"></textarea>
-                </div>
-                <div className="flex flex-col items-center space-y-10">
-                    <button type="submit" className="bg-[#1A365D] text-white w-64 text-xl rounded-xl py-2">
-                        Metadata
-                    </button>
-                     
-                </div>
-
-                
-            </form>
+  return (
+    <div className="px-8 lg:pt-6 p-4 ">
+      <form onSubmit={handleSubmit} className=" w-full  ">
+        <div className="w-full space-y-7">
+          <div>
+            <h1 className=" w-full font-bold text-black/80 font-[Inria Sans]  text-xl">
+              Header Sub-Content
+            </h1>
+            <input
+              type="text"
+              value={title}
+              placeholder="Provide page header sub-content here"
+              onChange={(e) => setTitle(e.target.value)}
+              className="p-3 focus:ring-[#1A365D] mt-3 outline-none focus:ring-1 border-2 rounded-[0.1em] border-[#00000066] placeholder:text-[#00000066] w-full font-[Inria Sans]"
+            />
+          </div>
+          <div className="mt-5">
+            <h1 className="text-xl">Page Footer SEO Content</h1>
+            <Editor
+              value={body}
+              onTextChange={(e) => setBody(e.htmlValue)}
+              className="h-[400px] w-full mt-2"
+            />
+          </div>
         </div>
-     );
+      </form>
+      <div className="flex flex-col lg:mt-16 sm:mt-10 mt-16 items-center ">
+        <button
+          type="button"
+          className="bg-[#1A365D] text-white w-64 text-xl rounded-xl py-2"
+        >
+          {status === "loading" ? "Submitting Metadata..." : "Submit Metadata"}
+        </button>
+      </div>
+    </div>
+  );
 }

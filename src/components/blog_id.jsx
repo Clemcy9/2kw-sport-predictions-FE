@@ -9,6 +9,16 @@ import { FaFutbol, FaTelegramPlane } from "react-icons/fa";
 import { useState } from "react";
 import DOMPurify from "dompurify";
 import blogBg from "../assets/Hero-images/blog-bg.jpg";
+import {
+  FaFacebook,
+  FaX,
+  FaTelegram,
+  FaWhatsapp,
+  FaShare,
+} from "react-icons/fa6";
+import { FaFacebookSquare } from "react-icons/fa";
+import { FaSquareWhatsapp } from "react-icons/fa6";
+import { BsTwitterX } from "react-icons/bs";
 
 export default function BlogPost_Id() {
   const endpoints = window.location.href;
@@ -41,7 +51,7 @@ export default function BlogPost_Id() {
 
       <section
         className="font-sans relative h-[344px] mt-[22px] lg:mt-16 bg-cover bg-center flex-wrap flex items-center justify-center text-center text-white"
-         style={{ backgroundImage: `url(${blogBg})` }}
+        style={{ backgroundImage: `url(${blogBg})` }}
       >
         <div className="absolute inset-0 bg-[#1A365D]/40"></div> {/* overlay */}
         <motion.div
@@ -88,12 +98,12 @@ export default function BlogPost_Id() {
           path={blogId}
           element={
             <section className="lg:p-10 md:p-8 sm:p-5 p-2">
-              <article className="group overflow-hidden flex items-center justify-center mx-auto flex-col lg:gap-2 sm:flex-col gap-1 lg:h-auto h-auto hover:-translate-y-1 transition-all lg:max-w-6xl sm:h-auto lg:rounded-xl">
-                <div className=" lg:h-auto overflow-hidden relative sm:h-auto w-full h-full">
+              <article className="group overflow-hidden flex mx-auto flex-col lg:gap-2 sm:flex-col gap-1 lg:h-[100%] h-auto hover:-translate-y-1 transition-all lg:max-w-6xl sm:h-[100%lg:rounded-xl">
+                <div className=" md:h-[100vh] h-[50vh]  overflow-hidden relative w-full">
                   <img
                     src={blog.image_url}
                     alt={blog.title}
-                    className="group-hover:scale-110 group-active:scale-110 transition-transform duration-500 h-60 sm:h-52 w-full object-cover rounded-xl"
+                    className="group-hover:scale-110 group-active:scale-110 transition-transform duration-500 h-full w-full object-cover rounded-xl"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#111]/40 to-transparent rounded-xl"></div>
                 </div>
@@ -111,6 +121,22 @@ export default function BlogPost_Id() {
                     <span className="font-semibold text-[#65758B]">
                       {new Date(blog.createdAt).toLocaleDateString()}
                     </span>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4 mt-10">
+                  <h2>Share to:</h2>
+                  <div className="flex gap-2">
+                    <FaFacebookSquare size={33} className="text-blue-800" />
+                    <FaTelegram size={33} className="text-blue-600" />
+                    <BsTwitterX
+                      size={30}
+                      className="bg-black text-white p-1 rounded-lg"
+                    />
+                    <FaWhatsapp
+                      className="bg-green-500 text-white p-[0.5px] rounded-lg"
+                      size={33}
+                    />
+                    <FaShare size={30} className="text-blue-700" />
                   </div>
                 </div>
               </article>

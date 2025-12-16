@@ -13,7 +13,7 @@ export default function PremierLeagueCard({
   const navigation = useNavigate();
 
   const click = () => {
-    navigation("/details", {state:predictions});
+    navigation("/details", { state: predictions });
   };
 
   function bet_filter(arr, name) {
@@ -47,8 +47,23 @@ export default function PremierLeagueCard({
     timing_date: new Date(date_time).toLocaleDateString(),
     odd: {
       Odds: values[0].odd,
-      Tips: values[0].value,
       Prop: values[0].percentage,
+      Tips:
+        values[0].value === "Home"
+          ? "1"
+          : values[0].value === "Away"
+          ? "2"
+          : values[0].value === "Home/Away"
+          ? "1/2"
+          : values[0].value === "Away/Home"
+          ? "2/1"
+          : values[0].value === "Draw/Away"
+          ? "x/2"
+          : values[0].value === "Draw/Home"
+          ? "x/1"
+          : values[0].value === "Home/Draw"
+          ? "1x"
+          : values[0].value,
     },
     // used when filtering happened in the frontend, this has been retired
     // odd: {
