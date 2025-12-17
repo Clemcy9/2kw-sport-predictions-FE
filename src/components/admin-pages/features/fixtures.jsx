@@ -259,6 +259,7 @@ export default function MakePredictions() {
     setSurePredict({ value: "", odd: "", percentage: "" });
     setSuperSingleTip({ value: "", odd: "", percentage: "" });
     setOpenDropdown(null);
+    // setMessages(false);
   };
 
   const send_data = async (e) => {
@@ -299,7 +300,7 @@ export default function MakePredictions() {
       }
 
       // if (res.ok){
-        setMessages("Prediction Created successful");
+        setMessages("Prediction Created successful ");
         reset_predictions();
         // return;
       // }
@@ -549,7 +550,7 @@ export default function MakePredictions() {
       {/* the modal */}
       {modal && action && (
         <main
-          onClick={() => setModal(false)}
+          onClick={() => { setModal(false); setMessages(null); setOpenDropdown(false); }}
           className="fixed  inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50"
         >
           <div
@@ -565,7 +566,7 @@ export default function MakePredictions() {
                   {(action.teams.home.name || "").slice(0, 20).trim()}
                 </h2>
               </div>
-              <button onClick={() => setModal(false)} className="flex p-3">
+              <button onClick={() => { setModal(false); setMessages(null); setOpenDropdown(false); }} className="flex p-3">
                 <X size={20} />
               </button>
             </div>
@@ -673,14 +674,14 @@ export default function MakePredictions() {
                   </button>
                   <button
                     type="button"
-                    onClick={() => {reset_predictions(); setOpenDropdown(false);}}
+                    onClick={() => {reset_predictions(); setOpenDropdown(false); setMessages(null);}}
                     className="rounded-xl bg-white border border-[#1A365D] text-[#1A365D] px-3 py-2 w-full"
                   >
                     Cancel
                   </button>
                 </section>
                   {messages && (
-                    <p className="rounded-xl bg-white border border-[#1A365D] text-[#1A365D] px-3 py-2 w-full">{messages}</p>
+                    <p className="rounded-xl bg-white border border-[#1A365D] text-[#1A365D] px-3 py-2 w-fit">{messages}</p>
                   )}
               </form>
 
