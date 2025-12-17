@@ -22,6 +22,7 @@ export default function LandingPage() {
   const [open, setOpen] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [selectDays, setSelectDays] = useState("today");
 
   /* --------------------------------------------
      SHOW SCROLL-TO-TOP BUTTON
@@ -45,7 +46,7 @@ export default function LandingPage() {
     // const url = `https://twokw-backend.onrender.com/api/v1/admin/predictions/odds?bet=${bet["id"]}&market_name=${bet["name"]}`;
     const url = `https://twokw-backend.onrender.com/api/v1/admin/predictions/odds?bet=${
       bet.id
-    }&market_name=${encodeURIComponent(bet.name)}`;
+    }&market_name=${encodeURIComponent(bet.name)} &day=${selectDays}`;
     // console.log("tips name", bet["name"]);
 
     setLoading(true);
@@ -95,7 +96,7 @@ export default function LandingPage() {
         setLoading(false);
         setPrediction({});
       });
-  }, [bet]);
+  }, [bet, selectDays]);
 
   return (
     <>
@@ -141,7 +142,7 @@ export default function LandingPage() {
             {/* MAIN CONTENT */}
             <main className="lg:overflow-y-scroll lg:max-h-screen flex-1 flex flex-col gap-4">
               <div className="flex items-start justify-center w-full py-2">
-                <ContentNavBar />
+                <ContentNavBar  selectDays={selectDays} setSelectDays={setSelectDays}/>
               </div>
 
               <div className="flex justify-center items-center flex-col lg:px-3">
