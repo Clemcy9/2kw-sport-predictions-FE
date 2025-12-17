@@ -277,7 +277,7 @@ export default function MakePredictions() {
 
     setTimeout(() => {
       setMessages(null);
-    }, 1000);
+    }, 2500);
 
     if(payload.length == 0)
         return(

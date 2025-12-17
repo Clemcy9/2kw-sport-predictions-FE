@@ -274,7 +274,7 @@ export default function Predictions() {
                                                 This Action Cannot Be Undone !
                                             </p>
                                             <div className="flex gap-3 justify-center items-center">
-                                                <button onClick={() => handle_delete(item._id)} className="bg-red-600 px-4 py-2 text-white">
+                                                <button onClick={() => handle_delete(modal)} className="bg-red-600 px-4 py-2 text-white">
                                                     Delete
                                                 </button>
                                                 <button onClick={() => setModal(null)} className="text-[#1A365D] px-4 py-2 bg-white border border-[#1A365D] rounded-xs">
