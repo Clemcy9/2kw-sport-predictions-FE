@@ -482,8 +482,8 @@ export default function AllPosts() {
         {/*
             delete comfirm model*/}
         {deleteId && (
-          <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
-            <div className="bg-white p-6 rounded-xl shadow-xl w-[90%] max-w-md">
+          <div onClick={() => setDeleteId(null)} className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
+            <div onClick={(e) => e.stopPropagation()} className="bg-white p-6 rounded-xl shadow-xl w-[90%] max-w-md">
               <h3 className="text-lg font-semibold mb-4">
                 Are you sure you want to delete this blog?
               </h3>

@@ -118,7 +118,7 @@ export default function LIve_Scores () {
                             </thead>
                             <tbody >
                                {predictions[leagueName].map((items, index) => (
-                                   <tr key={index} className="grid grid-cols-8 justify-between px-1.5 items-center text-xs lg:text-xl lg:px-3 hover:bg-[#D6AE3E]/60">
+                                   <tr key={index} className="grid grid-cols-8 justify-between odd:bg-white even:bg-[#bdc2cb69] px-1.5 items-center text-xs lg:text-xl lg:px-3 hover:bg-[#D6AE3E]/60">
                                        <td className="lg:py-6 py-4 col-span-1 flex ">
                                            <p>{new Date(items.fixture.date).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</p>
                                        </td>

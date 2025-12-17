@@ -17,6 +17,13 @@ export default function Edit_Affiliate () {
 
     const token = localStorage.getItem("authToken");
 
+    const reset_data = () => {
+        setLabel("");
+        setLocation("");
+        setUrl("");
+        seLinkTpe("");
+    };
+
     const edit_Affiliate = async (e) => {
         e.preventDefault();
         setLoading(true);
@@ -39,6 +46,7 @@ export default function Edit_Affiliate () {
             //     return;
             // }
 
+            reset_data();
 
             console.log("response after affiliate:", data)
 
@@ -105,7 +113,7 @@ export default function Edit_Affiliate () {
                     <button type="submit" className="w-40 lg:w-auto bg-[#1A365D] text-sm text-white lg:px-10 lg:py-2 py-3 shadow-sm font-normal  rounded-xl">
                         Save Content
                     </button>
-                    <button className="w-40 lg:hidden bg-[#DA3737] text-sm text-white lg:px-8 lg:py-1.5 py-3 shadow-sm font-normal  rounded-xl">
+                    <button onClick={() => {reset_data(); }} className="w-40 lg:hidden bg-[#DA3737] text-sm text-white lg:px-8 lg:py-1.5 py-3 shadow-sm font-normal  rounded-xl">
                         Cancel
                     </button>
                 </div>

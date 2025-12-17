@@ -23,7 +23,7 @@ export default function AdminDashboard() {
                             <Sidebar className="sticky top-0 bottom-0"/>
                        
 
-                        <main className="overflow-y-auto lg:max-h-screen">
+                        <main className="overflow-y-auto max-h-screen">
                             <Outlet />
                         </main>
                     </div>

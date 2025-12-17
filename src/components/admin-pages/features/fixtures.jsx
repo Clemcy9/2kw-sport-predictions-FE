@@ -275,9 +275,13 @@ export default function MakePredictions() {
         new_payload("surePredict", 400 , surePredict),
     ].filter(Boolean) //.filter(boolean) will automaticlly remove empty values and not send them
 
+    setTimeout(() => {
+      setMessages(null);
+    }, 1000);
+
     if(payload.length == 0)
         return(
-          setMessages("Select at leat one prediction before saving")
+          setMessages("Select at least one prediction before saving")
     );
 
     try {
@@ -302,6 +306,8 @@ export default function MakePredictions() {
       // if (res.ok){
         setMessages("Prediction Created successful ");
         reset_predictions();
+
+       
         // return;
       // }
         
@@ -681,7 +687,7 @@ export default function MakePredictions() {
                   </button>
                 </section>
                   {messages && (
-                    <p className="rounded-xl bg-white border border-[#1A365D] text-[#1A365D] px-3 py-2 w-fit">{messages}</p>
+                    <p className="rounded-xl bg-white border shadow-xl border-[#1A365D] text-[#1A365D] px-3 py-2 w-fit">{messages}</p>
                   )}
               </form>
 
