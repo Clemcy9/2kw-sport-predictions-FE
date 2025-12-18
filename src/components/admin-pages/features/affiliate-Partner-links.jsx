@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useState } from "react";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import { Link } from "react-router-dom";
@@ -5,36 +6,29 @@ import { Link } from "react-router-dom";
 
 export default function Affiliate_Partner_Links () {
 
-    const [item, setItems] = useState([
+    const [affiliateLinks, setAffiliateLinks] = useState([]);
 
+    const token = localStorage.getItem("authToken");
 
-   
-        {   id: 1,
-            type:"Footer",
-            location:"Default",
-            label:"Accurate Prediction",
-            url:"https://www.2kwpredict.com/",
-            status:"visible",
-        },
-        {   id: 2,
-            type:"Footer",
-            location:"Default",
-            label:"Accurate Prediction",
-            url:"https://www.2kwpredictand victorspredicy.com/",
-            status:"visible",
-        },
-        {   id: 3,
-            type:"Footer",
-            location:"Default",
-            label:"Accurate Prediction",
-            url:"https://www.2kwpredict.com/",
-            status:"visible",
-        }, 
-   ]);
+    useEffect(() => {
+        fetch("https://twokw-backend.onrender.com/api/v1/affiliatelinks", 
+            {
+                 headers: {
+                        Authorization: `Bearer ${token}`,
+                        "Content-Type": "application/json",
+                    },
+            }
+        )
+        .then((res) => res.json())
+        .then((data) =>{
+            console.log(data)
+            setAffiliateLinks(data.data);
+        });
+    }, [token]);
 
-    const handle_delete = (id) => {
-        setItems(del => del.filter(item => item.id !== id));
-    };
+    // const handle_delete = (id) => {
+    //     setItems(del => del.filter(item => item.id !== id));
+    // };
 
 
     return(
@@ -63,9 +57,9 @@ export default function Affiliate_Partner_Links () {
                                 </div>
                             </tr>
                         </thead>
-                 {item.map((items,index) => (
-                    <tbody key={items.id} className="w-full">
-                            <tr className="w-full">
+                 {affiliateLinks?.map((items,index) => (
+                    <tbody  className="w-full">
+                            <tr key={items.id} className="w-full">
                                <td>
                                  <div className="border-b-[#00000066] space-y-2 lg:space-y-2 lg:items-center   border-b w-full lg:w-auto flex lg:flex-row flex-col gap-4 lg:gap-22 lg:justify-between">
                                      <article className="px-4 lg:px-1 hidden lg:block">
