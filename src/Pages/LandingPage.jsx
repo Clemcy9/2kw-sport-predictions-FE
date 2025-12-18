@@ -24,8 +24,15 @@ export default function LandingPage() {
   const [error, setError] = useState(null);
   const [selectDays, setSelectDays] = useState("today");
 
+  const getDate = (day) => {
+    const date = new Date();
+    if (day === "yesterday") date.setDate(date.getDate() -1);
+    if (day === "tommorow") date.setDate(date.getDate() +1);
+    return date.toISOString().split("T")[0];
+  }
+
   /* --------------------------------------------
-     SHOW SCROLL-TO-TOP BUTTON
+    SHOW SCROLL-TO-TOP BUTTON
   --------------------------------------------- */
   useEffect(() => {
     const handleScroll = () => {
@@ -35,6 +42,10 @@ export default function LandingPage() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const date = getDate (selectDays);
+
+  console.log("date feature:",date)
 
   /* --------------------------------------------
      FETCH PREDICTION DATA BASED ON BET TYPE
@@ -46,7 +57,7 @@ export default function LandingPage() {
     // const url = `https://twokw-backend.onrender.com/api/v1/admin/predictions/odds?bet=${bet["id"]}&market_name=${bet["name"]}`;
     const url = `https://twokw-backend.onrender.com/api/v1/admin/predictions/odds?bet=${
       bet.id
-    }&market_name=${encodeURIComponent(bet.name)} &day=${selectDays}`;
+    }&market_name=${encodeURIComponent(bet.name)}&date=${date}`;
     // console.log("tips name", bet["name"]);
 
     setLoading(true);
@@ -63,11 +74,14 @@ export default function LandingPage() {
       .then((data) => {
         // Group predictions by league name
         const grouped = data?.data?.reduce((acc, pred) => {
-          const leagueName = pred.fixture.league.name;
+          const leagueName = pred?.fixture?.league?.name;
           if (!acc[leagueName]) acc[leagueName] = [];
           acc[leagueName].push(pred);
           return acc;
-        }, {});
+        }, {}) || {};
+
+        console.log("data or raw",data?.data);
+        console.log("grouped data:", grouped)
         // const groupedLogo = data?.data?.reduce((acc, pred) => {
         //   const leagueLogo = pred.fixture.league.logo;
         //   if (!acc[leagueLogo]) acc[leagueLogo] = [];

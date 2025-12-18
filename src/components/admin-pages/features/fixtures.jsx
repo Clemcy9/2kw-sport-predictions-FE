@@ -434,7 +434,7 @@ export default function MakePredictions() {
               placeholder="Select League"
               className="w-full appearance-none border border-[#737373] rounded-[0.3em] py-1 pl-4 pr-10 text-[#737373] focus:ring focus:ring-[#1A365D] focus:border-[#1A365D] outline-none bg-white"
             />
-            <button onClick={() => setDropdown()}>
+            <button>
               <ChevronUp
                 size={18}
                 className="absolute right-3 top-1/2 -translate-y-1/2 text-[#737373] pointer-events-none"
