@@ -3,15 +3,51 @@ import Navbar from "./shared/Navbar";
 import {TypeAnimation} from "react-type-animation"
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { FaFutbol, FaTelegramPlane } from "react-icons/fa";
+import { FaFutbol, FaSpinner, FaTelegramPlane } from "react-icons/fa";
 import detailsBg from "../assets/Hero-images/details-bg.jpg"
+import { useEffect, useState } from "react";
+import { FaTriangleExclamation } from "react-icons/fa6";
 
 export default function PredictionDetails() {
     const{state} = useLocation();
+    const[h2h, setH2h] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+
     const days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
     const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     const today =new Date ( state.timing_date)
     const recentDay = { dayName: `${days[today.getDay()]} ${today.getDate()} , ${months[today.getMonth()]} , ${today.getFullYear()}  ` };
+
+    const {
+        teamA_Id,
+        teamB_Id,
+        homeTeam,
+        awayTeam,
+    } = state || {};
+
+    useEffect(() => {
+        if (!teamA_Id || !teamB_Id) return;
+
+        const fetch_H2H = async () => {
+            try{
+                // setLoading(true);
+
+                const res = await fetch (`https://twokw-backend.onrender.com/api/v1/head2head?teamA_id=${teamA_Id}&teamB_id=${teamB_Id}`);
+                if(!res.ok) throw new Error("failed to fetch Head-To-Head");
+
+                const data = await res.json();
+                setH2h(data.data.response.slice(-5));
+                console.log("response",data.data.response)
+            }catch (err) {
+                setError(err.message);
+            }finally{
+                // setLoading(false);
+            }
+        };
+        fetch_H2H();
+    }, [teamA_Id, teamB_Id]);
 
     return (
        <main>
@@ -66,12 +102,13 @@ export default function PredictionDetails() {
                 
                     <section className="lg:p-14">
                       
+                      
 
                      <motion.div
                         initial={{ opacity: 0, y: 40 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7, ease: "easeOut" }}
-                        className="p-4"
+                        className="lg:p-4 p-2"
                     >
 
                         <div
@@ -167,10 +204,146 @@ export default function PredictionDetails() {
                                     </div>
                                 </div>
                             </section>
+
+                     
                         </div>
+
+                         <section className="mt-10">
+                          <div className="bg-[#1A365D] rounded-t-xl">
+                                <h3 className="text-white p-4">
+                                    HEAD TO HEAD HISTORY
+                                </h3>
+                            </div>
+               
+               {h2h.map((item, index) => (
+                 <div key={index}>
+                    <table className="w-full">
+                        <tbody>
+                            <tr className=" hover:bg-[#D6AE3E]/60 flex justify-between lg:text-lg text-sm items-center w-full lg:p-3 py-2">
+                                <td className="flex justify-center items-center text-[#4B5563]">
+                                    <img
+                                            src={item.league.logo}
+                                            alt={item.league.name}
+                                            className="w-6 h-6  rounded-full shadow-inner"
+                                        />
+                               
+                                    {new Date(item.fixture.date).toLocaleDateString()}
+                                </td>
+                                <td className="flex justify-center font-semibold items-center">
+                                    <img
+                                            src={item.teams.away.logo}
+                                            alt={item.teams.away.name}
+                                            className="w-6 h-6  rounded-full shadow-inner"
+                                        />
+                                    {item.teams.away.name.slice(0, 18)}
+                                </td>
+                                <td className="bg-[#D6AE3E] lg:max-w-36 max-w-18 w-full flex justify-between items-center text-white px-3 py-2 rounded-xl">
+                                    <span>
+                                        {item.score.fulltime.away}
+                                    </span>
+                                    :
+                                    <span>
+                                        {item.score.fulltime.home}
+                                    </span>
+                                </td>
+                                <td className="flex justify-center text-[#4B5563] items-center">
+                                    <img
+                                            src={item.teams.home.logo}
+                                            alt={item.teams.home.name}
+                                            className="w-6 h-6  rounded-full shadow-inner"
+                                        />
+                                    {item.teams.home.name.slice(0, 18)}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                          
+                </div>
+                
+               ))}
+
+                          <div className="bg-[#1A365D] rounded-t-xl">
+                                <h3 className="text-white p-4 uppercase">
+                                    {state.homeTeam} LAST 5 MATCHES
+                                </h3>
+                            </div>
+
+
+                {/* {h2h.map((items, index) => (
+                 <div key={index}>
+                    <table className="w-full">
+                        <tbody>
+                            <tr className=" hover:bg-[#D6AE3E]/60 flex justify-between lg:text-lg text-sm items-center w-full lg:p-3 py-2">
+                                <td className="flex justify-center items-center text-[#4B5563]">
+                                    <img
+                                            src={items.league.logo}
+                                            alt={items.league.name}
+                                            className="w-6 h-6  rounded-full shadow-inner"
+                                        />
+                               
+                                    {new Date(items.fixture.date).toLocaleDateString()}
+                                </td>
+                                <td className="flex justify-center font-semibold items-center">
+                                    <img
+                                            src={items.teams.away.logo}
+                                            alt={items.teams.away.name}
+                                            className="w-6 h-6  rounded-full shadow-inner"
+                                        />
+                                    {items.teams.away.name.slice(0, 18)}
+                                </td>
+                                <td className="bg-[#D6AE3E] lg:max-w-36 max-w-18 w-full flex justify-between items-center text-white px-3 py-2 rounded-xl">
+                                    <span>
+                                        {items.score.fulltime.away}
+                                    </span>
+                                    :
+                                    <span>
+                                        {items.score.fulltime.home}
+                                    </span>
+                                </td>
+                                <td className="flex justify-center text-[#4B5563] items-center">
+                                    <img
+                                            src={items.teams.home.logo}
+                                            alt={items.teams.home.name}
+                                            className="w-6 h-6  rounded-full shadow-inner"
+                                        />
+                                    {items.teams.home.name.slice(0, 18)}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                          
+                </div>
+                
+               ))} */}
+
+               <div className="bg-[#1A365D] rounded-t-xl mt-4">
+                                <h3 className="text-white p-4 uppercase">
+                                    {state.awayTeam} LAST 5 MATCHES
+                                </h3>
+                            </div>
+
+                </section> 
                 </motion.div>
-                    </section>
+                
+            </section>
             </>
        </main>
     );
 }
+
+
+
+
+
+
+{/* {loading && 
+                      <div className=" hover:shadow-lg text-[#1a365d] py-20 hover:bg-[#FFF7E0] group transition-all  border border-[#D6AE3E] flex justify-center items-center w-full rounded-[0.6rem] p-2"><span><FaSpinner className="animate-spin" /> </span> Loading Prediction...</div>
+                      }
+                      {error &&
+                       <div className="text-center justify-center items-center flex flex-col text-red-500 py-20  w-full rounded-xl"> {error} <FaTriangleExclamation className="text-red-600 animate-pulse" /></div>
+                      }
+                      {!loading && h2h.length == 0 && 
+                      <div className="text-center text-[#1a365d] py-20 flex justify-center items-center"> No Prediction Available <FaTriangleExclamation className="text-red-600 animate-pulse"/>...</div>
+                      } */}

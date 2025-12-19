@@ -30,15 +30,19 @@ export default function PremierLeagueCard({
   }
   const times = fixture.date;
   const date_time = fixture.date;
-  // console.log("all the league names",leagueNames);
 
   const predictions = {
     leagueTitile: leagueNames,
     leagueLogo: logo,
+
     homeLogo: teams.home.logo,
     homeTeam: teams.home.name,
+    teamA_Id: teams.home.id,
+
     awayLogo: teams.away.logo,
     awayTeam: teams.away.name,
+    teamB_Id: teams.away.id,
+
     leagueLogo: league.logo,
     timing: new Date(times).toLocaleTimeString([], {
       hour: "2-digit",
