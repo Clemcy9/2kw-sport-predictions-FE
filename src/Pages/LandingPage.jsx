@@ -22,7 +22,7 @@ export default function LandingPage() {
   const [open, setOpen] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [selectDays, setSelectDays] = useState("today");
+  const [selectDays, setSelectDays] = useState(new Date().toISOString().split("T")[0]);
 
   const getDate = (day) => {
     const date = new Date();
@@ -57,7 +57,7 @@ export default function LandingPage() {
     // const url = `https://twokw-backend.onrender.com/api/v1/admin/predictions/odds?bet=${bet["id"]}&market_name=${bet["name"]}`;
     const url = `https://twokw-backend.onrender.com/api/v1/admin/predictions/odds?bet=${
       bet.id
-    }&market_name=${encodeURIComponent(bet.name)}&date=${date}`;
+    }&market_name=${encodeURIComponent(bet.name)}&date=${selectDays}`;
     // console.log("tips name", bet["name"]);
 
     setLoading(true);

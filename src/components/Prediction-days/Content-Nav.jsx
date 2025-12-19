@@ -20,6 +20,15 @@ export default function ContentNavBar({ selectDays, setSelectDays }) {
     const days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
 
 
+    const getDate = (day) => {
+    const date = new Date();
+    if (day === "yesterday") date.setDate(date.getDate() -1);
+    if (day === "tommorow") date.setDate(date.getDate() +1);
+    return date.toISOString().split("T")[0];
+  }
+
+
+
 
 
     const navdays = [
@@ -45,7 +54,7 @@ export default function ContentNavBar({ selectDays, setSelectDays }) {
                     {navdays.map((content) => (
                         <div
                             key={content.name}
-                            onClick={() => setSelectDays(content.name.toLocaleLowerCase())}
+                            onClick={() => setSelectDays(getDate(content.name.toLocaleLowerCase()))}
                             className="flex-1 min-w-0"
                         >
                             <div

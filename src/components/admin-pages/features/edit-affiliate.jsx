@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 export default function Edit_Affiliate () {
 
     const [link_type,setLink_type] = useState("");
-    const [location, setLocation] = useState("");
+    // const [location, setLocation] = useState("");
     const [label, setLabel] = useState("");
     const [url, setUrl] = useState("");
     const [dropdown, setDropdown] = useState(null);
@@ -32,7 +32,7 @@ export default function Edit_Affiliate () {
     ];
     const reset_data = () => {
         setLabel("");
-        setLocation("");
+        // setLocation("");
         setUrl("");
        setLink_type("");
         setStatus("draft");
@@ -52,7 +52,7 @@ export default function Edit_Affiliate () {
                     Authorization: `Bearer ${token}`,
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({link_type, location, label, url, status: status.trim(),}),
+                body: JSON.stringify({link_type, label, url, status: status.trim(),}),
               }
             );
             const data = await res.json();
@@ -67,7 +67,7 @@ export default function Edit_Affiliate () {
             console.log("response after affiliate:", data)
 
             setLabel("");
-            setLocation("");
+            // setLocation("");
             setUrl("");
            setLink_type("");
            setStatus("draft");
@@ -125,10 +125,10 @@ export default function Edit_Affiliate () {
 
                     
                 
-                    <div className="flex flex-col py-3 w-full">
+                    {/* <div className="flex flex-col py-3 w-full">
                         <label className="py-2">Location</label>
                         <input value={location} required autoComplete="on" onChange={(e) => setLocation(e.target.value)} type="text" className="border border-[#00000066] p-2 rounded-xs" placeholder="Provide Page Slug Here" />
-                    </div>
+                    </div> */}
                 </div>
                 <div className="flex flex-col py-3"> 
                     <label className="py-2">Label</label>
