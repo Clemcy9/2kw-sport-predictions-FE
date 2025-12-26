@@ -42,15 +42,7 @@ export default function DummyBlog() {
             key={blog._id}
             className="group overflow-hidden bg-white cursor-pointer flex items-center justify-between flex-row lg:flex-col lg:gap-2 sm:flex-col lg:rounded-[0.5em] gap-1 rounded-[0.5em] hover:-translate-y-1 transition-all lg:w-auto w-full  shadow-sm h-[200px] lg:h-[380px]"
           >
-            {/* <div className="lg:w-full max-w-40 lg:max-w-full sm:max-w-full h-[150px] overflow-hidden relative w-full ">
-              <img
-                src={blog.image_url}
-                alt={blog.title}
-                className="group-hover:scale-110 group-active:scale-110 transition-transform duration-500 rounded-l-[0.5rem] h-full sm:h-52 w-full object-cover lg:rounded-bl-none lg:rounded-t-[0.4rem] sm:rounded-bl-none sm:rounded-t-[0.5rem]"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#111]/40 to-transparent"></div>
-            </div> */}
-            <div className="relative  w-[300px] md:w-full sm:w-full h-[200px] md:h-[210px] overflow-hidden">
+            <div className="relative min-w-[150px]  w-[150px] md:w-full sm:w-full h-[200px] md:h-[210px] overflow-hidden">
               <img
                 src={blog.image_url}
                 alt={blog.title}
