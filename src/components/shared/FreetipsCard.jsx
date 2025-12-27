@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 export default function FreeTips(props) {
   const location = useLocation();
   const navigate = useNavigate();
-  const [activePath, setActivePath] = useState("Home");
+  const [activePath, setActivePath] = useState("/");
 
   const [play, setPlay] = useState(true);
 
