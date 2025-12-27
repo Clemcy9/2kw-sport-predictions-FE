@@ -9,7 +9,7 @@ export default function DashBoard() {
 
 	const [isMobile, setMobile] = useState(false);
 	const [activeSlide, setActiveSlide] = useState(null);
-    
+
 	const [modal, setModal] = useState(null);
 	const [animation, setAnimation] = useState(null);
 
@@ -185,7 +185,7 @@ export default function DashBoard() {
 		<div className='p-4 lg:p-0 overflow-y-auto max-h-screen flex flex-col w-full'>
 			{/* Statistics Boxes */}
 			<div className='lg:flex lg:justify-center w-full my-5 space-y-4 lg:space-y-0 lg:my-10 grid grid-cols-1 grid-rows-2 lg:gap-24'>
-				<div className='col-span-2 w-full lg:p-4 p-6 bg-[#F3F8FF] text-[#1A365D] rounded-[0.4rem] lg:w-64'>
+				<div className='col-span-2 w-full lg:p-4 p-6 bg-[#F3F8FF] text-[#1A365D] rounded-[0.4rem] lg:w-72'>
 					<h2 className='text-xl font-extralight font-sans mb-4 flex justify-between lg:items-center gap-2'>
 						Total Predictions <FaArrowTrendUp className='text-[#D6AE3E]' />
 					</h2>
@@ -194,7 +194,7 @@ export default function DashBoard() {
 					</div>
 				</div>
 				<div className='flex gap-3 py-2 lg:py-0 lg:gap-24 justify-between lg:justify-center'>
-					<div className='lg:mr-1 lg:p-4 p-3 bg-[#F3F8FF] text-[#1A365D] rounded-[0.4rem] lg:w-64 w-full'>
+					<div className='lg:mr-1 lg:p-4 p-3 bg-[#F3F8FF] text-[#1A365D] rounded-[0.4rem] lg:w-72 w-full'>
 						<h2 className='text-xl font-extralight font-sans mb-4 flex justify-between items-center gap-2'>
 							Accuracy Rate
 							<span className='w-6 h-6 border-2 border-[#D6AE3E]'>
@@ -205,7 +205,7 @@ export default function DashBoard() {
 							<motion.span>{statistics2}</motion.span>
 						</div>
 					</div>
-					<div className='lg:ml-1 lg:p-4 p-3 bg-[#F3F8FF] text-[#1A365D] rounded-[0.4rem] lg:w-64 w-full'>
+					<div className='lg:ml-1 lg:p-4 p-3 bg-[#F3F8FF] text-[#1A365D] rounded-[0.4rem] lg:w-72 w-full'>
 						<h2 className='text-xl font-extralight font-sans mb-4 flex justify-between items-center gap-2'>
 							Active Users <FaUser className='text-[#D6AE3E]' />
 						</h2>
@@ -292,7 +292,6 @@ export default function DashBoard() {
 												{item.fixture.league.name}
 											</td>
 
-											
 											<td className='py-1 flex justify-start items-center font-sans text-lg text-black lg:w-48'>
 												<img
 													className='w-5 h-5 mr-1'
@@ -302,7 +301,6 @@ export default function DashBoard() {
 												{item.fixture.teams.away.name}
 											</td>
 
-											
 											<td className='py-1 flex justify-start items-center font-sans text-lg text-black lg:w-48'>
 												<img
 													className='w-5 h-5 mr-1'
@@ -325,12 +323,10 @@ export default function DashBoard() {
 												)}
 											</td>
 
-											
 											<td className='py-1 text-right lg:text-center lg:w-16'>
 												{item.bets[0].values[0].odd}
 											</td>
 
-											
 											<td className='py-1 text-right lg:text-center lg:w-16'>
 												{item.bets[0].values[0].percentage}
 											</td>
@@ -400,20 +396,18 @@ export default function DashBoard() {
 							className='flex items-center justify-center'>
 							<AiOutlineCheckCircle className='w-20 h-20 rounded-full bg-[#059D3F] text-white drop-shadow-[0_0_10px_rgba(34,197,94,0.6)]' />
 						</motion.div>
-                       
-                         <motion.h3
-                        
-                                                key="mode"
-                                                initial={{ opacity: 0, y: 10 }}
-                                                animate={{ opacity: 0.8, y: 0 }}
-                                                transition={{
-                                                    delay: 0.5,
-                                                    duration: 0.5,
-                                                }}
-                                                className=" text-[20px] font-[sora] font-normal text-white"
-                                            >
-                                                 Deleted Successfully
-                                            </motion.h3>
+
+						<motion.h3
+							key='mode'
+							initial={{ opacity: 0, y: 10 }}
+							animate={{ opacity: 0.8, y: 0 }}
+							transition={{
+								delay: 0.5,
+								duration: 0.5,
+							}}
+							className=' text-[20px] font-[sora] font-normal text-white'>
+							Deleted Successfully
+						</motion.h3>
 					</motion.div>
 				)}
 			</div>
