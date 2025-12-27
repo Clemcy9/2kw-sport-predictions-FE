@@ -279,7 +279,7 @@ export default function PredictionDetails() {
 										<div key={index}>
 											<section className='w-full'>
 												
-													<div className=' hover:bg-[#D6AE3E]/60 grid grid-cols-14 gap-6 lg:text-lg text-sm items-center w-full lg:p-3 py-2'>
+													<div className=' hover:bg-[#D6AE3E]/60 grid grid-cols-15 gap-4 lg:text-lg text-sm items-center w-full lg:p-3 py-2'>
 														<div className='flex col-span-4 justify-center gap-2 items-center text-[#4B5563]'>
 															<img
 																src={item.league.logo}
@@ -297,7 +297,7 @@ export default function PredictionDetails() {
 															/>
 															{item.teams.away.name.slice(0, 18)}
 														</div>
-														<div className='bg-[#D6AE3E] col-span-2 lg:max-w-36 max-w-18 w-full flex justify-between items-center text-white px-3 py-2 rounded-xl'>
+														<div className='bg-[#D6AE3E] col-span-3  w-full flex justify-between items-center text-white px-3 py-2 rounded-xl'>
 															<span>{item.score.fulltime.away}</span>:
 															<span>{item.score.fulltime.home}</span>
 														</div>
