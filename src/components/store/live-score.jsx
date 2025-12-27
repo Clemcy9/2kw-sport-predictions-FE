@@ -14,37 +14,55 @@ export default function LIve_Scores () {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    useEffect(() => {
-        // try {
-            fetch("https://twokw-backend.onrender.com/api/v1/football/livescores")
-                .then((res) => res.json())
-                .then((data) => {
+   useEffect(() => {
+  const CACHE_KEY = "live_scores_session";
+  const CACHE_TIME = 60 * 1000; // 1 minute
 
-                    const grouped = data?.data?.response?.reduce((acc, item) => {
-                        const leagueName = item.league.name;
+  const cached = sessionStorage.getItem(CACHE_KEY);
 
-                        if (!acc[leagueName]){
-                            acc[leagueName] = [];
-                        }
-                        acc[leagueName].push(item);
-                        return acc;
-                    }, {});
+  if (cached) {
+    const parsed = JSON.parse(cached);
 
-                    setLoading(false)
-                    setPredictions(grouped || {});
-                    console.log("Api data for live-scores:", data);
-                    console.log("API LIVE_SCORES from predictions::", predictions);
-                })
-                .catch ((err) => {
-                    console.error("error from live scores:", err);
-                    setError("Unable To Load Live-Scores, Connect To A Network And Try Again");
-                    setLoading(false);
-                }); 
+    
+    setPredictions(parsed.data);
+    setLoading(false);
 
+    
+    if (Date.now() - parsed.timestamp < CACHE_TIME) {
+      return;
+    }
+  }
 
-            console.log("error handle:", error)
-        // }
-    }, [data]);
+ 
+  fetch("https://twokw-backend.onrender.com/api/v1/football/livescores")
+    .then((res) => res.json())
+    .then((data) => {
+      const grouped = data?.data?.response?.reduce((acc, item) => {
+        const leagueName = item.league.name;
+
+        if (!acc[leagueName]) acc[leagueName] = [];
+        acc[leagueName].push(item);
+        return acc;
+      }, {});
+      
+      setPredictions(grouped || {});
+      setLoading(false);
+
+      
+      sessionStorage.setItem(
+        CACHE_KEY,
+        JSON.stringify({
+          data: grouped || {},
+          timestamp: Date.now(),
+        })
+      );
+    })
+    .catch((err) => {
+      console.error("Live-scores error:", err);
+      setError("Unable To Load Live-Scores, Check Your Network");
+      setLoading(false);
+    });
+}, []);
 
     return (
         <main >
