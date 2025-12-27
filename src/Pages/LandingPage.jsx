@@ -25,7 +25,7 @@ export default function LandingPage() {
   const [selectDays, setSelectDays] = useState(new Date().toISOString().split("T")[0]);
 
   const getDate = (day) => {
-    const date = new Date();
+    const date = new Date(selectDays);
     if (day === "yesterday") date.setDate(date.getDate() -1);
     if (day === "tommorow") date.setDate(date.getDate() +1);
     return date.toISOString().split("T")[0];
@@ -43,14 +43,37 @@ export default function LandingPage() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const date = getDate (selectDays);
+  // const date = getDate (selectDays);
 
-  console.log("date feature:",date)
+  console.log("date feature:",selectDays)
 
   /* --------------------------------------------
      FETCH PREDICTION DATA BASED ON BET TYPE
   --------------------------------------------- */
   useEffect(() => {
+
+     if (!bet || !selectDays) return;
+
+    //  setting catched data
+  const CACHE_KEY = `predictions_${bet.id}_${encodeURIComponent(bet.name)}_${selectDays}`;
+  const CACHE_TIME = 2 * 60 * 1000; // 2 minutes cache
+
+  const cached = sessionStorage.getItem(CACHE_KEY);
+
+  // load cached data onload
+  if (cached) {
+    const parsed = JSON.parse(cached);
+    setPrediction(parsed.data);
+    setOpen(parsed.openState);
+    setLoading(false);
+
+    // If cache is still fresh, skip network request
+    if (Date.now() - parsed.timestamp < CACHE_TIME) return;
+  } else {
+    setLoading(true);
+    setError(null);
+  }
+  
     // const url = `https://twokw-backend.onrender.com/api/v1/admin/predictions/odds?bet=${bet["id"]}`;
     // const url = `http://localhost:5000/api/v1/admin/predictions/odds?bet=${bet["id"]}`;
     // const url = `http://localhost:5000/api/v1/admin/predictions/odds?bet=${bet.id}&market_name=${encodeURIComponent(bet.name)}`;
@@ -59,6 +82,7 @@ export default function LandingPage() {
       bet.id
     }&market_name=${encodeURIComponent(bet.name)}&date=${selectDays}`;
     // console.log("tips name", bet["name"]);
+    
 
     setLoading(true);
     setError(null);
@@ -101,6 +125,16 @@ export default function LandingPage() {
         setOpen(defaultOpenState);
         setPrediction(grouped || {});
         setLoading(false);
+
+        // saving to session storage
+              sessionStorage.setItem(
+        CACHE_KEY,
+        JSON.stringify({
+          data: grouped,
+          openState: defaultOpenState,
+          timestamp: Date.now(),
+        })
+      );
       })
       .catch((err) => {
         console.error("error While fetching predictions:", err);

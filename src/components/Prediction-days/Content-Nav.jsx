@@ -1,76 +1,50 @@
-// import { motion } from "framer-motion";
-// import { useNavigate } from "react-router-dom";
-
-import { useNavigate } from "react-router-dom";
-
-
-// available predictions days and date
-
-
 export default function ContentNavBar({ selectDays, setSelectDays }) {
+  const today = new Date();
+  const yesterday = new Date();
+  yesterday.setDate(today.getDate() - 1);
+  const tomorrow = new Date();
+  tomorrow.setDate(today.getDate() + 1);
 
-    const today = new Date();
+  const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-    const yesterday = new Date();
-    yesterday.setDate(yesterday.getDate() - 1);
-
-    const tommorow = new Date();
-    tommorow.setDate(tommorow.getDate() + 1);
-
-    const days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
-
-
-    const getDate = (day) => {
+  // Returns YYYY-MM-DD for given day type
+  const getDate = (day) => {
     const date = new Date();
-    if (day === "yesterday") date.setDate(date.getDate() -1);
-    if (day === "tommorow") date.setDate(date.getDate() +1);
+    if (day === "yesterday") date.setDate(date.getDate() - 1);
+    if (day === "tomorrow") date.setDate(date.getDate() + 1);
     return date.toISOString().split("T")[0];
-  }
+  };
 
+  const navdays = [
+    { name: "Yesterday", day: `${days[yesterday.getDay()]} ${yesterday.getDate()}`, key: "yesterday" },
+    { name: "Today", day: `${days[today.getDay()]} ${today.getDate()}`, key: "today" },
+    { name: "Tomorrow", day: `${days[tomorrow.getDay()]} ${tomorrow.getDate()}`, key: "tomorrow" },
+  ];
 
-
-
-
-    const navdays = [
-        { name: "Yesterday", day: `${days[yesterday.getDay()]} ${yesterday.getDate()}` },
-        { name: "Today", day: `${days[today.getDay()]} ${today.getDate()}` },
-        { name: "Tommorow", day: `${days[tommorow.getDay()]} ${tommorow.getDate()}` },
-    ]
-
-    const navigate = useNavigate();
-
-    // const handleDaysClick = (available) => {
-    //     const daysPath = `/navdays/${available.toLowerCase().replace(/\s+/g, "-")}`;
-    //     navigate(daysPath);
-    // };
-    // console.log( navDays);
-
-
-    return(
-
-        <div className="lg:flex flex items-center justify-center flex-col w-full ">
-            <div className="w-full max-w-[420px]  flex justify-center">
-                <nav className="flex justify-between items-center gap-4 w-full">
-                    {navdays.map((content) => (
-                        <div
-                            key={content.name}
-                            onClick={() => setSelectDays(getDate(content.name.toLocaleLowerCase()))}
-                            className="flex-1 min-w-0"
-                        >
-                            <div
-                                className={`rounded-[0.6rem]   border border-[#D6AE3E] text-[#1A365D] hover:shadow-lg hover:scale-105 flex flex-col items-center justify-center text-center px-[0.6rem] py-[0.7rem] lg:px-3 lg:py-3 font-sans font-semibold transition-all duration-200  ${selectDays === content.name.toLocaleLowerCase() ? "text-white bg-[#1A365D]" : "hover:bg-[#D6AE3E] hover:text-white"}`}
-                            >
-                                <h2 className="text-[0.75rem] lg:text-[0.9rem] leading-tight uppercase">
-                                    {content.name}
-                                </h2>
-                                <h4 className="text-[0.7rem] lg:text-[0.85rem] leading-tight">
-                                    {content.day}
-                                </h4>
-                            </div>
-                        </div>
-                    ))}
-                </nav>
+  return (
+    <div className="lg:flex flex items-center justify-center flex-col w-full">
+      <div className="w-full max-w-[420px] flex justify-center">
+        <nav className="flex justify-between items-center gap-4 w-full">
+          {navdays.map((content) => (
+            <div
+              key={content.name}
+              onClick={() => setSelectDays(getDate(content.key))}
+              className="flex-1 min-w-0"
+            >
+              <div
+                className={`rounded-[0.6rem] border border-[#D6AE3E] text-[#1A365D] hover:shadow-lg hover:scale-105 flex flex-col items-center justify-center text-center px-[0.6rem] py-[0.7rem] lg:px-3 lg:py-3 font-sans font-semibold transition-all duration-200 ${
+                  selectDays === getDate(content.key)
+                    ? "text-white bg-[#1A365D]"
+                    : "hover:bg-[#D6AE3E] hover:text-white"
+                }`}
+              >
+                <h2 className="text-[0.75rem] lg:text-[0.9rem] leading-tight uppercase">{content.name}</h2>
+                <h4 className="text-[0.7rem] lg:text-[0.85rem] leading-tight">{content.day}</h4>
+              </div>
             </div>
-        </div>
-    );
+          ))}
+        </nav>
+      </div>
+    </div>
+  );
 }
