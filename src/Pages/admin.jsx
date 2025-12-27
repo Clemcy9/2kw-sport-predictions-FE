@@ -4,7 +4,7 @@ import Sidebar from "../components/admin-pages/layout/sidebar";
 import { Outlet } from "react-router-dom";
 import { useEffect } from "react";
 
-export default function AdminDashboard() {
+export default function AdminLayout() {
 
     useEffect(() => {
            window.history.pushState(null, "", window.location.href);

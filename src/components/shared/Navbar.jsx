@@ -2,6 +2,9 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Menu, X, ChevronDown, ChevronUp } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { hasAccount, isLoggedIn } from "../auth-system/auth";
+
+
 
 export default function Navbar() {
     const [open, setOpen] = useState(false);
@@ -9,6 +12,18 @@ export default function Navbar() {
     const [showTag, setShowTag] = useState(false);
     const navigation = useNavigate();
     const tag = localStorage.getItem("headerTag") || "No Links";
+
+    const handleAdminClick = () => {
+  if (isLoggedIn()) {
+    navigation("/admin");
+  } else if (hasAccount()) {
+    navigation("/sign-in");
+  } else {
+    navigation("/sign-up");
+  }
+};
+
+const loggedin = isLoggedIn();
 
     const navLinks = [
         { title: "Home", path: "/" },
@@ -35,9 +50,28 @@ export default function Navbar() {
         },
         { title: "Blog", path: "/blog" },
         { title: "Links" },
-        { title: "Admin", path: "/sign-up" },
+        loggedin 
+        ?
+        { title: "Dashboard", path: "/admin" }:
+        { title: "Admin", action: handleAdminClick },
 
     ];
+
+    const handleNavClick = (link) => {
+  // If the link has an action (Admin)
+  if (link.action) {
+    link.action();
+    setOpen(false);
+    return;
+  }
+
+  // Normal navigation
+  if (link.path) {
+    navigation(link.path);
+    setOpen(false);
+  }
+};
+
     return (
         <header className="bg-[#1A365D] fixed top-0 w-full z-50 shadow-sm backdrop-blur-md mb-6">
             <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
@@ -107,8 +141,9 @@ export default function Navbar() {
                                             if (link.title === "Links"){
                                                 setShowTag(!showTag);
                                             } else {
-                                                navigation(link.path);
-                                                setOpen(false);
+                                                // navigation(link.path);
+                                                // setOpen(false);
+                                                handleNavClick(link);
                                             }
                                         }}
                                             className="text-gray-50 transition hover:text-[#D6AE3E] cursor-pointer text-shadow-lg"
@@ -209,8 +244,9 @@ export default function Navbar() {
                                                 if (link.title === "Links") {
                                                     setShowTag(!showTag);
                                                 }else {
-                                                    navigation(link.path);
-                                                    setOpen(false);
+                                                    // navigation(link.path);
+                                                    // setOpen(false);
+                                                    handleNavClick(link)
                                                 }
                                             }}
                                             className="text-gray-50"

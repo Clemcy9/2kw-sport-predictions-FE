@@ -91,14 +91,8 @@ export default function Predictions() {
 		const CACHE_KEY = "predictions_manager_Cache";
 		setError(null);
 
-		// 1️⃣ Load cache first (fast UI)
-		const cached = sessionStorage.getItem(CACHE_KEY);
-		if (cached) {
-			setPrediction(JSON.parse(cached));
-			setLoading(false);
-		}
 
-		// 2️⃣ Always fetch fresh data
+		
 		fetch("https://twokw-backend.onrender.com/api/v1/admin/predictions", {
 			headers: {
 				Authorization: `Bearer ${token}`,

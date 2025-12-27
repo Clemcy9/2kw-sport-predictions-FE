@@ -59,15 +59,18 @@ export default function SignIn () {
             localStorage.setItem("authToken", data.token);
 
             if(res.ok) {
-                localStorage.setItem("isLOggedIn", "true");
+                localStorage.setItem("isLoggedIn", "true");
                 localStorage.setItem("userEmail", email);
+                localStorage.setItem("authToken", data.token);
+  localStorage.setItem("hasAccount", "true");
+
+  navigate("/admin", { replace: true });
             }else {
                 setError(data.msg || "Login Failed");
                 setLoading(false);
             }
 
             setError("sign-In successful");
-            navigate("/login-complete", { replace: true });
             setEmail("");
             setpassword("");
         }catch (err) {

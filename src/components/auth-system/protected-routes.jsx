@@ -1,10 +1,11 @@
 import { Navigate } from "react-router-dom";
+import { isLoggedIn } from "./auth";
 
 export default function ProtectedRoute({children}) {
-    const isLOggedIn = localStorage.getItem("isLogged in");
+   
 
 
-    if(!isLOggedIn) {
+    if(!isLoggedIn()) {
         return <Navigate  to="/sign-in" replace />;
     }
 

@@ -66,7 +66,7 @@ export default function SignUp () {
                 setError(data.msg || "SignUp Failed");
             }
 
-            // seterror(data.error || "Account Created Successfully");
+            
 
             localStorage.setItem("name", JSON.stringify(name));
             localStorage.setItem("authToken", data.token);
@@ -77,6 +77,7 @@ export default function SignUp () {
             console.error(data.msg);
             setError(data.msg);
         }finally{
+            localStorage.setItem("hasAccount", "true");
             setLoading(false)
             setError("sign-Up successful");
             navigate("/sign-in", { replace: true });
