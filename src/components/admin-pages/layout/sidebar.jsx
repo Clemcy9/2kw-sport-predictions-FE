@@ -173,7 +173,7 @@ export default function Sidebar() {
       {modal && (
 					<section
 						onClick={() => setModal(null)}
-						className='fixed  inset-0 z-50 flex items-center justify-center bg-[#1A365D]/40'>
+						className=' absolute inset-0 z-50 flex items-center justify-center bg-[#1A365D]/40'>
 						<div
 							onClick={(e) => e.stopPropagation()}
 							className=' w-[90%] max-w-sm flex justify-center space-y-6 items-center flex-col bg-white shadow-xl px-4 py-3 '>

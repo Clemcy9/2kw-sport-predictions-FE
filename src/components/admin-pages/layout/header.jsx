@@ -20,18 +20,19 @@ export default function AdminHeader() {
     const navigation = useNavigate();
     const [isOpen, setIsOpen] = useState(false);
     const [openDropdown, setOpenDropdown] = useState(null);
+ const [modal, setModal] = useState(null);
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const logout = () => {
-        localStorage.removeItem("authToken");
-        localStorage.removeItem("isLoggedIn");
-    };
+ const logout = () => {
+  localStorage.removeItem("authToken");
+  localStorage.removeItem("isLoggedIn");
+ };
 
-    const handle_logout = () => {
-        logout();
-        navigate("/sign-in", { replace: true });
-    };
+ const handle_logout = () => {
+  logout();
+   navigate("/sign-in", { replace: true });
+ };
 
     useEffect(() => {
         if (isOpen) {
@@ -207,18 +208,46 @@ export default function AdminHeader() {
                                         </div>
                                     ))}
 
-                                    <div className="mt-3">
+                                    <div className="mt-3 w-full">
                                         {lastMenu.map((item, index) => (
                                             <button 
                                                 key={index}
                                                 // to={item.path}
-                                                onClick={ handle_logout}
-                                                className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#fff] hover:text-[#1A3761] transition"
+                                                onClick={() => setModal(true)}
+                                                className="flex items-center gap-3 px-3 py-2 rounded-lg w-full hover:bg-[#fff] hover:text-[#1A3761] transition"
                                             >
                                                 {item.icon}
                                                 <span>{item.title}</span>
                                             </button >
                                         ))}
+
+                                        {modal && (
+					<section
+						onClick={() => {setModal(null); setIsOpen(false);}}
+						className='fixed inset-0 z-50 flex items-center justify-center bg-[#1A365D]/40'>
+						<div
+							onClick={(e) => e.stopPropagation()}
+							className=' w-[90%] max-w-sm flex justify-center space-y-6 items-center flex-col bg-white shadow-xl px-4 py-3 '>
+							<h3 className='text-[#1a365d] font-semibold'>
+								Are You Sure You Want To Log-Out
+							</h3>
+							
+							<div className='flex gap-3 py-4 justify-center items-center'>
+								<button
+									onClick={handle_logout}
+									className='bg-[#1A365D] flex items-center gap-2 px-4 py-2 text-white'>
+                                   <FaSignOutAlt />
+									Log-Out
+								</button>
+								<button
+									onClick={() => setModal(null)}
+									className='text-[#1A365D] px-4 py-2 bg-white border border-[#1A365D] rounded-xs'>
+									Cancel
+								</button>
+							</div>
+						</div>
+					</section>
+				)} 
                                     </div>
 
                                     <h1 className="lg:hidden sm:py-8 py-4 font-serif text-white px-3 lg:text-2xl text-[18px] flex items-start  flex-col">
@@ -234,7 +263,10 @@ export default function AdminHeader() {
                     </div>
 
                 </div>
-           </div>       
+
+           </div> 
+
+                
         </header>
     );
 }
