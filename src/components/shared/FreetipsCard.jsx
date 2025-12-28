@@ -21,14 +21,14 @@ export default function FreeTips(props) {
   }, []);
 
 
-//   useEffect(() => {
-//   // Find the Home Win button
-//   const homeTip = tipsLink.find((tip) => tip.name === "Home");
-//   if (homeTip) {
-//     props.setBet({ id: homeTip.id, name: homeTip.name });
-//     setActivePath(homeTip.path); // mark as active
-//   }
-// }, []);
+  useEffect(() => {
+  // Find the Home Win button
+  const homeTip = tipsLink.find((tip) => tip.name === "Home");
+  if (homeTip) {
+    props.setBet({ id: homeTip.id, name: homeTip.name });
+    setActivePath(homeTip.path); // mark as active
+  }
+}, []);
 
 
   const tipsLink = [

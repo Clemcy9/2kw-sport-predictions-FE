@@ -17,11 +17,11 @@ import { FaTriangleExclamation } from "react-icons/fa6";
 import Scroll_To_Top from "../components/animations/scroll-arrow";
 
 
-const getISODate = (offset = 0) => {
-  const d = new Date();
-  d.setDate(d.getDate() + offset);
-  return d.toISOString().split("T")[0];
-};
+// const getISODate = (offset = 0) => {
+//   const d = new Date();
+//   d.setDate(d.getDate() + offset);
+//   return d.toISOString().split("T")[0];
+// };
 
 export default function LandingPage() {
   // const [visible, setVisible] = useState(false);
@@ -39,49 +39,49 @@ export default function LandingPage() {
     return date.toISOString().split("T")[0];
   }
 
-  // pre fetching the yesterday and tommorows fixtures for instant loading
-    const prefetchPredictions = async (date) => {
-    const CACHE_KEY = `predictions_${bet.id}_${encodeURIComponent(
-      bet.name
-    )}_${date}`;
+  // // pre fetching the yesterday and tommorows fixtures for instant loading
+  //   const prefetchPredictions = async (date) => {
+  //   const CACHE_KEY = `predictions_${bet.id}_${encodeURIComponent(
+  //     bet.name
+  //   )}_${date}`;
 
-    if (sessionStorage.getItem(CACHE_KEY)) return;
+  //   if (sessionStorage.getItem(CACHE_KEY)) return;
 
-    try {
-      const res = await fetch(
-        `https://twokw-backend.onrender.com/api/v1/admin/predictions/odds?bet=${
-          bet.id
-        }&market_name=${encodeURIComponent(bet.name)}&odd_date=${date}`
-      );
+  //   try {
+  //     const res = await fetch(
+  //       `https://twokw-backend.onrender.com/api/v1/admin/predictions/odds?bet=${
+  //         bet.id
+  //       }&market_name=${encodeURIComponent(bet.name)}&odd_date=${date}`
+  //     );
 
-      if (!res.ok) return;
+  //     if (!res.ok) return;
 
-      const data = await res.json();
+  //     const data = await res.json();
 
-      const grouped =
-        data?.data?.reduce((acc, pred) => {
-          const league = pred?.fixture?.league?.name || "Others";
-          if (!acc[league]) acc[league] = [];
-          acc[league].push(pred);
-          return acc;
-        }, {}) || {};
+  //     const grouped =
+  //       data?.data?.reduce((acc, pred) => {
+  //         const league = pred?.fixture?.league?.name || "Others";
+  //         if (!acc[league]) acc[league] = [];
+  //         acc[league].push(pred);
+  //         return acc;
+  //       }, {}) || {};
 
-      const openState = Object.fromEntries(
-        Object.keys(grouped).map((k) => [k, true])
-      );
+  //     const openState = Object.fromEntries(
+  //       Object.keys(grouped).map((k) => [k, true])
+  //     );
 
-      sessionStorage.setItem(
-        CACHE_KEY,
-        JSON.stringify({
-          data: grouped,
-          openState,
-          timestamp: Date.now(),
-        })
-      );
-    } catch {
-      // silent background fail
-    }
-  };
+  //     sessionStorage.setItem(
+  //       CACHE_KEY,
+  //       JSON.stringify({
+  //         data: grouped,
+  //         openState,
+  //         timestamp: Date.now(),
+  //       })
+  //     );
+  //   } catch {
+  //     // silent background fail
+  //   }
+  // };
 
   // /* --------------------------------------------
   //   SHOW SCROLL-TO-TOP BUTTON
@@ -103,14 +103,14 @@ export default function LandingPage() {
      FETCH PREDICTION DATA BASED ON BET TYPE
   --------------------------------------------- */
 
-  useEffect(() => {
-  // Default bet: Home Win
-  setBet({ id: 1, name: "Home" });
-}, []);
+//   useEffect(() => {
+//   // Default bet: Home Win
+//   setBet({ id: 1, name: "Home" });
+// }, []);
 
   useEffect(() => {
 
-     if (!bet?.id || !bet?.name || !selectDays) return;
+     if (!bet || !selectDays) return;
 
 
     //  setting catched data
@@ -203,8 +203,8 @@ export default function LandingPage() {
         setLoading(false);
         setPrediction({});
       });
-       prefetchPredictions(getISODate(-1)); 
-       prefetchPredictions(getISODate(1));
+      //  prefetchPredictions(getISODate(-1)); 
+      //  prefetchPredictions(getISODate(1));
   }, [bet, selectDays]);
 
   return (
