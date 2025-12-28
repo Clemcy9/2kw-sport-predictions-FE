@@ -33,7 +33,7 @@ export default function PremierLeagueCard({
 
   const predictions = {
     leagueTitile: leagueNames,
-    leagueLogo: logo,
+    
 
     homeLogo: teams.home.logo,
     homeTeam: teams.home.name,
