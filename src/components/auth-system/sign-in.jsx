@@ -62,9 +62,10 @@ export default function SignIn () {
                 localStorage.setItem("isLoggedIn", "true");
                 localStorage.setItem("userEmail", email);
                 localStorage.setItem("authToken", data.token);
-  localStorage.setItem("hasAccount", "true");
+                localStorage.setItem("hasAccount", "true");
+                sessionStorage.setItem("justLoggedIn", "true");
 
-  navigate("/admin", { replace: true });
+            navigate("/admin", { replace: true });
             }else {
                 setError(data.msg || "Login Failed");
                 setLoading(false);

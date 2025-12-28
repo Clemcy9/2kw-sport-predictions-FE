@@ -14,9 +14,17 @@ import PremierLeagueCard from "../components/store/Premier-league";
 import { Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { FaTriangleExclamation } from "react-icons/fa6";
+import Scroll_To_Top from "../components/animations/scroll-arrow";
+
+
+const getISODate = (offset = 0) => {
+  const d = new Date();
+  d.setDate(d.getDate() + offset);
+  return d.toISOString().split("T")[0];
+};
 
 export default function LandingPage() {
-  const [visible, setVisible] = useState(false);
+  // const [visible, setVisible] = useState(false);
   const [bet, setBet] = useState({});
   const [prediction, setPrediction] = useState({});
   const [open, setOpen] = useState({});
@@ -31,28 +39,79 @@ export default function LandingPage() {
     return date.toISOString().split("T")[0];
   }
 
-  /* --------------------------------------------
-    SHOW SCROLL-TO-TOP BUTTON
-  --------------------------------------------- */
-  useEffect(() => {
-    const handleScroll = () => {
-      setVisible(window.scrollY > window.innerHeight / 2);
-    };
+  // pre fetching the yesterday and tommorows fixtures for instant loading
+    const prefetchPredictions = async (date) => {
+    const CACHE_KEY = `predictions_${bet.id}_${encodeURIComponent(
+      bet.name
+    )}_${date}`;
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    if (sessionStorage.getItem(CACHE_KEY)) return;
 
-  // const date = getDate (selectDays);
+    try {
+      const res = await fetch(
+        `https://twokw-backend.onrender.com/api/v1/admin/predictions/odds?bet=${
+          bet.id
+        }&market_name=${encodeURIComponent(bet.name)}&odd_date=${date}`
+      );
+
+      if (!res.ok) return;
+
+      const data = await res.json();
+
+      const grouped =
+        data?.data?.reduce((acc, pred) => {
+          const league = pred?.fixture?.league?.name || "Others";
+          if (!acc[league]) acc[league] = [];
+          acc[league].push(pred);
+          return acc;
+        }, {}) || {};
+
+      const openState = Object.fromEntries(
+        Object.keys(grouped).map((k) => [k, true])
+      );
+
+      sessionStorage.setItem(
+        CACHE_KEY,
+        JSON.stringify({
+          data: grouped,
+          openState,
+          timestamp: Date.now(),
+        })
+      );
+    } catch {
+      // silent background fail
+    }
+  };
+
+  // /* --------------------------------------------
+  //   SHOW SCROLL-TO-TOP BUTTON
+  // --------------------------------------------- */
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     setVisible(window.scrollY > window.innerHeight / 2);
+  //   };
+
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, []);
+
+  const date = getDate (selectDays);
 
   console.log("date feature:",selectDays)
 
   /* --------------------------------------------
      FETCH PREDICTION DATA BASED ON BET TYPE
   --------------------------------------------- */
+
+  useEffect(() => {
+  // Default bet: Home Win
+  setBet({ id: 1, name: "Home" });
+}, []);
+
   useEffect(() => {
 
-     if (!bet || !selectDays) return;
+     if (!bet?.id || !bet?.name || !selectDays) return;
+
 
     //  setting catched data
   const CACHE_KEY = `predictions_${bet.id}_${encodeURIComponent(bet.name)}_${selectDays}`;
@@ -80,7 +139,7 @@ export default function LandingPage() {
     // const url = `https://twokw-backend.onrender.com/api/v1/admin/predictions/odds?bet=${bet["id"]}&market_name=${bet["name"]}`;
     const url = `https://twokw-backend.onrender.com/api/v1/admin/predictions/odds?bet=${
       bet.id
-    }&market_name=${encodeURIComponent(bet.name)}&date=${selectDays}`;
+    }&market_name=${encodeURIComponent(bet.name)}&odd_date=${selectDays}`;
     // console.log("tips name", bet["name"]);
     
 
@@ -144,6 +203,8 @@ export default function LandingPage() {
         setLoading(false);
         setPrediction({});
       });
+       prefetchPredictions(getISODate(-1)); 
+       prefetchPredictions(getISODate(1));
   }, [bet, selectDays]);
 
   return (
@@ -152,17 +213,17 @@ export default function LandingPage() {
       <HeroSection />
 
       {/* SCROLL TO TOP BUTTON */}
-      {visible && (
+      {/* {visible && (
         <motion.div
           initial={{ opacity: 0, y: -5 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.25 }}
           className="fixed bottom-6 right-6 border border-[#D6AE3E] hover:scale-95 transition-all bg-[#1A365D] rounded-full h-10 w-10 flex justify-center items-center text-[#D6AE3E] z-50 cursor-pointer"
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        >
-          <FiArrowUp className="text-xl font-bold" />
-        </motion.div>
-      )}
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} */}
+        {/* > */}
+          <Scroll_To_Top />
+        {/* </motion.div>
+      )} */}
 
       <motion.div
         initial={{ opacity: 0.5 }}

@@ -1,11 +1,25 @@
 import CinematicBouncyText from "./text";
+import { isLoggedIn, justLoggedIn, logInEmail } from "../auth-system/auth";
 
 export default function Text() {
-    const welcome = localStorage.getItem(("userEmail"));
-    //.trim().split(" ")
+
+    const loggedIn = isLoggedIn();
+    const newLogin = justLoggedIn();
+    const welcome = logInEmail();
+
+    const name = welcome.split("@")[0];
+
+    if (!loggedIn || !welcome) return null;
+
+    if (newLogin) {
+    sessionStorage.removeItem("justLoggedIn");
+  }
+
+
+    
     return(
         <div className="flex justify-center text-shadow-xl min-h-screen">
-            <CinematicBouncyText text={`Welcome ${(welcome).split("@")[0] }`} />
+             <CinematicBouncyText text={newLogin ? `Welcome ${name }` : `Welcome Back ${name}`} />
         </div>
-    )
+    );
 }

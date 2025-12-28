@@ -3,7 +3,6 @@ import LandingPage from "./Pages/LandingPage";
 import { useState, useEffect } from "react";
 import LoadingAnimation from "./components/animations/Loading";
 import BlogPost from "./Pages/Blog";
-import AdminDashboard from "./Pages/admin";
 import HomeWin from "./components/layout/home-win";
 import DashBoard from "./components/admin-pages/features/dashboard";
 import LoginCompleted from "./components/admin-pages/features/login-complete";
@@ -35,6 +34,7 @@ import SignUp from "./components/auth-system/sign-Up";
 import AdminLayout from "./Pages/admin";
 import AccessRoutes from "./components/auth-system/access-route";
 import ProtectedRoute from "./components/auth-system/protected-routes";
+import Scroll_To_Top from "./components/animations/scroll-arrow";
 
 export default function App() {
 	const [loading, setLoading] = useState(true);
@@ -191,6 +191,10 @@ export default function App() {
 					<Route
 						path='/blog'
 						element={<BlogPost />}
+					/>
+					<Route
+						path='/scroll-arrow'
+						element={<Scroll_To_Top />}
 					/>
 				</Routes>
 			)}

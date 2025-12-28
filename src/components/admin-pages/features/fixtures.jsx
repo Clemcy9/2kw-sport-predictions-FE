@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { FaMinus, FaPlus, FaPlusSquare } from "react-icons/fa";
 import { ChevronDown, ChevronUp, X } from "lucide-react";
-import { Calendar } from "lucide-react";
+// import { Calendar } from "lucide-react";
 import { Search } from "lucide-react";
 import { useEffect } from "react";
 import { FaSpinner } from "react-icons/fa6";
+import { userToken } from "../../auth-system/auth";
 // import { filter } from "framer-motion/client";
 
 // sub-component that holds the odds amd propabilities dropdown
@@ -167,7 +168,7 @@ export default function MakePredictions() {
 
 	// console.log("Payload to backend:", payload);
 
-	const token = localStorage.getItem("authToken");
+	const token = userToken();
 
 	// makes the main page not-scrollable when modal is open
 	useEffect(() => {

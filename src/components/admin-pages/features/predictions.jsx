@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useEffect } from "react";
 import { FaSpinner } from "react-icons/fa";
 import { AiOutlineCheckCircle } from "react-icons/ai";
+import { userToken } from "../../auth-system/auth";
 
 export default function Predictions() {
 	const [prediction, setPrediction] = useState([]);
@@ -22,7 +23,7 @@ export default function Predictions() {
 	const [byDate, setByDate] = useState("");
 	const [byLeague, setByLeague] = useState("");
 
-	const token = localStorage.getItem("authToken");
+	const token = userToken();
 
 	// Detect mobile screens and hleps slide action
 	useEffect(() => {

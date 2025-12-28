@@ -7,6 +7,7 @@ import { FaFutbol, FaSpinner, FaTelegramPlane } from "react-icons/fa";
 import detailsBg from "../assets/Hero-images/details-bg.jpg";
 import { useEffect, useState } from "react";
 import { FaTriangleExclamation } from "react-icons/fa6";
+import Scroll_To_Top from "./animations/scroll-arrow";
 
 export default function PredictionDetails() {
 	const { state } = useLocation();
@@ -70,7 +71,7 @@ export default function PredictionDetails() {
 
 				setH2h(latestH2H);
 				setLoading(false);
-// 💾 Save to session storage
+
 				sessionStorage.setItem(
 					CACHE_KEY,
 					JSON.stringify({
@@ -132,7 +133,7 @@ export default function PredictionDetails() {
 						</div>
 					</motion.div>
 				</section>
-
+				<Scroll_To_Top />
 				<section className='lg:p-14'>
 					<motion.div
 						initial={{ opacity: 0, y: 40 }}

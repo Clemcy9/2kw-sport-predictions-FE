@@ -3,6 +3,7 @@ import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import { FaArrowTrendUp, FaCheck, FaUser, FaTrash } from "react-icons/fa6";
 import { FaSpinner } from "react-icons/fa";
 import { AiOutlineCheckCircle } from "react-icons/ai";
+import { userToken } from "../../auth-system/auth";
 
 export default function DashBoard() {
 	const numbers = [12485, 82, 3247];
@@ -17,7 +18,7 @@ export default function DashBoard() {
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
 
-	const token = localStorage.getItem("authToken");
+	const token = userToken();
 
 	// Detect mobile screens
 	useEffect(() => {

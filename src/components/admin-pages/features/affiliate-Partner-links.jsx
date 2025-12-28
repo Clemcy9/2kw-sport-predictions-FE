@@ -3,13 +3,14 @@ import { useState } from "react";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AiOutlineCheckCircle } from "react-icons/ai";
+import { userToken } from "../../auth-system/auth";
 
 export default function Affiliate_Partner_Links() {
 	const [affiliateLinks, setAffiliateLinks] = useState([]);
 	const [modal, setModal] = useState(null);
 	const [animation, setAnimation] = useState(null);
 
-	const token = localStorage.getItem("authToken");
+	const token = userToken();
 
 	const handle_delete = async (id) => {
 		try {

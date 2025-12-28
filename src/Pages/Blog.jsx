@@ -10,6 +10,7 @@ import { useState } from "react";
 import { FiArrowRight } from "react-icons/fi";
 import blogBg from "../assets/Hero-images/blog-bg.jpg";
 import DOMPurify from "dompurify";
+import Scroll_To_Top from "../components/animations/scroll-arrow";
 
 export default function BlogPost() {
   const [blogs, setBlogs] = useState([]);
@@ -92,6 +93,7 @@ export default function BlogPost() {
           </div>
         </motion.div>
       </section>
+      <Scroll_To_Top />
       <div className=" border-none p-4 mx my-3 mt-7 w-full z-20 relative  flex flex-col justify-center items-center bg-[#e0e2e685]">
         <h1 className="font-[Inria Sans] text-center text-3xl font-semibold text-[#1F2128] lg:pb-6 mb-2 text-shadow-x z-40">
           2kwPredict Blog

@@ -7,6 +7,7 @@ import { FaFutbol, FaSpinner, FaTelegramPlane } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import liveScores from "../../assets/Hero-images/live-scores.jpg"
 import { FaTriangleExclamation } from "react-icons/fa6";
+import Scroll_To_Top from "../animations/scroll-arrow";
 
 
 export default function LIve_Scores () {
@@ -112,6 +113,7 @@ export default function LIve_Scores () {
                     </div>
                 </motion.div>
              </section> 
+             <Scroll_To_Top />
             <section className=" lg:p-15 py-15">
                 {loading ? (
                       <div className=" hover:shadow-lg text-[#1a365d] py-20 hover:bg-[#FFF7E0] group transition-all flex justify-center items-center w-full rounded-[0.6rem] p-2"><span><FaSpinner className="animate-spin" /> </span> Loading Live-Scores...</div>
