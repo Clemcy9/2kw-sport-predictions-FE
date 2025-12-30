@@ -7,7 +7,9 @@ export default function AwayWin() {
 	const token = userToken();
 
 	useEffect(() => {
-		fetch(
+		async function fetchSEO() {
+			try{
+				const res = await fetch(
 			"https://twokw-backend.onrender.com/api/v1/metadata/market/match%20winner",
 			{
 				headers: {
@@ -15,23 +17,37 @@ export default function AwayWin() {
 					"Content-Type": "application/json",
 				},
 			}
-		)
-			.then((res) => res.json())
-			.then((data) => setSeo(data.seo))
-			.catch(() =>
+		);
+
+		if (!res.ok) throw new Error("Failed request");
+
+      const data = await res.json();
+
+      if (!data?.data) throw new Error("SEO missing");
+
+	   setSeo(data.data);
+		
+		
+			
+			}catch(err) {
+				console.error("failed to fetch metadata", err),
 				setSeo({
-					title: "Away Win | 2KwPredicts",
-					description:
+					page_title: "Away Win | 2KwPredicts",
+					page_description:
 						"Football predictions, betting tips, match previews, and expert league analysis focused on away wins.",
-					keywords:
+					page_keywords:
 						"away win predictions, football betting tips, match previews, league analysis, football predictions",
 					canonical: "https://2kwpredicts.com/away_win",
-					ogTitle: "Away Win | 2KwPredicts",
-					ogDescription:
+					header_content: "Away Win | 2KwPredicts",
+					header_sub_content:
 						"Expert football predictions, betting tips, and analysis for away wins",
-				})
-			);
-	}, []);
+				});
+			}
+				
+			
+		}
+		fetchSEO();
+	}, [token]);
     console.log(seo);
 
 	return (
@@ -82,6 +98,8 @@ export default function AwayWin() {
 			<main>
 				<p>{seo?.header_content}</p>
 				<p>{seo?.header_sub_content}</p>
+				
+
 			</main>
 		</>
 	);

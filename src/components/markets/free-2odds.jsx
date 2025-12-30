@@ -6,33 +6,51 @@ export default function FreeOdds() {
      const [seo, setSeo] = useState(null);
        
         const token = userToken();
+
        
         useEffect(() => {
-            fetch(
-                "https://twokw-backend.onrender.com/api/v1/metadata/market/freeOdds",
-                {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                        "Content-Type": "application/json",
-                    },
-                }
-            )
-                .then((res) => res.json())
-                .then((data) => setSeo(data.seo))
-                .catch(() =>
-                    setSeo({
-                        title: "FreeOdds | 2KwPredicts",
-                        description:
-                            "Football predictions, betting tips, match previews, and expert league analysis focused on freeOdds.",
-                        keywords:
-                            "freeOdds predictions, football betting tips, match previews, league analysis, football predictions",
-                        canonical: "https://2kwpredicts.com/freeOdds",
-                        ogTitle: "freeOdds | 2KwPredicts",
-                        ogDescription:
-                            "Expert football predictions, betting tips, and analysis for freeOdds",
-                    })
-                );
-        }, []);
+		async function fetchSEO() {
+			try{
+				const res = await fetch(
+			                "https://twokw-backend.onrender.com/api/v1/metadata/market/freeOdds",
+
+			{
+				headers: {
+					Authorization: `Bearer ${token}`,
+					"Content-Type": "application/json",
+				},
+			}
+		);
+
+		if (!res.ok) throw new Error("Failed request");
+
+      const data = await res.json();
+
+      if (!data?.data) throw new Error("SEO missing");
+
+	   setSeo(data.data);
+		
+		
+			
+			}catch(err) {
+				console.error("failed to fetch metadata", err),
+				setSeo({
+					page_title: "FreeOdds | 2KwPredicts",
+					page_description:
+						"Football predictions, betting tips, match previews, and expert league analysis focused on freeOdds.",
+					page_keywords:
+						"freeOdds predictions, football betting tips, match previews, league analysis, football predictions",
+					canonical: "https://2kwpredicts.com/away_win",
+					header_content: "freeOdds | 2KwPredicts",
+					header_sub_content:
+						"Expert football predictions, betting tips, and analysis for freeOdds",
+				});
+			}
+				
+			
+		}
+		fetchSEO();
+	}, [token]);
        
         return (
             <>
@@ -81,7 +99,7 @@ export default function FreeOdds() {
        
                 <main>
                     <p>{seo?.header_content}</p>
-                    <p>{seo.header_sub_content}</p>
+                    <p>{seo?.header_sub_content}</p>
                 </main>
             </>
         );

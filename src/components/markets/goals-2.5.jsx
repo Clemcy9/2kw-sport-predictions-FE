@@ -9,7 +9,9 @@ export default function Goals2_5() {
     const token = userToken();
    
     useEffect(() => {
-        fetch(
+        async function fetchSEO() {
+			try{
+				const res = await fetch(
             "https://twokw-backend.onrender.com/api/v1/metadata/market/over%20and%20Under",
             {
                 headers: {
@@ -17,23 +19,32 @@ export default function Goals2_5() {
                     "Content-Type": "application/json",
                 },
             }
-        )
-            .then((res) => res.json())
-            .then((data) => setSeo(data.seo))
-            .catch(() =>
+        );
+
+        if (!res.ok) throw new Error("Failed request");
+
+      const data = await res.json();
+
+      if (!data?.data) throw new Error("SEO missing");
+
+	   setSeo(data.data);
+    }catch(err){
+        console.error("failed to fetch metadata", err),
                 setSeo({
-                    title: "Over 2.5 | 2KwPredicts",
-                    description:
+                    page_title: "Over 2.5 | 2KwPredicts",
+                    page_description:
                         "Football predictions, betting tips, match previews, and expert league analysis focused on over 2.5.",
-                    keywords:
+                    page_keywords:
                         "over 2.5 predictions, football betting tips, match previews, league analysis, football predictions",
                     canonical: "https://2kwpredicts.com/over 2.5",
-                    ogTitle: "over 2.5 | 2KwPredicts",
-                    ogDescription:
+                    header_content: "over 2.5 | 2KwPredicts",
+                    header_sub_content:
                         "Expert football predictions, betting tips, and analysis for over 2.5",
                 })
-            );
-    }, []);
+            }
+        }
+        fetchSEO();
+    }, [token]);
    
     return (
         <>

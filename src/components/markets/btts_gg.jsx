@@ -8,32 +8,48 @@ export default function BTTS_GG() {
         const token = userToken();
        
         useEffect(() => {
-            fetch(
-                "https://twokw-backend.onrender.com/api/v1/metadata/market/over%20and%20Under",
-                {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                        "Content-Type": "application/json",
-                    },
-                }
-            )
-                .then((res) => res.json())
-                .then((data) => setSeo(data.seo))
-                .catch(() =>
-                    setSeo({
-                        title: "btts | 2KwPredicts",
-                        description:
-                            "Football predictions, betting tips, match previews, and expert league analysis focused on btts.",
-                        keywords:
-                            "btts predictions, football betting tips, match previews, league analysis, football predictions",
-                        canonical: "https://2kwpredicts.com/btts",
-                        ogTitle: "btts | 2KwPredicts",
-                        ogDescription:
-                            "Expert football predictions, betting tips, and analysis for btts",
-                    })
-                );
-        }, []);
-       
+		async function fetchSEO() {
+			try{
+				const res = await fetch(
+			"https://twokw-backend.onrender.com/api/v1/metadata/market/match%20winner",
+			{
+				headers: {
+					Authorization: `Bearer ${token}`,
+					"Content-Type": "application/json",
+				},
+			}
+		);
+
+		if (!res.ok) throw new Error("Failed request");
+
+      const data = await res.json();
+
+      if (!data?.data) throw new Error("SEO missing");
+
+	   setSeo(data.data);
+		
+		
+			
+			}catch(err) {
+				console.error("failed to fetch metadata", err),
+				setSeo({
+					page_title: "btts | 2KwPredicts",
+					page_description:
+						"Football predictions, betting tips, match previews, and expert league analysis focused on btts.",
+					page_keywords:
+						"btts predictions, football betting tips, match previews, league analysis, football predictions",
+					canonical: "https://2kwpredicts.com/away_win",
+					header_content: "btts | 2KwPredicts",
+					header_sub_content:
+						"Expert football predictions, betting tips, and analysis for btts",
+				});
+			}
+				
+			
+		}
+		fetchSEO();
+	}, [token]);
+
         return (
             <>
                 <title>{seo?.page_title}</title>
@@ -81,7 +97,7 @@ export default function BTTS_GG() {
        
                 <main>
                     <p>{seo?.header_content}</p>
-                    <p>{seo.header_sub_content}</p>
+                    <p>{seo?.header_sub_content}</p>
                 </main>
             </>
         );

@@ -6,33 +6,52 @@ export default function SuperSingles() {
     const [seo, setSeo] = useState(null);
        
         const token = userToken();
+
+
        
         useEffect(() => {
-            fetch(
+		async function fetchSEO() {
+			try{
+				const res = await fetch(
                 "https://twokw-backend.onrender.com/api/v1/metadata/market/superSingleTip",
-                {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                        "Content-Type": "application/json",
-                    },
-                }
-            )
-                .then((res) => res.json())
-                .then((data) => setSeo(data.seo))
-                .catch(() =>
-                    setSeo({
-                        title: "Super singles | 2KwPredicts",
-                        description:
-                            "Football predictions, betting tips, match previews, and expert league analysis focused on super singles.",
-                        keywords:
-                            "super singles predictions, football betting tips, match previews, league analysis, football predictions",
-                        canonical: "https://2kwpredicts.com/super singles",
-                        ogTitle: "super singles | 2KwPredicts",
-                        ogDescription:
-                            "Expert football predictions, betting tips, and analysis for super singles",
-                    })
-                );
-        }, []);
+			
+			{
+				headers: {
+					Authorization: `Bearer ${token}`,
+					"Content-Type": "application/json",
+				},
+			}
+		);
+
+		if (!res.ok) throw new Error("Failed request");
+
+      const data = await res.json();
+
+      if (!data?.data) throw new Error("SEO missing");
+
+	   setSeo(data.data);
+		
+		
+			
+			}catch(err) {
+				console.error("failed to fetch metadata", err),
+				setSeo({
+					page_title: "Super singles | 2KwPredicts",
+					page_description:
+						"Football predictions, betting tips, match previews, and expert league analysis focused on Super singles.",
+					page_keywords:
+						"Super singles predictions, football betting tips, match previews, league analysis, football predictions",
+					canonical: "https://2kwpredicts.com/away_win",
+					header_content: "Super singles | 2KwPredicts",
+					header_sub_content:
+						"Expert football predictions, betting tips, and analysis for Super singles",
+				});
+			}
+				
+			
+		}
+		fetchSEO();
+	}, [token]);
        
         return (
             <>
