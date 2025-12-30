@@ -5,7 +5,7 @@ import { ChevronDown, ChevronUp, X } from "lucide-react";
 import { Search } from "lucide-react";
 import { useEffect } from "react";
 import { FaSpinner } from "react-icons/fa6";
-import { userToken } from "../../auth-system/auth";
+import { userToken } from "../../hooks/useAuth";
 // import { filter } from "framer-motion/client";
 
 // sub-component that holds the odds amd propabilities dropdown

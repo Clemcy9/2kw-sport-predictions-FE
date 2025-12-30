@@ -1,5 +1,5 @@
 import { Navigate } from "react-router-dom";
-import { isLoggedIn, hasAccount } from "./auth";
+import { isLoggedIn, hasAccount } from "./useAuth";
 
 
 export default function AccessRoutes ({children}) {

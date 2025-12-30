@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { userToken } from "../auth-system/auth";
+import { userToken } from "../hooks/useAuth";
 
 export default function SuperSingles() {
 
@@ -98,7 +98,7 @@ export default function SuperSingles() {
                     content='website'
                 />
        
-                <main>
+                <main className="w-full border border-[#1A365D] m-2 p-4">
                     <p>{seo?.header_content}</p>
                     <p>{seo?.header_sub_content}</p>
                 </main>

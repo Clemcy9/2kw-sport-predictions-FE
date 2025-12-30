@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { useEffect } from "react";
 import { FaSpinner } from "react-icons/fa";
 import { AiOutlineCheckCircle } from "react-icons/ai";
-import { userToken } from "../../auth-system/auth";
+import { userToken } from "../../hooks/useAuth";
 
 export default function Predictions() {
 	const [prediction, setPrediction] = useState([]);

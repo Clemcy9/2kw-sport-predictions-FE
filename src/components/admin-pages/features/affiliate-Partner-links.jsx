@@ -3,7 +3,7 @@ import { useState } from "react";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AiOutlineCheckCircle } from "react-icons/ai";
-import { userToken } from "../../auth-system/auth";
+import { userToken } from "../../hooks/useAuth";
 
 export default function Affiliate_Partner_Links() {
 	const [affiliateLinks, setAffiliateLinks] = useState([]);

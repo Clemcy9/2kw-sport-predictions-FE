@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Editor } from "primereact/editor";
+import { userToken } from "../../hooks/useAuth";
 // import { data } from "react-router-dom";
+
 
 const seo = () => {
   const [title, setTitle] = useState("");
@@ -13,7 +15,7 @@ const seo = () => {
 
     if (!title || !body) return;
 
-    const token = localStorage.getItem("authToken");
+    const token = userToken();
     const payload = {
       market_type: title,
       metadata_content: body,

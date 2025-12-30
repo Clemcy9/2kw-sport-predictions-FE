@@ -33,7 +33,7 @@ import AllPosts from "./components/admin-pages/blogs/all-posts";
 import SignIn from "./components/auth-system/sign-in";
 import SignUp from "./components/auth-system/sign-Up";
 import AdminLayout from "./Pages/admin";
-import AccessRoutes from "./components/auth-system/access-route";
+import AccessRoutes from "./components/hooks/useAccess";
 import ProtectedRoute from "./components/auth-system/protected-routes";
 import Scroll_To_Top from "./components/animations/scroll-arrow";
 

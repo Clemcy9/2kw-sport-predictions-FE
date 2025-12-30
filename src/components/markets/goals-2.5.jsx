@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { userToken } from "../auth-system/auth";
+import { userToken } from "../hooks/useAuth";
 
 
 export default function Goals2_5() {
@@ -91,7 +91,7 @@ export default function Goals2_5() {
                 content='website'
             />
    
-            <main>
+            <main className="w-full m-2 border border-[#1A365D] p-4">
                 <p>{seo?.header_content}</p>
                 <p>{seo?.header_sub_content}</p>
             </main>

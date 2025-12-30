@@ -2,7 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Menu, X, ChevronDown, ChevronUp } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { hasAccount, isLoggedIn } from "../auth-system/auth";
+import { hasAccount, isLoggedIn } from "../hooks/useAuth";
+import { useAffiliate } from "../hooks/useAffiliate";
 
 
 
@@ -10,8 +11,14 @@ export default function Navbar() {
     const [open, setOpen] = useState(false);
     const [dropdown, setDropdown] = useState(false);
     const [showTag, setShowTag] = useState(false);
+
+
     const navigation = useNavigate();
-    const tag = localStorage.getItem("headerTag") || "No Links";
+    
+
+    const {navbarLink} = useAffiliate();
+
+    console.log(navbarLink);
 
     const handleAdminClick = () => {
   if (isLoggedIn()) {
@@ -25,7 +32,7 @@ export default function Navbar() {
 
 const loggedin = isLoggedIn();
 
-    const navLinks = [
+    const navLink = [
         { title: "Home", path: "/" },
         { title: "Live-Scores", path: "/live-score" },
         {
@@ -93,7 +100,7 @@ const loggedin = isLoggedIn();
 
                     {/* Desktop Navbar */}
                     <div className="hidden md:flex space-x-8 font-sans">
-                        {navLinks.map((link, index) => (
+                        {navLink.map((link, index) => (
                             <div key={index} className="relative" onMouseEnter={() => link.title === "Links" && setShowTag(true)} >
 
                                 
@@ -157,9 +164,12 @@ const loggedin = isLoggedIn();
                                         animate={{ opacity: 1, y: 0 }}
                                         exit={{ opacity: 0, y: 5 }}
                                         transition={{ duration: 0.25 }} className=" lg:w-fit flex text-center justify-center">
-                                        <a  href={tag} className="hover:underline active:underline absolute w-fit  lg:mt-5 lg:w-70 text-center bg-[#D6AE3E] text-lg text-[#1A365D] px-1 py-1 rounded shadow-lg">
+                                        {/* <a  href={tag} 
                                             {tag}
-                                        </a>
+                                        </a> */}
+                                         <a href={navbarLink.url} className="hover:underline active:underline absolute w-fit  lg:mt-5 lg:w-70 text-center bg-[#D6AE3E] text-lg text-[#1A365D] px-1 py-1 rounded shadow-lg">
+                        {navbarLink.label}
+                    </a>
                                    </motion.div>
                                 )}
                             </div>
@@ -196,7 +206,7 @@ const loggedin = isLoggedIn();
                         className="md:hidden bg-[#1A365D] w-full"
                     >
                         <div className="flex flex-col items-start space-y-4 py-4 px-6">
-                            {navLinks.map((link, index) => (
+                            {navLink.map((link, index) => (
                                 <div key={index} className="w-full" onMouseEnter={() => link.title === "Links" && setShowTag(true)} onMouseLeave={() => link.title === "Links" && setShowTag(false)}>
                                     {link.tipsLinks ? (
                                         <>
@@ -261,9 +271,10 @@ const loggedin = isLoggedIn();
                                             animate={{ opacity: 1, y: 0 }}
                                             exit={{ opacity: 0, y: 5 }}
                                             transition={{ duration: 0.25 }} className="w-full">
-                                            <a target="blank" href={tag} className="w-full text-xl lg:mt-5 bg-[#D6AE3E] text-[#1A365D] px-3 py-1 rounded shadow-lg">
-                                                {tag}
-                                            </a>
+                                           
+                                            <a href={navbarLink.url} className="w-full text-xl lg:mt-5 bg-[#D6AE3E] text-[#1A365D] px-3 py-1 rounded shadow-lg">
+                        {navbarLink.label}
+                    </a>
                                         </motion.div>
                                     )}
                                 </div>

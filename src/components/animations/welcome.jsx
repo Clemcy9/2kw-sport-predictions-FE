@@ -1,5 +1,5 @@
 import CinematicBouncyText from "./text";
-import { isLoggedIn, justLoggedIn, logInEmail } from "../auth-system/auth";
+import { isLoggedIn, justLoggedIn, logInEmail } from "../hooks/useAuth";
 
 export default function Text() {
 

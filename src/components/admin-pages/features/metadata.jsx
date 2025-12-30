@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Editor } from "primereact/editor";
+import { userToken } from "../../hooks/useAuth";
 // import { data } from "react-router-dom";
 
 export default function MetaData() {
@@ -17,7 +18,7 @@ export default function MetaData() {
 
   const [body, setBody] = useState("");
 
-  const token = localStorage.getItem("authToken");
+  const token = userToken();
 
   //fetch data when dropdown status change
   useEffect(() => {

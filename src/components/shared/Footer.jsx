@@ -1,19 +1,23 @@
 import { FaTelegram, FaFacebook, FaInstagram, FaXTwitter } from "react-icons/fa6";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+// import { userToken } from "../hooks/auth";
+import {useAffiliate } from "../hooks/useAffiliate";
 
 export default function Footer() {
-    const footerLinks = useNavigate();
-    const [showTag, setShowTag] = useState(false);
-    const tag = localStorage.getItem("headerTag") || "No Links";
+    const {footerLink} = useAffiliate();
 
+    const [showTag, setShowTag] = useState(false);
+    
     const moveToTop = () => {
         window.scrollTo({
             top:0,
             behavior: "smooth",
         });
     };
+
+   console.log(footerLink);
 
     const links = [
         {title:"About", path:"/about"},
@@ -73,9 +77,14 @@ export default function Footer() {
                                         animate={{ opacity: 1, y: 0 }}
                                         exit={{ opacity: 0, y: 5 }}
                                         transition={{ duration: 0.25 }} className="w-full flex justify-center">
-                                        <a href={tag} className=" absolute w-fit lg:w-fit lg:min-w-36 lg:mt-2 text-center bg-[#D6AE3E] text-lg text-[#1A365D] px-3 hover:underline py-1 rounded shadow-lg">
+                                        {/* <a href={tag} 
                                             {tag}
-                                        </a>
+                                        </a> */}
+                                        {footerLink && (
+                     <a href={footerLink.url} className=" absolute w-fit lg:w-fit lg:min-w-36 lg:mt-2 text-center bg-[#D6AE3E] text-lg text-[#1A365D] px-3 hover:underline py-1 rounded shadow-lg">
+                        {footerLink.label}
+                    </a>
+                   )}
                                    </motion.div>
                                 )}
                             </div>
@@ -107,9 +116,11 @@ export default function Footer() {
                     <p className="text-sm mt-[50px]">
                         &copy; {new Date().getFullYear()} 2KwPreddict. All rights reserved.
                     </p>
-                    <a href={`https://${tag}`} className="lg:mt-[40px] w-full lg:w-fit lg:min-w-36  text-center text-[#D6AE3E] text-lg  hover:underline rounded ">
-                        {tag}
+                   {footerLink && (
+                     <a href={footerLink.url} className="lg:mt-[40px] w-full lg:w-fit lg:min-w-36  text-center text-[#D6AE3E] text-lg  hover:underline rounded ">
+                        {footerLink.label}
                     </a>
+                   )}
                     <ul className="flex space-x-6 lg:mt-[40px]">
                         <li >Privacy Policy</li>
                         <li>Terms Of Service</li>

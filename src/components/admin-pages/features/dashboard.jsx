@@ -3,7 +3,7 @@ import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import { FaArrowTrendUp, FaCheck, FaUser, FaTrash } from "react-icons/fa6";
 import { FaSpinner } from "react-icons/fa";
 import { AiOutlineCheckCircle } from "react-icons/ai";
-import { userToken } from "../../auth-system/auth";
+import { userToken } from "../../hooks/useAuth";
 
 export default function DashBoard() {
 	const numbers = [12485, 82, 3247];

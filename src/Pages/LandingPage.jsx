@@ -234,9 +234,7 @@ export default function LandingPage() {
           {/* Top Betting Selector */}
           <FreeTips bet={bet} setBet={setBet} />
 
-          <div className="mt-5 px-4">
-            <Outlet /> {/* Nested routes */}
-          </div>
+          
 
           <div className="lg:grid lg:grid-cols-[0.8fr_3fr] px-1 lg:px-4 pb-4 lg:py-4 pt-2 w-full">
             {/* LEFT SIDE BAR */}
@@ -346,7 +344,9 @@ export default function LandingPage() {
           </div>
         </div>
       </motion.div>
-      
+      <div className="mt-5 px-4">
+            <Outlet /> {/* Nested routes */}
+          </div>
       <Footer />
     </>
   );
