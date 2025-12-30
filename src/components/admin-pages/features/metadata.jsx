@@ -4,7 +4,7 @@ import { Editor } from "primereact/editor";
 
 export default function MetaData() {
   const [title, setTitle] = useState("");
-  const [status, setStatus] = useState(false);
+  const [status, setStatus] = useState("");
   const [loading, setLoading] = useState(false);
   const [pageTitle, setPageTitle] = useState("");
   const [pageDescription, setPageDescription] = useState("");
@@ -12,42 +12,51 @@ export default function MetaData() {
   const [headerContent, setHeaderContent] = useState("");
   const [headerSubContent, setHeaderSubContent] = useState("");
   const [existingId, setExistingId] = useState(null);
+  const [isFetching, setIsFetching] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const [body, setBody] = useState("");
 
   const token = localStorage.getItem("authToken");
 
   //fetch data when dropdown status change
   useEffect(() => {
-    if (!status) return;
+    if (!status) {
+      clearFields();
+      return;
+    }
 
     const fetchExistingData = async () => {
-      setLoading("fetching");
+      setIsFetching(true);
 
       try {
         const res = await fetch(
-          `https://twokw-backend.onrender.com/api/v1/metadata/${status}`,
+          `https://twokw-backend.onrender.com/api/v1/metadata?market_type=${status}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
         );
 
         if (res.ok) {
-          const data = await res.json();
-          setExistingId(data._id);
-          setPageTitle(data.page_title || "");
-          setPageDescription(data.page_description || "");
-          setPageKeywords(data.page_keywords || "");
-          setHeaderContent(data.header_content || "");
-          setHeaderSubContent(data.header_sub_content || "");
-          setBody(data.metadata_content || "");
+          const result = await res.json();
+          // find the market-type
+          const allData = Array.isArray(result) ? result : result.data || [];
+          const match = allData.find((item) => item.market_type === status);
+          setExistingId(match._id);
+          setPageTitle(match.page_title || "");
+          setPageDescription(match.page_description || "");
+          setPageKeywords(match.page_keywords || "");
+          setHeaderContent(match.header_content || "");
+          setHeaderSubContent(match.header_sub_content || "");
+          setBody(match.metadata_content || "");
         } else {
           clearFields();
-          setExistingId(null);
+          // setExistingId(null);
         }
       } catch (error) {
         console.log("Error fetching data:", error);
       } finally {
-        setLoading(false);
+        setIsFetching(false);
       }
     };
     fetchExistingData();
@@ -62,9 +71,9 @@ export default function MetaData() {
     setBody("");
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading("Loading...");
+    setIsSubmitting(true);
 
     const payLoad = {
       market_type: status,
@@ -80,7 +89,7 @@ export default function MetaData() {
       ? `https://twokw-backend.onrender.com/api/v1/metadata/${existingId}`
       : "https://twokw-backend.onrender.com/api/v1/metadata/";
 
-    const method = existingId ? "PATCH" : "POST";
+    const method = existingId ? "PUT" : "POST";
     try {
       const res = await fetch(url, {
         method: method,
@@ -90,15 +99,18 @@ export default function MetaData() {
         },
         body: JSON.stringify(payLoad),
       });
+
+      const result = await res.json();
+
       if (res.ok) {
-        const result = await res.json();
-        setExistingId(result._id);
-        setLoading("success");
+        setExistingId(result._id || result.data?._id);
+        // setLoading("success");
         alert("Data saved successfully!");
       }
     } catch (err) {
       console.log(err);
-      setLoading("Error");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -140,7 +152,7 @@ export default function MetaData() {
           <div className="w-full h-auto mt-2 bg-[#F5FAFF] rounded-lg">
             {status ? (
               <div className="px-5 py-3">
-                {loading === "fetching" ? (
+                {isFetching ? (
                   <p>Loading existing data...</p>
                 ) : (
                   <div className="space-y-2">
@@ -203,14 +215,41 @@ export default function MetaData() {
         </div>
         <div className="flex flex-col lg:mt-16 sm:mt-10 mt-16 items-center ">
           <button
-            type="button"
+            type="submit"
+            disabled={isSubmitting}
             className="bg-[#1A365D] text-white w-64 text-xl rounded-xl py-2 cursor-pointer"
           >
-            {loading === "loading"
-              ? "Submitting Metadata..."
-              : existingId
-              ? "Update Metadata"
-              : "Submit Metadata"}
+            <div className="flex items-center justify-center gap-2">
+              {isSubmitting && (
+                <svg
+                  className="animate-spin h-5 w-5 text-white"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    className="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                    fill="none"
+                  ></circle>
+                  <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                  ></path>
+                </svg>
+              )}
+
+              <span>
+                {isSubmitting
+                  ? "Processing..."
+                  : existingId
+                  ? "Update Metadata"
+                  : "Submit Metadata"}
+              </span>
+            </div>
           </button>
         </div>
       </form>
