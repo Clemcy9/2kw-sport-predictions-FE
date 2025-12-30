@@ -37,7 +37,7 @@ export default function Goals2_5() {
    
     return (
         <>
-            <title>{seo.page_title}</title>
+            <title>{seo?.page_title}</title>
             <meta
                 name='author'
                 content='Chizzy Duru'
@@ -56,20 +56,20 @@ export default function Goals2_5() {
             />
             <meta
                 name='keywords'
-                content={seo.page_keywords}
+                content={seo?.page_keywords}
             />
             <meta
                 name='description'
-                content={seo.page_description}
+                content={seo?.page_description}
             />
    
             <meta
                 property='og:title'
-                content={seo.page_title}
+                content={seo?.page_title}
             />
             <meta
                 property='og:description'
-                content={seo.page_description}
+                content={seo?.page_description}
             />
             <meta
                 property='og:url'
@@ -81,8 +81,8 @@ export default function Goals2_5() {
             />
    
             <main>
-                <p>{seo.header_content}</p>
-                <p>{seo.header_sub_content}</p>
+                <p>{seo?.header_content}</p>
+                <p>{seo?.header_sub_content}</p>
             </main>
         </>
     );
