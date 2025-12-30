@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Editor } from "primereact/editor";
 // import { data } from "react-router-dom";
 
@@ -6,36 +6,96 @@ export default function MetaData() {
   const [title, setTitle] = useState("");
   const [status, setStatus] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [pageTitle, setPageTitle] = useState("");
+  const [pageDescription, setPageDescription] = useState("");
+  const [pageKeywords, setPageKeywords] = useState("");
+  const [headerContent, setHeaderContent] = useState("");
+  const [headerSubContent, setHeaderSubContent] = useState("");
+  const [existingId, setExistingId] = useState(null);
   const [body, setBody] = useState("");
 
-  const handleSubmit = async (e) => {
+  const token = localStorage.getItem("authToken");
+
+  //fetch data when dropdown status change
+  useEffect(() => {
+    if (!status) return;
+
+    const fetchExistingData = async () => {
+      setLoading("fetching");
+
+      try {
+        const res = await fetch(
+          `https://twokw-backend.onrender.com/api/v1/metadata/${status}`,
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        );
+
+        if (res.ok) {
+          const data = await res.json();
+          setExistingId(data._id);
+          setPageTitle(data.page_title || "");
+          setPageDescription(data.page_description || "");
+          setPageKeywords(data.page_keywords || "");
+          setHeaderContent(data.header_content || "");
+          setHeaderSubContent(data.header_sub_content || "");
+          setBody(data.metadata_content || "");
+        } else {
+          clearFields();
+          setExistingId(null);
+        }
+      } catch (error) {
+        console.log("Error fetching data:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchExistingData();
+  }, [status, token]);
+
+  const clearFields = () => {
+    setPageTitle("");
+    setPageDescription("");
+    setPageKeywords("");
+    setHeaderContent("");
+    setHeaderSubContent("");
+    setBody("");
+  };
+
+  const handleSubmit = async () => {
     e.preventDefault();
+    setLoading("Loading...");
 
-    if (!title || !body) return;
-
-    const token = localStorage.getItem("authToken");
-    const payload = {
-      market_type: title,
+    const payLoad = {
+      market_type: status,
+      page_title: pageTitle,
+      page_description: pageDescription,
+      page_keywords: pageKeywords,
+      header_content: headerContent,
+      header_sub_content: headerSubContent,
       metadata_content: body,
     };
 
-    try {
-      setLoading("loading");
-      const res = await fetch(
-        "https://twokw-backend.onrender.com/api/v1/metadata/",
-        {
-          method: "POST",
-          headers: {
-            "content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify(payload),
-        }
-      );
+    const url = existingId
+      ? `https://twokw-backend.onrender.com/api/v1/metadata/${existingId}`
+      : "https://twokw-backend.onrender.com/api/v1/metadata/";
 
-      const data = await res.json();
-      console.log(data);
-      setLoading("success");
+    const method = existingId ? "PATCH" : "POST";
+    try {
+      const res = await fetch(url, {
+        method: method,
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(payLoad),
+      });
+      if (res.ok) {
+        const result = await res.json();
+        setExistingId(result._id);
+        setLoading("success");
+        alert("Data saved successfully!");
+      }
     } catch (err) {
       console.log(err);
       setLoading("Error");
@@ -80,41 +140,52 @@ export default function MetaData() {
           <div className="w-full h-auto mt-2 bg-[#F5FAFF] rounded-lg">
             {status ? (
               <div className="px-5 py-3">
-                <div className="space-y-2">
-                  <label htmlFor="">Page Title</label>
-                  <input
-                    type="text"
-                    className="w-full border border-[#1A365D] px-4 py-2 focus:outline-none"
-                  />
-                  <label htmlFor="">Page Description</label>
-                  <input
-                    type="text"
-                    className="w-full border border-[#1A365D] px-4 py-2  focus:outline-none"
-                  />
-                  <label htmlFor="">Page Keywords</label>
-                  <input
-                    type="text"
-                    className="w-full border border-[#1A365D] px-4 py-2  focus:outline-none"
-                  />
-                  <label htmlFor="">Header Content</label>
-                  <input
-                    type="text"
-                    className="w-full border border-[#1A365D] px-4 py-2  focus:outline-none"
-                  />
-                  <label htmlFor="">Header Sub-Content</label>
-                  <input
-                    type="text"
-                    className="w-full border border-[#1A365D] px-4 py-2  focus:outline-none"
-                  />
-                </div>
-                <div className="mt-3">
-                  <h2>Page Footer SEO Content</h2>
-                  <Editor
-                    value={body}
-                    onTextChange={(e) => setBody(e.htmlValue)}
-                    className="h-[400px] w-full mt-2 "
-                  />
-                </div>
+                {loading === "fetching" ? (
+                  <p>Loading existing data...</p>
+                ) : (
+                  <div className="space-y-2">
+                    <label htmlFor="">Page Title</label>
+                    <input
+                      type="text"
+                      value={pageTitle}
+                      className="w-full border border-[#1A365D] px-4 py-2 focus:outline-none"
+                    />
+                    <label htmlFor="">Page Description</label>
+                    <input
+                      type="text"
+                      value={pageDescription}
+                      className="w-full border border-[#1A365D] px-4 py-2  focus:outline-none"
+                    />
+                    <label htmlFor="">Page Keywords</label>
+                    <input
+                      type="text"
+                      value={pageKeywords}
+                      className="w-full border border-[#1A365D] px-4 py-2  focus:outline-none"
+                    />
+                    <label htmlFor="">Header Content</label>
+                    <input
+                      type="text"
+                      value={headerContent}
+                      className="w-full border border-[#1A365D] px-4 py-2  focus:outline-none"
+                    />
+                    <label htmlFor="">Header Sub-Content</label>
+                    <input
+                      type="text"
+                      value={headerSubContent}
+                      className="w-full border border-[#1A365D] px-4 py-2  focus:outline-none"
+                    />
+                    <div className="mt-3">
+                      <label className="block mb-1">
+                        Page Footer SEO Content
+                      </label>
+                      <Editor
+                        value={body}
+                        onTextChange={(e) => setBody(e.htmlValue)}
+                        className="h-[400px] w-full mt-2 "
+                      />
+                    </div>
+                  </div>
+                )}
               </div>
             ) : (
               <div className="flex justify-center items-center h-[500px]">
@@ -132,6 +203,8 @@ export default function MetaData() {
           >
             {loading === "loading"
               ? "Submitting Metadata..."
+              : existingId
+              ? "Update Metadata"
               : "Submit Metadata"}
           </button>
         </div>
