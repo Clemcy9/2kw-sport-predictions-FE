@@ -20,6 +20,7 @@ import Goals1_5 from "./components/markets/goals-1.5";
 import Goals2_5 from "./components/markets/goals-2.5";
 import NewPost from "./components/admin-pages/blogs/blog";
 import MetaData from "./components/admin-pages/features/metadata";
+import Seo from "./components/admin-pages/features/seo";
 import BlogPost_Id from "./components/blog_id";
 import All_Legues from "./components/admin-pages/features/leagues";
 import Free_Tips from "./components/markets/free-tips";
@@ -37,167 +38,84 @@ import ProtectedRoute from "./components/auth-system/protected-routes";
 import Scroll_To_Top from "./components/animations/scroll-arrow";
 
 export default function App() {
-	const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
 
-	useEffect(() => {
-		//  preveunt the loading animation from showing every time a user refreshes the page
+  useEffect(() => {
+    //  preveunt the loading animation from showing every time a user refreshes the page
 
-		const loadOnlyOnce = sessionStorage.getItem("loadOnlyOnce");
-		if (loadOnlyOnce) {
-			setLoading(false);
-			return;
-		}
-		sessionStorage.setItem("loadOnlyOnce", "true");
+    const loadOnlyOnce = sessionStorage.getItem("loadOnlyOnce");
+    if (loadOnlyOnce) {
+      setLoading(false);
+      return;
+    }
+    sessionStorage.setItem("loadOnlyOnce", "true");
 
-		const setTimer = setTimeout(() => setLoading(false), 9000);
-		return () => clearTimeout(setTimer);
-	}, []);
+    const setTimer = setTimeout(() => setLoading(false), 9000);
+    return () => clearTimeout(setTimer);
+  }, []);
 
-	return (
-		<>
-			{loading ? (
-				<LoadingAnimation />
-			) : (
-				<Routes>
-					<Route
-						path='/admin'
-						element={<ProtectedRoute>
-              <AdminLayout />
-            </ProtectedRoute>}>
-						<Route
-							index
-							element={<WelcomeText />}
-						/>
-						<Route
-							path='dashboard'
-							element={<DashBoard />}
-						/>
-						<Route
-							path='predictions'
-							element={<Predictions />}
-						/>
-						<Route
-							path='fixtures'
-							element={<MakePredictions />}
-						/>
-						<Route
-							path='leagues'
-							element={<All_Legues />}
-						/>
-						<Route
-							path='tags'
-							element={<AdvertTags />}
-						/>
-						<Route
-							path='help'
-							element={<Help_And_Support />}
-						/>
-						<Route
-							path='affiliate-partner-links'
-							element={<Affiliate_Partner_Links />}
-						/>
-						<Route
-							path='edit-affiliate'
-							element={<Edit_Affiliate />}
-						/>
-						<Route
-							path='metadata'
-							element={<MetaData />}
-						/>
-						<Route
-							path='blogs/blog'
-							element={<NewPost />}
-						/>
-						<Route
-							path='blogs/all-posts'
-							element={<AllPosts />}
-						/>
-					</Route>
+  return (
+    <>
+      {loading ? (
+        <LoadingAnimation />
+      ) : (
+        <Routes>
+          <Route
+            path="/admin"
+            element={
+              <ProtectedRoute>
+                <AdminLayout />
+              </ProtectedRoute>
+            }
+          >
+            <Route index element={<WelcomeText />} />
+            <Route path="dashboard" element={<DashBoard />} />
+            <Route path="predictions" element={<Predictions />} />
+            <Route path="fixtures" element={<MakePredictions />} />
+            <Route path="leagues" element={<All_Legues />} />
+            <Route path="tags" element={<AdvertTags />} />
+            <Route path="help" element={<Help_And_Support />} />
+            <Route
+              path="affiliate-partner-links"
+              element={<Affiliate_Partner_Links />}
+            />
+            <Route path="edit-affiliate" element={<Edit_Affiliate />} />
+            <Route path="metadata" element={<MetaData />} />
+            <Route path="seo" element={<Seo />} />
+            <Route path="blogs/blog" element={<NewPost />} />
+            <Route path="blogs/all-posts" element={<AllPosts />} />
+          </Route>
 
-					<Route
-						path='live-score'
-						element={<LIve_Scores />}
-					/>
-					<Route
-						path='details'
-						element={<PredictionDetails />}
-					/>
+          <Route path="live-score" element={<LIve_Scores />} />
+          <Route path="details" element={<PredictionDetails />} />
 
-					<Route
-						path='/'
-						element={<LandingPage />}>
-						<Route
-							path='free-tips'
-							index
-							element={<Free_Tips />}
-						/>
-						<Route
-							path='home-win'
-							element={<HomeWin />}
-						/>
-						<Route
-							path='goals-1.5'
-							element={<Goals1_5 />}
-						/>
-						<Route
-							path='goals-2.5'
-							element={<Goals2_5 />}
-						/>
-						<Route
-							path='btts_gg'
-							element={<BTTS_GG />}
-						/>
-						<Route
-							path='free-2odds'
-							element={<FreeOdds />}
-						/>
-						<Route
-							path='away-win'
-							element={<AwayWin />}
-						/>
-						<Route
-							path='super-singles'
-							element={<SuperSingles />}
-						/>
-						<Route
-							path='double-chance'
-							element={<DoubleChance />}
-						/>
-						<Route
-							path='all-predictions'
-							element={<AllPredictions />}
-						/>
-					</Route>
-					<Route
-						path='/sign-up'
-						element={
-							<AccessRoutes>
-								<SignUp />
-							</AccessRoutes>
-						}
-					/>
-					<Route
-						path='/login-complete'
-						element={<LoginCompleted />}
-					/>
-					<Route
-						path='/sign-in'
-						element={<SignIn />}
-					/>
-					<Route
-						path='/blog_id/*'
-						element={<BlogPost_Id />}
-					/>
-					<Route
-						path='/blog'
-						element={<BlogPost />}
-					/>
-					<Route
-						path='/scroll-arrow'
-						element={<Scroll_To_Top />}
-					/>
-				</Routes>
-			)}
-		</>
-	);
+          <Route path="/" element={<LandingPage />}>
+            <Route path="free-tips" index element={<Free_Tips />} />
+            <Route path="home-win" element={<HomeWin />} />
+            <Route path="goals-1.5" element={<Goals1_5 />} />
+            <Route path="goals-2.5" element={<Goals2_5 />} />
+            <Route path="btts_gg" element={<BTTS_GG />} />
+            <Route path="free-2odds" element={<FreeOdds />} />
+            <Route path="away-win" element={<AwayWin />} />
+            <Route path="super-singles" element={<SuperSingles />} />
+            <Route path="double-chance" element={<DoubleChance />} />
+            <Route path="all-predictions" element={<AllPredictions />} />
+          </Route>
+          <Route
+            path="/sign-up"
+            element={
+              <AccessRoutes>
+                <SignUp />
+              </AccessRoutes>
+            }
+          />
+          <Route path="/login-complete" element={<LoginCompleted />} />
+          <Route path="/sign-in" element={<SignIn />} />
+          <Route path="/blog_id/*" element={<BlogPost_Id />} />
+          <Route path="/blog" element={<BlogPost />} />
+          <Route path="/scroll-arrow" element={<Scroll_To_Top />} />
+        </Routes>
+      )}
+    </>
+  );
 }
