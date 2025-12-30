@@ -136,26 +136,26 @@ export default function MetaData() {
               className="border px-3 py-2 rounded-lg"
             >
               <option value="">--select page--</option>
-              <option value="home">Home Page</option>
-              <option value="about">About Us</option>
-              <option value="contact">Contact Us</option>
-              <option value="services">Services</option>
-              <option value="two_odds">2 Odds Page</option>
-              <option value="super_single">Super Single Page</option>
-              <option value="double_chance">Double Chance Page</option>
-              <option value="home_win">Home Win Page</option>
-              <option value="away_win">Away Win Page</option>
-              <option value="one_point_five_goals">1.5 Goals Page</option>
-              <option value="two_point_five_goals">2.5 Goals Page</option>
-              <option value="both_teams_score">Both Teams Score Page</option>
-              <option value="all_predictions">All Predictions Page</option>
+              <option value="homePage">Home page</option>
+              <option value="contactUs">Contact us</option>
+              <option value="services">Services page</option>
+              <option value="home">freeTip</option>
+              <option value="surePredict">surePredict</option>
+              <option value="super_single">SuperSingleTip</option>
+              <option value="freeOdds">freeOdds</option>
+              <option value="home win">home win</option>
+              <option value="away win">away win</option>
+              <option value="over and Under">over and Under</option>
+              <option value="btts">Both Teams Score Page</option>
+              <option value="double chance">double chance</option>
+              <option value="allPrediction">All Predictions</option>
             </select>
           </div>
           <div className="w-full h-auto mt-2 bg-[#F5FAFF] rounded-lg">
             {status ? (
               <div className="px-5 py-3">
                 {isFetching ? (
-                  <p>Loading existing data...</p>
+                  <p className="text-center">Loading existing data...</p>
                 ) : (
                   <div className="space-y-2">
                     <label htmlFor="">Page Title</label>
@@ -223,7 +223,7 @@ export default function MetaData() {
           >
             <div className="flex items-center justify-center gap-2">
               {isSubmitting && (
-                <FaSpinner className='animate-spin mr-2 inline' />
+                <FaSpinner className="animate-spin mr-2 inline" />
               )}
 
               <span>
