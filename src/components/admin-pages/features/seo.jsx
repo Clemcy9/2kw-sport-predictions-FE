@@ -4,7 +4,7 @@ import { userToken } from "../../hooks/useAuth";
 // import { data } from "react-router-dom";
 
 
-const seo = () => {
+export default function Seo () {
   const [title, setTitle] = useState("");
   const [status, setStatus] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -140,4 +140,4 @@ const seo = () => {
   );
 };
 
-export default seo;
+// export default seo;
