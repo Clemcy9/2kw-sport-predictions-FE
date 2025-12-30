@@ -148,30 +148,35 @@ export default function MetaData() {
                     <input
                       type="text"
                       value={pageTitle}
+                      onChange={(e) => setPageTitle(e.target.value)}
                       className="w-full border border-[#1A365D] px-4 py-2 focus:outline-none"
                     />
                     <label htmlFor="">Page Description</label>
                     <input
                       type="text"
                       value={pageDescription}
+                      onChange={(e) => setPageDescription(e.target.value)}
                       className="w-full border border-[#1A365D] px-4 py-2  focus:outline-none"
                     />
                     <label htmlFor="">Page Keywords</label>
                     <input
                       type="text"
                       value={pageKeywords}
+                      onChange={(e) => setPageKeywords(e.target.value)}
                       className="w-full border border-[#1A365D] px-4 py-2  focus:outline-none"
                     />
                     <label htmlFor="">Header Content</label>
                     <input
                       type="text"
                       value={headerContent}
+                      onChange={(e) => setHeaderContent(e.target.value)}
                       className="w-full border border-[#1A365D] px-4 py-2  focus:outline-none"
                     />
                     <label htmlFor="">Header Sub-Content</label>
                     <input
                       type="text"
                       value={headerSubContent}
+                      onChange={(e) => setHeaderSubContent(e.target.value)}
                       className="w-full border border-[#1A365D] px-4 py-2  focus:outline-none"
                     />
                     <div className="mt-3">
