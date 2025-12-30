@@ -204,7 +204,7 @@ export default function MetaData() {
         <div className="flex flex-col lg:mt-16 sm:mt-10 mt-16 items-center ">
           <button
             type="button"
-            className="bg-[#1A365D] text-white w-64 text-xl rounded-xl py-2"
+            className="bg-[#1A365D] text-white w-64 text-xl rounded-xl py-2 cursor-pointer"
           >
             {loading === "loading"
               ? "Submitting Metadata..."
