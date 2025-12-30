@@ -11,7 +11,7 @@ export default function BestPredictionCard () {
     
         // const token = localStorage.getItem("authToken");
 
-    // const card = [{ title: "SurePredict", id: 400 },]
+       // const card = [{ title: "SurePredict", id: 400 },]
     
     
     
@@ -36,8 +36,8 @@ export default function BestPredictionCard () {
                     setLoading(false);
                 })
                 .catch((err) => {
-                    console.error("error best predictions:", err);
-                    setError("Unable To Best Prediction");
+                    console.error("error loading best predictions:", err);
+                    setError("Unable To Get Best Prediction");
                     setLoading(false);
                 })
                 

@@ -28,22 +28,22 @@ export default function PremierLeagueCard({
     // return percentage_filtered_values;
     return values;
   }
-  const times = fixture.date;
-  const date_time = fixture.date;
+  const times = fixture?.date;
+  const date_time = fixture?.date;
 
   const predictions = {
     leagueTitile: leagueNames,
     
 
-    homeLogo: teams.home.logo,
-    homeTeam: teams.home.name,
-    teamA_Id: teams.home.id,
+    homeLogo: teams?.home?.logo,
+    homeTeam: teams?.home?.name,
+    teamA_Id: teams?.home?.id,
 
-    awayLogo: teams.away.logo,
-    awayTeam: teams.away.name,
-    teamB_Id: teams.away.id,
+    awayLogo: teams?.away?.logo,
+    awayTeam: teams?.away?.name,
+    teamB_Id: teams?.away?.id,
 
-    leagueLogo: league.logo,
+    leagueLogo: league?.logo,
     timing: new Date(times).toLocaleTimeString([], {
       hour: "2-digit",
       minute: "2-digit",
