@@ -251,7 +251,7 @@ export default function DashBoard() {
 												setModal(item._id);
 												setActiveSlide(null);
 											}}
-											className='w-20 text-red-600 hover:text-red-800 flex flex-col items-center transition'>
+											className='w-20 text-red-600 h-full hover:text-red-800 flex flex-col items-center transition'>
 											<FaTrash size={18} />
 											<span className='text-lg text-red-600'>Delete</span>
 										</button>
