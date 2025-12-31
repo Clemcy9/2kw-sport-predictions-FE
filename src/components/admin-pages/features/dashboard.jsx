@@ -244,16 +244,16 @@ export default function DashBoard() {
 							return (
 								<tr
 									key={item._id}
-									className='relative leading-tight'>
+									className='relative lg:table-row block'>
 									<div className='lg:hidden absolute right-0 top-0 h-full flex items-center z-10'>
 										<button
 											onClick={() => {
 												setModal(item._id);
 												setActiveSlide(null);
 											}}
-											className='w-20 text-red-600 h-full hover:text-red-800 flex flex-col items-center transition'>
+											className='w-20 text-red-600 h-full hover:text-red-800 flex flex-col justify-center items-center transition'>
 											<FaTrash size={18} />
-											<span className='text-lg text-red-600'>Delete</span>
+											<span className='text-xs mt-1'>Delete</span>
 										</button>
 									</div>
 
