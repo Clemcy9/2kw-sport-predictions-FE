@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import DOMPurify from "dompurify";
+import DeleteModal from "../../store/delete-modal";
+import { userToken } from "../../hooks/useAuth";
+import AnimationModal from "../../store/animation-modal";
 
 export default function AllPosts() {
   const [blogs, setBlogs] = useState([]);
@@ -9,9 +12,10 @@ export default function AllPosts() {
   const [deleteId, setDeleteId] = useState(null); // which blog to delete
   const [editModalOpen, setEditModalOpen] = useState(false);
   const [blogToEdit, setBlogToEdit] = useState(null);
+  const [animation, setAnimation] = useState(null);
 
-  const token = localStorage.getItem("authToken");
 
+  const token = userToken();
   const fetchBlogs = async () => {
     try {
       setLoading(true);
@@ -95,9 +99,18 @@ export default function AllPosts() {
 
       if (!res.ok) throw new Error("Failed to delete post");
 
-      alert("Blog deleted successfully");
+      // alert("Blog deleted successfully");
+			setAnimation(deleteId);
       setDeleteId(null);
-      setBlogs((prev) => prev.filter((b) => b._id !== deleteId));
+
+      
+      
+      setTimeout(() => {
+        setBlogs((prev) => prev.filter((b) => b._id !== deleteId));
+				
+
+				setAnimation(null);
+			}, 1500);
     } catch (err) {
       console.log("Error deleting blog:", err);
     }
@@ -207,28 +220,33 @@ export default function AllPosts() {
         {/*
             delete comfirm model*/}
         {deleteId && (
-          <div onClick={() => setDeleteId(null)} className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
-            <div onClick={(e) => e.stopPropagation()} className="bg-white p-6 rounded-xl shadow-xl w-[90%] max-w-md">
-              <h3 className="text-lg font-semibold mb-4">
-                Are you sure you want to delete this blog?
-              </h3>
+          <DeleteModal onClose={() => setDeleteId(null)} onDelete={() => handleDeleteSubmit()} />
+          // <div onClick={() => setDeleteId(null)} className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
+          //   <div onClick={(e) => e.stopPropagation()} className="bg-white p-6 rounded-xl shadow-xl w-[90%] max-w-md">
+          //     <h3 className="text-lg font-semibold mb-4">
+          //       Are you sure you want to delete this blog?
+          //     </h3>
 
-              <div className="flex gap-4">
-                <button
-                  onClick={handleDeleteSubmit}
-                  className="bg-red-500 text-white px-6 py-2 rounded-lg cursor-pointer"
-                >
-                  Yes, Delete
-                </button>
-                <button
-                  onClick={() => setDeleteId(null)}
-                  className="border border-gray-600 text-gray-700 px-6 py-2 rounded-lg cursor-pointer"
-                >
-                  Cancel
-                </button>
-              </div>
-            </div>
-          </div>
+          //     <div className="flex gap-4">
+          //       <button
+          //         onClick={handleDeleteSubmit}
+          //         className="bg-red-500 text-white px-6 py-2 rounded-lg cursor-pointer"
+          //       >
+          //         Yes, Delete
+          //       </button>
+          //       <button
+          //         onClick={() => setDeleteId(null)}
+          //         className="border border-gray-600 text-gray-700 px-6 py-2 rounded-lg cursor-pointer"
+          //       >
+          //         Cancel
+          //       </button>
+          //     </div>
+
+          //   </div>
+          // </div>
+        )}
+        {animation && (
+          <AnimationModal />
         )}
       </div>
     </div>
