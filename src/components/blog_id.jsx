@@ -17,7 +17,7 @@ import {
   FaShare,
 } from "react-icons/fa6";
 import { FaFacebookSquare } from "react-icons/fa";
-import { FaSquareWhatsapp } from "react-icons/fa6";
+// import { FaSquareWhatsapp } from "react-icons/fa6";
 import { BsTwitterX } from "react-icons/bs";
 
 export default function BlogPost_Id() {
