@@ -46,7 +46,6 @@ export default function Free_Tips () {
 				});
 			}
 				
-			
 		}
 		fetchSEO();
 	}, [token]);

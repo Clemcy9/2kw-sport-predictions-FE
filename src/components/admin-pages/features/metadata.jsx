@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 import { Editor } from "primereact/editor";
 import { userToken } from "../../hooks/useAuth";
 import { FaSpinner } from "react-icons/fa6";
-// import { data } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
+import { FiChevronDown, FiCheck } from "react-icons/fi";
+import PostModel from "../../store/post-modal";
 
 export default function MetaData() {
   // const [title, setTitle] = useState("");
@@ -16,8 +18,13 @@ export default function MetaData() {
   const [existingId, setExistingId] = useState(null);
   const [isFetching, setIsFetching] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [model, setModel] = useState("");
+  const [open, setOpen] = useState(false);
 
   const [body, setBody] = useState("");
+  const [showModal, setShowModal] = useState(false);
+  const [modalType, setModalType] = useState("success");
+  const [modalMessage, setModalMessage] = useState("");
 
   const token = userToken();
 
@@ -106,15 +113,43 @@ export default function MetaData() {
 
       if (res.ok) {
         setExistingId(result._id || result.data?._id);
-        // setLoading("success");
-        alert("Data saved successfully!");
+        setModalType("success");
+        setModalMessage("Metadata saved successfully");
+        setShowModal(true);
+      } else {
+        setModalType("error");
+        setModalMessage(result.message || "Failed to save metadata");
+        setShowModal(true);
       }
     } catch (err) {
       console.log(err);
+
+      setModalType("error");
+      setModalMessage("Something went wrong. Please try again.");
+      setShowModal(true);
     } finally {
       setIsSubmitting(false);
     }
   };
+
+  const options = [
+    { value: "", label: "Select a page" },
+    { value: "homePage", label: "Home page" },
+    { value: "contactUs", label: "Contact us" },
+    { value: "services", label: "Services page" },
+    { value: "home", label: "Free Tip" },
+    { value: "surePredict", label: "Sure Predict" },
+    { value: "super_single", label: "Super Single Tip" },
+    { value: "freeOdds", label: "Free Odds" },
+    { value: "home win", label: "Home Win" },
+    { value: "away win", label: "Away Win" },
+    { value: "over and Under", label: "Over & Under" },
+    { value: "btts", label: "Both Teams Score" },
+    { value: "double chance", label: "Double Chance" },
+    { value: "allPrediction", label: "All Predictions" },
+  ];
+
+  const selected = options.find((o) => o.value === status);
 
   return (
     <div className="px-8 lg:pt-6 p-4 ">
@@ -122,34 +157,59 @@ export default function MetaData() {
         <div className="w-full space-y-7">
           <div className="flex justify-between">
             <div>
-              <h1 className=" w-full font-bold text-black/80 font-[Inria Sans]  text-xl">
+              <h1 className=" w-full font-bold text-black/80 font-[Inria Sans] text-2xl">
                 SEO Metadata
               </h1>
-              <small className="mt-1">
+              <small className="mt-1 text-lg">
                 Add and manage seo meta data for your website pages!
               </small>
             </div>
-            <select
-              name=""
-              value={status}
-              onChange={(e) => setStatus(e.target.value)}
-              className="border px-3 py-2 rounded-lg"
-            >
-              <option value="">--select page--</option>
-              <option value="homePage">Home page</option>
-              <option value="contactUs">Contact us</option>
-              <option value="services">Services page</option>
-              <option value="home">freeTip</option>
-              <option value="surePredict">surePredict</option>
-              <option value="super_single">SuperSingleTip</option>
-              <option value="freeOdds">freeOdds</option>
-              <option value="home win">home win</option>
-              <option value="away win">away win</option>
-              <option value="over and Under">over and Under</option>
-              <option value="btts">Both Teams Score Page</option>
-              <option value="double chance">double chance</option>
-              <option value="allPrediction">All Predictions</option>
-            </select>
+            <div className="relative w-full max-w-xs">
+              <button
+                type="button"
+                onClick={() => setOpen((p) => !p)}
+                className="w-full flex items-center justify-between px-4 py-2 border rounded-lg bg-white hover:border-gray-400 transition"
+              >
+                <span className={status ? "text-gray-900" : "text-gray-400"}>
+                  {selected?.label || "Select a page"}
+                </span>
+
+                <motion.span
+                  animate={{ rotate: open ? 180 : 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <FiChevronDown />
+                </motion.span>
+              </button>
+
+              <AnimatePresence>
+                {open && (
+                  <motion.ul
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.18, ease: "easeOut" }}
+                    className="absolute z-50 mt-2 w-full bg-white border rounded-lg shadow-lg "
+                  >
+                    {options.map((option) => (
+                      <li
+                        key={option.value}
+                        onClick={() => {
+                          setStatus(option.value);
+                          setOpen(false);
+                        }}
+                        className="flex items-center justify-between px-4 py-2 cursor-pointer hover:bg-gray-100 transition"
+                      >
+                        <span>{option.label}</span>
+                        {status === option.value && (
+                          <FiCheck className="text-green-500" />
+                        )}
+                      </li>
+                    ))}
+                  </motion.ul>
+                )}
+              </AnimatePresence>
+            </div>
           </div>
           <div className="w-full h-auto mt-2 bg-[#F5FAFF] rounded-lg">
             {status ? (
@@ -237,6 +297,12 @@ export default function MetaData() {
           </button>
         </div>
       </form>
+      <PostModel
+        open={showModal}
+        type={modalType}
+        message={modalMessage}
+        onClose={() => setShowModal(false)}
+      />
     </div>
   );
 }
