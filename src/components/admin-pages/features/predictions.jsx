@@ -411,7 +411,7 @@ export default function Predictions() {
 				</table>
 
 				{modal && (
-					<DeleteModal  onClose={() => setModal(null)} onDelete={() => handle_delete(modal)}/>
+					<DeleteModal title="Delete Prediction"  onClose={() => setModal(null)} onDelete={() => handle_delete(modal)}/>
 				)}
 
 				{/* Success Animation */}

@@ -1,7 +1,7 @@
-import Footer from "../components/shared/Footer";
+import Footer from "../shared/Footer";
 // import { FiArrowRight } from "react-icons/fi";
 import { useEffect, useRef } from "react";
-import Navbar from "../components/shared/Navbar";
+import Navbar from "../shared/Navbar";
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 import { Link, Route, Routes } from "react-router-dom";

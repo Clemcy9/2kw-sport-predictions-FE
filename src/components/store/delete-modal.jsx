@@ -1,6 +1,6 @@
 // import React from "react";
 
-export default function DeleteModal({ onClose, onDelete }) {
+export default function DeleteModal({ onClose, onDelete, title }) {
   return (
     <section
       onClick={onClose}
@@ -10,7 +10,7 @@ export default function DeleteModal({ onClose, onDelete }) {
         onClick={(e) => e.stopPropagation()}
         className="w-[90%] max-w-sm flex justify-center items-center flex-col bg-white shadow-xl px-4 py-3"
       >
-        <h3 className="text-[#1a365d] font-semibold">Delete Prediction</h3>
+        <h3 className="text-[#1a365d] font-semibold">{title}</h3>
         <p className="text-[#1a365d] font-normal py-5">
           This Action Cannot Be Undone!
         </p>

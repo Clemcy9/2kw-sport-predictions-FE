@@ -101,7 +101,7 @@ export default function AllPosts() {
 
       // alert("Blog deleted successfully");
 			setAnimation(deleteId);
-      setDeleteId(null);
+      setDeleteId(null);``
 
       
       
@@ -220,7 +220,7 @@ export default function AllPosts() {
         {/*
             delete comfirm model*/}
         {deleteId && (
-          <DeleteModal onClose={() => setDeleteId(null)} onDelete={() => handleDeleteSubmit()} />
+          <DeleteModal title="Delete Blog" onClose={() => setDeleteId(null)} onDelete={() => handleDeleteSubmit()} />
           // <div onClick={() => setDeleteId(null)} className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
           //   <div onClick={(e) => e.stopPropagation()} className="bg-white p-6 rounded-xl shadow-xl w-[90%] max-w-md">
           //     <h3 className="text-lg font-semibold mb-4">
