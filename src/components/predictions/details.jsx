@@ -4,7 +4,7 @@ import { TypeAnimation } from "react-type-animation";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { FaFutbol, FaSpinner, FaTelegramPlane } from "react-icons/fa";
-import detailsBg from "../assets/Hero-images/details-bg.jpg";
+import detailsBg from "../../assets/Hero-images/details-bg.jpg"
 import { useEffect, useState } from "react";
 import { FaTriangleExclamation } from "react-icons/fa6";
 import Scroll_To_Top from "../animations/scroll-arrow";

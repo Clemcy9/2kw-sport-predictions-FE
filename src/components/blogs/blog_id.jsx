@@ -8,7 +8,7 @@ import { Link, Route, Routes } from "react-router-dom";
 import { FaFutbol, FaTelegramPlane } from "react-icons/fa";
 import { useState } from "react";
 import DOMPurify from "dompurify";
-import blogBg from "../assets/Hero-images/blog-bg.jpg";
+import blogBg from "../../assets/Hero-images/blog-bg.jpg";
 import {
   FaFacebook,
   FaX,

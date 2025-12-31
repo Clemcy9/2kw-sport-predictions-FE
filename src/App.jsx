@@ -21,14 +21,13 @@ import Goals2_5 from "./components/markets/goals-2.5";
 import NewPost from "./components/admin-pages/blogs/blog";
 import MetaData from "./components/admin-pages/features/metadata";
 import Seo from "./components/admin-pages/features/seo";
-import BlogPost_Id from "./components/blog_id";
+import BlogPost_Id from "./components/blogs/blog_id";
 import All_Legues from "./components/admin-pages/features/leagues";
 import Free_Tips from "./components/markets/free-tips";
-import LIve_Scores from "./components/store/live-score";
 import Affiliate_Partner_Links from "./components/admin-pages/features/affiliate-Partner-links";
 import Edit_Affiliate from "./components/admin-pages/features/edit-affiliate";
 import Help_And_Support from "./components/admin-pages/features/help";
-import PredictionDetails from "./components/details";
+import PredictionDetails from "./components/predictions/details";
 import AllPosts from "./components/admin-pages/blogs/all-posts";
 import SignIn from "./components/auth-system/sign-in";
 import SignUp from "./components/auth-system/sign-Up";
@@ -36,6 +35,7 @@ import AdminLayout from "./Pages/admin";
 import AccessRoutes from "./components/hooks/useAccess";
 import ProtectedRoute from "./components/auth-system/protected-routes";
 import Scroll_To_Top from "./components/animations/scroll-arrow";
+import Live_Scores from "./components/predictions/live-score";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -86,7 +86,7 @@ export default function App() {
             <Route path="blogs/all-posts" element={<AllPosts />} />
           </Route>
 
-          <Route path="live-score" element={<LIve_Scores />} />
+          <Route path="live-score" element={<Live_Scores />} />
           <Route path="details" element={<PredictionDetails />} />
 
           <Route path="/" element={<LandingPage />}>

@@ -1,20 +1,22 @@
-import { FiArrowUp } from "react-icons/fi";
+// import { FiArrowUp } from "react-icons/fi";
 import { FaPlus, FaMinus, FaSpinner } from "react-icons/fa";
 import Navbar from "../components/shared/Navbar";
 import HeroSection from "../components/shared/HeroSection";
 import Footer from "../components/shared/Footer";
 import FreeTips from "../components/shared/FreetipsCard";
-import BestPredictionCard from "../components/store/BestPrediction";
+// import BestPredictionCard from "../components/store/BestPrediction";
 import FootballLeaguesTable from "../components/Leagues/FootballLeagues";
 import ContentNavBar from "../components/predictions/Content-Nav";
 import { motion } from "framer-motion";
 import LeagueTables from "../components/Standings/Table";
 import DummyBlog from "../components/blogs/dummy-blog";
-import PremierLeagueCard from "../components/store/Premier-league";
+// import PremierLeagueCard from "../components/store/Premier-league";
+import PremierLeagueCard from "../components/predictions/prediction-cards";
 import { Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { FaTriangleExclamation } from "react-icons/fa6";
 import Scroll_To_Top from "../components/animations/scroll-arrow";
+import BestPredictionCard from "../components/predictions/BestPrediction";
 
 
 // const getISODate = (offset = 0) => {

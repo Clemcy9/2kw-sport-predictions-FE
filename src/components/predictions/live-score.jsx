@@ -10,7 +10,7 @@ import { FaTriangleExclamation } from "react-icons/fa6";
 import Scroll_To_Top from "../animations/scroll-arrow";
 
 
-export default function LIve_Scores () {
+export default function Live_Scores () {
     const [predictions, setPredictions] = useState({});
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
