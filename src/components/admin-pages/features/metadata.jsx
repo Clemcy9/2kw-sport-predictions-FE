@@ -7,7 +7,7 @@ import { FaSpinner } from "react-icons/fa6";
 export default function MetaData() {
   // const [title, setTitle] = useState("");
   const [status, setStatus] = useState("");
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
   const [pageTitle, setPageTitle] = useState("");
   const [pageDescription, setPageDescription] = useState("");
   const [pageKeywords, setPageKeywords] = useState("");

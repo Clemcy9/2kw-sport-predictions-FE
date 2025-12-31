@@ -245,7 +245,7 @@ export default function DashBoard() {
 								<tr
 									key={item._id}
 									className='relative leading-tight'>
-									<div className='lg:hidden absolute right-0 top-15 h-full flex z-0'>
+									<div className='lg:hidden absolute right-0 top-0 h-full flex items-center z-10'>
 										<button
 											onClick={() => {
 												setModal(item._id);
