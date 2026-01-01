@@ -5,6 +5,7 @@ import { FaSpinner } from "react-icons/fa6";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiChevronDown, FiCheck } from "react-icons/fi";
 import PostModel from "../../store/post-modal";
+import AnimationModal from "../../store/animation-modal";
 
 export default function MetaData() {
   // const [title, setTitle] = useState("");
@@ -151,6 +152,12 @@ export default function MetaData() {
 
   const selected = options.find((o) => o.value === status);
 
+  useEffect(() => {
+    if (showModal) {
+      const timer = setTimeout(() => setShowModal(false), 2500);
+      return () => clearTimeout(timer);
+    }
+  }, [showModal]);
   return (
     <div className="px-8 lg:pt-6 p-4 ">
       <form onSubmit={handleSubmit} className=" w-full  ">
@@ -297,12 +304,13 @@ export default function MetaData() {
           </button>
         </div>
       </form>
-      <PostModel
+      {/* <PostModel
         open={showModal}
         type={modalType}
         message={modalMessage}
         onClose={() => setShowModal(false)}
-      />
+      /> */}
+      <AnimationModal message="metadata saved successfully" open={showModal} />
     </div>
   );
 }
