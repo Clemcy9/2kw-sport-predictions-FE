@@ -14,6 +14,7 @@ import {
     FaSignOutAlt,
     FaChevronDown,
     FaChevronRight,
+    FaEdit,
 } from "react-icons/fa";
 
 export default function AdminHeader() {
@@ -96,6 +97,11 @@ export default function AdminHeader() {
             path: "/admin/affiliate-partner-links",
             icon: <FaLink />,
         },
+        {
+              title: "Edit Affiliate Links",
+              path: "/admin/edit-affiliate",
+              icon: <FaLink />,
+            },
     ];
 
     const lastMenu = [

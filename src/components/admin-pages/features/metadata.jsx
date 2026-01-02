@@ -4,7 +4,7 @@ import { userToken } from "../../hooks/useAuth";
 import { FaSpinner } from "react-icons/fa6";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiChevronDown, FiCheck } from "react-icons/fi";
-import PostModel from "../../store/post-modal";
+// import PostModel from "../../store/post-modal";
 import AnimationModal from "../../store/animation-modal";
 
 export default function MetaData() {
@@ -24,8 +24,8 @@ export default function MetaData() {
 
   const [body, setBody] = useState("");
   const [showModal, setShowModal] = useState(false);
-  const [modalType, setModalType] = useState("success");
-  const [modalMessage, setModalMessage] = useState("");
+  // const [modalType, setModalType] = useState("success");
+  // const [modalMessage, setModalMessage] = useState("");
 
   const token = userToken();
 
@@ -310,7 +310,7 @@ export default function MetaData() {
         message={modalMessage}
         onClose={() => setShowModal(false)}
       /> */}
-      <AnimationModal message="metadata saved successfully" open={showModal} />
+      <AnimationModal title="metadata saved successfully"/>
     </div>
   );
 }

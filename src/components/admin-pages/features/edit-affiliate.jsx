@@ -1,9 +1,10 @@
 // import { useState } from "react";
 import { useState } from "react";
-import GoBack from "../../shared/Back";
+// import GoBack from "../../shared/Back";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { motion } from "framer-motion";
 import { userToken } from "../../hooks/useAuth";
+import AnimationModal from "../../store/animation-modal";
 // import { userToken } from "../hooks/auth";
 
 
@@ -12,11 +13,11 @@ import { userToken } from "../../hooks/useAuth";
 export default function Edit_Affiliate () {
 
     const [link_type,setLink_type] = useState("");
-    // const [location, setLocation] = useState("");
     const [label, setLabel] = useState("");
     const [url, setUrl] = useState("");
     const [dropdown, setDropdown] = useState(null);
     const [status, setStatus] = useState("draft");
+    const [modal, setModal] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
@@ -45,10 +46,11 @@ export default function Edit_Affiliate () {
     const edit_Affiliate = async (e) => {
         e.preventDefault();
         setLoading(true);
+        setModal(null)
 
         try{
             const res = await fetch("https://twokw-backend.onrender.com/api/v1/affiliatelinks",
-                 {
+                {
                 method: "POST",
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -59,27 +61,35 @@ export default function Edit_Affiliate () {
             );
             const data = await res.json();
 
-            // if(!res.ok){
-            //     setError(data.message || "wrong details");
-            //     return;
-            // }
+            if (!res.ok) {
+				throw new Error(data.message || "Failed to delete prediction");
+			}
 
             reset_data();
-
             console.log("response after affiliate:", data)
 
-            setLabel("");
-            // setLocation("");
-            setUrl("");
+            if (res.ok) {
+                setModal(true)
+                
+                setTimeout(() => {
+                setModal(null)
+            }, 1500);
+            }
+            
+
+
+           setLabel("");
+           setUrl("");
            setLink_type("");
            setStatus("draft");
-            // setpublished("");
-            // setDraft("");
+
 
         } catch(err) {
             console.error("error while posting data:", err);
-            setError(data.message || "Network Error")
-            
+            setError(err.message || "Network Error")
+            reset_data();
+        }finally{
+            setError(null);
         }
     }
  
@@ -87,7 +97,7 @@ export default function Edit_Affiliate () {
     return(
         <main className="p-4 lg:px-5 flex flex-col  w-full">
                {/* <button className="lg:hidden"> */}
-                <GoBack />
+                {/* <GoBack /> */}
                {/* </button> */}
             <div className="flex justify-between font-semibold font-sans text-2xl w-full py-4  lg:py-6">
                 <h1 className="lg:font-semibold font-bold font-[Inria Sans]  text-center w-full lg:text-left">Edit Affiliate Links</h1>
@@ -162,7 +172,13 @@ export default function Edit_Affiliate () {
                         Cancel
                     </button>
                 </div>
+                {error && (
+                    <h2 className="text-red-700 p-4">{error}</h2>
+                )}
             </form>
+            {modal && (
+                <AnimationModal title="Link Created Successfully"/>
+            )}
         </main>
     )
 }

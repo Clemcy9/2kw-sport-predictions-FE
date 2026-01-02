@@ -416,7 +416,7 @@ export default function Predictions() {
 
 				{/* Success Animation */}
 				{animation && (
-					<AnimationModal />
+					<AnimationModal  title="Deleted Successfully"/>
 				)}
 			</div>
 		</div>

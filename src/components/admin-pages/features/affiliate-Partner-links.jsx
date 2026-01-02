@@ -6,11 +6,14 @@ import { AiOutlineCheckCircle } from "react-icons/ai";
 import { userToken } from "../../hooks/useAuth";
 import DeleteModal from "../../store/delete-modal";
 import AnimationModal from "../../store/animation-modal";
+import { FaSpinner } from "react-icons/fa6";
 
 export default function Affiliate_Partner_Links() {
 	const [affiliateLinks, setAffiliateLinks] = useState([]);
 	const [modal, setModal] = useState(null);
 	const [animation, setAnimation] = useState(null);
+		const [loading, setLoading] = useState(true);
+		const [error, setError] = useState(null);
 
 	const token = userToken();
 
@@ -26,36 +29,56 @@ export default function Affiliate_Partner_Links() {
 					},
 				}
 			);
-			const data = await res.json();
+			const data = res.status === 204 ? null : await res.json();
 
 			if (!res.ok) {
-				throw new Error(data.message || "Failed to delete prediction");
+				throw new Error(data?.message || "Failed to delete prediction");
 			}
 
 			setModal(null);
 			setAnimation(id);
 
-			setTimeout(() => {
-				setPrediction((prev) => prev.filter((item) => item._id !== id));
+			  setTimeout(() => {
+				setAffiliateLinks((prev) => prev.filter((item) => item._id !== id));
 				setAnimation(null);
 			}, 1000);
+			// return () => clearTimeout(timeout);
 		} catch (err) {
 			console.error("error while deleting a prediction", err);
+			setError(err.message || "Network Error")
+			setModal(null);
 		}
 	};
 
 	useEffect(() => {
-		fetch("https://twokw-backend.onrender.com/api/v1/affiliatelinks", {
+		const fetchLinks = async () => {
+			setLoading (true);
+			setError(null);
+			
+			try{
+				const res = await fetch("https://twokw-backend.onrender.com/api/v1/affiliatelinks", {
 			headers: {
 				Authorization: `Bearer ${token}`,
 				"Content-Type": "application/json",
 			},
 		})
-			.then((res) => res.json())
-			.then((data) => {
-				console.log(data);
-				setAffiliateLinks(data.data);
-			});
+
+			const data = await res.json();
+			if (!res.ok) {
+                throw new Error(data.message || "Failed to fetch affiliate links");
+            }
+
+            setAffiliateLinks(data.data);
+			}catch (err) {
+				console.error("error fetching links", err)
+				setError(err.message || "Network Error")
+			}finally{
+				setLoading(false);
+			}
+		};
+		if (token) {
+			fetchLinks();
+		}
 	}, [token]);
 
 	// const handle_delete = (id) => {
@@ -84,6 +107,36 @@ export default function Affiliate_Partner_Links() {
 							<th className='py-4 px-2'> Action</th>
 						</tr>
 					</thead>
+					{loading && (
+											<tr>
+												<td
+													colSpan={8}
+													className='py-10 text-center text-[#1A365D]'>
+													<FaSpinner className='inline mr-2 animate-spin' />
+													Loading predictions...
+												</td>
+											</tr>
+										)}
+					
+										{error && (
+											<tr>
+												<td
+													colSpan={8}
+													className='py-10 text-center text-red-600'>
+													 {error}
+												</td>
+											</tr>
+										)}
+					
+										{!loading && !error && affiliateLinks.length === 0 && (
+											<tr>
+												<td
+													colSpan={8}
+													className='py-10 text-center text-[#1A365D]'>
+													No predictions found for selected filters.
+												</td>
+											</tr>
+										)}
 					{affiliateLinks?.map((items, index) => (
 						<tbody className='w-full'>
 							<tr
@@ -164,7 +217,7 @@ export default function Affiliate_Partner_Links() {
 				)}
 
 				{animation && (
-					<AnimationModal />
+					<AnimationModal title="Deleted Successfully"/>
 				)}
 			</section>
 		</main>

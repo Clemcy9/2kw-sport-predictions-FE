@@ -11,6 +11,7 @@ import {
   FaSignOutAlt,
   FaChevronDown,
   FaChevronRight,
+  FaEdit,
   // FaArrowLeft,
 } from "react-icons/fa";
 
@@ -78,6 +79,11 @@ export default function Sidebar() {
       title: "Affiliate/Partner Links",
       path: "/admin/affiliate-partner-links",
       icon: <FaLink />,
+    },
+    {
+      title: "Edit Affiliate Links",
+      path: "/admin/edit-affiliate",
+      icon: <FaEdit />,
     },
   ];
 

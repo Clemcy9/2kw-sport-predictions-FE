@@ -358,7 +358,7 @@ export default function DashBoard() {
 
 				{/* Success Animation */}
 				{animation && (
-					<AnimationModal />
+					<AnimationModal  title="Deleted Successfully" />
 				)}
 			</div>
 		</div>
