@@ -114,20 +114,13 @@ export default function MetaData() {
 
       if (res.ok) {
         setExistingId(result._id || result.data?._id);
-        setModalType("success");
-        setModalMessage("Metadata saved successfully");
         setShowModal(true);
       } else {
-        setModalType("error");
-        setModalMessage(result.message || "Failed to save metadata");
-        setShowModal(true);
+        setShowModal(false);
       }
     } catch (err) {
       console.log(err);
-
-      setModalType("error");
-      setModalMessage("Something went wrong. Please try again.");
-      setShowModal(true);
+      setShowModal(false);
     } finally {
       setIsSubmitting(false);
     }
@@ -304,13 +297,7 @@ export default function MetaData() {
           </button>
         </div>
       </form>
-      {/* <PostModel
-        open={showModal}
-        type={modalType}
-        message={modalMessage}
-        onClose={() => setShowModal(false)}
-      /> */}
-      <AnimationModal title="metadata saved successfully"/>
+      <AnimationModal open={showModal} title="metadata saved successfully" />
     </div>
   );
 }

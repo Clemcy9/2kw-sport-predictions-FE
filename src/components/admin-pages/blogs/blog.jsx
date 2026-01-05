@@ -17,6 +17,9 @@ export default function NewPost() {
   const [inputValue, setInputValue] = useState("");
   const [displayValue, setDisplayValue] = useState("");
   const [status, setStatus] = useState("Publish");
+  const [pageKeywords, setPageKeywords] = useState("");
+  const [headerContent, setHeaderContent] = useState("");
+  const [headerSubContent, setHeaderSubContent] = useState("");
 
   const myImageRef = useRef(null);
 
@@ -132,6 +135,27 @@ export default function NewPost() {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder="Article Title"
+            className="w-full border border-[#1A365D] rounded-xl px-4 py-2 text-[#1A365D] font-semibold font-[Open Sans] focus:outline-none focus:ring-1 focus:ring-[#1A365D]"
+          />
+          <input
+            type="text"
+            placeholder="Blog Keywords"
+            value={pageKeywords}
+            onChange={(e) => setPageKeywords(e.target.value)}
+            className="w-full border border-[#1A365D] rounded-xl px-4 py-2 text-[#1A365D] font-semibold font-[Open Sans] focus:outline-none focus:ring-1 focus:ring-[#1A365D]"
+          />
+          <input
+            type="text"
+            placeholder="Header Content"
+            value={headerContent}
+            onChange={(e) => setHeaderContent(e.target.value)}
+            className="w-full border border-[#1A365D] rounded-xl px-4 py-2 text-[#1A365D] font-semibold font-[Open Sans] focus:outline-none focus:ring-1 focus:ring-[#1A365D]"
+          />
+          <input
+            type="text"
+            placeholder="Header Sub-Content"
+            value={headerSubContent}
+            onChange={(e) => setHeaderSubContent(e.target.value)}
             className="w-full border border-[#1A365D] rounded-xl px-4 py-2 text-[#1A365D] font-semibold font-[Open Sans] focus:outline-none focus:ring-1 focus:ring-[#1A365D]"
           />
           <Editor
