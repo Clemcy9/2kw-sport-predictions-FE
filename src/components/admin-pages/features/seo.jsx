@@ -3,8 +3,7 @@ import { Editor } from "primereact/editor";
 import { userToken } from "../../hooks/useAuth";
 // import { data } from "react-router-dom";
 
-
-export default function Seo () {
+export default function Seo() {
   const [title, setTitle] = useState("");
   const [status, setStatus] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -138,6 +137,6 @@ export default function Seo () {
       </form>
     </div>
   );
-};
+}
 
 // export default seo;

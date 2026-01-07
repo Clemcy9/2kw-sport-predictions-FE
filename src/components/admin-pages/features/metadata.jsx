@@ -4,13 +4,10 @@ import { userToken } from "../../hooks/useAuth";
 import { FaSpinner } from "react-icons/fa6";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiChevronDown, FiCheck } from "react-icons/fi";
-// import PostModel from "../../store/post-modal";
 import AnimationModal from "../../store/animation-modal";
 
 export default function MetaData() {
-  // const [title, setTitle] = useState("");
   const [status, setStatus] = useState("");
-  // const [loading, setLoading] = useState(false);
   const [pageTitle, setPageTitle] = useState("");
   const [pageDescription, setPageDescription] = useState("");
   const [pageKeywords, setPageKeywords] = useState("");
@@ -24,11 +21,8 @@ export default function MetaData() {
 
   const [body, setBody] = useState("");
   const [showModal, setShowModal] = useState(false);
-  // const [modalType, setModalType] = useState("success");
-  // const [modalMessage, setModalMessage] = useState("");
 
   const token = userToken();
-
   //fetch data when dropdown status change
   useEffect(() => {
     if (!status) {
@@ -41,7 +35,7 @@ export default function MetaData() {
 
       try {
         const res = await fetch(
-          `https://twokw-backend.onrender.com/api/v1/metadata?market_type=${status}`,
+          `https://twokw-backend.onrender.com/api/v1/metadata/market/${status}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -49,9 +43,13 @@ export default function MetaData() {
 
         if (res.ok) {
           const result = await res.json();
-          // find the market-type
-          const allData = Array.isArray(result) ? result : result.data || [];
-          const match = allData.find((item) => item.market_type === status);
+          const match = result.data || result;
+
+          if (!match) {
+            clearFields();
+            setExistingId(null);
+            return;
+          }
           setExistingId(match._id);
           setPageTitle(match.page_title || "");
           setPageDescription(match.page_description || "");
@@ -97,7 +95,7 @@ export default function MetaData() {
 
     const url = existingId
       ? `https://twokw-backend.onrender.com/api/v1/metadata/${existingId}`
-      : "https://twokw-backend.onrender.com/api/v1/metadata/";
+      : "https://twokw-backend.onrender.com/api/v1/metadata";
 
     const method = existingId ? "PUT" : "POST";
     try {
@@ -110,24 +108,18 @@ export default function MetaData() {
         body: JSON.stringify(payLoad),
       });
 
-      const result = await res.json();
-
       if (res.ok) {
-        setExistingId(result._id || result.data?._id);
-        setModalType("success");
-        setModalMessage("Metadata saved successfully");
+        const result = await res.json();
+        const matchId = result._id || result.data?._id;
+        // setExistingId(result._id || result.data?._id);
+        setExistingId(matchId);
         setShowModal(true);
       } else {
-        setModalType("error");
-        setModalMessage(result.message || "Failed to save metadata");
-        setShowModal(true);
+        setShowModal(false);
       }
     } catch (err) {
       console.log(err);
-
-      setModalType("error");
-      setModalMessage("Something went wrong. Please try again.");
-      setShowModal(true);
+      setShowModal(false);
     } finally {
       setIsSubmitting(false);
     }
@@ -140,14 +132,15 @@ export default function MetaData() {
     { value: "services", label: "Services page" },
     { value: "home", label: "Free Tip" },
     { value: "surePredict", label: "Sure Predict" },
-    { value: "super_single", label: "Super Single Tip" },
-    { value: "freeOdds", label: "Free Odds" },
+    { value: "superSingleTip", label: "Super Single Tip" },
+    { value: "freeTip", label: "Free Tips" },
     { value: "home win", label: "Home Win" },
     { value: "away win", label: "Away Win" },
     { value: "over and Under", label: "Over & Under" },
     { value: "btts", label: "Both Teams Score" },
     { value: "double chance", label: "Double Chance" },
     { value: "allPrediction", label: "All Predictions" },
+    { value: "freeOdds", label: "Free 2 Odds" },
   ];
 
   const selected = options.find((o) => o.value === status);
@@ -304,13 +297,7 @@ export default function MetaData() {
           </button>
         </div>
       </form>
-      {/* <PostModel
-        open={showModal}
-        type={modalType}
-        message={modalMessage}
-        onClose={() => setShowModal(false)}
-      /> */}
-      <AnimationModal title="metadata saved successfully"/>
+      <AnimationModal open={showModal} title="metadata saved successfully" />
     </div>
   );
 }

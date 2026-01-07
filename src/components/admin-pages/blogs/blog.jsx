@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { Editor } from "primereact/editor";
 import imgThumbnail from "../../../assets/thumbnail.png";
-import { img, input, object } from "framer-motion/client";
+import { desc, img, input, object } from "framer-motion/client";
 import { IoIosArrowDown } from "react-icons/io";
 import { FaPlus } from "react-icons/fa";
 import { IoMdSend } from "react-icons/io";
@@ -17,6 +17,10 @@ export default function NewPost() {
   const [inputValue, setInputValue] = useState("");
   const [displayValue, setDisplayValue] = useState("");
   const [status, setStatus] = useState("Publish");
+  const [blogKeywords, setBlogKeywords] = useState("");
+  const [description, setDescription] = useState("");
+  // const [headerContent, setHeaderContent] = useState("");
+  // const [headerSubContent, setHeaderSubContent] = useState("");
 
   const myImageRef = useRef(null);
 
@@ -74,6 +78,10 @@ export default function NewPost() {
 
     const formData = new FormData();
     formData.append("title", title);
+    formData.append("pageKeywords", blogKeywords);
+    formData.append("description", description);
+    // formData.append("headerContent", headerContent);
+    // formData.append("headerSubContent", headerSubContent);
     formData.append("body", body);
 
     const token = localStorage.getItem("authToken");
@@ -131,14 +139,36 @@ export default function NewPost() {
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            placeholder="Article Title"
+            placeholder="Blog Title"
             className="w-full border border-[#1A365D] rounded-xl px-4 py-2 text-[#1A365D] font-semibold font-[Open Sans] focus:outline-none focus:ring-1 focus:ring-[#1A365D]"
           />
+          <input
+            type="text"
+            placeholder="Blog Keywords"
+            value={blogKeywords}
+            onChange={(e) => setBlogKeywords(e.target.value)}
+            className="w-full border border-[#1A365D] rounded-xl px-4 py-2 text-[#1A365D] font-semibold font-[Open Sans] focus:outline-none focus:ring-1 focus:ring-[#1A365D]"
+          />
+          <input
+            type="text"
+            placeholder="Blog Description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            className="w-full border border-[#1A365D] rounded-xl px-4 py-2 text-[#1A365D] font-semibold font-[Open Sans] focus:outline-none focus:ring-1 focus:ring-[#1A365D]"
+          />
+          {/* <input
+            type="text"
+            placeholder="Header Sub-Content"
+            value={headerSubContent}
+            onChange={(e) => setHeaderSubContent(e.target.value)}
+            className="w-full border border-[#1A365D] rounded-xl px-4 py-2 text-[#1A365D] font-semibold font-[Open Sans] focus:outline-none focus:ring-1 focus:ring-[#1A365D]"
+          /> */}
           <Editor
             value={body}
             onTextChange={(e) => setBody(e.htmlValue)}
             className="h-[400px] w-full"
             headerTemplate={editorHeader}
+            placeholder="Body"
           />
           <button
             onClick={handlePostAction}
