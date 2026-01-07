@@ -19,13 +19,13 @@ export default function AwayWin() {
 			}
 		);
 
-		if (!res.ok) throw new Error("Failed request");
+	  if (!res.ok) throw new Error("Failed request");
 
       const data = await res.json();
 
       if (!data?.data) throw new Error("SEO missing");
 
-	   setSeo(data.data);
+	  setSeo(data.data);
 		
 		
 			

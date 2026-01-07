@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FaCircleDot, FaSpinner, FaTrophy } from "react-icons/fa6";
 import { FaTools} from "react-icons/fa";
 
-export default function LeagueTables() {
+export default function LeagueTables({ league }) {
     const [activeLeague, setActiveLeague] = useState("EPL");
     const [leaguesData, setLeaguesData] = useState({});
     const [loading, setLoading] = useState(true);
