@@ -67,7 +67,19 @@ export default function Footer() {
                                                 setOpen(false);
                                             }
                                         }}
-                                    className="text-[#fff]/70 hover:text-white cursor-pointer transition" >
+                                    className="text-[#fff]/70 hover:text-white relative  cursor-pointer transition after:content-['']
+after:absolute
+after:left-1/2
+after:bottom-0
+after:h-[2px]
+after:w-full
+after:bg-[#D6AE3E]
+after:-translate-x-1/2
+after:scale-x-0
+after:origin-center
+after:transition-transform
+after:duration-300
+hover:after:scale-x-100" >
                                     {link.title}
                                </button>
 
@@ -121,8 +133,22 @@ export default function Footer() {
                         <p className="px-2">
                             Links:
                         </p>
-                        <a href={footerLink.url} target="blank"  rel="noopener noreferrer sponsored" className=" text-center text-[#D6AE3E] text-lg  hover:underline rounded ">
+                        <a href={footerLink.url} target="blank"  rel="noopener noreferrer sponsored" className="relative text-center hover:text-white text-[#D6AE3E] text-lg  cursor-pointer transition after:content-['']
+after:absolute
+after:left-1/2
+after:bottom-0
+after:h-[2px]
+after:w-full
+after:bg-[#D6AE3E]
+after:-translate-x-1/2
+after:scale-x-0
+after:origin-center
+after:transition-transform
+after:duration-300
+hover:after:scale-x-100"> 
                         {footerLink.label}
+
+                        
                     </a>
                      </div>
                    )}

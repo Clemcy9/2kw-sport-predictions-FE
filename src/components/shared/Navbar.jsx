@@ -4,6 +4,7 @@ import { Menu, X, ChevronDown, ChevronUp } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { hasAccount, isLoggedIn } from "../hooks/useAuth";
 import { useAffiliate } from "../hooks/useAffiliate";
+// import { NavLink } from "react-router-dom";
 
 
 
@@ -15,6 +16,7 @@ export default function Navbar() {
 
     const navigation = useNavigate();
     
+    // const {pathname}  = useLocation();
 
     const {navbarLink} = useAffiliate();
 
@@ -109,7 +111,21 @@ const loggedin = isLoggedIn();
                                         {/* Button with arrow */}
                                         <button
                                             onClick={() => setDropdown(dropdown === index ? null : index)}
-                                            className="text-white flex items-center gap-1 hover:text-[#D6AE3E]"
+                                            className="text-white flex items-center gap-1 hover:text-[#D6AE3E] text-shadow-lg    relative w-fit cursor-pointer
+after:content-['']
+after:absolute
+after:left-1/2
+after:bottom-0
+after:h-[2px]
+after:w-full
+after:bg-[#D6AE3E]
+after:-translate-x-1/2
+after:scale-x-0
+after:origin-center
+after:transition-transform
+after:duration-300
+hover:after:scale-x-100
+"
                                         >
                                             {link.title}
                                             {dropdown === index ? (
@@ -153,7 +169,21 @@ const loggedin = isLoggedIn();
                                                 handleNavClick(link);
                                             }
                                         }}
-                                            className="text-gray-50 transition hover:text-[#D6AE3E] cursor-pointer text-shadow-lg"
+                                            className="text-gray-50 transition hover:text-[#D6AE3E] text-shadow-lg  relative w-fit cursor-pointer
+after:content-['']
+after:absolute
+after:left-1/2
+after:bottom-0
+after:h-[2px]
+after:w-full
+after:bg-[#D6AE3E]
+after:-translate-x-1/2
+after:scale-x-0
+after:origin-center
+after:transition-transform
+after:duration-300
+hover:after:scale-x-100
+"
                                     >
                                         {link.title}
                                     </button>

@@ -8,50 +8,45 @@ export default function FootballLeagues() {
 
 
 
-    const leagues = [
-        {
-            code: "UCL",
-            name: "UEFA Champions League",
-            country: "England",
-            logo: "https://upload.wikimedia.org/wikipedia/en/f/f2/Premier_League_Logo.svg",
-        },
-        {
-            code: "EPL",
-            name: "English Premier League",
-            country: "England",
-            logo: "https://upload.wikimedia.org/wikipedia/en/f/f2/Premier_League_Logo.svg",
-            
-        },
-        {
-            code: "SPA",
-            name: "Spain La Liga",
-            country: "Spain",
-            logo: "/la-liga-logo.png",
-            
-        },
-        {
-            code: "ITA",
-            name: "Italian Serie A",
-            country: "Italy",
-            logo: "/serie-a-logo.png",
-           
-        },
-        {
-            code: "GER",
-            name: "German Bundesliga",
-            country: "Europe",
-            logo: "/champions-league.png",
-            
-        },
-        {
-            code: "FRA",
-            name: "French Ligue 1",
-            country: "Europe",
-            logo: "/europa.png",
-           
-        },
-    ]
-    
+   const leagues = [
+  {
+    code: "UCL",
+    name: "UEFA Champions League",
+    country: "Europe",
+    logo: "/champions-league.png",
+  },
+  {
+    code: "EPL",
+    name: "English Premier League",
+    country: "England",
+    logo: "https://upload.wikimedia.org/wikipedia/en/f/f2/Premier_League_Logo.svg",
+  },
+  {
+    code: "SPA",
+    name: "La Liga",
+    country: "Spain",
+    logo: "/la-liga-logo.png",
+  },
+  {
+    code: "ITA",
+    name: "Serie A",
+    country: "Italy",
+    logo: "/serie-a-logo.png",
+  },
+  {
+    code: "GER",
+    name: "Bundesliga",
+    country: "Germany",
+    logo: "/bundesliga-logo.png",
+  },
+  {
+    code: "FRA",
+    name: "Ligue 1",
+    country: "France",
+    logo: "/ligue-1-logo.png",
+  },
+];
+
 
 
     return (
