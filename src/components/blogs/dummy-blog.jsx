@@ -59,12 +59,12 @@ export default function DummyBlog() {
                 {blog.title.slice(0, 50)}...{" "}
               </h2>
 
-              <p
-                className="text-[#65758B] lg:text-[15px] text-[13px] mt-2 line-clamp-4"
+              <div
+                className="ql-editor text-[#65758B] lg:text-[15px] text-[13px] mt-2 line-clamp-4"
                 dangerouslySetInnerHTML={{
                   __html: DOMPurify.sanitize(blog.body),
                 }}
-              ></p>
+              />
               <div className="flex justify-between w-full lg:py-2 ">
                 <span className="font-semibold text-[#65758B]">
                   {new Date(blog.createdAt).toLocaleDateString()}
