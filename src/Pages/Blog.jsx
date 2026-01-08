@@ -111,7 +111,7 @@ export default function BlogPost() {
             blogs?.map((blog) => (
               <article
                 key={blog._id}
-                className="group overflow-hidden bg-white flex justify-between flex-row lg:flex-col lg:gap-2 sm:flex-col gap-1 rounded-[0.5em] hover:-translate-y-1 transition-all shadow-sm h-[200px] sm:h-[350px] lg:h-[380px]"
+                className="group overflow-hidden bg-white flex justify-between flex-row lg:flex-col lg:gap-2 sm:flex-col gap-1 rounded-[0.5em] hover:-translate-y-1 transition-all shadow-sm h-[250px] sm:h-[450px] lg:h-[450px]"
               >
                 <div className="relative w-[190px] md:w-full sm:w-full h-[200px] md:h-[210px] sm:h-[200px] sm:min-h-[200px] overflow-hidden">
                   <img
@@ -125,18 +125,8 @@ export default function BlogPost() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#111]/40 to-transparent" />
                 </div>
-                {/* <div className="relative w-full h-[210px] overflow-hidden shrink-0">
-                  <img
-                    src={blog.image_url}
-                    alt={blog.title}
-                    className="w-full h-full object-cover transition-transform duration-500
-                    group-hover:scale-110 group-active:scale-110
-                    rounded-t-[0.5rem]"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#111]/40 to-transparent" />
-                </div> */}
 
-                <div className="lg:px-2 px-1 sm:px-2 py-2 flex flex-col justify-between space-y-1 sm:gap-0 w-full">
+                <div className="lg:px-2 h-[200px] sm:h-[2550px] lg:h-[350px] px-1 sm:px-2 flex flex-col justify-between space-y-1 sm:gap-0 w-full">
                   <div className="mt-3">
                     <h2 className="font-semibold leading-tight  ">
                       {blog.title}
@@ -144,7 +134,9 @@ export default function BlogPost() {
                     <div
                       className="ql-editor text-[#65758B] lg:text-[15px] text-[13px] mt-2 line-clamp-4"
                       dangerouslySetInnerHTML={{
-                        __html: DOMPurify.sanitize(blog.body),
+                        __html: DOMPurify.sanitize(
+                          blog.body.slice(0, 250) + "..."
+                        ),
                       }}
                     />
                   </div>

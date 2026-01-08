@@ -292,6 +292,7 @@ export default function MetaData() {
                         onTextChange={(e) => setBody(e.htmlValue)}
                         className="h-[400px] w-full mt-2 "
                         headerTemplate={editorHeader}
+                        placeholder="Body"
                         formats={[
                           "bold",
                           "italic",

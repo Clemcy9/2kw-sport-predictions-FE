@@ -60,9 +60,9 @@ export default function DummyBlog() {
               </h2>
 
               <div
-                className="ql-editor text-[#65758B] lg:text-[15px] text-[13px] line-clamp-4"
+                className="ql-editor text-[#65758B] lg:text-[15px] text-[13px]"
                 dangerouslySetInnerHTML={{
-                  __html: DOMPurify.sanitize(blog.body),
+                  __html: DOMPurify.sanitize(blog.body.slice(0, 250) + "..."),
                 }}
               />
               <div className="flex justify-between w-full lg:py-2 ">
