@@ -36,6 +36,7 @@ import AccessRoutes from "./components/hooks/useAccess";
 import ProtectedRoute from "./components/auth-system/protected-routes";
 import Scroll_To_Top from "./components/animations/scroll-arrow";
 import Live_Scores from "./components/predictions/live-score";
+import Table_Controller from "./components/Leagues/table-data";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -114,6 +115,7 @@ export default function App() {
           <Route path="/blog_id/*" element={<BlogPost_Id />} />
           <Route path="/blog" element={<BlogPost />} />
           <Route path="/scroll-arrow" element={<Scroll_To_Top />} />
+          <Route path="/table-date " element={<Table_Controller />} />
         </Routes>
       )}
     </>

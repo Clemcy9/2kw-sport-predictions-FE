@@ -80,7 +80,9 @@ export default function BlogPost_Id() {
   if (!blog) return;
 
   return (
-    <div>
+    <>
+    <main>
+      
       <Navbar />
 
       <section
@@ -189,6 +191,7 @@ export default function BlogPost_Id() {
         />
       </Routes>
       <Footer />
-    </div>
+    </main>
+    </>
   );
 }

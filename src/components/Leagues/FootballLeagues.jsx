@@ -1,66 +1,57 @@
 import { motion } from "framer-motion";
 import { FaChevronRight } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 // import { leagues } from "./leagues";
 
 export default function FootballLeagues() {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
 
 
     const leagues = [
         {
-            slug: "England-premier-league",
-            name: "England Premier League",
+            code: "UCL",
+            name: "UEFA Champions League",
             country: "England",
             logo: "https://upload.wikimedia.org/wikipedia/en/f/f2/Premier_League_Logo.svg",
-            heroImage: "/premier-hero.jpg",
-            component: "Premier-league",
         },
         {
-            slug: "Spain-la-liga",
+            code: "EPL",
+            name: "English Premier League",
+            country: "England",
+            logo: "https://upload.wikimedia.org/wikipedia/en/f/f2/Premier_League_Logo.svg",
+            
+        },
+        {
+            code: "SPA",
             name: "Spain La Liga",
             country: "Spain",
             logo: "/la-liga-logo.png",
-            heroImage: "/laliga-hero.jpg",
-            component: "LaLigaCard",
+            
         },
         {
-            slug: "Europe-UEFA-champions-league",
-            name: "Europe UEFA Champions League",
-            country: "Europe",
-            logo: "/champions-league.png",
-            heroImage: "/champions-hero.jpg",
-            component: "ChampionsLeagueCard",
-        },
-        {
-            slug: "Europe-UEFA-europa-league",
-            name: "Europe UEFA Europa League",
-            country: "Europe",
-            logo: "/europa.png",
-            heroImage: "/europa-hero.jpg",
-            component: "EuropaLeagueCard",
-        },
-        {
-            slug: "Italy-serie-A",
-            name: "Italy Serie A",
+            code: "ITA",
+            name: "Italian Serie A",
             country: "Italy",
             logo: "/serie-a-logo.png",
-            heroImage: "/seriea-hero.jpg",
-            component: "SerieACard",
+           
+        },
+        {
+            code: "GER",
+            name: "German Bundesliga",
+            country: "Europe",
+            logo: "/champions-league.png",
+            
+        },
+        {
+            code: "FRA",
+            name: "French Ligue 1",
+            country: "Europe",
+            logo: "/europa.png",
+           
         },
     ]
-    // const leagueNames = leagues.map((leagues) => leagues.name);
-    // localStorage.setItem("leagueNames", JSON.stringify(leagueNames));
-
-    // const handleLeagueClick = (leagueName) => {
-
-    //       localStorage.setItem("selectedLeague", leagueName);
-
-
-    //       const path = `/leagues/${leagueName.toLowerCase().replace(/\s+/g, "-")}`;
-    //       navigate(path);
-    //   };
+    
 
 
     return (

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { userToken } from "../hooks/useAuth";
+import DOMPurify from "dompurify";
 
 const market_type = "away win";
 
@@ -63,9 +64,20 @@ export default function AwayWin() {
       <meta property="og:type" content="website" />
 
       <main className="w-full border border-[#1A365D] p-4 m-2">
-        <p>{seo?.header_content}</p>
+        {/* <p>{seo?.header_content}</p>
         <p>{seo?.header_sub_content}</p>
-        <p>{seo?.metadata_content}</p>
+        <p>{seo?.metadata_content}</p> */}
+        <div className=" flex flex-col bg-white shadow-xl p-4 rounded-lg mt-7 space-y-1 sm:gap-0">
+          <h2 className="font-semibold lg:text-2xl text-xl leading-tight  ">
+            {seo?.page_title}
+          </h2>
+          <p
+            dangerouslySetInnerHTML={{
+              __html: DOMPurify.sanitize(seo?.metadata_content),
+            }}
+            className="text-[#65758B] lg:text-[16px] text-[15px] mt-3 lg:leading-7 leading-5 "
+          ></p>
+        </div>
       </main>
     </>
   );

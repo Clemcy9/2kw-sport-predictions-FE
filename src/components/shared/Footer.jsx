@@ -81,7 +81,7 @@ export default function Footer() {
                                             {tag}
                                         </a> */}
                                         {footerLink && (
-                     <a href={footerLink.url} className=" absolute w-fit lg:w-fit lg:min-w-36 lg:mt-2 text-center bg-[#D6AE3E] text-lg text-[#1A365D] px-3 hover:underline py-1 rounded shadow-lg">
+                     <a href={footerLink.url} target="blank"  rel="noopener noreferrer sponsored" className=" absolute w-fit lg:w-fit lg:min-w-36 lg:mt-2 text-center bg-[#D6AE3E] text-lg text-[#1A365D] px-3 hover:underline py-1 rounded shadow-lg">
                         {footerLink.label}
                     </a>
                    )}
@@ -112,16 +112,21 @@ export default function Footer() {
                 </div>
             </div>
             <div className="text-[#fff]/70  border-t-1 border-[#fff]/80 w-full items-center">
-                <div className="flex items-center justify-center flex-col space-y-6 lg:flex-row lg:justify-between ">
-                    <p className="text-sm mt-[50px]">
+                <div className="flex items-center justify-center flex-col space-y-6 lg:mt-14 lg:flex-row lg:justify-between ">
+                    <p className="text-sm ">
                         &copy; {new Date().getFullYear()} 2KwPreddict. All rights reserved.
                     </p>
                    {footerLink && (
-                     <a href={footerLink.url} className="lg:mt-[40px] w-full lg:w-fit lg:min-w-36  text-center text-[#D6AE3E] text-lg  hover:underline rounded ">
+                     <div className="text-lg px-2 flex justify-center items-center">
+                        <p className="px-2">
+                            Links:
+                        </p>
+                        <a href={footerLink.url} target="blank"  rel="noopener noreferrer sponsored" className=" text-center text-[#D6AE3E] text-lg  hover:underline rounded ">
                         {footerLink.label}
                     </a>
+                     </div>
                    )}
-                    <ul className="flex space-x-6 lg:mt-[40px]">
+                    <ul className=" flex justify-center items-center gap-4">
                         <li >Privacy Policy</li>
                         <li>Terms Of Service</li>
                     </ul>

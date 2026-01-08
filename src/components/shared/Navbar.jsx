@@ -167,7 +167,7 @@ const loggedin = isLoggedIn();
                                         {/* <a  href={tag} 
                                             {tag}
                                         </a> */}
-                                         <a href={navbarLink.url} className="hover:underline active:underline absolute w-fit  lg:mt-5 lg:w-70 text-center bg-[#D6AE3E] text-lg text-[#1A365D] px-1 py-1 rounded shadow-lg">
+                                         <a href={navbarLink.url} target="blank"  rel="noopener noreferrer sponsored" className="hover:underline active:underline absolute w-fit  lg:mt-5 lg:w-70 text-center bg-[#D6AE3E] text-lg text-[#1A365D] px-1 py-1 rounded shadow-lg">
                         {navbarLink.label}
                     </a>
                                    </motion.div>
@@ -272,7 +272,7 @@ const loggedin = isLoggedIn();
                                             exit={{ opacity: 0, y: 5 }}
                                             transition={{ duration: 0.25 }} className="w-full">
                                            
-                                            <a href={navbarLink.url} className="w-full text-xl lg:mt-5 bg-[#D6AE3E] text-[#1A365D] px-3 py-1 rounded shadow-lg">
+                                            <a href={navbarLink.url} target="blank"  rel="noopener noreferrer sponsored" className="w-full text-xl lg:mt-5 bg-[#D6AE3E] text-[#1A365D] px-3 py-1 rounded shadow-lg">
                         {navbarLink.label}
                     </a>
                                         </motion.div>
