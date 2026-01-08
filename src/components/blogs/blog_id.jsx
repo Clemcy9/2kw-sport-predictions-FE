@@ -134,7 +134,7 @@ export default function BlogPost_Id() {
           path={blogId}
           element={
             <section className="lg:p-10 md:p-8 sm:p-5 p-2">
-              <article className="group flex mx-auto flex-col lg:gap-2 sm:flex-col gap-1 lg:h-[100%] h-auto  hover:-translate-y-1 transition-all lg:max-w-6xl sm:h-[100%lg:rounded-xl">
+              <article className="group flex mx-auto flex-col lg:gap-2 sm:flex-col gap-1 lg:h-[100%] h-auto  hover:-translate-y-1 transition-all lg:max-w-7xl sm:h-[100%lg:rounded-xl">
                 <div className="overflow-hidden md:h-[100vh] h-[50vh] relative w-full">
                   <img
                     src={blog.image_url}
@@ -143,6 +143,9 @@ export default function BlogPost_Id() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#111]/40 to-transparent rounded-xl"></div>
                 </div>
+                <span className="font-semibold text-[#65758B]">
+                      {new Date(blog.createdAt).toLocaleDateString()}
+                    </span>
                 <div className=" flex flex-col bg-white shadow-xl p-4 rounded-lg mt-7 space-y-1 sm:gap-0">
                   <h2 className="font-semibold lg:text-2xl text-xl leading-tight  ">
                     {blog.title}
