@@ -62,10 +62,10 @@ export default function SuperSingles() {
       <meta property="og:url" content="https://2kwpredicts.com/super singles" />
       <meta property="og:type" content="website" />
 
-      <main className="w-full border border-[#1A365D] m-2 p-4">
+      <main className="w-full border border-[#1A365D] bg-white shadow-xl m-2 p-4">
         {/* <p>{seo?.header_content}</p>
         <p>{seo?.header_sub_content}</p> */}
-        <div className=" flex flex-col bg-white shadow-xl p-4 rounded-lg mt-7 space-y-1 sm:gap-0">
+        <div className=" flex flex-col  p-4 rounded-lg mt-7 space-y-1 sm:gap-0">
           <h2 className="font-semibold lg:text-2xl text-xl leading-tight  ">
             {seo?.page_title}
           </h2>
