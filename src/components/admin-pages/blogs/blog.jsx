@@ -111,20 +111,29 @@ export default function NewPost() {
 
   const editorHeader = (
     <span className="ql-formats">
-      <select className="ql-header">
-        <option value="1"></option>
-        <option value="2"></option>
-        <option selected></option>
+      <button className="ql-bold" />
+      <button className="ql-italic" />
+      <button className="ql-underline" />
+      <button className="ql-strike" />
+      <button className="ql-list" value="ordered" />
+      <button className="ql-list" value="bullet" />
+
+      <select className="ql-list" title="Start Number At">
+        <option value="ordered">Default</option>
+        <option value="1">Restart (1)</option>
+        <option value="2">Start at 2</option>
+        <option value="5">Start at 5</option>
+        <option value="10">Start at 10</option>
       </select>
 
-      <button className="ql-bold"></button>
-      <button className="ql-italic"></button>
-      <button className="ql-underline"></button>
+      <select className="ql-align" defaultValue="">
+        <option value=""></option>
+        <option value="center"></option>
+        <option value="right"></option>
+        <option value="justify"></option>
+      </select>
 
-      <button className="ql-list" value="ordered"></button>
-      <button className="ql-list" value="bullet"></button>
-
-      <button className="ql-link"></button>
+      <button className="ql-link" />
     </span>
   );
 
@@ -169,6 +178,16 @@ export default function NewPost() {
             className="h-[400px] w-full"
             headerTemplate={editorHeader}
             placeholder="Body"
+            formats={[
+              "bold",
+              "italic",
+              "underline",
+              "strike",
+              "list",
+              "bullet",
+              "align",
+              "link",
+            ]}
           />
           <button
             onClick={handlePostAction}

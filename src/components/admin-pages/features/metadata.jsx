@@ -5,6 +5,8 @@ import { FaSpinner } from "react-icons/fa6";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiChevronDown, FiCheck } from "react-icons/fi";
 import AnimationModal from "../../store/animation-modal";
+import { span } from "framer-motion/client";
+import Quill from "quill";
 
 export default function MetaData() {
   const [status, setStatus] = useState("");
@@ -125,6 +127,34 @@ export default function MetaData() {
     }
   };
 
+  const editorHeader = (
+    <span className="ql-formats">
+      <button className="ql-bold" />
+      <button className="ql-italic" />
+      <button className="ql-underline" />
+      <button className="ql-strike" />
+      <button className="ql-list" value="ordered" />
+      <button className="ql-list" value="bullet" />
+
+      <select className="ql-list" title="Start Number At">
+        <option value="ordered">Default</option>
+        <option value="1">Restart (1)</option>
+        <option value="2">Start at 2</option>
+        <option value="5">Start at 5</option>
+        <option value="10">Start at 10</option>
+      </select>
+
+      <select className="ql-align" defaultValue="">
+        <option value=""></option>
+        <option value="center"></option>
+        <option value="right"></option>
+        <option value="justify"></option>
+      </select>
+
+      <button className="ql-link" />
+    </span>
+  );
+
   const options = [
     { value: "", label: "Select a page" },
     { value: "homePage", label: "Home page" },
@@ -155,16 +185,16 @@ export default function MetaData() {
     <div className="px-8 lg:pt-6 p-4 ">
       <form onSubmit={handleSubmit} className=" w-full  ">
         <div className="w-full space-y-7">
-          <div className="flex justify-between">
+          <div className="flex md:flex-row  sm:flex-col flex-col justify-between">
             <div>
               <h1 className=" w-full font-bold text-black/80 font-[Inria Sans] text-2xl">
                 SEO Metadata
               </h1>
-              <small className="mt-1 text-lg">
+              <small className="mt-1 md:text-lg sm:text-[16px] text-sm">
                 Add and manage seo meta data for your website pages!
               </small>
             </div>
-            <div className="relative w-full max-w-xs">
+            <div className="relative w-full max-w-xs md:mt-0 sm:mt-5 mt-5">
               <button
                 type="button"
                 onClick={() => setOpen((p) => !p)}
@@ -213,7 +243,7 @@ export default function MetaData() {
           </div>
           <div className="w-full h-auto mt-2 bg-[#F5FAFF] rounded-lg">
             {status ? (
-              <div className="px-5 py-3">
+              <div className="md:px-5 px-0 py-3 ">
                 {isFetching ? (
                   <p className="text-center">Loading existing data...</p>
                 ) : (
@@ -261,6 +291,18 @@ export default function MetaData() {
                         value={body}
                         onTextChange={(e) => setBody(e.htmlValue)}
                         className="h-[400px] w-full mt-2 "
+                        headerTemplate={editorHeader}
+                        placeholder="Body"
+                        formats={[
+                          "bold",
+                          "italic",
+                          "underline",
+                          "strike",
+                          "list",
+                          "bullet",
+                          "align",
+                          "link",
+                        ]}
                       />
                     </div>
                   </div>

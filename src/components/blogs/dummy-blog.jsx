@@ -40,9 +40,9 @@ export default function DummyBlog() {
           <article
             onClick={() => navigate(`/blog_id/${blog._id}`)}
             key={blog._id}
-            className="group overflow-hidden bg-white cursor-pointer flex items-center justify-between flex-row lg:flex-col lg:gap-2 sm:flex-col lg:rounded-[0.5em] gap-1 rounded-[0.5em] hover:-translate-y-1 transition-all lg:w-auto w-full  shadow-sm h-[200px] lg:h-[380px]"
+            className="group overflow-hidden bg-white cursor-pointer flex items-center justify-between flex-row lg:flex-col lg:gap-2 sm:flex-col lg:rounded-[0.5em] gap-1 rounded-[0.5em] hover:-translate-y-1 transition-all lg:w-auto w-full  shadow-sm h-[200px] sm:h-[380px] lg:h-[380px]"
           >
-            <div className="relative min-w-[150px]  w-[150px] md:w-full sm:w-full h-[200px] md:h-[210px] overflow-hidden">
+            <div className="relative min-w-[180px]  w-[150px] md:w-full sm:w-full h-[200px] md:h-[210px] sm:h-[200px] sm:min-h-[200px] overflow-hidden">
               <img
                 src={blog.image_url}
                 alt={blog.title}
@@ -59,12 +59,12 @@ export default function DummyBlog() {
                 {blog.title.slice(0, 50)}...{" "}
               </h2>
 
-              <p
-                className="text-[#65758B] lg:text-[15px] text-[13px] mt-2 line-clamp-4"
+              <div
+                className="ql-editor text-[#65758B] lg:text-[15px] text-[13px]"
                 dangerouslySetInnerHTML={{
-                  __html: DOMPurify.sanitize(blog.body),
+                  __html: DOMPurify.sanitize(blog.body.slice(0, 250) + "..."),
                 }}
-              ></p>
+              />
               <div className="flex justify-between w-full lg:py-2 ">
                 <span className="font-semibold text-[#65758B]">
                   {new Date(blog.createdAt).toLocaleDateString()}
@@ -80,6 +80,7 @@ export default function DummyBlog() {
           </article>
         ))}
       </div>
+
       <Link
         className="p-4 z-20 text-[#D6AE3E] flex justify-center text-center items-center underline"
         to={"/blog"}
