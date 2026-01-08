@@ -71,12 +71,12 @@ export default function AwayWin() {
           <h2 className="font-semibold lg:text-2xl text-xl leading-tight  ">
             {seo?.page_title}
           </h2>
-          <p
+          <div
             dangerouslySetInnerHTML={{
               __html: DOMPurify.sanitize(seo?.metadata_content),
             }}
-            className="text-[#65758B] lg:text-[16px] text-[15px] mt-3 lg:leading-7 leading-5 "
-          ></p>
+            className="ql-editor text-[#65758B] lg:text-[16px] text-[15px] mt-3 lg:leading-7 leading-5 "
+          />
         </div>
       </main>
     </>
