@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
+import { NavLink } from "react-router-dom";
 
 export default function FreeTips(props) {
   const location = useLocation();
@@ -65,28 +66,27 @@ export default function FreeTips(props) {
       >
         <div className="flex justify-center items-center p-2 w-full">
           <div className="flex flex-wrap gap-1.5 md:gap-4 font-sans justify-center w-full relative">
-            {tipsLink.map((tips, index) => {
-              const isActive = activePath === tips.path;
+           {tipsLink.map((tips) => (
+    <NavLink key={tips.id} to={tips.path} end>
+      {({ isActive }) => (
+        <motion.div
+          whileTap={{ scale: 0.95 }}
+          animate={{
+            backgroundColor: isActive ? "#D6AE3E" : "#fff",
+            color: "#1A365D",
+          }}
+          transition={{ duration: 0.15 }}
+          onClick={() =>
+            props.setBet({ id: tips.id, name: tips.name })
+          }
+          className="flex-shrink-0 min-w-[60px] rounded-[0.4rem] py-2 px-1 shadow-sm font-semibold border border-[#D6AE3E] cursor-pointer"
+        >
+          {tips.title}
+        </motion.div>
+      )}
+    </NavLink>
+  ))}
 
-              return (
-                <motion.button
-                  key={index}
-                  onClick={() => {
-                    navigate(tips.path);
-                    props.setBet({ id: tips.id, name: tips.name });
-                  }}
-                  whileTap={{ scale: 0.95 }}
-                  animate={{
-                    backgroundColor: isActive ? "#D6AE3E" : "#fff",
-                    color: isActive ? "#1A365D" : "#1A365D",
-                    transition: { duration: 0.01 },
-                  }}
-                  className="flex-shrink-0 min-w-[60px] rounded-[0.4rem] py-2 px-1 shadow-sm font-semibold transition-all duration-300 border border-[#D6AE3E]"
-                >
-                  {tips.title}
-                </motion.button>
-              );
-            })}
           </div>
         </div>
       </motion.nav>
