@@ -340,14 +340,14 @@ export default function LandingPage() {
 
                 {/* Tables + Blog */}
                 <LeagueTables />
-                <DummyBlog />
+                <DummyBlog title="2kwPredict Blog"/>
               </div>
             </main>
           </div>
         </div>
       </motion.div>
       <div className="mt-5 px-4">
-            <Outlet /> {/* Nested routes */}
+            <Outlet /> 
           </div>
       <Footer />
     </>

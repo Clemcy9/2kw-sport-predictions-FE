@@ -3,9 +3,11 @@ import { FiArrowRight } from "react-icons/fi";
 import { Link, useNavigate } from "react-router-dom";
 import DOMPurify from "dompurify";
 
-export default function DummyBlog() {
+export default function DummyBlog({title}) {
   const [blogs, setBlogs] = useState([]);
   const navigate = useNavigate();
+
+  
 
   useEffect(() => {
     const get_all_blogs = async () => {
@@ -31,9 +33,10 @@ export default function DummyBlog() {
 
   return (
     //   <div >
-    <div className="gap-5 border-none lg:p-4 mx my-3 mt-7 w-full z-20 relative flex flex-col justify-center items-center bg-[#e0e2e685]">
+    <div className="gap-5 border-none lg:p-4 mx my-3 mt-7 w-full z-20 relative flex flex-col justify-center items-center bg-[#bfc0c46a]">
+      {/* parakit AI */}
       <h1 className="font-[Inria Sans] text-center text-3xl font-semibold text-[#1F2128] lg:pb-6 mb-8 text-shadow-x z-40">
-        2kwPredict Blog
+        {title}
       </h1>
       <div className="lg:grid lg:grid-cols-3 lg:gap- sm:grid sm:grid-cols-2 sm:gap-6 gap-4 w-full sm:items-center sm:w-full sm:justify-center flex flex-col ">
         {blogs.map((blog) => (
@@ -54,7 +57,7 @@ export default function DummyBlog() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#111]/40 to-transparent" />
             </div>
-            <div className="lg:px-2 px-1 sm:px-2 py-0 flex flex-col space-y-1 sm:gap-0">
+            <div onClick={(e) => e.stopPropagation()} className="lg:px-2 px-1 sm:px-2 py-0 flex flex-col space-y-1 sm:gap-0">
               <h2 className="font-semibold leading-tight  ">
                 {blog.title.slice(0, 50)}...{" "}
               </h2>

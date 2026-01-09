@@ -1,24 +1,24 @@
 import { useRef, useState } from "react";
 import { Editor } from "primereact/editor";
 import imgThumbnail from "../../../assets/thumbnail.png";
-import { desc, img, input, object } from "framer-motion/client";
+// import { data } from "react-router-dom";
+// import { desc, img, input, object } from "framer-motion/client";
 import { IoIosArrowDown } from "react-icons/io";
 import { FaPlus } from "react-icons/fa";
 import { IoMdSend } from "react-icons/io";
 
-// import { data } from "react-router-dom";
 
 export default function NewPost() {
-  const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
+  const [title, setTitle] = useState("");
   const [image, setImage] = useState(null);
-  const [dropDownVisible, setDropDownVisible] = useState(false);
   const [inputTags, setInputTags] = useState("");
-  const [inputValue, setInputValue] = useState("");
-  const [displayValue, setDisplayValue] = useState("");
   const [status, setStatus] = useState("Publish");
-  const [blogKeywords, setBlogKeywords] = useState("");
+  const [inputValue, setInputValue] = useState("");
   const [description, setDescription] = useState("");
+  const [blogKeywords, setBlogKeywords] = useState("");
+  const [displayValue, setDisplayValue] = useState("");
+  const [dropDownVisible, setDropDownVisible] = useState(false);
   // const [headerContent, setHeaderContent] = useState("");
   // const [headerSubContent, setHeaderSubContent] = useState("");
 

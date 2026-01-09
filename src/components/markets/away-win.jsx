@@ -39,7 +39,7 @@ export default function AwayWin() {
               "away win predictions, football betting tips, match previews, league analysis, football predictions",
             canonical: "https://2kwpredicts.com/away_win",
             header_content: "Away Win | 2KwPredicts",
-            header_sub_content:
+            metadata_content:
               "Expert football predictions, betting tips, and analysis for away wins",
           });
       }

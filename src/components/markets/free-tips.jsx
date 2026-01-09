@@ -38,7 +38,7 @@ export default function Free_Tips() {
               "FreeTip predictions, football betting tips, match previews, league analysis, football predictions",
             canonical: "https://2kwpredicts.com/away_win",
             header_content: "FreeTip | 2KwPredicts",
-            header_sub_content:
+            metadata_content:
               "Expert football predictions, betting tips, and analysis for FreeTip",
           });
       }

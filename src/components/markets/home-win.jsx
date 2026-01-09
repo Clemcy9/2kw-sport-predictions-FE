@@ -38,7 +38,7 @@ export default function HomeWin() {
               "home win predictions, football betting tips, match previews, league analysis, football predictions",
             canonical: "https://2kwpredicts.com/home_win",
             header_content: "home Win | 2KwPredicts",
-            header_sub_content:
+            metadata_content:
               "Expert football predictions, betting tips, and analysis for home wins",
           });
       }

@@ -37,7 +37,7 @@ export default function Goals2_5() {
               "over 2.5 predictions, football betting tips, match previews, league analysis, football predictions",
             canonical: "https://2kwpredicts.com/over 2.5",
             header_content: "over 2.5 | 2KwPredicts",
-            header_sub_content:
+            metadata_content:
               "Expert football predictions, betting tips, and analysis for over 2.5",
           });
       }

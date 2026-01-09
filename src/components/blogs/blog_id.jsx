@@ -10,8 +10,8 @@ import { useState } from "react";
 import DOMPurify from "dompurify";
 import blogBg from "../../assets/Hero-images/blog-bg.jpg";
 import {
-  FaFacebook,
-  FaX,
+  // FaFacebook,
+  // FaX,
   FaTelegram,
   FaWhatsapp,
   FaShare,
@@ -19,12 +19,13 @@ import {
 import { FaFacebookSquare } from "react-icons/fa";
 // import { FaSquareWhatsapp } from "react-icons/fa6";
 import { BsTwitterX } from "react-icons/bs";
+import DummyBlog from "./dummy-blog";
 
 export default function BlogPost_Id() {
   const endpoints = window.location.href;
   const splitted = endpoints.split("/");
-  const blogId = splitted[splitted.length - 1];
   const [blog, setBlog] = useState({});
+  const blogId = splitted[splitted.length - 1];
 
   const blogUrl = `${window.location.origin}/blogs/${blogId}`;
 
@@ -81,6 +82,19 @@ export default function BlogPost_Id() {
 
   return (
     <>
+     <title>{blog?.title}</title>
+      <meta name="author" content="Chizzy Duru" />
+      <meta name="robots" content="index, follow" />
+      <meta property="og:site_name" content="2KwPredicts" />
+      <link rel="canonical" href="https://2kwpredicts.com/blog" />
+      <meta name="keywords" content={blog?.blogKeywords} />
+      <meta name="description" content={blog?.description} />
+
+      <meta property="og:title" content={blog?.title} />
+      <meta property="og:description" content={blog?.description} />
+      <meta property="og:url" content="https://2kwpredicts.com/away_win" />
+      <meta property="og:type" content="website" />
+
       <main>
         <Navbar />
 
@@ -193,6 +207,7 @@ export default function BlogPost_Id() {
             }
           />
         </Routes>
+        {/* <DummyBlog/> */}
         <Footer />
       </main>
     </>

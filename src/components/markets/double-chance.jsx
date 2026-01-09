@@ -38,7 +38,7 @@ export default function DoubleChance() {
               "Double chance predictions, football betting tips, match previews, league analysis, football predictions",
             canonical: "https://2kwpredicts.com/away_win",
             header_content: "Double chance | 2KwPredicts",
-            header_sub_content:
+            metadata_content:
               "Expert football predictions, betting tips, and analysis for Double chance",
           });
       }
