@@ -43,9 +43,9 @@ export default function DummyBlog({title}) {
           <article
             onClick={() => navigate(`/blog_id/${blog._id}`)}
             key={blog._id}
-            className="group overflow-hidden bg-white cursor-pointer flex items-center justify-between flex-row lg:flex-col lg:gap-2 sm:flex-col lg:rounded-[0.5em] gap-1 rounded-[0.5em] hover:-translate-y-1 transition-all lg:w-auto w-full  shadow-sm h-[200px] sm:h-[380px] lg:h-[380px]"
+            className="group overflow-hidden bg-white cursor-pointer flex items-center justify-between flex-row lg:flex-col lg:gap-2 sm:flex-col lg:rounded-[0.5em] gap-1 rounded-[0.5em] hover:-translate-y-1 transition-all lg:w-auto w-full  shadow-sm h-[230px] sm:h-[380px] lg:h-[380px]"
           >
-            <div className="relative min-w-[180px]  w-[150px] md:w-full sm:w-full h-[200px] md:h-[210px] sm:h-[200px] sm:min-h-[200px] overflow-hidden">
+            <div className="relative min-w-[180px]  w-[150px] md:w-full sm:w-full h-[230px] md:h-[210px] sm:h-[200px] sm:min-h-[200px] overflow-hidden">
               <img
                 src={blog.image_url}
                 alt={blog.title}
@@ -57,7 +57,7 @@ export default function DummyBlog({title}) {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#111]/40 to-transparent" />
             </div>
-            <div onClick={(e) => e.stopPropagation()} className="lg:px-2 px-1 sm:px-2 py-0 flex flex-col space-y-1 sm:gap-0">
+            <div onClick={(e) => e.stopPropagation()} className="lg:px-2 h-[230px]  px-1 sm:px-2 py-0 flex flex-col space-y-1 sm:gap-0">
               <h2 className="font-semibold leading-tight  ">
                 {blog.title.slice(0, 50)}...{" "}
               </h2>
@@ -69,11 +69,11 @@ export default function DummyBlog({title}) {
                 }}
               />
               <div className="flex justify-between w-full lg:py-2 ">
-                <span className="font-semibold text-[#65758B]">
+                <span className="font-semibold text-sm text-[#65758B]">
                   {new Date(blog.createdAt).toLocaleDateString()}
                 </span>
                 <Link
-                  className=" text-[#D6AE3E] flex justify-center items-center"
+                  className=" text-[#D6AE3E] text-sm flex justify-center items-center"
                   to={`/blog_id/${blog._id}`}
                 >
                   Read more <FiArrowRight />
