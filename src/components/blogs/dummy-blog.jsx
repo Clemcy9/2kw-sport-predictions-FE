@@ -3,18 +3,14 @@ import { FiArrowRight } from "react-icons/fi";
 import { Link, useNavigate } from "react-router-dom";
 import DOMPurify from "dompurify";
 
-export default function DummyBlog({title}) {
+export default function DummyBlog({ title }) {
   const [blogs, setBlogs] = useState([]);
   const navigate = useNavigate();
-
-  
 
   useEffect(() => {
     const get_all_blogs = async () => {
       try {
-        const res = await fetch(
-          "https://twokw-backend.onrender.com/api/v1/blogs"
-        );
+        const res = await fetch("https://api.2kw.net:5000/api/v1/blogs");
 
         if (!res.ok) throw new Error("Failed to get all blogs");
         const data = await res.json();
@@ -57,7 +53,10 @@ export default function DummyBlog({title}) {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#111]/40 to-transparent" />
             </div>
-            <div onClick={(e) => e.stopPropagation()} className="lg:px-2 h-[230px]  px-1 sm:px-2 py-0 flex flex-col space-y-1 sm:gap-0">
+            <div
+              onClick={(e) => e.stopPropagation()}
+              className="lg:px-2 h-[230px]  px-1 sm:px-2 py-0 flex flex-col space-y-1 sm:gap-0"
+            >
               <h2 className="font-semibold leading-tight  ">
                 {blog.title.slice(0, 50)}...{" "}
               </h2>

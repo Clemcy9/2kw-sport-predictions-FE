@@ -65,7 +65,7 @@ export default function BlogPost_Id() {
     const getBlogId = async () => {
       try {
         const res = await fetch(
-          `https://twokw-backend.onrender.com/api/v1/blogs/${blogId}`
+          `https://api.2kw.net:5000/api/v1/blogs/${blogId}`
         );
 
         if (!res.ok) throw new Error("Failed to get all blogs");
@@ -82,7 +82,7 @@ export default function BlogPost_Id() {
 
   return (
     <>
-     <title>{blog?.title}</title>
+      <title>{blog?.title}</title>
       <meta name="author" content="Chizzy Duru" />
       <meta name="robots" content="index, follow" />
       <meta property="og:site_name" content="2KwPredicts" />
@@ -158,8 +158,8 @@ export default function BlogPost_Id() {
                     <div className="absolute inset-0 bg-gradient-to-t from-[#111]/40 to-transparent rounded-xl"></div>
                   </div>
                   <span className="font-semibold text-[#65758B]">
-                        {new Date(blog.createdAt).toLocaleDateString()}
-                      </span>
+                    {new Date(blog.createdAt).toLocaleDateString()}
+                  </span>
                   <div className=" flex flex-col bg-white shadow-xl p-4 rounded-lg mt-7 space-y-1 sm:gap-0">
                     <h2 className="font-semibold lg:text-2xl text-xl leading-tight  ">
                       {blog.title}

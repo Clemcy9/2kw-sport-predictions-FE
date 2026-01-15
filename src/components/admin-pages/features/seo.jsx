@@ -22,17 +22,14 @@ export default function Seo() {
 
     try {
       setLoading("loading");
-      const res = await fetch(
-        "https://twokw-backend.onrender.com/api/v1/metadata/",
-        {
-          method: "POST",
-          headers: {
-            "content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify(payload),
-        }
-      );
+      const res = await fetch("https://api.2kw.net:5000/api/v1/metadata/", {
+        method: "POST",
+        headers: {
+          "content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(payload),
+      });
 
       const data = await res.json();
       console.log(data);
