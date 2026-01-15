@@ -20,7 +20,7 @@ export default function Affiliate_Partner_Links() {
   const handle_delete = async (id) => {
     try {
       const res = await fetch(
-        `https://api.2kw.net:5000/api/v1/affiliatelinks/${id}`,
+        `https://api.2kw.net/api/v1/affiliatelinks/${id}`,
         {
           method: "DELETE",
           headers: {
@@ -56,15 +56,12 @@ export default function Affiliate_Partner_Links() {
       setError(null);
 
       try {
-        const res = await fetch(
-          "https://api.2kw.net:5000/api/v1/affiliatelinks",
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-              "Content-Type": "application/json",
-            },
-          }
-        );
+        const res = await fetch("https://api.2kw.net/api/v1/affiliatelinks", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        });
 
         const data = await res.json();
         if (!res.ok) {

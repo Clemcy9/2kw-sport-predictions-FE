@@ -52,7 +52,7 @@ export default function LandingPage() {
 
   //   try {
   //     const res = await fetch(
-  //       `https://api.2kw.net:5000/api/v1/admin/predictions/odds?bet=${
+  //       `https://api.2kw.net/api/v1/admin/predictions/odds?bet=${
   //         bet.id
   //       }&market_name=${encodeURIComponent(bet.name)}&odd_date=${date}`
   //     );
@@ -136,11 +136,11 @@ export default function LandingPage() {
       setError(null);
     }
 
-    // const url = `https://api.2kw.net:5000/api/v1/admin/predictions/odds?bet=${bet["id"]}`;
+    // const url = `https://api.2kw.net/api/v1/admin/predictions/odds?bet=${bet["id"]}`;
     // const url = `http://localhost:5000/api/v1/admin/predictions/odds?bet=${bet["id"]}`;
     // const url = `http://localhost:5000/api/v1/admin/predictions/odds?bet=${bet.id}&market_name=${encodeURIComponent(bet.name)}`;
-    // const url = `https://api.2kw.net:5000/api/v1/admin/predictions/odds?bet=${bet["id"]}&market_name=${bet["name"]}`;
-    const url = `https://api.2kw.net:5000/api/v1/admin/predictions/odds?bet=${
+    // const url = `https://api.2kw.net/api/v1/admin/predictions/odds?bet=${bet["id"]}&market_name=${bet["name"]}`;
+    const url = `https://api.2kw.net/api/v1/admin/predictions/odds?bet=${
       bet.id
     }&market_name=${encodeURIComponent(bet.name)}&odd_date=${selectDays}`;
     // console.log("tips name", bet["name"]);

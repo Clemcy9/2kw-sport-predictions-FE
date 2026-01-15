@@ -18,7 +18,7 @@ export default function AllPosts() {
   const fetchBlogs = async () => {
     try {
       setLoading(true);
-      const res = await fetch("https://api.2kw.net:5000/api/v1/blogs");
+      const res = await fetch("https://api.2kw.net/api/v1/blogs");
       const data = await res.json();
 
       const sorted = (data.data || []).sort(
@@ -60,7 +60,7 @@ export default function AllPosts() {
 
     try {
       const res = await fetch(
-        `https://api.2kw.net:5000/api/v1/blogs/${blogToEdit._id}`,
+        `https://api.2kw.net/api/v1/blogs/${blogToEdit._id}`,
         {
           method: "PUT",
           headers: {
@@ -84,15 +84,12 @@ export default function AllPosts() {
   // delete blog
   const handleDeleteSubmit = async () => {
     try {
-      const res = await fetch(
-        `https://api.2kw.net:5000/api/v1/blogs/${deleteId}`,
-        {
-          method: "DELETE",
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const res = await fetch(`https://api.2kw.net/api/v1/blogs/${deleteId}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
       if (!res.ok) throw new Error("Failed to delete post");
 

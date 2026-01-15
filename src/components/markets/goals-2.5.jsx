@@ -11,7 +11,7 @@ export default function Goals2_5() {
     async function fetchSEO() {
       try {
         const res = await fetch(
-          "https://api.2kw.net:5000/api/v1/metadata/market/over%20and%20Under",
+          "https://api.2kw.net/api/v1/metadata/market/over%20and%20Under",
           {
             headers: {
               Authorization: `Bearer ${token}`,

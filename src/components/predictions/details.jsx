@@ -60,7 +60,7 @@ export default function PredictionDetails() {
     const fetch_H2H = async () => {
       try {
         const res = await fetch(
-          `https://api.2kw.net:5000/api/v1/head2head?teamA_id=${teamA_Id}&teamB_id=${teamB_Id}`
+          `https://api.2kw.net/api/v1/head2head?teamA_id=${teamA_Id}&teamB_id=${teamB_Id}`
         );
         if (!res.ok) throw new Error("Failed to fetch Head-To-Head");
 

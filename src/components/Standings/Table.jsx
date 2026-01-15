@@ -32,13 +32,13 @@ export default function LeagueTables({ league }) {
 
             // endpoint standings
             const standingsRes = await fetch(
-              `https://api.2kw.net:5000/api/v1/football/standings?league=${id}&season=2025`
+              `https://api.2kw.net/api/v1/football/standings?league=${id}&season=2025`
             );
             const standingsJson = await standingsRes.json();
 
             // endpoint top-scorers
             const scorersRes = await fetch(
-              `https://api.2kw.net:5000/api/v1/football/topscorers?league=${id}&season=2025`
+              `https://api.2kw.net/api/v1/football/topscorers?league=${id}&season=2025`
             );
             const scorersJson = await scorersRes.json();
 

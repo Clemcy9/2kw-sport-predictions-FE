@@ -16,7 +16,7 @@ export default function BestPredictionCard() {
     // if(!token) return;
 
     fetch(
-      "https://api.2kw.net:5000/api/v1/admin/predictions/odds?fixture=400&bet=400&market_name=SurePredict",
+      "https://api.2kw.net/api/v1/admin/predictions/odds?fixture=400&bet=400&market_name=SurePredict",
       {
         headers: {
           // Authorization: `Bearer ${token}`,

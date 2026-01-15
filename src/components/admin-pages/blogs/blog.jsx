@@ -46,7 +46,7 @@ export default function NewPost() {
 
   const postBlog = async (formData, token) => {
     try {
-      const res = await fetch("https://api.2kw.net:5000/api/v1/blogs/", {
+      const res = await fetch("https://api.2kw.net/api/v1/blogs/", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,

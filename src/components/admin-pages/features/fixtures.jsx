@@ -211,17 +211,14 @@ export default function MakePredictions() {
       return setMessages("Select at least one prediction before saving");
 
     try {
-      const res = await fetch(
-        "https://api.2kw.net:5000/api/v1/admin/predictions",
-        {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(payload),
-        }
-      );
+      const res = await fetch("https://api.2kw.net/api/v1/admin/predictions", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
       const data = await res.json();
 
       if (!res.ok) {
@@ -244,7 +241,7 @@ export default function MakePredictions() {
 
   // call to endpoint to get all the matches and fixtures
   useEffect(() => {
-    fetch(`https://api.2kw.net:5000/api/v1/football/fixtures?date=${byDate}`)
+    fetch(`https://api.2kw.net/api/v1/football/fixtures?date=${byDate}`)
       .then((res) => res.json())
       .then((data) => {
         setPrediction(data.data.response || []);
@@ -262,7 +259,7 @@ export default function MakePredictions() {
     try {
       setLoadingOdds(true);
       const res = await fetch(
-        `https://api.2kw.net:5000/api/v1/admin/predictions/odds?fixture=${fixture_id}`
+        `https://api.2kw.net/api/v1/admin/predictions/odds?fixture=${fixture_id}`
       );
       const json = await res.json();
       // setOdds(data?.data.response || []);

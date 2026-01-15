@@ -8,7 +8,7 @@ export function useAffiliate() {
   const token = userToken();
 
   useEffect(() => {
-    fetch("https://api.2kw.net:5000/api/v1/affiliatelinks", {
+    fetch("https://api.2kw.net/api/v1/affiliatelinks", {
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",

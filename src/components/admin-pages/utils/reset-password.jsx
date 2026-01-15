@@ -28,7 +28,7 @@ export default function ResetPassword() {
 
     try {
       const res = await fetch(
-        "https://api.2kw.net:5000/api/v1/auth/reset-password",
+        "https://api.2kw.net/api/v1/auth/reset-password",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

@@ -64,9 +64,7 @@ export default function BlogPost_Id() {
   useEffect(() => {
     const getBlogId = async () => {
       try {
-        const res = await fetch(
-          `https://api.2kw.net:5000/api/v1/blogs/${blogId}`
-        );
+        const res = await fetch(`https://api.2kw.net/api/v1/blogs/${blogId}`);
 
         if (!res.ok) throw new Error("Failed to get all blogs");
         const data = await res.json();

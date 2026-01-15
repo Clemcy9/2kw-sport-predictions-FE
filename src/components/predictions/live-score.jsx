@@ -31,7 +31,7 @@ export default function Live_Scores() {
       }
     }
 
-    fetch("https://api.2kw.net:5000/api/v1/football/livescores")
+    fetch("https://api.2kw.net/api/v1/football/livescores")
       .then((res) => res.json())
       .then((data) => {
         const grouped = data?.data?.response?.reduce((acc, item) => {

@@ -8,7 +8,7 @@ export default function All_Legues() {
   const [byName, setByName] = useState("");
 
   //   useEffect(() => {
-  //       fetch(`https://api.2kw.net:5000/api/v1/football/fixtures?`)
+  //       fetch(`https://api.2kw.net/api/v1/football/fixtures?`)
 
   //       .then((res) => res.json())
   //       .then((data) => {

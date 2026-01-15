@@ -22,7 +22,7 @@ export default function Seo() {
 
     try {
       setLoading("loading");
-      const res = await fetch("https://api.2kw.net:5000/api/v1/metadata/", {
+      const res = await fetch("https://api.2kw.net/api/v1/metadata/", {
         method: "POST",
         headers: {
           "content-Type": "application/json",

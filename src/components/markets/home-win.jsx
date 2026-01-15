@@ -13,7 +13,7 @@ export default function HomeWin() {
     async function fetchSEO() {
       try {
         const res = await fetch(
-          `https://api.2kw.net:5000/api/v1/metadata/market/${market_type}`,
+          `https://api.2kw.net/api/v1/metadata/market/${market_type}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

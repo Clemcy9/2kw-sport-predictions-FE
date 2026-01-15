@@ -19,7 +19,7 @@ export default function BlogPost() {
   useEffect(() => {
     const get_all_blogs = async () => {
       try {
-        const res = await fetch("https://api.2kw.net:5000/api/v1/blogs");
+        const res = await fetch("https://api.2kw.net/api/v1/blogs");
 
         if (!res.ok) throw new Error("Failed to get all blogs");
 

@@ -44,7 +44,7 @@ export default function LoginOtp() {
 
     try {
       const res = await fetch(
-        "https://api.2kw.net:5000/api/v1/auth/confirm-email/{userId}",
+        "https://api.2kw.net/api/v1/auth/confirm-email/{userId}",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

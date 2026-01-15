@@ -63,7 +63,7 @@ export default function DashBoard() {
 
         // Fetch fresh predictions from API
         const res = await fetch(
-          "https://api.2kw.net:5000/api/v1/admin/predictions",
+          "https://api.2kw.net/api/v1/admin/predictions",
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -106,7 +106,7 @@ export default function DashBoard() {
   const handle_delete = async (id) => {
     try {
       const res = await fetch(
-        `https://api.2kw.net:5000/api/v1/admin/predictions/${id}`,
+        `https://api.2kw.net/api/v1/admin/predictions/${id}`,
         {
           method: "DELETE",
           headers: {

@@ -45,22 +45,19 @@ export default function Edit_Affiliate() {
     setModal(null);
 
     try {
-      const res = await fetch(
-        "https://api.2kw.net:5000/api/v1/affiliatelinks",
-        {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            link_type,
-            label,
-            url,
-            status: status.trim(),
-          }),
-        }
-      );
+      const res = await fetch("https://api.2kw.net/api/v1/affiliatelinks", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          link_type,
+          label,
+          url,
+          status: status.trim(),
+        }),
+      });
       const data = await res.json();
 
       if (!res.ok) {
