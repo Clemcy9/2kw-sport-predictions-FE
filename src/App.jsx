@@ -62,7 +62,7 @@ export default function App() {
       ) : (
         <Routes>
           <Route
-            path="/admin"
+            path="/auth/2kw-admin-2026"
             element={
               <ProtectedRoute>
                 <AdminLayout />
@@ -103,15 +103,15 @@ export default function App() {
             <Route path="all-predictions" element={<AllPredictions />} />
           </Route>
           <Route
-            path="/sign-up"
+            path="/auth/2kw-signup/admin/dashboard/2026"
             element={
-              <AccessRoutes>
+              // <AccessRoutes>
                 <SignUp />
-              </AccessRoutes>
+              // </AccessRoutes>
             }
           />
           <Route path="/login-complete" element={<LoginCompleted />} />
-          <Route path="/sign-in" element={<SignIn />} />
+          <Route path="/auth/2kw-signin/admin/dashboard/2026" element={<SignIn />} />
           <Route path="/blog_id/*" element={<BlogPost_Id />} />
           <Route path="/blog" element={<BlogPost />} />
           <Route path="/scroll-arrow" element={<Scroll_To_Top />} />

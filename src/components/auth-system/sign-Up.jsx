@@ -73,7 +73,7 @@ export default function SignUp() {
       localStorage.setItem("hasAccount", "true");
       setLoading(false);
       setError("sign-Up successful");
-      navigate("/sign-in", { replace: true });
+      navigate("/auth/2kw-signin/admin/dashboard/2026", { replace: true });
       setName("");
       setEmail("");
       setPassword("");
@@ -197,7 +197,7 @@ export default function SignUp() {
             Already have an account?
             <Link
               className="p-0.5 text-[#D7A006] font-normal font-[Sora]"
-              to={"/sign-in"}
+              to={"/auth/2kw-signin/admin/dashboard/2026"}
             >
               Sign-In
             </Link>

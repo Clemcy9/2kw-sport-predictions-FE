@@ -7,7 +7,7 @@ export default function ProtectedRoute({children}) {
 
 
     if(!isLoggedIn()) {
-        return <Navigate  to="/sign-in" replace />;
+        return <Navigate  to="/auth/2kw-signin/admin/dashboard/2026" replace />;
     }
 
     return children;

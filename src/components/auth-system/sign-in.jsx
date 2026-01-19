@@ -62,7 +62,7 @@ export default function SignIn() {
         localStorage.setItem("hasAccount", "true");
         sessionStorage.setItem("justLoggedIn", "true");
 
-        navigate("/admin", { replace: true });
+        navigate("/auth/2kw-admin-2026", { replace: true });
       } else {
         setError(data.msg || "Login Failed");
         setLoading(false);
@@ -174,7 +174,7 @@ export default function SignIn() {
               Dont have an account?
               <Link
                 className="p-0.5 text-[#D7A006] font-normal font-[Sora]"
-                to={"/sign-Up"}
+                to={"/auth/2kw-signup/admin/dashboard/2026"}
               >
                 Sign-Up
               </Link>

@@ -59,10 +59,9 @@ const loggedin = isLoggedIn();
         },
         { title: "Blog", path: "/blog" },
         { title: "Links" },
-        loggedin 
-        ?
-        { title: "Dashboard", path: "/admin" }:
-        { title: "Admin", action: handleAdminClick },
+        // loggedin 
+        // ?
+        // { title: "Dashboard", path: "/admin" } : null,
 
     ];
 
