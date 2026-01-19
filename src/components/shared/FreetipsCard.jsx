@@ -67,7 +67,7 @@ export default function FreeTips(props) {
         <div className="flex justify-center items-center p-2 w-full">
           <div className="flex flex-wrap gap-1.5 md:gap-4 font-sans justify-center w-full relative">
            {tipsLink.map((tips) => (
-    <NavLink key={tips.id} to={tips.path} end>
+    <NavLink key={`${tips.id}-${tips.path}`} to={tips.path} end>
       {({ isActive }) => (
         <motion.div
           whileTap={{ scale: 0.95 }}
