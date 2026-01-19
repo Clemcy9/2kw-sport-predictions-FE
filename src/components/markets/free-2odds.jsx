@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { userToken } from "../hooks/useAuth";
+// import { userToken } from "../hooks/useAuth";
 import DOMPurify from "dompurify";
 
 const market_type = "freeOdds";
 export default function FreeOdds() {
   const [seo, setSeo] = useState(null);
 
-  const token = userToken();
+  // const token = userToken();
 
   useEffect(() => {
     async function fetchSEO() {
@@ -16,7 +16,7 @@ export default function FreeOdds() {
 
           {
             headers: {
-              Authorization: `Bearer ${token}`,
+              // Authorization: `Bearer ${token}`,
               "Content-Type": "application/json",
             },
           }
@@ -45,7 +45,7 @@ export default function FreeOdds() {
       }
     }
     fetchSEO();
-  }, [token]);
+  }, []);
 
   return (
     <>

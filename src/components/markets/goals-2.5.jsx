@@ -5,7 +5,7 @@ import DOMPurify from "dompurify";
 export default function Goals2_5() {
   const [seo, setSeo] = useState(null);
 
-  const token = userToken();
+  // const token = userToken();
 
   useEffect(() => {
     async function fetchSEO() {
@@ -14,7 +14,7 @@ export default function Goals2_5() {
           "https://api.2kw.net/api/v1/metadata/market/over%20and%20Under",
           {
             headers: {
-              Authorization: `Bearer ${token}`,
+              // Authorization: `Bearer ${token}`,
               "Content-Type": "application/json",
             },
           }
@@ -43,7 +43,7 @@ export default function Goals2_5() {
       }
     }
     fetchSEO();
-  }, [token]);
+  }, []);
 
   return (
     <>

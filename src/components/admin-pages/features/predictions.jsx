@@ -82,7 +82,7 @@ export default function Predictions() {
         setAnimation(null);
       }, 1500);
     } catch (err) {
-      console.error("error while deleting a prediction", err);
+      // console.error("error while deleting a prediction", err);
       setError(err.message);
     }
   };
@@ -136,11 +136,11 @@ export default function Predictions() {
       ? item.fixture.fixture.date.startsWith(byDate)
       : true;
 
-    console.log(use_date);
+    // console.log(use_date);
     return use_name && use_league && use_date;
   });
-  console.log(byDate);
-  console.log(prediction);
+  // console.log(byDate);
+  // console.log(prediction);
 
   return (
     <div className="p-4 lg:px-10 lg:min-h-screen flex flex-col w-full">
@@ -155,7 +155,7 @@ export default function Predictions() {
           <input
             value={byDate}
             onKeyDown={(e) =>
-              e.key === "Enter key" && console.log("Enter pressed for date")
+              e.key === "Enter key" 
             }
             onChange={(e) => setByDate(e.target.value)}
             type="date"
@@ -170,7 +170,7 @@ export default function Predictions() {
               type="text"
               value={byName}
               onKeyDown={(e) =>
-                e.key === "Enter" && console.log("Enter pressed for name")
+                e.key === "Enter"
               }
               onChange={(e) => setByName(e.target.value)}
               placeholder="Select Name"
@@ -181,7 +181,7 @@ export default function Predictions() {
             <input
               value={byLeague}
               onKeyDown={(e) =>
-                e.key === "Enter" && console.log("Enter pressed for league")
+                e.key === "Enter"
               }
               onChange={(e) => setByLeague(e.target.value)}
               type="text"

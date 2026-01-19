@@ -135,7 +135,7 @@ export default function DashBoard() {
         setAnimation(null);
       }, 1500);
     } catch (err) {
-      console.error("Error deleting prediction:", err);
+      // console.error("Error deleting prediction:", err);
       setError(err.message);
     }
   };

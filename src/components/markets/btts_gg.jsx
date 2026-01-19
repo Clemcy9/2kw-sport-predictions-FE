@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { userToken } from "../hooks/useAuth";
+// import { userToken } from "../hooks/useAuth";/
 import DOMPurify from "dompurify";
 
 const market_type = "btts";
 export default function BTTS_GG() {
   const [seo, setSeo] = useState(null);
 
-  const token = userToken();
+  // const token = userToken();
 
   useEffect(() => {
     async function fetchSEO() {
@@ -15,7 +15,7 @@ export default function BTTS_GG() {
           `https://api.2kw.net/api/v1/metadata/market/${market_type}`,
           {
             headers: {
-              Authorization: `Bearer ${token}`,
+              // Authorization: `Bearer ${token}`,
               "Content-Type": "application/json",
             },
           }
@@ -44,7 +44,7 @@ export default function BTTS_GG() {
       }
     }
     fetchSEO();
-  }, [token]);
+  }, []);
 
   return (
     <>

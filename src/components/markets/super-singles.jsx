@@ -6,7 +6,7 @@ const market_type = "superSingleTip";
 export default function SuperSingles() {
   const [seo, setSeo] = useState(null);
 
-  const token = userToken();
+  // const token = userToken();
 
   useEffect(() => {
     async function fetchSEO() {
@@ -16,7 +16,7 @@ export default function SuperSingles() {
 
           {
             headers: {
-              Authorization: `Bearer ${token}`,
+              // Authorization: `Bearer ${token}`,
               "Content-Type": "application/json",
             },
           }
@@ -45,7 +45,7 @@ export default function SuperSingles() {
       }
     }
     fetchSEO();
-  }, [token]);
+  }, []);
 
   return (
     <>

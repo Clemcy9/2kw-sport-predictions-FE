@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { userToken } from "../hooks/useAuth";
+// import { userToken } from "../hooks/useAuth";
 import DOMPurify from "dompurify";
 
 const market_type = "away win";
@@ -7,7 +7,7 @@ const market_type = "away win";
 export default function AwayWin() {
   const [seo, setSeo] = useState(null);
 
-  const token = userToken();
+  // const token = userToken();
 
   useEffect(() => {
     async function fetchSEO() {
@@ -16,7 +16,7 @@ export default function AwayWin() {
           `https://api.2kw.net/api/v1/metadata/market/${market_type}`,
           {
             headers: {
-              Authorization: `Bearer ${token}`,
+              // Authorization: `Bearer ${token}`,
               "Content-Type": "application/json",
             },
           }
@@ -45,8 +45,8 @@ export default function AwayWin() {
       }
     }
     fetchSEO();
-  }, [token]);
-  console.log(seo);
+  }, []);
+  // console.log(seo);
 
   return (
     <>

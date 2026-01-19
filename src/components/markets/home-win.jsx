@@ -7,7 +7,7 @@ const market_type = "home win";
 export default function HomeWin() {
   const [seo, setSeo] = useState(null);
 
-  const token = userToken();
+  // const token = userToken();
 
   useEffect(() => {
     async function fetchSEO() {
@@ -16,7 +16,7 @@ export default function HomeWin() {
           `https://api.2kw.net/api/v1/metadata/market/${market_type}`,
           {
             headers: {
-              Authorization: `Bearer ${token}`,
+              // Authorization: `Bearer ${token}`,
               "Content-Type": "application/json",
             },
           }
@@ -44,7 +44,7 @@ export default function HomeWin() {
       }
     }
     fetchSEO();
-  }, [token]);
+  }, []);
 
   return (
     <>
