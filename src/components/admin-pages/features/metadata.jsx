@@ -37,7 +37,7 @@ export default function MetaData() {
 
       try {
         const res = await fetch(
-          `https://twokw-backend.onrender.com/api/v1/metadata/market/${status}`,
+          `https://api.2kw.net/api/v1/metadata/market/${status}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -96,8 +96,8 @@ export default function MetaData() {
     };
 
     const url = existingId
-      ? `https://twokw-backend.onrender.com/api/v1/metadata/${existingId}`
-      : "https://twokw-backend.onrender.com/api/v1/metadata";
+      ? `https://api.2kw.net/api/v1/metadata/${existingId}`
+      : "https://api.2kw.net/api/v1/metadata";
 
     const method = existingId ? "PUT" : "POST";
     try {

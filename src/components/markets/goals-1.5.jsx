@@ -11,7 +11,7 @@ export default function Goals1_5() {
     async function fetchSEO() {
       try {
         const res = await fetch(
-          "https://twokw-backend.onrender.com/api/v1/metadata/market/over%20and%20Under",
+          "https://api.2kw.net/api/v1/metadata/market/over%20and%20Under",
           {
             headers: {
               Authorization: `Bearer ${token}`,

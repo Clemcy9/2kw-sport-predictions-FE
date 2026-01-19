@@ -12,7 +12,7 @@ export default function BTTS_GG() {
     async function fetchSEO() {
       try {
         const res = await fetch(
-          `https://twokw-backend.onrender.com/api/v1/metadata/market/${market_type}`,
+          `https://api.2kw.net/api/v1/metadata/market/${market_type}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

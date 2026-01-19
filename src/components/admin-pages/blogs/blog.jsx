@@ -7,7 +7,6 @@ import { IoIosArrowDown } from "react-icons/io";
 import { FaPlus } from "react-icons/fa";
 import { IoMdSend } from "react-icons/io";
 
-
 export default function NewPost() {
   const [body, setBody] = useState("");
   const [title, setTitle] = useState("");
@@ -47,16 +46,13 @@ export default function NewPost() {
 
   const postBlog = async (formData, token) => {
     try {
-      const res = await fetch(
-        "https://twokw-backend.onrender.com/api/v1/blogs/",
-        {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-          body: formData,
-        }
-      );
+      const res = await fetch("https://api.2kw.net/api/v1/blogs/", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        body: formData,
+      });
 
       const data = await res.json();
       console.log(data);

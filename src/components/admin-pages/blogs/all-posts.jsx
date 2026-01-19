@@ -14,14 +14,11 @@ export default function AllPosts() {
   const [blogToEdit, setBlogToEdit] = useState(null);
   const [animation, setAnimation] = useState(null);
 
-
   const token = userToken();
   const fetchBlogs = async () => {
     try {
       setLoading(true);
-      const res = await fetch(
-        "https://twokw-backend.onrender.com/api/v1/blogs"
-      );
+      const res = await fetch("https://api.2kw.net/api/v1/blogs");
       const data = await res.json();
 
       const sorted = (data.data || []).sort(
@@ -63,7 +60,7 @@ export default function AllPosts() {
 
     try {
       const res = await fetch(
-        `https://twokw-backend.onrender.com/api/v1/blogs/${blogToEdit._id}`,
+        `https://api.2kw.net/api/v1/blogs/${blogToEdit._id}`,
         {
           method: "PUT",
           headers: {
@@ -87,30 +84,25 @@ export default function AllPosts() {
   // delete blog
   const handleDeleteSubmit = async () => {
     try {
-      const res = await fetch(
-        `https://twokw-backend.onrender.com/api/v1/blogs/${deleteId}`,
-        {
-          method: "DELETE",
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const res = await fetch(`https://api.2kw.net/api/v1/blogs/${deleteId}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
       if (!res.ok) throw new Error("Failed to delete post");
 
       // alert("Blog deleted successfully");
-			setAnimation(deleteId);
-      setDeleteId(null);``
+      setAnimation(deleteId);
+      setDeleteId(null);
+      ``;
 
-      
-      
       setTimeout(() => {
         setBlogs((prev) => prev.filter((b) => b._id !== deleteId));
-				
 
-				setAnimation(null);
-			}, 1500);
+        setAnimation(null);
+      }, 1500);
     } catch (err) {
       console.log("Error deleting blog:", err);
     }
@@ -220,12 +212,13 @@ export default function AllPosts() {
         {/*
             delete comfirm model*/}
         {deleteId && (
-          <DeleteModal title="Delete Blog" onClose={() => setDeleteId(null)} onDelete={() => handleDeleteSubmit()} />
-
+          <DeleteModal
+            title="Delete Blog"
+            onClose={() => setDeleteId(null)}
+            onDelete={() => handleDeleteSubmit()}
+          />
         )}
-        {animation && (
-          <AnimationModal title="Blog Deleted Successfully"/>
-        )}
+        {animation && <AnimationModal title="Blog Deleted Successfully" />}
       </div>
     </div>
   );

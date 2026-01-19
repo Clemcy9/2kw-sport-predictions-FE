@@ -49,7 +49,7 @@ export default function Predictions() {
   const handle_delete = async (id) => {
     try {
       const res = await fetch(
-        `https://twokw-backend.onrender.com/api/v1/admin/predictions/${id}`,
+        `https://api.2kw.net/api/v1/admin/predictions/${id}`,
         {
           method: "DELETE",
           headers: {
@@ -93,7 +93,7 @@ export default function Predictions() {
     const CACHE_KEY = "predictions_manager_Cache";
     setError(null);
 
-    fetch("https://twokw-backend.onrender.com/api/v1/admin/predictions", {
+    fetch("https://api.2kw.net/api/v1/admin/predictions", {
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
