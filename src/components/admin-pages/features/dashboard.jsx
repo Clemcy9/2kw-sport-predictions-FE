@@ -5,6 +5,8 @@ import { FaSpinner } from "react-icons/fa";
 import { userToken } from "../../hooks/useAuth";
 import DeleteModal from "../../store/delete-modal";
 import AnimationModal from "../../store/animation-modal";
+import { AnimatePresence } from "framer-motion";
+
 
 export default function DashBoard() {
   const numbers = [12485, 82, 3247];
@@ -133,7 +135,7 @@ export default function DashBoard() {
           JSON.stringify(predictions.filter((item) => item._id !== id))
         );
         setAnimation(null);
-      }, 1500);
+      }, 2500);
     } catch (err) {
       // console.error("Error deleting prediction:", err);
       setError(err.message);
@@ -362,7 +364,9 @@ export default function DashBoard() {
         )}
 
         {/* Success Animation */}
-        {animation && <AnimationModal title="Deleted Successfully" />}
+       <AnimatePresence>
+         {animation && <AnimationModal title="Deleted Successfully" />}
+       </AnimatePresence>
       </div>
     </div>
   );

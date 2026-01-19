@@ -67,7 +67,7 @@ export default function Sidebar() {
       dropdown: [
         { name: "New Post", path: "/admin/blogs/blog" },
         { name: "All Posts", path: "/admin/blogs/all-posts" },
-        { name: "Media Gallery", path: "/admin/Gallery" },
+        // { name: "Media Gallery", path: "/admin/Gallery" },
       ],
     },
     {

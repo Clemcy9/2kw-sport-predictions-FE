@@ -33,7 +33,7 @@ export default function BestPredictionCard() {
         setLoading(false);
       })
       .catch((err) => {
-        console.error("error loading best predictions:", err);
+        // console.error("error loading best predictions:", err);
         setError("Unable To Get Best Prediction");
         setLoading(false);
       });

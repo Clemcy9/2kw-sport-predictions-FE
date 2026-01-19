@@ -1,12 +1,12 @@
 // import React from "react";
 import { motion } from "framer-motion";
-import { div } from "framer-motion/client";
+// import { div } from "framer-motion/client";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 
-export default function AnimationModal({ title, open }) {
+export default function AnimationModal({ title }) {
   return (
     <div>
-      {open && (
+      {/* {open && ( */}
         <motion.div
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -38,7 +38,7 @@ export default function AnimationModal({ title, open }) {
             {title}
           </motion.h3>
         </motion.div>
-      )}
+      {/* )} */}
     </div>
   );
 }

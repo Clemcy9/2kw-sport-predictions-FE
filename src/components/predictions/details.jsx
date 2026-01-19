@@ -85,7 +85,7 @@ export default function PredictionDetails() {
 
     fetch_H2H();
   }, [teamA_Id, teamB_Id]);
-  console.log(h2h);
+  // console.log(h2h);
 
   return (
     <main>

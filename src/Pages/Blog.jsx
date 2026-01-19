@@ -24,14 +24,14 @@ export default function BlogPost() {
         if (!res.ok) throw new Error("Failed to get all blogs");
 
         const data = await res.json();
-        console.log("Api data", data);
+        // console.log("Api data", data);
         const sorted = (data.data || []).sort(
           (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
         );
         setBlogs(sorted || []);
         setLoading(false);
       } catch (err) {
-        console.error(err);
+        // console.error(err);
       }
     };
     get_all_blogs();
@@ -112,7 +112,8 @@ export default function BlogPost() {
                 className="group overflow-hidden bg-white flex justify-between flex-row lg:flex-col lg:gap-2 sm:flex-col gap-1 rounded-[0.5em] hover:-translate-y-1 transition-all shadow-sm h-[200px] sm:h-[450px] lg:h-[450px]"
               >
                 <div className="relative w-[190px] md:w-full sm:w-full h-[200px] md:h-[350px] sm:h-[250px] sm:min-h-[250px] overflow-hidden">
-                  <img
+                 {blog.image_url && (
+                   <img
                     src={blog.image_url}
                     alt={blog.title}
                     className="w-full h-full object-cover transition-transform duration-500
@@ -121,6 +122,7 @@ export default function BlogPost() {
                lg:rounded-bl-none lg:rounded-t-[0.4rem]
                sm:rounded-bl-none sm:rounded-t-[0.5rem]"
                   />
+                 )}
                   <div className="absolute inset-0 bg-gradient-to-t from-[#111]/40 to-transparent" />
                 </div>
 

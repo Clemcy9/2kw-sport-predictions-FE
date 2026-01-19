@@ -54,7 +54,7 @@ export default function Live_Scores() {
         );
       })
       .catch((err) => {
-        console.error("Live-scores error:", err);
+        // console.error("Live-scores error:", err);
         setError("Unable To Load Live-Scores, Check Your Network");
         setLoading(false);
       });

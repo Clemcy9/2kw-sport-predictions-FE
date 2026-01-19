@@ -5,8 +5,8 @@ import { FaSpinner } from "react-icons/fa6";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiChevronDown, FiCheck } from "react-icons/fi";
 import AnimationModal from "../../store/animation-modal";
-import { span } from "framer-motion/client";
-import Quill from "quill";
+// import { span } from "framer-motion/client";
+// import Quill from "quill";
 
 export default function MetaData() {
   const [status, setStatus] = useState("");
@@ -64,7 +64,7 @@ export default function MetaData() {
           // setExistingId(null);
         }
       } catch (error) {
-        console.log("Error fetching data:", error);
+        // console.log("Error fetching data:", error);
       } finally {
         setIsFetching(false);
       }
@@ -120,7 +120,7 @@ export default function MetaData() {
         setShowModal(false);
       }
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       setShowModal(false);
     } finally {
       setIsSubmitting(false);
@@ -339,7 +339,11 @@ export default function MetaData() {
           </button>
         </div>
       </form>
-      <AnimationModal open={showModal} title="metadata saved successfully" />
+     <AnimatePresence>
+      {model && (
+         <AnimationModal title="metadata saved successfully" />
+      )}
+     </AnimatePresence>
     </div>
   );
 }
