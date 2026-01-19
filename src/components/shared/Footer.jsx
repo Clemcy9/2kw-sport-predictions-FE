@@ -1,7 +1,7 @@
 import { FaTelegram, FaFacebook, FaInstagram, FaXTwitter } from "react-icons/fa6";
 // import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 // import { userToken } from "../hooks/auth";
 import {useAffiliate } from "../hooks/useAffiliate";
 
@@ -17,7 +17,7 @@ export default function Footer() {
         });
     };
 
-   console.log(footerLink);
+//    console.log(footerLink);
 
     const links = [
         {title:"About", path:"/about"},
@@ -93,8 +93,8 @@ hover:after:scale-x-100" >
                                             {tag}
                                         </a> */}
                                         {footerLink && (
-                     <a href={footerLink.url} target="blank"  rel="noopener noreferrer sponsored" className=" absolute w-fit lg:w-fit lg:min-w-36 lg:mt-2 text-center bg-[#D6AE3E] text-lg text-[#1A365D] px-3 hover:underline py-1 rounded shadow-lg">
-                        {footerLink.label}
+                     <a href={footerLink?.url} target="blank"  rel="noopener noreferrer sponsored" className=" absolute w-fit lg:w-fit lg:min-w-36 lg:mt-2 text-center bg-[#D6AE3E] text-lg text-[#1A365D] px-3 hover:underline py-1 rounded shadow-lg">
+                        {footerLink?.label}
                     </a>
                    )}
                                    </motion.div>
@@ -133,7 +133,7 @@ hover:after:scale-x-100" >
                         <p className="px-2">
                             Links:
                         </p>
-                        <a href={footerLink.url} target="blank"  rel="noopener noreferrer sponsored" className="relative text-center hover:text-white text-[#D6AE3E] text-lg  cursor-pointer transition after:content-['']
+                        <a href={footerLink?.url} target="blank"  rel="noopener noreferrer sponsored" className="relative text-center hover:text-white text-[#D6AE3E] text-lg  cursor-pointer transition after:content-['']
 after:absolute
 after:left-1/2
 after:bottom-0
@@ -146,7 +146,7 @@ after:origin-center
 after:transition-transform
 after:duration-300
 hover:after:scale-x-100"> 
-                        {footerLink.label}
+                        {footerLink?.label}
 
                         
                     </a>

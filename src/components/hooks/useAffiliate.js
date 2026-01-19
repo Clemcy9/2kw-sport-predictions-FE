@@ -17,7 +17,7 @@ export function useAffiliate() {
 		})
 			.then((res) => res.json())
 			.then((data) => {
-				console.log("aff",data.data);
+				// console.log("aff",data.data);
 				setAffiliateLinks(data.data);
 			});
 	}, [token]);

@@ -99,7 +99,7 @@ export default function LandingPage() {
 
   const date = getDate (selectDays);
 
-  console.log("date feature:",selectDays)
+  // console.log("date feature:",selectDays)
 
   /* --------------------------------------------
      FETCH PREDICTION DATA BASED ON BET TYPE
@@ -165,8 +165,8 @@ export default function LandingPage() {
           return acc;
         }, {}) || {};
 
-        console.log("data or raw",data?.data);
-        console.log("grouped data:", grouped)
+        // console.log("data or raw",data?.data);
+        // console.log("grouped data:", grouped)
         // const groupedLogo = data?.data?.reduce((acc, pred) => {
         //   const leagueLogo = pred.fixture.league.logo;
         //   if (!acc[leagueLogo]) acc[leagueLogo] = [];
@@ -182,7 +182,7 @@ export default function LandingPage() {
         const defaultOpenState = Object.fromEntries(
           Object.keys(grouped || {}).map((k) => [k, true])
         );
-        console.log("", bet);
+        // console.log("", bet);
         setOpen(defaultOpenState);
         setPrediction(grouped || {});
         setLoading(false);
@@ -198,7 +198,7 @@ export default function LandingPage() {
       );
       })
       .catch((err) => {
-        console.error("error While fetching predictions:", err);
+        // console.error("error While fetching predictions:", err);
 
         // added error handling state 
         setError("Unable To Load Predictions. Connect To A Network And Try Again.");
@@ -324,11 +324,11 @@ export default function LandingPage() {
                         {prediction[leagueName]?.map((x, index) => (
                           <PremierLeagueCard
                             key={index}
-                            fixture={x.fixture.fixture}
-                            teams={x.fixture.teams}
+                            fixture={x.fixture?.fixture}
+                            teams={x.fixture?.teams}
                             leagueNames={leagueName}
                             logo={prediction[leagueName]?.[0]?.fixture?.league?.logo}
-                            league={x.fixture.league}
+                            league={x.fixture?.league}
                             values={x.bets?.[0]?.values}
                             bet={bet}
                           />

@@ -20,7 +20,7 @@ export default function Navbar() {
 
     const {navbarLink} = useAffiliate();
 
-    console.log(navbarLink);
+    // console.log(navbarLink);
 
     const handleAdminClick = () => {
   if (isLoggedIn()) {
@@ -103,7 +103,7 @@ const loggedin = isLoggedIn();
                     {/* Desktop Navbar */}
                     <div className="hidden md:flex space-x-8 font-sans">
                         {navLink.map((link, index) => (
-                            <div key={index} className="relative" onMouseEnter={() => link.title === "Links" && setShowTag(true)} >
+                            <div key={index} className="relative" onMouseEnter={() => link?.title === "Links" && setShowTag(true)} >
 
                                 
                                 {link.tipsLinks ? (
@@ -127,7 +127,7 @@ after:duration-300
 hover:after:scale-x-100
 "
                                         >
-                                            {link.title}
+                                            {link?.title}
                                             {dropdown === index ? (
                                                 <ChevronUp size={18} />
                                             ) : (
@@ -198,7 +198,7 @@ hover:after:scale-x-100
                                             {tag}
                                         </a> */}
                                          <a href={navbarLink.url} target="blank"  rel="noopener noreferrer sponsored" className="hover:underline active:underline absolute w-fit  lg:mt-5 lg:w-70 text-center bg-[#D6AE3E] text-lg text-[#1A365D] px-1 py-1 rounded shadow-lg">
-                        {navbarLink.label}
+                        {navbarLink ?.label}
                     </a>
                                    </motion.div>
                                 )}
@@ -302,8 +302,8 @@ hover:after:scale-x-100
                                             exit={{ opacity: 0, y: 5 }}
                                             transition={{ duration: 0.25 }} className="w-full">
                                            
-                                            <a href={navbarLink.url} target="blank"  rel="noopener noreferrer sponsored" className="w-full text-xl lg:mt-5 bg-[#D6AE3E] text-[#1A365D] px-3 py-1 rounded shadow-lg">
-                        {navbarLink.label}
+                                            <a href={navbarLink?.url} target="blank"  rel="noopener noreferrer sponsored" className="w-full text-xl lg:mt-5 bg-[#D6AE3E] text-[#1A365D] px-3 py-1 rounded shadow-lg">
+                        {navbarLink ?.label}
                     </a>
                                         </motion.div>
                                     )}

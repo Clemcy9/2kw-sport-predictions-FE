@@ -18,14 +18,14 @@ export default function DummyBlog({title}) {
 
         if (!res.ok) throw new Error("Failed to get all blogs");
         const data = await res.json();
-        console.log("Api data", data);
+        // console.log("Api data", data);
         //sort by newest blog
         const sorted = (data.data || []).sort(
           (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
         );
         setBlogs(sorted.slice(0, 4));
       } catch (err) {
-        console.error(err);
+        // console.error(err);
       }
     };
     get_all_blogs();
@@ -46,7 +46,8 @@ export default function DummyBlog({title}) {
             className="group overflow-hidden bg-white cursor-pointer flex items-center justify-between flex-row lg:flex-col lg:gap-2 sm:flex-col lg:rounded-[0.5em] gap-1 rounded-[0.5em] hover:-translate-y-1 transition-all lg:w-auto w-full  shadow-sm h-[230px] sm:h-[380px] lg:h-[380px]"
           >
             <div className="relative min-w-[180px]  w-[150px] md:w-full sm:w-full h-[230px] md:h-[210px] sm:h-[200px] sm:min-h-[200px] overflow-hidden">
-              <img
+              {blog.image_url && (
+                <img
                 src={blog.image_url}
                 alt={blog.title}
                 className="w-full h-full object-cover transition-transform duration-500
@@ -55,6 +56,7 @@ export default function DummyBlog({title}) {
                lg:rounded-bl-none lg:rounded-t-[0.4rem]
                sm:rounded-bl-none sm:rounded-t-[0.5rem]"
               />
+              )}
               <div className="absolute inset-0 bg-gradient-to-t from-[#111]/40 to-transparent" />
             </div>
             <div onClick={(e) => e.stopPropagation()} className="lg:px-2 h-[230px]  px-1 sm:px-2 py-0 flex flex-col space-y-1 sm:gap-0">
