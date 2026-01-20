@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
-import { userToken } from "./useAuth";
+// import { userToken } from "./useAuth";
 // import { userToken } from "./auth";
 
 export function useAffiliate() {
   const [affiliateLinks, setAffiliateLinks] = useState([]);
 
-  const token = userToken();
+  // const token = userToken();
 
 
     useEffect(() => {
 		fetch("https://twokw-backend.onrender.com/api/v1/affiliatelinks", {
 			headers: {
-				Authorization: `Bearer ${token}`,
+				// Authorization: `Bearer ${token}`,
 				"Content-Type": "application/json",
 			},
 		})
