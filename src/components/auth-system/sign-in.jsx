@@ -4,6 +4,7 @@ import { Eye, EyeOff } from "lucide-react";
 import { motion } from "framer-motion";
 import { FcGoogle } from "react-icons/fc";
 import { FaApple, FaSpinner } from "react-icons/fa6";
+import useAdminBase from "../hooks/useAdminUrl";
 
 export default function SignIn() {
   const [email, setEmail] = useState("");
@@ -14,6 +15,8 @@ export default function SignIn() {
   const [error, setError] = useState("");
 
   const navigate = useNavigate();
+
+  const admin_base_url = useAdminBase();
 
   useEffect(() => {
     window.history.pushState(null, "", window.location.href);
@@ -62,7 +65,7 @@ export default function SignIn() {
         localStorage.setItem("hasAccount", "true");
         sessionStorage.setItem("justLoggedIn", "true");
 
-        navigate("/auth/2kw-admin-2026", { replace: true });
+        navigate(`${admin_base_url}`, { replace: true });
       } else {
         setError(data.msg || "Login Failed");
         setLoading(false);

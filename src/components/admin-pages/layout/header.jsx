@@ -16,6 +16,7 @@ import {
     FaChevronRight,
     FaEdit,
 } from "react-icons/fa";
+import useAdminBase from "../../hooks/useAdminUrl";
 
 export default function AdminHeader() {
     const navigation = useNavigate();
@@ -24,6 +25,8 @@ export default function AdminHeader() {
  const [modal, setModal] = useState(null);
 
   const navigate = useNavigate();
+
+   const admin_base_url = useAdminBase();
 
  const logout = () => {
   localStorage.removeItem("authToken");
@@ -48,61 +51,62 @@ export default function AdminHeader() {
 
 
 
-    const menuItems = [
-        {
-            title: "Dashboard",
-            path: "/admin/dashboard",
-            icon: <FaTachometerAlt />,
-        },
-        {
-            title: "Fixtures",
-            icon: <FaFutbol />,
-            path: "/admin/fixtures",
-            // dropdown: [
-                // { name: "Make Predictions",  },
-                // { name: "Leagues", path: "/fixtures/add" },
-            // ],
-        },
-        {
-            title: "Predictions",
-            path: "/admin/predictions",
-            icon: <FaChartLine />,
-        },
-        {
-            title: "Metadata",
-            path: "/admin/metadata",
-            icon: <FaFileAlt />,
-        },
-        // {
-        //     title: "Header & Footer Tags",
-        //     path: "/admin/tags",
-        //     icon: <FaTags />,
-        // },
-        {
-            title: "Articles",
-            icon: <FaFileAlt />,
-            dropdown: [
-                { name: "New Post", path: "/admin/blogs/blog" },
-                { name: "All Posts", path: "/admin/blogs/all-posts" },
-                // { name: "Media Gallery", path: "/admin/Gallery" },
-            ],
-        },
-        {
-            title: "SEO Pages",
-            path: "/admin/seo",
-            icon: <FaTags />,
-        },
-        {
-            title: "Affiliate/Partner Links",
-            path: "/admin/affiliate-partner-links",
-            icon: <FaLink />,
-        },
-        {
-              title: "Edit Affiliate Links",
-              path: "/admin/edit-affiliate",
-              icon: <FaLink />,
-            },
-    ];
+     const menuItems = [
+    {
+      title: "Dashboard",
+      path: `${admin_base_url}/dashboard`,
+      icon: <FaTachometerAlt />,
+    },
+    {
+      title: "Fixtures",
+      icon: <FaFutbol />,
+      path: `${admin_base_url}/fixtures`,
+      // // dropdown: [
+      //   { name: "Make Predictions", },
+      //   // { name: "Leagues", path: "/admin/leagues" },
+      // // ],
+    },
+    {
+      title: "Predictions",
+      path: `${admin_base_url}/predictions`,
+      icon: <FaChartLine />,
+    },
+    {
+      title: "Metadata",
+      path: `${admin_base_url}/metadata`,
+      icon: <FaFileAlt />,
+    },
+    // {
+    //   title: "Header & Footer Tags",
+    //   path: "/admin/tags",
+    //   icon: <FaTags />,
+    // },
+    {
+      title: "Articles",
+      icon: <FaFileAlt />,
+      dropdown: [
+        { name: "New Post", path: `${admin_base_url}/blogs/blog` },
+        { name: "All Posts", path: `${admin_base_url}/blogs/all-posts` },
+        // { name: "Media Gallery", path: "/admin/Gallery" },
+      ],
+    },
+    {
+      title: "SEO Pages",
+      path: `${admin_base_url}/seo`,
+      icon: <FaTags />,
+    },
+    {
+      title: "Affiliate/Partner Links",
+      path: `${admin_base_url}/affiliate-partner-links`,
+      icon: <FaLink />,
+    },
+    {
+      title: "Edit Affiliate Links",
+      path: `${admin_base_url}/edit-affiliate`,
+      icon: <FaEdit />,
+    },
+  ];
+
 
     const lastMenu = [
         {

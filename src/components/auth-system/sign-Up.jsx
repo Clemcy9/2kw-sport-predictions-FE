@@ -5,6 +5,7 @@ import { FaApple } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 import { useNavigate, Link, data } from "react-router-dom";
 import { FaSpinner } from "react-icons/fa";
+import useAuthRoutes from "../hooks/useAuthRoutes";
 
 export default function SignUp() {
   const [name, setName] = useState("");
@@ -17,6 +18,8 @@ export default function SignUp() {
   const [error, setError] = useState("");
 
   const navigate = useNavigate();
+
+  const {signIn} = useAuthRoutes();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -197,7 +200,7 @@ export default function SignUp() {
             Already have an account?
             <Link
               className="p-0.5 text-[#D7A006] font-normal font-[Sora]"
-              to={"/auth/2kw-signin/admin/dashboard/2026"}
+              to={signIn}
             >
               Sign-In
             </Link>

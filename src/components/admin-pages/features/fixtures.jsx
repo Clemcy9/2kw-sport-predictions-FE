@@ -230,11 +230,11 @@ export default function MakePredictions() {
       setMessages("Prediction Created successful ");
       reset_predictions();
 
-      console.log("Backend Response", data);
+      // console.log("Backend Response", data);
 
-      console.log("FINAL PAYLOAD:", payload);
+      // console.log("FINAL PAYLOAD:", payload);
     } catch (err) {
-      console.error("not sent:", err);
+      // console.error("not sent:", err);
       setMessages("Networkk error, pleae try again");
     }
   };
@@ -246,9 +246,9 @@ export default function MakePredictions() {
       .then((data) => {
         setPrediction(data.data.response || []);
         // console.log("Updated prediction:",prediction);
-        console.log("API DATA", prediction);
+        // console.log("API DATA", prediction);
 
-        console.log("fetched predictions:", data);
+        // console.log("fetched predictions:", data);
         setLoading(false);
       });
   }, [byDate]);
@@ -264,7 +264,7 @@ export default function MakePredictions() {
       const json = await res.json();
       // setOdds(data?.data.response || []);
       setOdds(json.data?.[0]?.bets || []);
-      console.log("fixture id", json);
+      // console.log("fixture id", json);
     } catch (err) {
       console.error("cannot fetch form this endpoint", err);
     } finally {
