@@ -14,12 +14,15 @@ import {
   FaEdit,
   // FaArrowLeft,
 } from "react-icons/fa";
+import useAdminBase from "../../hooks/useAdminUrl";
 
 export default function Sidebar() {
   const [openDropdown, setOpenDropdown] = useState(null);
   const [modal, setModal] = useState(null);
 
   const navigate = useNavigate();
+
+  const admin_base_url = useAdminBase();
 
  const logout = () => {
   localStorage.removeItem("authToken");
@@ -34,13 +37,13 @@ export default function Sidebar() {
   const menuItems = [
     {
       title: "Dashboard",
-      path: "/admin/dashboard",
+      path: `${admin_base_url}/dashboard`,
       icon: <FaTachometerAlt />,
     },
     {
       title: "Fixtures",
       icon: <FaFutbol />,
-      path: "/admin/fixtures",
+      path: `${admin_base_url}/fixtures`,
       // // dropdown: [
       //   { name: "Make Predictions", },
       //   // { name: "Leagues", path: "/admin/leagues" },
@@ -48,12 +51,12 @@ export default function Sidebar() {
     },
     {
       title: "Predictions",
-      path: "/admin/predictions",
+      path: `${admin_base_url}/predictions`,
       icon: <FaChartLine />,
     },
     {
       title: "Metadata",
-      path: "/admin/metadata",
+      path: `${admin_base_url}/metadata`,
       icon: <FaFileAlt />,
     },
     // {
@@ -65,24 +68,24 @@ export default function Sidebar() {
       title: "Articles",
       icon: <FaFileAlt />,
       dropdown: [
-        { name: "New Post", path: "/admin/blogs/blog" },
-        { name: "All Posts", path: "/admin/blogs/all-posts" },
+        { name: "New Post", path: `${admin_base_url}/blogs/blog` },
+        { name: "All Posts", path: `${admin_base_url}/blogs/all-posts` },
         // { name: "Media Gallery", path: "/admin/Gallery" },
       ],
     },
     {
       title: "SEO Pages",
-      path: "/admin/seo",
+      path: `${admin_base_url}/seo`,
       icon: <FaTags />,
     },
     {
       title: "Affiliate/Partner Links",
-      path: "/admin/affiliate-partner-links",
+      path: `${admin_base_url}/affiliate-partner-links`,
       icon: <FaLink />,
     },
     {
       title: "Edit Affiliate Links",
-      path: "/admin/edit-affiliate",
+      path: `${admin_base_url}/edit-affiliate`,
       icon: <FaEdit />,
     },
   ];
