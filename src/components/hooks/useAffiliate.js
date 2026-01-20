@@ -20,7 +20,7 @@ export function useAffiliate() {
 				// console.log("aff",data.data);
 				setAffiliateLinks(data.data);
 			});
-	}, [token]);
+	}, []);
 
   const publishedLinks = affiliateLinks.filter(
     (link) => link.status === "published"

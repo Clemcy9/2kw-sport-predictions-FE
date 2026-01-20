@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Menu, X, ChevronDown, ChevronUp } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { hasAccount, isLoggedIn } from "../hooks/useAuth";
+// import { hasAccount, isLoggedIn } from "../hooks/useAuth";
 import { useAffiliate } from "../hooks/useAffiliate";
 // import { NavLink } from "react-router-dom";
 
@@ -22,17 +22,17 @@ export default function Navbar() {
 
     // console.log(navbarLink);
 
-    const handleAdminClick = () => {
-  if (isLoggedIn()) {
-    navigation("/admin");
-  } else if (hasAccount()) {
-    navigation("/sign-in");
-  } else {
-    navigation("/sign-up");
-  }
-};
+//     const handleAdminClick = () => {
+//   if (isLoggedIn()) {
+//     navigation("/admin");
+//   } else if (hasAccount()) {
+//     navigation("/sign-in");
+//   } else {
+//     navigation("/sign-up");
+//   }
+// };
 
-const loggedin = isLoggedIn();
+// const loggedin = isLoggedIn();
 
     const navLink = [
         { title: "Home", path: "/" },
