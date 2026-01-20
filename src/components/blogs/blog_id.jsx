@@ -17,16 +17,12 @@ import {
   FaShare,
 } from "react-icons/fa6";
 import { FaFacebookSquare } from "react-icons/fa";
-// import { FaSquareWhatsapp } from "react-icons/fa6";
 import { BsTwitterX } from "react-icons/bs";
 import DummyBlog from "./dummy-blog";
 import { useParams } from "react-router-dom";
 
 export default function BlogPost_Id() {
-  // const endpoints = window.location.href;
-  // const splitted = endpoints.split("/");
   const [blog, setBlog] = useState({});
-  // const blogId = splitted[splitted.length - 1];
   const { id: blogId } = useParams();
 
   const blogUrl = `${window.location.origin}/blog_id/${blogId}`;
@@ -64,8 +60,6 @@ export default function BlogPost_Id() {
   };
 
   useEffect(() => {
-    // if (!blogId) return;
-
     const getBlogId = async () => {
       try {
         const res = await fetch(`https://api.2kw.net/api/v1/blogs/${blogId}`);
@@ -145,11 +139,7 @@ export default function BlogPost_Id() {
             </div>
           </motion.div>
         </section>
-        {/* 
-        <Routes>
-          <Route
-            path={blogId}
-            element={ */}
+
         <section className="lg:p-10 md:p-8 sm:p-5 p-2">
           <article className="group flex mx-auto flex-col lg:gap-2 sm:flex-col gap-1 lg:h-[100%] h-auto  hover:-translate-y-1 transition-all lg:max-w-7xl sm:h-[100%lg:rounded-xl">
             <div className="overflow-hidden md:h-[100vh] h-[50vh] relative w-full">
@@ -207,10 +197,6 @@ export default function BlogPost_Id() {
             </div>
           </article>
         </section>
-        {/* }
-          />
-        </Routes> */}
-        {/* <DummyBlog/> */}
         <Footer />
       </main>
     </>
