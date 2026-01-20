@@ -20,34 +20,36 @@ import { FaFacebookSquare } from "react-icons/fa";
 // import { FaSquareWhatsapp } from "react-icons/fa6";
 import { BsTwitterX } from "react-icons/bs";
 import DummyBlog from "./dummy-blog";
+import { useParams } from "react-router-dom";
 
 export default function BlogPost_Id() {
-  const endpoints = window.location.href;
-  const splitted = endpoints.split("/");
+  // const endpoints = window.location.href;
+  // const splitted = endpoints.split("/");
   const [blog, setBlog] = useState({});
-  const blogId = splitted[splitted.length - 1];
+  // const blogId = splitted[splitted.length - 1];
+  const { id: blogId } = useParams();
 
-  const blogUrl = `${window.location.origin}/blogs/${blogId}`;
+  const blogUrl = `${window.location.origin}/blog_id/${blogId}`;
 
   const shareWhatsApp = () => {
     window.open(
-      `https://wa.me/?text=${encodeURIComponent(blogUrl + " " + blog.title)}`
+      `https://wa.me/?text=${encodeURIComponent(blogUrl + " " + blog.title)}`,
       // "_blank"
     );
   };
   const shareFacebook = () => {
     window.open(
       `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-        blogUrl + " " + blog.title
-      )}`
+        blogUrl + " " + blog.title,
+      )}`,
       // "_blank"
     );
   };
   const shareTelegram = () => {
     window.open(
       `https://t.me/share/url?url=${encodeURIComponent(
-        blogUrl
-      )}&text=${encodeURIComponent(blog.title)}`
+        blogUrl,
+      )}&text=${encodeURIComponent(blog.title)}`,
       //  "_blank"
     );
   };
@@ -55,13 +57,15 @@ export default function BlogPost_Id() {
   const shareX = () => {
     window.open(
       `https://twitter.com/intent/tweet?text=${encodeURIComponent(
-        blog.title
+        blog.title,
       )}&url=${encodeURIComponent(blogUrl)}`,
-      "_blank"
+      "_blank",
     );
   };
 
   useEffect(() => {
+    // if (!blogId) return;
+
     const getBlogId = async () => {
       try {
         const res = await fetch(`https://api.2kw.net/api/v1/blogs/${blogId}`);
@@ -76,7 +80,8 @@ export default function BlogPost_Id() {
     getBlogId();
   }, []);
 
-  if (!blog) return;
+  if (!blog)
+    return <div className="p-10 text-center text-lg">Loading blog...</div>;
 
   return (
     <>
@@ -140,71 +145,71 @@ export default function BlogPost_Id() {
             </div>
           </motion.div>
         </section>
-
+        {/* 
         <Routes>
           <Route
             path={blogId}
-            element={
-              <section className="lg:p-10 md:p-8 sm:p-5 p-2">
-                <article className="group flex mx-auto flex-col lg:gap-2 sm:flex-col gap-1 lg:h-[100%] h-auto  hover:-translate-y-1 transition-all lg:max-w-7xl sm:h-[100%lg:rounded-xl">
-                  <div className="overflow-hidden md:h-[100vh] h-[50vh] relative w-full">
-                    <img
-                      src={blog.image_url}
-                      alt={blog.title}
-                      className="group-hover:scale-110 group-active:scale-110 transition-transform duration-500 h-full w-full object-cover rounded-lg"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#111]/40 to-transparent rounded-xl"></div>
-                  </div>
-                  <span className="font-semibold text-[#65758B]">
-                    {new Date(blog.createdAt).toLocaleDateString()}
-                  </span>
-                  <div className=" flex flex-col bg-white shadow-xl p-4 rounded-lg mt-7 space-y-1 sm:gap-0">
-                    <h2 className="font-semibold lg:text-2xl text-xl leading-tight  ">
-                      {blog.title}
-                    </h2>
-                    <div
-                      dangerouslySetInnerHTML={{
-                        __html: DOMPurify.sanitize(blog.body),
-                      }}
-                      className="ql-editor text-[#65758B] lg:text-[16px] text-[15px] mt-3 lg:leading-7 leading-5 "
-                    />
-                    <div className="flex justify-between w-full lg:py-2 ">
-                      <span className="font-semibold text-[#65758B]">
-                        {new Date(blog.createdAt).toLocaleDateString()}
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-4 mt-10">
-                      <h2>Share to:</h2>
-                      <div className="flex gap-2">
-                        <FaFacebookSquare
-                          onClick={shareFacebook}
-                          size={33}
-                          className="text-blue-800"
-                        />
-                        <FaTelegram
-                          onClick={shareTelegram}
-                          size={33}
-                          className="text-blue-600"
-                        />
-                        <BsTwitterX
-                          onClick={shareX}
-                          size={30}
-                          className="bg-black text-white p-1 rounded-lg"
-                        />
-                        <FaWhatsapp
-                          onClick={shareWhatsApp}
-                          className="bg-green-500 text-white p-[0.5px] rounded-lg"
-                          size={33}
-                        />
-                        <FaShare size={30} className="text-blue-700" />
-                      </div>
-                    </div>
-                  </div>
-                </article>
-              </section>
-            }
+            element={ */}
+        <section className="lg:p-10 md:p-8 sm:p-5 p-2">
+          <article className="group flex mx-auto flex-col lg:gap-2 sm:flex-col gap-1 lg:h-[100%] h-auto  hover:-translate-y-1 transition-all lg:max-w-7xl sm:h-[100%lg:rounded-xl">
+            <div className="overflow-hidden md:h-[100vh] h-[50vh] relative w-full">
+              <img
+                src={blog.image_url}
+                alt={blog.title}
+                className="group-hover:scale-110 group-active:scale-110 transition-transform duration-500 h-full w-full object-cover rounded-lg"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#111]/40 to-transparent rounded-xl"></div>
+            </div>
+            <span className="font-semibold text-[#65758B]">
+              {new Date(blog.createdAt).toLocaleDateString()}
+            </span>
+            <div className=" flex flex-col bg-white shadow-xl p-4 rounded-lg mt-7 space-y-1 sm:gap-0">
+              <h2 className="font-semibold lg:text-2xl text-xl leading-tight  ">
+                {blog.title}
+              </h2>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: DOMPurify.sanitize(blog.body),
+                }}
+                className="ql-editor text-[#65758B] lg:text-[16px] text-[15px] mt-3 lg:leading-7 leading-5 "
+              />
+              <div className="flex justify-between w-full lg:py-2 ">
+                <span className="font-semibold text-[#65758B]">
+                  {new Date(blog.createdAt).toLocaleDateString()}
+                </span>
+              </div>
+              <div className="flex items-center gap-4 mt-10">
+                <h2>Share to:</h2>
+                <div className="flex gap-2">
+                  <FaFacebookSquare
+                    onClick={shareFacebook}
+                    size={33}
+                    className="text-blue-800"
+                  />
+                  <FaTelegram
+                    onClick={shareTelegram}
+                    size={33}
+                    className="text-blue-600"
+                  />
+                  <BsTwitterX
+                    onClick={shareX}
+                    size={30}
+                    className="bg-black text-white p-1 rounded-lg"
+                  />
+                  <FaWhatsapp
+                    onClick={shareWhatsApp}
+                    className="bg-green-500 text-white p-[0.5px] rounded-lg"
+                    size={33}
+                  />
+                  <FaShare size={30} className="text-blue-700" />
+                </div>
+              </div>
+            </div>
+          </article>
+        </section>
+        {/* }
           />
-        </Routes>
+        </Routes> */}
         {/* <DummyBlog/> */}
         <Footer />
       </main>
