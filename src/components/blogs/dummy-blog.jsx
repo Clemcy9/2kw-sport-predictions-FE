@@ -17,7 +17,7 @@ export default function DummyBlog({ title }) {
         // console.log("Api data", data);
         //sort by newest blog
         const sorted = (data.data || []).sort(
-          (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+          (a, b) => new Date(b.createdAt) - new Date(a.createdAt),
         );
         setBlogs(sorted.slice(0, 4));
       } catch (err) {
@@ -39,42 +39,39 @@ export default function DummyBlog({ title }) {
           <article
             onClick={() => navigate(`/blog_id/${blog._id}`)}
             key={blog._id}
-            className="group overflow-hidden bg-white cursor-pointer flex items-center justify-between flex-row lg:flex-col lg:gap-2 sm:flex-col lg:rounded-[0.5em] gap-1 rounded-[0.5em] hover:-translate-y-1 transition-all lg:w-auto w-full  shadow-sm h-[230px] sm:h-[380px] lg:h-[380px]"
+            className="group overflow-hidden bg-white flex justify-between flex-row lg:flex-col lg:gap-2 sm:flex-col gap-1 rounded-[0.5em] hover:-translate-y-1 transition-all shadow-sm h-[200px] sm:h-[450px] lg:h-[450px]"
           >
-            <div className="relative min-w-[180px]  w-[150px] md:w-full sm:w-full h-[230px] md:h-[210px] sm:h-[200px] sm:min-h-[200px] overflow-hidden">
+            <div className="relative w-[190px] md:w-full sm:w-full h-[200px] md:h-[350px] sm:h-[250px] sm:min-h-[250px] overflow-hidden">
               {blog.image_url && (
                 <img
-                src={blog.image_url}
-                alt={blog.title}
-                className="w-full h-full object-cover transition-transform duration-500
+                  src={blog.image_url}
+                  alt={blog.title}
+                  className="w-full h-full object-cover transition-transform duration-500
                group-hover:scale-110 group-active:scale-110
                rounded-l-[0.5rem]
                lg:rounded-bl-none lg:rounded-t-[0.4rem]
                sm:rounded-bl-none sm:rounded-t-[0.5rem]"
-              />
+                />
               )}
               <div className="absolute inset-0 bg-gradient-to-t from-[#111]/40 to-transparent" />
             </div>
-            <div
-              onClick={(e) => e.stopPropagation()}
-              className="lg:px-2 h-[230px]  px-1 sm:px-2 py-0 flex flex-col space-y-1 sm:gap-0"
-            >
-              <h2 className="font-semibold leading-tight  ">
-                {blog.title.slice(0, 50)}...{" "}
-              </h2>
 
-              <div
-                className="ql-editor text-[#65758B] lg:text-[15px] text-[13px]"
-                dangerouslySetInnerHTML={{
-                  __html: DOMPurify.sanitize(blog.body.slice(0, 250) + "..."),
-                }}
-              />
+            <div className="lg:px-2 h-[200px] sm:h-[250px] lg:h-[350px] px-1 sm:px-2 flex flex-col justify-between space-y-1 sm:gap-0 w-full">
+              <div className="mt-3">
+                <h2 className="font-semibold leading-tight  ">{blog.title}</h2>
+                <div
+                  className="ql-editor text-[#65758B] lg:text-[15px] text-[13px] mt-2 line-clamp-4"
+                  dangerouslySetInnerHTML={{
+                    __html: DOMPurify.sanitize(blog.body.slice(0, 250) + "..."),
+                  }}
+                />
+              </div>
               <div className="flex justify-between w-full lg:py-2 ">
-                <span className="font-semibold text-sm text-[#65758B]">
-                  {new Date(blog.createdAt).toLocaleDateString()}
+                <span className="font-semibold text-[#65758B]">
+                  {new Date(blog.createdAt).toLocaleDateString().slice()}
                 </span>
                 <Link
-                  className=" text-[#D6AE3E] text-sm flex justify-center items-center"
+                  className=" text-[#D6AE3E] flex justify-center items-center"
                   to={`/blog_id/${blog._id}`}
                 >
                   Read more <FiArrowRight />
