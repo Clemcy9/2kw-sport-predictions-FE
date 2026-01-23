@@ -106,13 +106,16 @@ export default function App() {
             path="/auth/2kw-signup/admin/dashboard/2026"
             element={
               // <AccessRoutes>
-                <SignUp />
+              <SignUp />
               // </AccessRoutes>
             }
           />
           <Route path="/login-complete" element={<LoginCompleted />} />
-          <Route path="/auth/2kw-signin/admin/dashboard/2026" element={<SignIn />} />
-          <Route path="/blog_id/*" element={<BlogPost_Id />} />
+          <Route
+            path="/auth/2kw-signin/admin/dashboard/2026"
+            element={<SignIn />}
+          />
+          <Route path="/blog_id/:id" element={<BlogPost_Id />} />
           <Route path="/blog" element={<BlogPost />} />
           <Route path="/scroll-arrow" element={<Scroll_To_Top />} />
           <Route path="/table-date " element={<Table_Controller />} />
