@@ -24,7 +24,7 @@ export default function FreeTips(props) {
 
   useEffect(() => {
   // Find the Home Win button
-  const homeTip = tipsLink.find((tip) => tip.name === "Home");
+  const homeTip = tipsLink.find((tip) => tip.name === "freeTip");
   if (homeTip) {
     props.setBet({ id: homeTip.id, name: homeTip.name });
     setActivePath(homeTip.path); // mark as active
@@ -33,9 +33,9 @@ export default function FreeTips(props) {
 
 
   const tipsLink = [
-    { title: "Free Tips", path: "/free-tips", name:"freeTip", id: 100 },
+    { title: "Free Tips", path: "/", name:"freeTip", id: 100 },
     { title: "All Predictions", path: "/all-predictions", id: 500 },
-    { title: "Home Win", path: "/", id: 1, name: "Home" },
+    { title: "Home Win", path: "/home-win", id: 1, name: "Home" },
     { title: "Away Win", path: "/away-win", id: 1, name: "Away" },
     {
       title: "Super Singles",
