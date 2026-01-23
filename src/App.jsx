@@ -91,8 +91,8 @@ export default function App() {
           <Route path="details" element={<PredictionDetails />} />
 
           <Route path="/" element={<LandingPage />}>
-            <Route index element={<HomeWin />} />
-            <Route path="free-tips" index element={<Free_Tips />} />
+            <Route index element={<Free_Tips />} />
+            <Route path="home-win" element={<HomeWin />} />
             <Route path="goals-1.5" element={<Goals1_5 />} />
             <Route path="goals-2.5" element={<Goals2_5 />} />
             <Route path="btts_gg" element={<BTTS_GG />} />
