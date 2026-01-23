@@ -25,6 +25,16 @@ export default function BlogPost_Id() {
   const [blog, setBlog] = useState({});
   const { id: blogId } = useParams();
 
+  // const createSlug = (text) => {
+  //   return text
+  //     ?.toLowerCase()
+  //     .replace(/[^a-z0-9]+/g, "-")
+  //     .replace(/^-+|-+$/g, "");
+  // };
+
+  // const slug = createSlug(blog.title);
+  // const Url = `${window.location.origin}/blog/${slug}`;
+
   const blogUrl = `${window.location.origin}/blog_id/${blogId}`;
 
   const shareWhatsApp = () => {
@@ -141,12 +151,12 @@ export default function BlogPost_Id() {
         </section>
 
         <section className="lg:p-10 md:p-8 sm:p-5 p-2">
-          <article className="group flex mx-auto flex-col lg:gap-2 sm:flex-col gap-1 lg:h-[100%] h-auto  hover:-translate-y-1 transition-all lg:max-w-7xl sm:h-[100%lg:rounded-xl">
-            <div className="overflow-hidden md:h-[100vh] h-[50vh] relative w-full">
+          <article className="group flex mx-auto flex-col lg:gap-2 sm:flex-col gap-1 lg:h-[100%] h-auto  hover:-translate-y-1 transition-all lg:max-w-6xl sm:h-[100%lg:rounded-xl">
+            <div className="overflow-hidden h-auto relative ">
               <img
                 src={blog.image_url}
                 alt={blog.title}
-                className="group-hover:scale-110 group-active:scale-110 transition-transform duration-500 h-full w-full object-cover rounded-lg"
+                className=" transition-transform duration-500 h-full w-full object-cover rounded-lg"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#111]/40 to-transparent rounded-xl"></div>
             </div>
@@ -170,28 +180,31 @@ export default function BlogPost_Id() {
               </div>
               <div className="flex items-center gap-4 mt-10">
                 <h2>Share to:</h2>
-                <div className="flex gap-2">
+                <div className="flex gap-2 group">
                   <FaFacebookSquare
                     onClick={shareFacebook}
                     size={33}
-                    className="text-blue-800"
+                    className="text-blue-800 hover:scale-110 transition-all duration-150 ease-out"
                   />
                   <FaTelegram
                     onClick={shareTelegram}
                     size={33}
-                    className="text-blue-600"
+                    className="text-blue-600 hover:scale-110 transition-all duration-150 ease-out"
                   />
                   <BsTwitterX
                     onClick={shareX}
                     size={30}
-                    className="bg-black text-white p-1 rounded-lg"
+                    className="bg-black text-white p-1 rounded-lg hover:scale-110 transition-all duration-150 ease-out"
                   />
                   <FaWhatsapp
                     onClick={shareWhatsApp}
-                    className="bg-green-500 text-white p-[0.5px] rounded-lg"
+                    className="bg-green-500 text-white p-[0.5px] rounded-lg hover:scale-110 transition-all duration-150 ease-out"
                     size={33}
                   />
-                  <FaShare size={30} className="text-blue-700" />
+                  <FaShare
+                    size={30}
+                    className="text-blue-700 hover:scale-110 transition-all duration-150 ease-out"
+                  />
                 </div>
               </div>
             </div>

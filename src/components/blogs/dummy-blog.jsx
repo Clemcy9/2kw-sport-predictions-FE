@@ -31,15 +31,15 @@ export default function DummyBlog({ title }) {
     //   <div >
     <div className="gap-5 border-none lg:p-4 mx my-3 mt-7 w-full z-20 relative flex flex-col justify-center items-center bg-[#bfc0c46a]">
       {/* parakit AI */}
-      <h1 className="font-[Inria Sans] text-center text-3xl font-semibold text-[#1F2128] lg:pb-6 mb-8 text-shadow-x z-40">
+      <h1 className="font-[Inria Sans] text-center text-3xl font-semibold text-[#1F2128] lg:pb-6 mb-8 text-shadow-x z-40 mt-4">
         {title}
       </h1>
-      <div className="lg:grid lg:grid-cols-3 lg:gap- sm:grid sm:grid-cols-2 sm:gap-6 gap-4 w-full sm:items-center sm:w-full sm:justify-center flex flex-col ">
+      <div className="lg:grid lg:grid-cols-3 lg:gap- sm:grid sm:grid-cols-2 sm:gap-6 gap-4 w-full sm:items-center sm:w-full sm:justify-center flex flex-col">
         {blogs.map((blog) => (
           <article
             onClick={() => navigate(`/blog_id/${blog._id}`)}
             key={blog._id}
-            className="group cursor-pointer overflow-hidden bg-white flex flex-col rounded-[0.5em] hover:-translate-y-1 transition-all shadow-sm h-[200px] sm:h-[450px] lg:h-[450px]"
+            className="group cursor-pointer overflow-hidden bg-white flex flex-col rounded-[0.5em] hover:-translate-y-1 transition-all shadow-sm w-[95%] mx-auto h-auto sm:h-[450px] lg:h-[450px]"
           >
             <div className="relative w-full h-[200px] sm:h-[230px] overflow-hidden flex-shrink-0">
               {blog.image_url && (
