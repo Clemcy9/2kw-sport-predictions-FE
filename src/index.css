@@ -75,3 +75,8 @@ html, body{
     appearance: textfield;
   }
 }
+
+.ql-editor {
+  padding: 0 !important;
+  overflow: hidden;
+}

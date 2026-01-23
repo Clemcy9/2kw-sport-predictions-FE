@@ -39,9 +39,9 @@ export default function DummyBlog({ title }) {
           <article
             onClick={() => navigate(`/blog_id/${blog._id}`)}
             key={blog._id}
-            className="group overflow-hidden bg-white flex justify-between flex-row lg:flex-col lg:gap-2 sm:flex-col gap-1 rounded-[0.5em] hover:-translate-y-1 transition-all shadow-sm h-[200px] sm:h-[450px] lg:h-[450px]"
+            className="group cursor-pointer overflow-hidden bg-white flex flex-col rounded-[0.5em] hover:-translate-y-1 transition-all shadow-sm h-[200px] sm:h-[450px] lg:h-[450px]"
           >
-            <div className="relative w-[190px] md:w-full sm:w-full h-[200px] md:h-[350px] sm:h-[250px] sm:min-h-[250px] overflow-hidden">
+            <div className="relative w-full h-[200px] sm:h-[230px] overflow-hidden flex-shrink-0">
               {blog.image_url && (
                 <img
                   src={blog.image_url}
@@ -60,9 +60,16 @@ export default function DummyBlog({ title }) {
               <div className="mt-3">
                 <h2 className="font-semibold leading-tight  ">{blog.title}</h2>
                 <div
-                  className="ql-editor text-[#65758B] lg:text-[15px] text-[13px] mt-2 line-clamp-4"
+                  className="ql-editor text-[#65758B] lg:text-[14px] text-[13px] mt-2 line-clamp-4 pointer-events-none touch-none overflow-hidden"
+                  style={{
+                    display: "-webkit-box",
+                    WebkitLineClamp: 4,
+                    WebkitBoxOrient: "vertical",
+                    maxHeight: "6em",
+                    overflow: "hidden",
+                  }}
                   dangerouslySetInnerHTML={{
-                    __html: DOMPurify.sanitize(blog.body.slice(0, 250) + "..."),
+                    __html: DOMPurify.sanitize(blog.body),
                   }}
                 />
               </div>
