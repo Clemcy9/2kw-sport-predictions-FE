@@ -77,7 +77,7 @@ export default function PredictionDetails() {
 				const teamALast5 = await teamALast5Res.json();
 				const teamBLast5 = await teamBLast5Res.json();
 
-				console.log("team A", teamA_Id, "team B", teamB_Id);
+				// console.log("team A", teamA_Id, "team B", teamB_Id);
 
 
 
@@ -89,7 +89,7 @@ export default function PredictionDetails() {
 					},
 				};
 
-				console.log(response);
+				// console.log(response);
 
 				// const data = await res.json();
 				// const latestH2H = data.data.response;
