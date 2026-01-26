@@ -25,7 +25,7 @@ export default function FreeTips(props) {
   useEffect(() => {
   const current = tipsLink.find(t => t.path === location.pathname);
   if (current) {
-    setActivePath(current);
+    setActivePath(current.path);
     sessionStorage.setItem("activeMarket", JSON.stringify(current));
   }
 }, [location.pathname]);
