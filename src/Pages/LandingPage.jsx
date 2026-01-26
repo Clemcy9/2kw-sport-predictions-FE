@@ -17,6 +17,8 @@ import { useEffect, useState } from "react";
 import { FaTriangleExclamation } from "react-icons/fa6";
 import Scroll_To_Top from "../components/animations/scroll-arrow";
 import BestPredictionCard from "../components/predictions/BestPrediction";
+import { useLocation } from "react-router-dom";
+
 
 // const getISODate = (offset = 0) => {
 //   const d = new Date();
@@ -42,77 +44,24 @@ export default function LandingPage() {
     return date.toISOString().split("T")[0];
   };
 
-  // // pre fetching the yesterday and tommorows fixtures for instant loading
-  //   const prefetchPredictions = async (date) => {
-  //   const CACHE_KEY = `predictions_${bet.id}_${encodeURIComponent(
-  //     bet.name
-  //   )}_${date}`;
+  const location = useLocation();
 
-  //   if (sessionStorage.getItem(CACHE_KEY)) return;
-
-  //   try {
-  //     const res = await fetch(
-  //       `https://api.2kw.net/api/v1/admin/predictions/odds?bet=${
-  //         bet.id
-  //       }&market_name=${encodeURIComponent(bet.name)}&odd_date=${date}`
-  //     );
-
-  //     if (!res.ok) return;
-
-  //     const data = await res.json();
-
-  //     const grouped =
-  //       data?.data?.reduce((acc, pred) => {
-  //         const league = pred?.fixture?.league?.name || "Others";
-  //         if (!acc[league]) acc[league] = [];
-  //         acc[league].push(pred);
-  //         return acc;
-  //       }, {}) || {};
-
-  //     const openState = Object.fromEntries(
-  //       Object.keys(grouped).map((k) => [k, true])
-  //     );
-
-  //     sessionStorage.setItem(
-  //       CACHE_KEY,
-  //       JSON.stringify({
-  //         data: grouped,
-  //         openState,
-  //         timestamp: Date.now(),
-  //       })
-  //     );
-  //   } catch {
-  //     // silent background fail
-  //   }
-  // };
-
-  // /* --------------------------------------------
-  //   SHOW SCROLL-TO-TOP BUTTON
-  // --------------------------------------------- */
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     setVisible(window.scrollY > window.innerHeight / 2);
-  //   };
-
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => window.removeEventListener("scroll", handleScroll);
-  // }, []);
 
   const date = getDate(selectDays);
 
-  // console.log("date feature:",selectDays)
+// ✅ RESTORE ACTIVE BET ON PAGE LOAD / BACK NAVIGATION
+useEffect(() => {
+  const savedMarket = sessionStorage.getItem("activeMarket");
 
-  /* --------------------------------------------
-     FETCH PREDICTION DATA BASED ON BET TYPE
-  --------------------------------------------- */
+  if (savedMarket) {
+    const parsed = JSON.parse(savedMarket);
+    setBet({ id: parsed.id, name: parsed.name });
+  }
+}, []);
 
-  //   useEffect(() => {
-  //   // Default bet: Home Win
-  //   setBet({ id: 1, name: "Home" });
-  // }, []);
 
   useEffect(() => {
-    if (!bet || !selectDays) return;
+    if (!bet?.id || !selectDays) return;
 
     //  setting catched data
     const CACHE_KEY = `predictions_${bet.id}_${encodeURIComponent(
@@ -206,7 +155,7 @@ export default function LandingPage() {
           "Unable To Load Predictions. Connect To A Network And Try Again."
         );
         setLoading(false);
-        setPrediction({});
+        // setPrediction({});
       });
     //  prefetchPredictions(getISODate(-1));
     //  prefetchPredictions(getISODate(1));

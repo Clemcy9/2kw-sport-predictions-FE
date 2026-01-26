@@ -23,13 +23,12 @@ export default function FreeTips(props) {
 
 
   useEffect(() => {
-  // Find the Home Win button
-  const homeTip = tipsLink.find((tip) => tip.name === "freeTip");
-  if (homeTip) {
-    props.setBet({ id: homeTip.id, name: homeTip.name });
-    setActivePath(homeTip.path); // mark as active
+  const current = tipsLink.find(t => t.path === location.pathname);
+  if (current) {
+    setActivePath(current);
+    sessionStorage.setItem("activeMarket", JSON.stringify(current));
   }
-}, []);
+}, [location.pathname]);
 
 
   const tipsLink = [
