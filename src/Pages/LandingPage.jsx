@@ -161,6 +161,17 @@ useEffect(() => {
     //  prefetchPredictions(getISODate(1));
   }, [bet, selectDays]);
 
+  // ✅ PERSIST ACTIVE BET
+useEffect(() => {
+  if (bet?.id) {
+    sessionStorage.setItem(
+      "activeMarket",
+      JSON.stringify({ id: bet.id, name: bet.name })
+    );
+  }
+}, [bet]);
+
+
   return (
     <>
       <Navbar />
@@ -237,7 +248,7 @@ useEffect(() => {
                   </div>
                 ) : //  {/* No predictions UI */}
 
-                Object.keys(prediction).length === 0 ? (
+                !loading && Object.keys(prediction).length === 0 ? (
                   <div className="text-center text-[#1a365d] py-20 flex justify-center items-center">
                     {" "}
                     No Prediction Available{" "}
