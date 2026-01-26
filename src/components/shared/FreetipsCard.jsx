@@ -49,9 +49,9 @@ export default function FreeTips(props) {
     { title: "BTTS/GG", path: "/btts_gg", id: 8, name: "Both Teams Score" },
   ];
 
-  useEffect(() => {
-    setActivePath(location.pathname);
-  }, [location.pathname]);
+  // useEffect(() => {
+  //   setActivePath(location.pathname);
+  // }, [location.pathname]);
 
   return (
     <div className="w-full  max-w-full px-0 md:relative absolute shadow-sm md:shadow-none md:z-0 max-[300px]:mt-5 top-80 md:top-0 bg-[#1A365D] md:bg-white rounded-[0] md:rounded-none">
@@ -75,9 +75,13 @@ export default function FreeTips(props) {
             color: "#1A365D",
           }}
           transition={{ duration: 0.15 }}
-          onClick={() =>
-            props.setBet({ id: tips.id, name: tips.name })
-          }
+         onClick={() => {
+  props.setBet({ id: tips.id, name: tips.name });
+  sessionStorage.setItem(
+    "activeMarket",
+    JSON.stringify({ id: tips.id, name: tips.name })
+  );
+}}
           className="flex-shrink-0 min-w-[60px] rounded-[0.4rem] py-2 px-1 shadow-sm font-semibold border border-[#D6AE3E] cursor-pointer"
         >
           {tips.title}
