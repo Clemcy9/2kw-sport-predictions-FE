@@ -90,11 +90,11 @@ export default function AdminHeader() {
         // { name: "Media Gallery", path: "/admin/Gallery" },
       ],
     },
-    {
-      title: "SEO Pages",
-      path: `${admin_base_url}/seo`,
-      icon: <FaTags />,
-    },
+    // {
+    //   title: "SEO Pages",
+    //   path: `${admin_base_url}/seo`,
+    //   icon: <FaTags />,
+    // },
     {
       title: "Affiliate/Partner Links",
       path: `${admin_base_url}/affiliate-partner-links`,
