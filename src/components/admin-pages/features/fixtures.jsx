@@ -245,10 +245,7 @@ export default function MakePredictions() {
       .then((res) => res.json())
       .then((data) => {
         setPrediction(data.data.response || []);
-        // console.log("Updated prediction:",prediction);
-        // console.log("API DATA", prediction);
 
-        // console.log("fetched predictions:", data);
         setLoading(false);
       });
   }, [byDate]);
